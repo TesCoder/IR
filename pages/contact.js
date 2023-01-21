@@ -63,7 +63,7 @@ export default function Contact() {
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-8 col-md-6">
+          <div className="col-11 col-md-8">
             <h2 className="my-2">Have any questions?</h2>
             <p>Please complete the form below for a prompt reply.</p>
             <form onSubmit={handleSubmit}>
