@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   var html = fs.readFileSync(templatesDir + '/toPdf.html', 'utf8');
   var options = { format: 'A4', base: "http://" + req.headers.host, dpi: "300", };
 
-  let renderedHtml = ejs.render(html, { form: req.body }, pha)
+  let renderedHtml = ejs.render(html, { form: req.body })
 
   return new Promise((resolve, reject) => {
     pdf.create(renderedHtml, {
