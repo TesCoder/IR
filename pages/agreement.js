@@ -27,6 +27,12 @@ export default function Agreement() {
         setDownloadURL(url);
         setResponseMessage(
           { success: true, message: 'Form signed! We will provide you with a countersigned copy soon.' });
+      } else {
+        console.log("ERROR:", res.body.error)
+        setResponseMessage({
+          success: false,
+          message: 'Oops something went wrong. Please try again.',
+        });
       }
     } catch (e) {
       console.log(e);
