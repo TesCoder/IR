@@ -28,7 +28,7 @@ export default function Agreement() {
         setResponseMessage(
           { success: true, message: 'Form signed! We will provide you with a countersigned copy soon.' });
       } else {
-        console.log("ERROR:", res.body.error)
+        console.log("ERROR:", res.body)
         setResponseMessage({
           success: false,
           message: 'Oops something went wrong. Please try again.',
