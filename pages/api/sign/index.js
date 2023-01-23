@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   return new Promise((resolve, reject) => {
     pdf.create(renderedHtml, options).toBuffer(function (err, buff) {
       if (err) {
-        res.status(404).json({ error: err.message, renderedHtml })
+        res.status(404).json({ error: err, renderedHtml })
       } else {
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'attachment; filename=signed agreement.pdf');
