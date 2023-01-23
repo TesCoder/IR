@@ -10,7 +10,7 @@ export default function Navbar() {
         </button> */}
         <Link className="navbar-brand" href="/">
           <Image src="/images/logo.png" alt="Logo" layout='fill'
-            objectFit='contain' className="d-inline-block align-text-top" />
+            style={{ objectFit: 'contain' }} className="d-inline-block align-text-top" />
         </Link>
         {/* <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">

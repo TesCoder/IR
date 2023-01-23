@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ivy Ready | Signed Agreement</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/ejsAssets/styles.css" />
+  </head>
+
+  <body>
+    <div id="cover">
+      <img src="/ejsAssets/watermark.svg" alt="Ivy Ready logo" id="cover-logo" />
+      <h1>Application Support Agreement</h1>
+    </div>
+    <div id="cover-footer">
+      <small
+        >All rights reserved. Ivy Ready &copy; 2022. By using our service, you
+        agree to out Terms of Service.</small
+      >
+    </div>
+
+    <div class="page">
+      <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+    </div>
+
+    <main>
+      <header>
+        <div id="img-container">
+          <img src="/ejsAssets/logo.png" alt="Ivy Ready logo" id="logo" />
+        </div>
+        <p id="agreement-number">Agreement #LW1928375621</p>
+      </header>
+      <h1>Application Support Agreement</h1>
+      <p>
+        Please complete all applicable fields. If you have any questions, please
+        contact us before submission.&nbsp;We are dedicated to building a
+        package that suits your needs. <strong>(Click </strong
+        ><a
+          href="https://www.ivyready.org/#application-support-chart-section"
+          target="_blank"
+          ><strong>here</strong></a
+        ><strong> for services included with each package.)</strong>
+      </p>
+      <form action="/submit" method="POST">
+        <div class="mb-1 row">
+          <label for="date" class="col-sm-1 col-form-label">Date</label>
+          <div class="col-sm-11">
+            <input
+              type="text"
+              readonly
+              class="form-control-plaintext"
+              id="date"
+              name="date"
+              value="<%= form.date %>"
+            />
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <label for="client" class="form-label">
+            This Agreement signed at the above date is made by and between Ivy
+            Ready® LLC ("Company"), AND
+          </label>
+          <textarea
+            class="form-control"
+            id="client"
+            name="client"
+            rows="3"
+            aria-describedby="clientHelp"
+          >
+<%= form.client %></textarea
+          >
+          <!-- <div id="clientHelp" class="form-text">
+            <i>
+              In the field above: Enter your full name "whose address is" [enter
+              address] ("Client.")" For example: Jane Smith whose address is
+              1111 Henry Drive, San Diego, CA 91977 ("Client.")
+            </i>
+          </div> -->
+        </div>
+
+        <div class="mb-1">
+          <label for="parentName" class="form-label"
+            >Parent (Legal Guardian) Name</label
+          >
+
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            id="parentName"
+            name="parentName"
+            value="<%= form.parentName %>"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="parentEmail" class="form-label"
+            >Parent (Legal Guardian) Email Address</label
+          >
+          <input
+            type="email"
+            readonly
+            class="form-control-plaintext"
+            value="<%= form.parentEmail %>"
+            id="parentEmail"
+            name="parentEmail"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="parentPhone" class="form-label"
+            >Parent (Legal Guardian) Phone Number</label
+          >
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            value="<%= form.parentPhone %>"
+            id="parentPhone"
+            name="parentPhone"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="studentName" class="form-label"
+            >Applicant (Student) Name</label
+          >
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            value="<%= form.studentName %>"
+            id="studentName"
+            name="studentName"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="studentEmail" class="form-label"
+            >Applicant (Student) Email Address</label
+          >
+          <input
+            type="email"
+            readonly
+            class="form-control-plaintext"
+            value="<%= form.studentEmail %>"
+            id="studentEmail"
+            name="studentEmail"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="studentPhone" class="form-label"
+            >Applicant (Student) Phone Number</label
+          >
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            value="<%= form.studentPhone %>"
+            id="studentPhone"
+            name="studentPhone"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="coach" class="form-label">Coach</label>
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            id="coach"
+            name="coach"
+            value="<%= form.coach %>"
+          />
+        </div>
+
+        <div class="mb-1">
+          <label for="payment" class="form-label">Select Payment Method</label>
+          <% switch (form.payment) { case "zelle" : %>
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            value="Payment via Zelle to email Contact@IvyReady.com"
+            id="payment"
+            name="payment"
+          />
+          <% break; case "check" : %>
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            value="Mail Check to Ivy Ready at 2120 Avy Avenue #7811 Menlo Park, CA 94205"
+            id="payment"
+            name="payment"
+          />
+          <% break; case "check" : %>
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            value="Pay by Credit Card (+3.5% Fee)"
+            id="payment"
+            name="payment"
+          />
+          <% break; default: %>
+          <div class="alert alert-danger" role="alert">
+            Invalid payment method selected. Please send us an email at
+            Contact@IvyReady.com
+          </div>
+          <% break; } %>
+
+          <div class="mb-1">
+            <label for="signature" class="form-label">
+              Please sign with your name, date of birth, and a statement
+              indicating that you have read and agree to abide by Ivy Ready's
+              Terms of Service.
+            </label>
+            <!-- <div id="signatureHelp" class="form-text">
+              <small>
+                <strong>Example:</strong>
+                <br />
+                I, Jane T. Smith, DOB: DD/MM/YYYY, hereby agree to abide by Ivy
+                Ready's Terms of Service. /Jane T. Smith/
+              </small>
+            </div> -->
+            <textarea
+              class="form-control"
+              id="signature"
+              name="signature"
+              rows="3"
+              aria-describedby="signatureHelp"
+            >
+<%= form.signature %></textarea
+            >
+          </div>
+
+          <div class="mb-1">
+            <label for="ivySignature" class="form-label">
+              Ivy Ready Representative Signature
+            </label>
+            <textarea
+              class="form-control"
+              id="client"
+              rows="2"
+              aria-describedby="clientHelp"
+              disabled
+            >
+SOME SIGNATURE HERE</textarea
+            >
+          </div>
+      </form>
+
+      <div class="page">
+        <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+      </div>
+
+      <div id="terms">
+        <pre><code>Terms of Service</code></pre>
+        <pre><code>By using our service, you agree to abide by Ivy Ready's Terms of Service and additional guidelines agreed with the College Application Coach (if applicable) during the administration of a service.</code></pre>
+        <pre><code>Note: In this Agreement&nbsp;the term "You" refers to both the Parent (legal guardian) and Applicant (student) unless specified.</code></pre>
+        <pre><code>Terms</code></pre>
+        <ul data-rte-list="default">
+          <li>
+            <pre><code>As the Parent (legal guardian), you acknowledge that you are signing this Agreement on behalf of yourself as well as the Applicant.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that this Agreement takes effect on the above signed date and will terminate when the last college application essay is completed or on the last college application submission deadline for the list of target colleges, whichever comes first.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that you will be working directly with the College Application Coach, an independent contractor, selected by you after reviewing the list of coaches and an introductory session.</code></pre>
+          </li>
+        </ul>
+        <pre><code>Applicable to Hourly Consultation</code></pre>
+        <ul data-rte-list="default">
+          <li>
+            <pre><code>Hourly consultations are available on a first requested, first reserved basis.</code></pre>
+          </li>
+          <li>
+            <pre><code>In hourly consultation, the coach may become unavailable and no longer able to continue supporting the student. In this instance, the family has an option to work with another coach or get a refund.</code></pre>
+          </li>
+        </ul>
+        <pre><code>Refund Policy for Hourly Consultations</code></pre>
+        <ul data-rte-list="default">
+          <li>
+            <pre><code>Refund for unused hours is available anytime.</code></pre>
+          </li>
+        </ul>
+
+        <pre><code>Applicable to Packages</code></pre>
+        <ul data-rte-list="default">
+          <li>
+            <pre><code>While there are no limits to the number of consultation hours in “all-inclusive” packages, you agree to abide by reasonable expectations for hours of support and response (ex. giving at least one business day for a general response from the Application Coach and two or more business days for an in-depth reply, essay review, or in-person discussion, etc.)</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that in Essays-Only Support and Comprehensive Support packages the Applicant is responsible for staying on track with the review and submission timeline.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that in Comprehensive Support with Logistics package the Coach will be responsible for creating the timeline (by working with the Applicant), and conducting check ins and reminders. In addition, the coach will take care of administrative components tied to the application process (e.g. assemble a document with requirements and deadlines for the list of colleges selected.)</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that the Applicant will submit documents for edit/review and schedule meetings in a timely manner. If the applicant falls behind schedule, the Application Coach will do their best to get the Applicant back on track. However, you acknowledge, regardless of the package selected, the Applicant is ultimately responsible for staying on track to meet official college application deadlines and Ivy Ready is not liable for missed application deadlines.</code></pre>
+          </li>
+          <li>
+            <pre><code>As admission decisions are not in the control of Ivy Ready or the Application Coach, you acknowledge that this Agreement and accompanying service payment(s) are solely for application support.</code></pre>
+          </li>
+
+          <div class="page">
+            <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+          </div>
+
+          <li>
+            <pre><code>In the unlikely event that the assigned Coach cannot complete a service due to an emergency (e.g. car accident,) you give Ivy Ready the right to continue delivering on this Agreement in one of two ways: 1) by assigning a replacement coach or 2) if another coach is unavailable, by nullifying this Agreement with a prorated refund for the work completed and/or time spent by the original Coach.</code></pre>
+          </li>
+        </ul>
+
+        <pre><code>Refund Policy for Packages</code></pre>
+        <ul data-rte-list="default">
+          <li>
+            <pre><code>Refunds are available within 30 days after the counsellor and student have entered into an agreement, the 30 days will begin after the first counseling meeting. Hours the College Application Coach has already worked with the student will be deducted from the total payment.</code></pre>
+          </li>
+        </ul>
+        <pre><code>Privacy Policy</code></pre>
+        <pre><code>Ivy Ready LLC owns and manages the website IvyReady.com. We can be reached via e-mail at contact[at]ivyready.com.</code></pre>
+        <pre><code>Any information you provide to us will not be sold to any third party.&nbsp;Unless you ask us not to, we may contact you via email in the future to tell you about specials, new products or services, or changes to this privacy policy.</code></pre>
+        <ul data-rte-list="default">
+          <li>
+            <pre><code>Access and Control over Information</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>You may opt out of any future contact from Ivy Ready by notifying us via email, phone or other contact methods available on our website.</code></pre>
+              </li>
+              <li>
+                <pre><code>You may request to see what data we have about you, if any, change/correct any data we have about you, have us delete any data we have about you, express any concerns you have about our use of your data.</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <pre><code>Website Analytics/Marketing</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>This website uses analytics and advertising tools such as, but not limited to, Google Analytics, Google Ads (formerly known as Google AdWords), Facebook Ads, Twitter Ads and other tools that collect data for marketing purposes.</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <pre><code>Direct Mail Marketing</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>You may opt out of direct mail marketing by emailing us at contact@ivyready.com with the subject line "opt out" and the email body containing your full name and the address where the mail was received.</code></pre>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <pre><code>Security</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>We take precautions to protect your information. When you submit sensitive information via the website or email, your information is protected both online and offline.</code></pre>
+              </li>
+              <li>
+                <pre><code>Credit card data is processed through Stripe, PayPal or another secure payment processing tool integrated into our website. Payments are also processed directly by banks when checks are used.</code></pre>
+              </li>
+              <li>
+                <pre><code>While we use services with encryption to protect sensitive information transmitted online, we also protect your information offline. Only employees who need a particular information to perform a specific job (e.g., reviewing applications, billing or customer service) are granted access to personally identifiable information.</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <pre><code>Financial Information</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>We request information from you to sign up for consultation or service. To do so, you must provide contact information (like name and address) and financial information (like credit card number with expiration date or a check). This information will not be sold to third parties.</code></pre>
+              </li>
+            </ul>
+          </li>
+            
+          <div class="page">
+            <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+          </div>
+
+          <li>
+            <pre><code>Links</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>This web site may contain links to other sites. Please be aware that we are not responsible for the content or privacy practices of such other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of any other site that collects personally identifiable information.</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <pre><code>Updates and Questions</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>Our Privacy Policy may change from time to time and all updates will be posted on our Privacy Policy page.</code></pre>
+              </li>
+              <li>
+                <pre><code>If you would like to access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information, contact our Privacy Compliance Support at contact[at]ivyready.com [Re: Privacy Compliance].</code></pre>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <pre><code>Terms continued</code></pre>
+        <pre><code>By submitting content to us, using our website or any service provided by Ivy Ready LLC, including subscribing to our content,&nbsp;you consent to the following Terms:</code></pre>
+        <ol data-rte-list="default">
+          <li>
+            <pre><code>You certify that you are an adult or are at least 13 years of age and have Parental consent for using any of our services.</code></pre>
+          </li>
+          <li>
+            <pre><code>You agree that you are the sole owner of the contents you provide to Ivy Ready. Parents or legal guardians are solely responsible for submissions of their children.</code></pre>
+          </li>
+          <li>
+            <pre><code>Whilst we endeavor to keep the information on our website and social media channels up-to-date and correct, they are available “as is.” We do not warrant that it will be uninterrupted or error-free. There may be delays, omissions, interruptions and inaccuracies in the information provided.</code></pre>
+          </li>
+          <li>
+            <pre><code>ALL CONTENT AND INFORMATION ATTAINED FROM IVY READY LLC OR IT'S REPRESENTATIVES IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, ABOUT THE COMPLETENESS, ACCURACY, RELIABILITY, TIMELINESS, PERFORMANCE, SUITABILITY, WITHOUT LIMITATION, THOSE OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE RESERVE THE RIGHT TO CORRECT ANY ERRORS OR OMISSIONS. YOU ACKNOWLEDGE THAT SUCH INFORMATION AND MATERIALS MAY CONTAIN INACCURACIES OR ERRORS AND WE EXPRESSLY EXCLUDE LIABILITY FOR ANY SUCH INACCURACIES OR ERRORS TO THE FULLEST EXTENT PERMITTED BY LAW. ANY RELIANCE YOU PLACE ON SUCH INFORMATION IS THEREFORE STRICTLY AT YOUR OWN RISK. WE ARE NOT ENDORSING AN ADMISSION OUTCOME AND CANNOT VOUCH FOR A SPECIFIC VALIDITY OR RELIABILITY. IN NO EVENT WILL IVY READY OR IT'S REPRESENTATIVES OR COACHES BE LIABLE FOR ANY LOSS OR DAMAGE INCLUDING WITHOUT LIMITATION, INDIRECT OR CONSEQUENTIAL LOSS, INJURY OR DAMAGE ARISING FROM THE USE OF OUR SERVICES OR THIS WEBSITE, INCLUDING DUE TO ERRORS, OMISSIONS, INTERRUPTIONS OR OTHER INACCURACIES.</code></pre>
+          </li>
+          <li>
+            <pre><code>YOU AGREE TO INDEMNIFY AND HOLD US HARMLESS AS WELL AS OUR DIRECTORS, OFFICERS, MANAGERS, EMPLOYEES, INDEPENDENT CONTRACTORS, AND AFFILIATES FROM AND AGAINST ALL LOSSES, EXPENSES, DAMAGES AND COSTS, INCLUDING REASONABLE ATTORNEYS’ FEES, RESULTING FROM ANY RELIANCE YOU PLACE ON OUR SERVICES OR VIOLATION BY YOU OF THESE TERMS. WE RESERVE THE RIGHT TO TAKE OVER THE EXCLUSIVE DEFENSE OF ANY CLAIM FOR WHICH WE ARE ENTITLED TO INDEMNIFICATION. IN SUCH EVENT, YOU SHALL PROVIDE US WITH SUCH COOPERATION AS IS REASONABLY REQUESTED BY US.</code></pre>
+          </li>
+          <li>
+            <pre><code>Ivy Ready® is a registered trademark. The website IvyReady.com and its contents are the property of Ivy Ready LLC. All rights reserved. Any use of the term "Ivy Ready" outside of direct correspondence with Ivy Ready requires the use of the '®' symbol. Any redistribution or reproduction of any part of the website content, marketing material, service agreements, email phone correspondence or phone conversations with Ivy Ready Representatives is prohibited other than the following:</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>You may print, copy or download content for personal use only.</code></pre>
+              </li>
+              <li>
+                <pre><code>You may share with a third party only with a written consent from Ivy Ready LLC.</code></pre>
+              </li>
+            </ul>
+          </li>
+          
+          <div class="page">
+            <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+          </div>
+
+          <li>
+            <pre><code>You agree not to submit content that:</code></pre>
+            <ul data-rte-list="default">
+              <li>
+                <pre><code>is not owned by you;</code></pre>
+              </li>
+              <li>
+                <pre><code>advertises a business or solicits business;</code></pre>
+              </li>
+              <li>
+                <pre><code>infringes upon or violates any copyrights, trademarks or other intellectual property rights;</code></pre>
+              </li>
+              <li>
+                <pre><code>is libelous or defamatory;</code></pre>
+              </li>
+              <li>
+                <pre><code>is obscene, pornographic, or sexually explicit;</code></pre>
+              </li>
+              <li>
+                <pre><code>violates a person's right to privacy;</code></pre>
+              </li>
+              <li>
+                <pre><code>violates any local, state, national, or international law;</code></pre>
+              </li>
+              <li>
+                <pre><code>contains or advocates illegal or violent acts;</code></pre>
+              </li>
+              <li>
+                <pre><code>degrades others on the basis of gender, race, class, ethnicity, national origin, religion, sexual preference, disability, or another protected group, or other classification;</code></pre>
+              </li>
+              <li>
+                <pre><code>is predatory, hateful, or intended to intimidate or harass; or</code></pre>
+              </li>
+              <li>
+                <pre><code>misrepresents your identity or affiliation.</code></pre>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <pre><code>Ivy Ready believes in creating a safe working environment. You acknowledge that Ivy Ready, its employees and affiliates reserve the right to refuse service to anyone. You understand that any comments or actions (sexual or otherwise) that lead to the mistreatment (physical, emotional or otherwise) or insinuation of harm (bodily or otherwise) towards Ivy Ready or it’s representatives will result in internal documentation, possible termination of service without refund and may be joined with legal action.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that the terms Admission Representative, College Consultant, College Coach, Consultant, Coach, Application Coach, and College Application Coach, among others may be used interchangeably on our website, during correspondence, in this Agreement or elsewhere.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that all prices are subject to change without notice. Quotes are estimates that only become binding once an agreement has been signed or payment has been processed. Quotes (as they are estimates) may be modified up or down during the move towards agreement as the parties negotiate and come to a better understanding of the work required.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that Ivy Ready may use the terms "admission officer," "admission reader," "admission counselor," "seasonal reader," and "admission advisor" (with their plural versions, e.g., admissions officer) interchangeably on our website, during correspondence, in this Agreement or elsewhere.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that the presence of college graduates, former admission officers, or past and present membership(s) in admission or counseling organizations in no way implies ongoing association or affiliation, indirectly or directly, with any particular organization, college or university.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that services provided by Ivy Ready are not based on the admission criteria of a particular school, and that coaches are matched with clients based on the client's preference, logistical limitations, and, at times, at random.</code></pre>
+          </li>
+          <li>
+            <pre><code>You acknowledge that Ivy Ready LLC serves merely as a broker to connect prospective clients with independent contractors for college planning and application support.</code></pre>
+          </li>
+
+          <div class="page">
+            <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+          </div>
+
+          <li>
+            <pre><code>Through this website you are able to link to other websites which are not under the control of Ivy Ready LLC. We have no control over the nature, content and availability of those sites. The inclusion of any links does not imply a recommendation or endorsement of the views expressed within them. Clicking and proceeding through such links is solely your discretion. We are not liable for incidental, indirect, consequential, special, punitive, or exemplary damages of any kind, including, without limitation, lost revenues or profits, loss of business or loss of data that result from connecting to a third party website through this website.</code></pre>
+          </li>
+          <li>
+            <pre><code>Admission data, testimonial, or ratings are not intended as indications of suitability, reliability or as predictive tool of a product or service performance and should not be relied upon as bases for any purchase decisions.</code></pre>
+          </li>
+          <li>
+            <pre><code>You agree that you have read and will abide by these Terms of Service and any concerns you may have about our Terms and services have been discussed and resolved before working with Ivy Ready, signing up for a service, or signing an Agreement.</code></pre>
+          </li>
+        </ol>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
