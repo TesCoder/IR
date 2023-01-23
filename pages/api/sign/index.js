@@ -9,10 +9,16 @@ export default async function handler(req, res) {
   var html = fs.readFileSync(templatesDir + '/toPdf.html', 'utf8');
   var options = { format: 'A4', base: "http://" + req.headers.host, dpi: "300", };
 
-  let renderedHtml = ejs.render(html, { form: req.body })
+  let renderedHtml = ejs.render(html, { form: req.body }, pha)
 
   return new Promise((resolve, reject) => {
-    pdf.create(renderedHtml, options).toBuffer(function (err, buff) {
+    pdf.create(renderedHtml, {
+      ...options,
+      phantomPath: path.resolve(
+        process.cwd(),
+        'node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs'
+      ),
+    }).toBuffer(function (err, buff) {
       if (err) {
         res.status(404).json({ error: err, renderedHtml })
       } else {
