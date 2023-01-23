@@ -49,41 +49,65 @@ import pdf from "html-pdf"
 
 // }
 
-let puppeteer;
-if (process.env.NODE_ENV === 'production') {
-  // running on the Vercel platform.
-  chrome = require('chrome-aws-lambda');
-  puppeteer = require('puppeteer-core');
-} else {
-  // running locally.
-  puppeteer = require('puppeteer');
-}
+// let puppeteer;
+// if (process.env.NODE_ENV === 'production') {
+//   // running on the Vercel platform.
+//   chrome = require('chrome-aws-lambda');
+//   puppeteer = require('puppeteer-core');
+// } else {
+//   // running locally.
+//   puppeteer = require('puppeteer');
+// }
 
+const chrome = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
 
 
 export default async function handler(req, res) {
 
   const templatesDir = path.join(process.cwd(), 'templates');
   var html = fs.readFileSync(templatesDir + '/toPdf.html', 'utf8');
-  var options = { format: 'A4', base: "http://" + req.headers.host, dpi: "300", };
+  // var options = { format: 'A4', base: "http://" + req.headers.host, dpi: "300", };
 
   let renderedHtml = ejs.render(html, { form: req.body })
 
-  // Create a browser instance
-  const browser = await puppeteer.launch(
-    process.env.NODE_ENV === 'production'
+
+  const options =
+    process.env.IS_PROD === "1"
       ? {
-        args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
-        defaultViewport: chrome.defaultViewport,
-        executablePath: await chrome.executablePath,
-        headless: true,
-        ignoreHTTPSErrors: true,
+        args: chromium.args,
+        executablePath: await chromium.executablePath,
+        headless: true
       }
       : {
-        args: ['--hide-scrollbars', '--disable-web-security'],
-        headless: true,
-        ignoreHTTPSErrors: true,
-      });
+        args: [],
+        executablePath:
+          process.platform === "win32"
+            ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+            : process.platform === "linux"
+              ? "/usr/bin/google-chrome"
+              : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        headless: true
+      };
+
+  // Create a browser instance
+  const browser = await chrome.puppeteer.launch(
+    options
+
+    // process.env.NODE_ENV === 'production'
+    //   ? {
+    //     args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
+    //     defaultViewport: chrome.defaultViewport,
+    //     executablePath: await chrome.executablePath,
+    //     headless: true,
+    //     ignoreHTTPSErrors: true,
+    //   }
+    //   : {
+    //     args: ['--hide-scrollbars', '--disable-web-security'],
+    //     headless: true,
+    //     ignoreHTTPSErrors: true,
+    //   }
+  );
 
   // Create a new page
   const page = await browser.newPage();
