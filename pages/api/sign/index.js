@@ -2,7 +2,8 @@ import path from "path"
 import fs from "fs"
 import ejs from "ejs"
 import pdf from "html-pdf"
-import puppeteer from 'puppeteer'
+// import puppeteer from 'puppeteer'
+// import chrome from 'chrome-aws-lambda'
 
 // export default async function handler(req, res) {
 
@@ -48,6 +49,17 @@ import puppeteer from 'puppeteer'
 
 // }
 
+let puppeteer;
+if (process.env.NODE_ENV === 'production') {
+  // running on the Vercel platform.
+  chrome = require('chrome-aws-lambda');
+  puppeteer = require('puppeteer-core');
+} else {
+  // running locally.
+  puppeteer = require('puppeteer');
+}
+
+
 
 export default async function handler(req, res) {
 
@@ -58,11 +70,20 @@ export default async function handler(req, res) {
   let renderedHtml = ejs.render(html, { form: req.body })
 
   // Create a browser instance
-  const browser = await puppeteer.launch({
-    args: ['--hide-scrollbars', '--disable-web-security'],
-    headless: true,
-    ignoreHTTPSErrors: true,
-  });
+  const browser = await puppeteer.launch(
+    process.env.NODE_ENV === 'production'
+      ? {
+        args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
+        defaultViewport: chrome.defaultViewport,
+        executablePath: await chrome.executablePath,
+        headless: true,
+        ignoreHTTPSErrors: true,
+      }
+      : {
+        args: ['--hide-scrollbars', '--disable-web-security'],
+        headless: true,
+        ignoreHTTPSErrors: true,
+      });
 
   // Create a new page
   const page = await browser.newPage();
