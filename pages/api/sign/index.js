@@ -75,8 +75,8 @@ export default async function handler(req, res) {
   const options =
     process.env.IS_PROD === "1"
       ? {
-        args: chromium.args,
-        executablePath: await chromium.executablePath,
+        args: chrome.args,
+        executablePath: await chrome.executablePath,
         headless: true
       }
       : {
