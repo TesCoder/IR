@@ -28,8 +28,9 @@ export default function Agreement() {
         setResponseMessage(
           { success: true, message: 'Form signed! We will provide you with a countersigned copy soon.' });
       } else {
-        // const resJson = await res.json()
-        console.log("ERROR:", res)
+        const resJson = await res.json()
+        console.log("RES:", resJson)
+        console.log("ERR:", resJson.error)
         setResponseMessage({
           success: false,
           message: 'Oops something went wrong. Please try again.',
