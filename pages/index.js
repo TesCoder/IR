@@ -9,15 +9,29 @@ export default function Home() {
       <Head>
         <title>Home | Tsion Consulting</title>
       </Head>
-      <main className={styles.main}>
+      <main className="container">
         <h1>Tsion Consulting</h1>
-        <div className="card mt-5" style={{ width: "18rem" }}>
-          <div className="card-body">
-            <h5 className="card-title">Hey Tesfa</h5>
-            <p className="card-text">Check out the contact form using the link below. Let me know what you think!</p>
-            <Link href="/contact" className="btn btn-primary">Click Here</Link>
+        <div className='row justify-content-center'>
+          <div className='col-3'>
+            <div className="card mt-5" style={{ height: "15rem" }}>
+              <div className="card-body">
+                <h5 className="card-title">Contact Form</h5>
+                <p className="card-text">Check out the contact form using the link below. Let me know what you think!</p>
+                <Link href="/contact" className="btn btn-primary">Click Here</Link>
+              </div>
+            </div>
+          </div>
+          <div className='col-3'>
+            <div className="card mt-5" style={{ height: "15rem" }}>
+              <div className="card-body">
+                <h5 className="card-title">Application Support Agreement Agreement</h5>
+                <p className="card-text">Check out the agreement form using the link below. Let me know what you think!</p>
+                <Link href="/agreement" className="btn btn-primary">Click Here</Link>
+              </div>
+            </div>
           </div>
         </div>
+
       </main>
     </>
   )
