@@ -8,6 +8,9 @@ export default async function handler(req, res) {
     'https://us-central1-tsion-consulting.cloudfunctions.net/helloHttp',
     {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(req.body),
     }
   )
