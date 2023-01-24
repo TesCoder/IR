@@ -74,7 +74,7 @@ pre {
 @media print {
   body {
     padding: 30px;
-    font-size: 12px;
+    font-size: 16px;
     /* background-image: url("/assets/watermark.jpg"); */
     /* background-repeat: no-repeat; */
     /* background-attachment: fixed;
@@ -84,7 +84,7 @@ pre {
 
   #cover {
     background-color: rgb(233, 233, 233);
-    height: 750px;
+    height: 1250px;
     text-align: center;
 
     -webkit-box-shadow: 10px 5px 26px -14px rgba(0, 0, 0, 0.75);
@@ -98,7 +98,7 @@ pre {
   }
 
   #cover h1 {
-    font-size: 32px;
+    font-size: 64px;
   }
 
   #cover-footer {
