@@ -73,7 +73,7 @@ export default function Agreement() {
         </div>
       </div>
       <div className='row justify-content-center'>
-        <div className='col-7'>
+        <div className='col-11 col-md-8'>
           <div className='row'>
             <div className="col text-end">
               <p id="agreement-number">Agreement #LW1928375621</p>

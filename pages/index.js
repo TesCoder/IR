@@ -12,7 +12,7 @@ export default function Home() {
       <main className="container">
         <h1>Tsion Consulting</h1>
         <div className='row justify-content-center'>
-          <div className='col-3'>
+          <div className='col-8 col-md-5'>
             <div className="card mt-5" style={{ height: "15rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Contact Form</h5>
@@ -21,7 +21,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className='col-3'>
+          <div className='col-8 col-md-5'>
             <div className="card mt-5" style={{ height: "15rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Application Support Agreement Agreement</h5>
