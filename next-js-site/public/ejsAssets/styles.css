@@ -145,7 +145,8 @@ pre {
   }
 
   .watermark h1 {
-    font-size: 56px;
+    font-size: 48px;
+    color: black;
     font-family: "Raleway", sans-serif !important;
   }
 
