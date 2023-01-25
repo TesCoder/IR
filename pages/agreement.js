@@ -1,7 +1,7 @@
 import Alert from '@/components/Alert';
 import useAgreementForm from '@/hooks/useAgreementForm'
 import signAgreement from '@/lib/signAgreement';
-import styles from '@/styles/agreement.module.css'
+import '@/styles/agreement.module.css'
 import Image from 'next/image'
 import Link from 'next/link';
 import { useState } from 'react';
@@ -9,7 +9,6 @@ import { useState } from 'react';
 export default function Agreement() {
   const { values, handleChange } = useAgreementForm();
   const [isSubmitting, setSubmitting] = useState(false);
-  const [downloadURL, setDownloadURL] = useState();
 
   const [responseMessage, setResponseMessage] = useState(
     { success: false, message: '' });
@@ -21,12 +20,13 @@ export default function Agreement() {
     try {
       const res = await signAgreement(values);
       if (res.status === 250) {
-        const blob = await res.blob();
-        const url = URL.createObjectURL(blob);
-        console.log("DOWNLOAD URL:", url)
-        setDownloadURL(url);
+        // Below logic was for the pdf download functionality
+        // const blob = await res.blob();
+        // const url = URL.createObjectURL(blob);
+        // console.log("DOWNLOAD URL:", url)
+        // setDownloadURL(url);
         setResponseMessage(
-          { success: true, message: 'Form signed! We will provide you with a countersigned copy soon.' });
+          { success: true, message: 'Agreement signed! You can now safely close this tab.' });
       } else {
         const resJson = await res.json()
         console.log("RES:", resJson)
@@ -54,13 +54,13 @@ export default function Agreement() {
             <Alert message={responseMessage.message} success={responseMessage.success} />
           </div>
         </div>
-        <div className='row justify-content-center'>
+        {/* <div className='row justify-content-center'>
           <div className='col text-center'>
             <a href={downloadURL} download="Ivy Ready - Signed Agreement.pdf" className="btn btn-outline-danger text-center">
               Download Signed PDF
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -84,12 +84,10 @@ export default function Agreement() {
           <p>
             Please complete all applicable fields. If you have any questions, please
             contact us before submission.&nbsp;We are dedicated to building a
-            package that suits your needs. <strong>(Click </strong
-            ><a
+            package that suits your needs. <a
               href="https://www.ivyready.org/#application-support-chart-section"
               target="_blank" rel="noreferrer"
-            ><strong>here</strong></a
-            ><strong> for services included with each package.)</strong>
+            ><strong>Click here</strong></a> for services included with each package.
           </p>
           <form onSubmit={handleSubmit}>
             <div className="mb-3 row">

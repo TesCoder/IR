@@ -1,7 +1,5 @@
 import vCardsJS from 'vcards-js';
-import nodemailer from 'nodemailer';
-
-const { TITAN_EMAIL, TITAN_PASSWORD } = process.env;
+import { sendEmail } from './utils/sendEmail';
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
@@ -39,23 +37,10 @@ export default async function handler(req, res) {
 
   const vCard = getVCard({ fname, lname, location, email, phone, year, contact, option, info, heard, service })
 
-  try {
-    const transport = nodemailer.createTransport({
-      host: "smtp.titan.email",
-      port: 465,
-      auth: {
-        user: TITAN_EMAIL,
-        pass: TITAN_PASSWORD
-      }
-    });
-
-    const filename = prefix + ' ' + fname + ' ' + lname + '.vcf';
-
-    const mailOptions = {
-      from: `Ivy Ready <${TITAN_EMAIL}>`,
-      to: email.trim(),
-      subject: `Test Email`,
-      html: `
+  const filename = `${prefix} ${fname} ${lname}.vcf`
+  const emailOptions = {
+    subject: `Contact Form Submission`,
+    html: `
       <ul>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
         <li><strong>City, State:</strong> ${location}</li>
@@ -69,20 +54,20 @@ export default async function handler(req, res) {
         <li><strong>Service Requested:</strong> ${service}</li>
       </ul>
       `,
-      attachments: [
-        {
-          filename: `${prefix} ${fname} ${lname}.vcf`,
-          contentType: `text/vcard; name="${filename}"`,
-          content: vCard.getFormattedString()
-        },
-      ],
-    };
+    attachments: [
+      {
+        filename: filename,
+        contentType: `text/vcard`,
+        content: vCard.getFormattedString()
+      },
+    ],
+  };
 
-    const result = await transport.sendMail(mailOptions);
-    console.log('Result:', result);
-    return res.status(250).json({ message: `Message delivered to ${email}.` })
-  } catch (e) {
-    console.error(e);
-    return res.status(404).json({ error: e.message })
+  const result = await sendEmail(emailOptions);
+  console.log('Result:', result);
+  if (result.success) {
+    return res.status(250).json(result)
+  } else {
+    return res.status(404).json(result)
   }
 }

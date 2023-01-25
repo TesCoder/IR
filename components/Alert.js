@@ -8,6 +8,8 @@ export default function Alert({ success, message }) {
         {success ? ":) Form Submitted!" : "Error Submitting Form"}
       </h2 >
       <p>{message}</p>
+      <br />
+      <p>- Ivy Ready</p>
       {/* <hr /> */}
       {/* <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> */}
     </div >
