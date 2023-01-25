@@ -114,7 +114,8 @@ pre {
     border: 1px solid red;
    
     position: fixed;
-    left: 0
+    left: 0;
+    width: 100%
   }
 
   .page img {
