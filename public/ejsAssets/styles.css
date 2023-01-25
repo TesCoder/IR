@@ -128,8 +128,8 @@ pre {
     border: 1px solid blue;
   }
 
-  ul {
-    padding: 0 !important;
+  ul, ol {
+    padding: 0;
   }
 
   .page + * {
