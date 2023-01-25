@@ -110,17 +110,12 @@ pre {
     /* padding: 20px 0; */
     /* margin-bottom: 30px; */
     page-break-after: always;
-    /* position: relative; */
-    border: 1px solid red;
-   
     position: relative;
-    left: 0;
-    top: 0;
-    width: 100%
+    border: 1px solid red;
   }
 
   .page img {
-    width: 400px;
+    width: 70%;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -131,6 +126,10 @@ pre {
     /* opacity: 0.7; */
     z-index: 50;
     border: 1px solid blue;
+  }
+
+  ul {
+    padding: 0 !important;
   }
 
   .page + * {
