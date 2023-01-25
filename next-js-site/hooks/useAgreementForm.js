@@ -3,6 +3,7 @@ import { useState } from 'react';
 const useAgreementForm = () => {
   const [values, setValues] = useState({
     date: new Date().toLocaleDateString(),
+    year: new Date().getFullYear(),
     client: '',
     parentName: '',
     parentEmail: '',
