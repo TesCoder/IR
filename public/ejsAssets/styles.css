@@ -110,8 +110,12 @@ pre {
     /* padding: 20px 0; */
     /* margin-bottom: 30px; */
     page-break-after: always;
-    position: relative;
+    /* position: relative; */
     border: 1px solid red;
+   
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
   .page img {
@@ -126,7 +130,6 @@ pre {
     /* opacity: 0.7; */
     z-index: 50;
     border: 1px solid blue;
-    padding-left: 0;
   }
 
   .page + * {
