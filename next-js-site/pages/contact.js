@@ -134,19 +134,6 @@ export default function Contact() {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="year" className="form-label">Current Year</label>
-                <input
-                  type="number"
-                  name="year"
-                  value={values.year}
-                  onChange={handleChange}
-                  className="form-control"
-                  id="year"
-                  placeholder="2022"
-                  required
-                />
-              </div>
-              <div className="mb-3">
                 <label htmlFor="contact" className="form-label"
                 >Preferred Contact Method</label
                 >
@@ -337,6 +324,19 @@ export default function Contact() {
                   />
                   <label className="form-check-label" htmlFor="other"> Other </label>
                 </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="year" className="form-label">Current Year</label>
+                <input
+                  type="number"
+                  name="year"
+                  value={values.year}
+                  onChange={handleChange}
+                  className="form-control"
+                  id="year"
+                  placeholder="2022"
+                  required
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="service" className="form-label"
