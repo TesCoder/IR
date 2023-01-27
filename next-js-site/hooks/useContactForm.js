@@ -16,6 +16,7 @@ const useContactForm = () => {
   });
 
   const handleChange = (e) => {
+    console.log("UPDATING:", e.target.name, e.target.value)
     setValues(prevState => {
       if (e.target.type == "checkbox") {
         // console.log("/UPDATING CHECKBOX", e.target.name, e.target.value, values)

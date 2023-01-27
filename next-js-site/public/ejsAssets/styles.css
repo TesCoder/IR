@@ -73,7 +73,7 @@ pre {
 
 @media print {
   body {
-    padding: 0 35px;
+    padding: 0 40px;
     font-size: 12px;
     /* background-image: url("/assets/watermark.jpg"); */
     /* background-repeat: no-repeat; */

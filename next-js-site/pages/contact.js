@@ -325,7 +325,7 @@ export default function Contact() {
                   <label className="form-check-label" htmlFor="other"> Other </label>
                 </div>
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <label htmlFor="year" className="form-label">Current Year</label>
                 <input
                   type="number"
@@ -337,11 +337,23 @@ export default function Contact() {
                   placeholder="2022"
                   required
                 />
+              </div> */}
+              <div className='mb-3'>
+                <label htmlFor="year" className="form-label">
+                  Current Year
+                </label>
+                <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year">
+                  <option defaultValue>Select your class</option>
+                  <option value="FR">Freshman</option>
+                  <option value="SP">Sophomore</option>
+                  <option value="JR">Junior</option>
+                  <option value="SR">Senior</option>
+                </select>
               </div>
               <div className="mb-3">
-                <label htmlFor="service" className="form-label"
-                >How may we best serve you?</label
-                >
+                <label htmlFor="service" className="form-label">
+                  How may we best serve you?
+                </label>
                 <textarea
                   className="form-control"
                   name="service"
@@ -364,7 +376,7 @@ export default function Contact() {
             </form>
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }
