@@ -145,9 +145,10 @@ pre {
   }
 
   .watermark h1 {
-    font-size: 48px;
     color: black;
     font-family: "Raleway", sans-serif !important;
+    font-size: 36px;
+    margin-top: -120px;
   }
 
   ul, ol {
