@@ -3,6 +3,13 @@ import { sendEmail } from "./utils/sendEmail"
 
 export default async function handler(req, res) {
   console.log("SENDING:", JSON.stringify(req.body),)
+
+  const { studentName } = req.body
+  const names = studentName.split(" ")
+
+  const id = "#" + names[0][0].toUpperCase() + names[1][0].toUpperCase() + Math.floor(Math.random() * 1000000000).toString();
+  req.body.id = id
+
   const response = await fetch(
     'https://us-central1-tsion-consulting.cloudfunctions.net/helloHttp',
     {

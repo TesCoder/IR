@@ -74,12 +74,12 @@ export default function Agreement() {
       </div>
       <div className='row justify-content-center'>
         <div className='col-11 col-md-8'>
-          <div className='row'>
+          {/* <div className='row'>
             <div className="col text-end">
               <p id="agreement-number">Agreement #LW1928375621</p>
             </div>
 
-          </div>
+          </div> */}
           <h1>Application Support Agreement</h1>
           <p>
             Please complete all applicable fields. If you have any questions, please
