@@ -40,7 +40,7 @@ export default async function handler(req, res) {
         `,
         attachments: [
           {
-            filename: `Signed - ${req.body.studentName}.pdf`,
+            filename: `${id}.pdf`,
             contentType: `application/pdf;`,
             content: buff
           },
