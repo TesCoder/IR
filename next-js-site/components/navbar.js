@@ -3,31 +3,39 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ height: "90px" }}>
-      <div className="container-fluid">
-        {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button> */}
+
+    <nav className="navbar navbar-expand-md bg-body-tertiary text-white font-raleway font-medium p-0 navbar-dark uppercase" data-bs-theme="dark">
+      <div className="container-fluid bg-ivy-red">
         <Link className="navbar-brand" href="/">
-          <Image src="/images/logo.png" alt="Logo" layout='fill'
-            style={{ objectFit: 'contain' }} className="d-inline-block align-text-top" />
+          <Image src="/images/logo-white.png" alt="Logo" width={100} height={110} priority />
         </Link>
-        {/* <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+        {/* <Link className="navbar-brand" href="/">
+          Navbar
+        </Link> */}
+
+        <button className="navbar-toggler fill-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse flex justify-between flex-col md:flex-row" id="navbarNav">
+          <ul className="navbar-nav text-white font-bold">
+            <li className="nav-item">
+              <Link className="nav-link text-white hover:opacity-75" href="/">Admissions Support</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+            <li className="nav-item">
+              <Link className="nav-link text-white hover:opacity-75" href="/">Services</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+            <li className="nav-item">
+              <Link className="nav-link text-white hover:opacity-75" href="/">Testimonials</Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+            <li className="nav-item">
+              <Link className="nav-link text-white hover:opacity-75" href="/">About Us</Link>
             </li>
           </ul>
-        </div> */}
+          <div className="">
+            <button className="btn btn-light text-ivy-red uppercase font-semibold">Contact Us</button>
+          </div>
+        </div>
       </div>
     </nav >
   )

@@ -3,7 +3,7 @@ export default function Alert({ success, message }) {
   if (!message) return
   return (
     <div className={success ? "alert alert-success" : "alert alert-danger"} role="alert" >
-      <h2 className="alert-heading" >
+      <h2 className="alert-heading text-3xl mb-2 font-semibold" >
         {/* <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill" /></svg> */}
         {success ? ":) Form Submitted!" : "Error Submitting Form"}
       </h2 >
