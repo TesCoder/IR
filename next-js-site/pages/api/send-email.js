@@ -8,7 +8,7 @@ const today = new Date();
 const prefix = 'IR-' + today.getFullYear() + months[today.getMonth()] + today.getDate();
 
 
-const getVCard = ({ fname, lname, location, email, phone, year, contact, option, info, heard, service }) => {
+const getVCard = ({ type, fname, lname, location, email, phone, year, contact, option, info, heard, service }) => {
   const vCard = vCardsJS();
 
   vCard.firstName = prefix + ' ' + fname;
@@ -16,6 +16,7 @@ const getVCard = ({ fname, lname, location, email, phone, year, contact, option,
   vCard.email = email;
   vCard.cellPhone = phone;
   vCard.note = `
+    Type: ${type}
     Name: ${fname} ${lname}
     City, State: ${location}
     Email: ${email}
@@ -33,15 +34,16 @@ const getVCard = ({ fname, lname, location, email, phone, year, contact, option,
 
 export default async function handler(req, res) {
   // res.status(200).json({ msg: "REACHED", data: req.body })
-  const { fname, lname, location, email, phone, year, contact, option, info, heard, service } = req.body
+  const { type, fname, lname, location, email, phone, year, contact, option, info, heard, service } = req.body
 
-  const vCard = getVCard({ fname, lname, location, email, phone, year, contact, option, info, heard, service })
+  const vCard = getVCard(req.body)
 
   const filename = `${prefix} ${fname} ${lname}.vcf`
   const emailOptions = {
     subject: `Contact Form Submission`,
     html: `
       <ul>
+        <li><strong>Type:</strong> ${type}</li>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
         <li><strong>City, State:</strong> ${location}</li>
         <li><strong>Email:</strong> ${email}</li>

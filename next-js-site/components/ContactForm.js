@@ -6,7 +6,7 @@ import sendEmail from "../lib/sendEmail"
 import Alert from '@/components/Alert';
 import Link from 'next/link'
 
-export default function ContactForm() {
+export default function ContactForm({ type }) {
   const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false)
   const [responseMessage, setResponseMessage] = useState(
@@ -17,7 +17,7 @@ export default function ContactForm() {
     setSubmitting(true);
     console.log("Values:", values)
     try {
-      const res = await sendEmail(values);
+      const res = await sendEmail({ type, ...values });
       if (res.status === 250) {
         setResponseMessage(
           { success: true, message: 'Thank you for your message. We will be reaching out to you soon.' });
@@ -36,7 +36,7 @@ export default function ContactForm() {
     return (
       <div className="container">
         <div className='row mt-5 justify-content-center'>
-          <div className='col-5'>
+          <div className='col-8'>
             <Alert message={responseMessage.message} success={responseMessage.success} />
           </div>
         </div>
@@ -78,19 +78,24 @@ export default function ContactForm() {
             />
           </div>
         </div>
-        <div className="mb-3">
-          <label htmlFor="location" className="form-label">City, State</label>
-          <input
-            type="text"
-            name="location"
-            value={values.location}
-            onChange={handleChange}
-            className="form-control"
-            id="location"
-            placeholder="Alexandria, Virginia"
-            required
-          />
-        </div>
+        {
+          type == 'FULL' && (
+            <div className="mb-3">
+              <label htmlFor="location" className="form-label">City, State</label>
+              <input
+                type="text"
+                name="location"
+                value={values.location}
+                onChange={handleChange}
+                className="form-control"
+                id="location"
+                placeholder="Alexandria, Virginia"
+                required
+              />
+            </div>
+          )
+        }
+
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email address</label>
           <input
@@ -117,224 +122,238 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="contact" className="form-label"
-          >Preferred Contact Method</label
-          >
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              name="contact"
-              onChange={handleChange}
-              type="checkbox"
-              value="Phone"
-              id="phone"
-            />
-            <label className="form-check-label" htmlFor="phone"> Phone </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              name="contact"
-              onChange={handleChange}
-              type="checkbox"
-              value="Email"
-              id="email"
-            />
-            <label className="form-check-label" htmlFor="email"> Email </label>
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="option" className="form-label"
-          >Which option interests you?</label
-          >
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="option"
-              onChange={handleChange}
-              value="Essays-Only Support"
-              id="essays"
-            />
-            <label className="form-check-label" htmlFor="essays">
-              Essays-Only Support
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="option"
-              onChange={handleChange}
-              value="Comprehensive Support"
-              id="comp-supp"
-            />
-            <label className="form-check-label" htmlFor="comp-supp">
-              Comprehensive Support
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="option"
-              onChange={handleChange}
-              value="Comprehensive Support with Logistics"
-              id="comp-supp-log"
-            />
-            <label className="form-check-label" htmlFor="comp-supp-log">
-              Comprehensive Support with Logistics
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="option"
-              onChange={handleChange}
-              value="Hourly Consultation"
-              id="hourly"
-            />
-            <label className="form-check-label" htmlFor="hourly">
-              Hourly Consultation
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="option"
-              onChange={handleChange}
-              value="Application Evaluation"
-              id="evaluation"
-            />
-            <label className="form-check-label" htmlFor="evaluation">
-              Application Evaluation
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="option"
-              onChange={handleChange}
-              value="Other"
-              id="other"
-            />
-            <label className="form-check-label" htmlFor="other"> Other </label>
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="year" className="form-label"
-          >How did you hear about Ivy Ready?</label
-          >
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="heard"
-              onChange={handleChange}
-              value="Phone"
-              id="phone"
-            />
-            <label className="form-check-label" htmlFor="phone">
-              Google Search
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="heard"
-              onChange={handleChange}
-              value="Email"
-              id="phone"
-            />
-            <label className="form-check-label" htmlFor="phone"> Mail </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="heard"
-              onChange={handleChange}
-              value="Family or Friends"
-              id="phone"
-            />
-            <label className="form-check-label" htmlFor="phone">
-              Family or Friends
-            </label>
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="year" className="form-label"
-          >How did you hear about Ivy Ready?</label
-          >
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="info"
-              onChange={handleChange}
-              value="General Info"
-              id="general"
-            />
-            <label className="form-check-label" htmlFor="general">
-              General Info
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="info"
-              onChange={handleChange}
-              value="Fee Structure"
-              id="fee"
-            />
-            <label className="form-check-label" htmlFor="fee">
-              Fee Structure
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="info"
-              onChange={handleChange}
-              value="Other"
-              id="other"
-            />
-            <label className="form-check-label" htmlFor="other"> Other </label>
-          </div>
-        </div>
+        {
+          type == 'FULL' && (
+            <>
+              <div className="mb-3">
+                <label htmlFor="contact" className="form-label"
+                >Preferred Contact Method</label
+                >
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    name="contact"
+                    onChange={handleChange}
+                    type="checkbox"
+                    value="Phone"
+                    id="phone"
+                  />
+                  <label className="form-check-label" htmlFor="phone"> Phone </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    name="contact"
+                    onChange={handleChange}
+                    type="checkbox"
+                    value="Email"
+                    id="email"
+                  />
+                  <label className="form-check-label" htmlFor="email"> Email </label>
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="option" className="form-label"
+                >Which option interests you?</label
+                >
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="option"
+                    onChange={handleChange}
+                    value="Essays-Only Support"
+                    id="essays"
+                  />
+                  <label className="form-check-label" htmlFor="essays">
+                    Essays-Only Support
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="option"
+                    onChange={handleChange}
+                    value="Comprehensive Support"
+                    id="comp-supp"
+                  />
+                  <label className="form-check-label" htmlFor="comp-supp">
+                    Comprehensive Support
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="option"
+                    onChange={handleChange}
+                    value="Comprehensive Support with Logistics"
+                    id="comp-supp-log"
+                  />
+                  <label className="form-check-label" htmlFor="comp-supp-log">
+                    Comprehensive Support with Logistics
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="option"
+                    onChange={handleChange}
+                    value="Hourly Consultation"
+                    id="hourly"
+                  />
+                  <label className="form-check-label" htmlFor="hourly">
+                    Hourly Consultation
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="option"
+                    onChange={handleChange}
+                    value="Application Evaluation"
+                    id="evaluation"
+                  />
+                  <label className="form-check-label" htmlFor="evaluation">
+                    Application Evaluation
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="option"
+                    onChange={handleChange}
+                    value="Other"
+                    id="other"
+                  />
+                  <label className="form-check-label" htmlFor="other"> Other </label>
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="year" className="form-label"
+                >How did you hear about Ivy Ready?</label
+                >
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="heard"
+                    onChange={handleChange}
+                    value="Phone"
+                    id="phone"
+                  />
+                  <label className="form-check-label" htmlFor="phone">
+                    Google Search
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="heard"
+                    onChange={handleChange}
+                    value="Email"
+                    id="phone"
+                  />
+                  <label className="form-check-label" htmlFor="phone"> Mail </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="heard"
+                    onChange={handleChange}
+                    value="Family or Friends"
+                    id="phone"
+                  />
+                  <label className="form-check-label" htmlFor="phone">
+                    Family or Friends
+                  </label>
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="year" className="form-label"
+                >How did you hear about Ivy Ready?</label
+                >
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="info"
+                    onChange={handleChange}
+                    value="General Info"
+                    id="general"
+                  />
+                  <label className="form-check-label" htmlFor="general">
+                    General Info
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="info"
+                    onChange={handleChange}
+                    value="Fee Structure"
+                    id="fee"
+                  />
+                  <label className="form-check-label" htmlFor="fee">
+                    Fee Structure
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="info"
+                    onChange={handleChange}
+                    value="Other"
+                    id="other"
+                  />
+                  <label className="form-check-label" htmlFor="other"> Other </label>
+                </div>
+              </div>
+            </>
+          )
+        }
 
-        <div className='mb-3'>
-          <label htmlFor="year" className="form-label">
-            Current Year
-          </label>
-          <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year">
-            <option defaultValue>Select your class</option>
-            <option value="FR">Freshman</option>
-            <option value="SP">Sophomore</option>
-            <option value="JR">Junior</option>
-            <option value="SR">Senior</option>
-          </select>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="service" className="form-label">
-            How may we best serve you?
-          </label>
-          <textarea
-            className="form-control"
-            name="service"
-            id="service"
-            onChange={handleChange}
-            value={values.service}
-            rows="3"
-          ></textarea>
-        </div>
+        {
+          type != "CALL" && (
+            <>
+              <div className='mb-3'>
+                <label htmlFor="year" className="form-label">
+                  Current Year
+                </label>
+                <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year">
+                  <option defaultValue>Select your class</option>
+                  <option value="FR">Freshman</option>
+                  <option value="SP">Sophomore</option>
+                  <option value="JR">Junior</option>
+                  <option value="SR">Senior</option>
+                </select>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="service" className="form-label">
+                  How may we best serve you?
+                </label>
+                <textarea
+                  className="form-control"
+                  name="service"
+                  id="service"
+                  onChange={handleChange}
+                  value={values.service}
+                  rows="3"
+                ></textarea>
+              </div>
+            </>
+          )
+        }
+
+
         <div className="col-12">
           <button className="btn bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg" type="submit">{
             isSubmitting ?
