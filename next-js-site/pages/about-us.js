@@ -66,7 +66,7 @@ export default function About() {
         </Section>
       ))}
 
-      <ButtonRow setModalType={setModalType} />
+      <ButtonRow setModalType={setModalType} lightBg />
     </>
   )
 }
