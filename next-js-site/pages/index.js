@@ -232,7 +232,6 @@ export default function Home() {
 
       <ButtonRow setModalType={setModalType} />
 
-
       <Section title="Detailed Comparison of Packages">
         <p className=' text-lg my-3 text-gray-700'>Essays-only Support is an excellent option for applicants who have personalized admission support at their high school, but are looking for feedback on their essays. However, the college application process is no easy feat especially given the time commitment required from the applicants in one of the busiest year of high school. In addition, Essays-only Support puts the responsibility of determining the application angle, setting the narrative, understanding how different pieces of the application support each other, etc., on the applicant. This will invariably require an understanding of how all parts of the application, including the extracurricular activities list and family background, work together with essays to help the applicant stand out. Ensuring the applicant is able to submit not only their best work but also the most compelling application to each school will require extensive planning, preparation, and oversight—included as a part of Comprehensive Support and Comprehensive Support with Logistics.</p>
         <p className=' text-lg my-3 text-gray-700'>Comprehensive Support with Logistics is best for applicants looking for complete support from the planning stage through application submission. On the other hand, Comprehensive Support is the most common option and covers support outside of the Essays-only package.</p>
