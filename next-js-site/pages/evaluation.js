@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
 import Section from "@/components/Section";
 import Image from "next/image";
