@@ -13,7 +13,7 @@ export default function Navbar() {
           Navbar
         </Link> */}
 
-        <button className="navbar-toggler fill-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
 
@@ -22,18 +22,25 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link text-white hover:opacity-75" href="/">Admissions Support</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white hover:opacity-75" href="/">Services</Link>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Services
+              </a>
+              <ul class="dropdown-menu">
+                <li><Link className="dropdown-item text-white hover:opacity-75" href="/hourly-consultation">Hourly Consultation</Link></li>
+                <li><Link className="dropdown-item text-white hover:opacity-75" href="/evaluation">Application Evaluation</Link></li>
+                <li><Link className="dropdown-item text-white hover:opacity-75" href="/">Hourly Consultation</Link></li>
+              </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white hover:opacity-75" href="/">Testimonials</Link>
+              <Link className="nav-link text-white hover:opacity-75" href="/#testimonials">Testimonials</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white hover:opacity-75" href="/">About Us</Link>
+              <Link className="nav-link text-white hover:opacity-75" href="/about">About Us</Link>
             </li>
           </ul>
-          <div className="">
-            <button className="btn btn-light text-ivy-red uppercase font-semibold">Contact Us</button>
+          <div className="mb-2 md:mb-0">
+            <Link href={"/#application-support-questions-section"} className="btn btn-light text-ivy-red uppercase font-semibold">Contact Us</Link>
           </div>
         </div>
       </div>

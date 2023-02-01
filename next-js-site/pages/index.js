@@ -5,13 +5,12 @@ import Link from 'next/link'
 import ContactForm from '@/components/ContactForm'
 import Section from '@/components/Section'
 import Modal from '@/components/Modal'
+import Button from '@/components/Button'
 import { useState } from 'react'
 
 const MarqueeElement = ({ children }) => <span className="text-2xl mx-2 text-ivy-blue font-light">{...children}</span>
 
 const HyperLink = ({ href, children }) => <Link className='underline text-ivy-blue font-medium' href={href}>{...children}</Link>
-
-const Button = ({ className, children, ...others }) => <button className={'bg-ivy-red text-white py-2 px-4 mx-16 rounded-3xl transition-colors hover:bg-red-700 ' + className} {...others}>{...children}</button>
 
 const Profile = ({ imgSrc, name }) => (
   <div className='w-1/3 md:w-1/6 flex flex-col items-center mx-2'>
@@ -53,7 +52,7 @@ const members = [
 ]
 
 export default function Home() {
-  // FULL, INFO, or CALL
+  // FULL, INFO, CALL, or EVAL
   const [modalType, setModalType] = useState("INFO")
 
   const ButtonRow = () => (
@@ -131,7 +130,7 @@ export default function Home() {
       <Section title="Our stellar record speaks for itself!" centerContent>
         <Image src='/images/scans.jpeg' width={1080} height={500} alt="Record" />
         <h3 className='font-semibold text-lg my-4 text-gray-500 uppercase italic'>Ask for original copies!</h3>
-        <Button >Contact Us</Button>
+        <Button onClick={() => window.open("/#application-support-questions-section", "_self")}>Contact Us</Button>
       </Section>
 
       <Section title="Meet a Few Members of Our Team and Their Admission Background" darkBg centerContent>
@@ -140,7 +139,7 @@ export default function Home() {
           {members.map(({ name, imgSrc }, i) => <Profile key={i} name={name} imgSrc={imgSrc} />)}
         </div>
         <p className=' text-xl text-center my-3 text-gray-700'>Our college counselors are located in cities across the U.S. Contact us if a coach with the particular background you seek is not listed. We are dedicated to finding the perfect coach for you.</p>
-        <Button className="text-center">LEARN MORE</Button>
+        <Button className="text-center" onClick={() => window.open("/#application-support-questions-section", "_self")}>LEARN MORE</Button>
       </Section>
 
       <Section title="Ivy Ready Application Support Packages">

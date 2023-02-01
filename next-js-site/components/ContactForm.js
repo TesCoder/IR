@@ -6,7 +6,10 @@ import sendEmail from "../lib/sendEmail"
 import Alert from '@/components/Alert';
 import Link from 'next/link'
 
+export const FORM_TYPES = { "INFO": 1, "CALL": 2, "FULL": 3 }
+
 export default function ContactForm({ type }) {
+  // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false)
   const [responseMessage, setResponseMessage] = useState(
@@ -322,35 +325,50 @@ export default function ContactForm({ type }) {
         }
 
         {
-          type != "CALL" && (
-            <>
-              <div className='mb-3'>
-                <label htmlFor="year" className="form-label">
-                  Current Year
-                </label>
-                <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year">
-                  <option defaultValue>Select your class</option>
-                  <option value="FR">Freshman</option>
-                  <option value="SP">Sophomore</option>
-                  <option value="JR">Junior</option>
-                  <option value="SR">Senior</option>
-                </select>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="service" className="form-label">
-                  How may we best serve you?
-                </label>
-                <textarea
-                  className="form-control"
-                  name="service"
-                  id="service"
-                  onChange={handleChange}
-                  value={values.service}
-                  rows="3"
-                ></textarea>
-              </div>
-            </>
-          )
+          ['FULL', 'INFO', 'CALL'].includes(type) &&
+          <div className='mb-3'>
+            <label htmlFor="year" className="form-label">
+              Current Year
+            </label>
+            <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year">
+              <option defaultValue>Select your class</option>
+              <option value="FR">Freshman</option>
+              <option value="SP">Sophomore</option>
+              <option value="JR">Junior</option>
+              <option value="SR">Senior</option>
+            </select>
+          </div>
+        }
+
+        {
+          ['FULL', 'INFO', 'EVAL'].includes(type) &&
+          <div className="mb-3">
+            <label htmlFor="service" className="form-label">
+              {type == 'EVAL' ? 'Message' : 'How may we best serve you?'}
+            </label>
+            <textarea
+              className="form-control"
+              name="service"
+              id="service"
+              onChange={handleChange}
+              value={values.service}
+              rows="3"
+            ></textarea>
+          </div>
+        }
+
+        {
+          type == 'EVAL' &&
+          <div className='mb-3'>
+            <label htmlFor="evaluation" className="form-label">
+              Evaluation
+            </label>
+            <select className="form-select" id='evaluation' name='evaluation' onChange={handleChange} aria-label="Current Year">
+              <option defaultValue>Select your class</option>
+              <option value="Single">Single Evaluation (30-minute Coach Review & 30-minute Discussion)</option>
+              <option value="Multiple">Multiple-school Package (Depends on Number of Schools)</option>
+            </select>
+          </div>
         }
 
 
@@ -366,6 +384,6 @@ export default function ContactForm({ type }) {
           </button>
         </div>
       </form>
-    </div>
+    </div >
   )
 }
