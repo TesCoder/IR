@@ -14,6 +14,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero': "url('/images/banner.jpg')",
+        'about-hero': "url('/images/about-banner.jpg')",
       },
       fontFamily: {
         raleway: ["Raleway"]

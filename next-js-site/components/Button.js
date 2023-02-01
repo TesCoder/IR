@@ -1,9 +1,21 @@
-export default function Button({ className, children, ...others }) {
+export function Button({ className, children, ...others }) {
   return (
-    <button className={'bg-ivy-red text-white py-2 px-4 mx-16 rounded-3xl transition-colors hover:bg-red-700 ' + className} {...others}>
+    <button className={`bg-ivy-red text-white py-2 px-4  rounded-3xl transition-colors hover:bg-red-700 ${className ? className : ""}`} {...others}>
       {...children}
     </button>
 
   )
 }
 
+
+export const ButtonRow = ({ setModalType, lightBg }) => (
+  <div className={`flex justify-center ${lightBg ? "" : "bg-gray-100"}`}>
+    {/* Button Row */}
+    <div className='my-5 flex flex-col gap-x-32 gap-y-4 items-center md:flex-row'>
+      <Button onClick={() => setModalType("INFO")} data-bs-toggle="modal" data-bs-target="#contactModal">Get in Touch</Button>
+      <Button onClick={() => setModalType("CALL")} data-bs-toggle="modal" data-bs-target="#contactModal">Get a Quick Call</Button>
+      <Button onClick={() => window.open("tel:650-383-0352", "_self")}>Call now</Button>
+    </div>
+  </div>
+
+)

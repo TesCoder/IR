@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 export const FORM_TYPES = { "INFO": 1, "CALL": 2, "FULL": 3 }
 
-export default function ContactForm({ type }) {
+export default function ContactForm({ type, coachName }) {
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false)
@@ -20,7 +20,7 @@ export default function ContactForm({ type }) {
     setSubmitting(true);
     console.log("Values:", values)
     try {
-      const res = await sendEmail({ type, ...values });
+      const res = await sendEmail({ type, coach: coachName, ...values });
       if (res.status === 250) {
         setResponseMessage(
           { success: true, message: 'Thank you for your message. We will be reaching out to you soon.' });

@@ -8,7 +8,7 @@ const today = new Date();
 const prefix = 'IR-' + today.getFullYear() + months[today.getMonth()] + today.getDate();
 
 
-const getVCard = ({ type, fname, lname, location, email, phone, year, contact, option, info, heard, service }) => {
+const getVCard = ({ coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service }) => {
   const vCard = vCardsJS();
 
   vCard.firstName = prefix + ' ' + fname;
@@ -27,6 +27,7 @@ const getVCard = ({ type, fname, lname, location, email, phone, year, contact, o
     What would you like to know more about?: ${info}
     Current Year: ${year}
     Service Requested: ${service}
+    ${coach ? `Coach Request ${coach}` : ""}
   `;
 
   return vCard;
@@ -34,7 +35,7 @@ const getVCard = ({ type, fname, lname, location, email, phone, year, contact, o
 
 export default async function handler(req, res) {
   // res.status(200).json({ msg: "REACHED", data: req.body })
-  const { type, fname, lname, location, email, phone, year, contact, option, info, heard, service } = req.body
+  const { coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service } = req.body
 
   const vCard = getVCard(req.body)
 
@@ -54,6 +55,7 @@ export default async function handler(req, res) {
         <li><strong>How did you hear about Ivy Ready?:</strong> ${heard}</li>
         <li><strong>What would you like to know more about?:</strong> ${info}</li>
         <li><strong>Service Requested:</strong> ${service}</li>
+        ${coach ? `<li><strong>Coach Request:</strong> ${coach}</li>` : ''}
       </ul>
       `,
     attachments: [

@@ -22,11 +22,11 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link text-white hover:opacity-75" href="/">Admissions Support</Link>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li className="nav-item dropdown">
+              <a className="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Services
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li><Link className="dropdown-item text-white hover:opacity-75" href="/hourly-consultation">Hourly Consultation</Link></li>
                 <li><Link className="dropdown-item text-white hover:opacity-75" href="/evaluation">Application Evaluation</Link></li>
                 <li><Link className="dropdown-item text-white hover:opacity-75" href="/">Hourly Consultation</Link></li>
@@ -36,7 +36,7 @@ export default function Navbar() {
               <Link className="nav-link text-white hover:opacity-75" href="/#testimonials">Testimonials</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white hover:opacity-75" href="/about">About Us</Link>
+              <Link className="nav-link text-white hover:opacity-75" href="/about-us">About Us</Link>
             </li>
           </ul>
           <div className="mb-2 md:mb-0">
