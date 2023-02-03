@@ -39,7 +39,7 @@ export default function ContactForm({ type, coachName }) {
     return (
       <div className="container">
         <div className='row mt-5 justify-content-center'>
-          <div className='col-8'>
+          <div className='col'>
             <Alert message={responseMessage.message} success={responseMessage.success} />
           </div>
         </div>
