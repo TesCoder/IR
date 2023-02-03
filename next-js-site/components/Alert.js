@@ -2,16 +2,15 @@
 export default function Alert({ success, message }) {
   if (!message) return
   return (
-    <div className={success ? "alert alert-success" : "alert alert-danger"} role="alert" >
-      <h2 className="alert-heading text-3xl mb-2 font-semibold" >
+    <div className={`bg-ivy-red py-4 px-4 rounded-lg shadow-md text-white font-raleway`} role="alert" >
+      <h2 className="text-3xl font-semibold" >
         {/* <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill" /></svg> */}
-        {success ? ":) Form Submitted!" : "Error Submitting Form"}
+        {success ? "Form Submitted!" : "Error Submitting Form"}
       </h2 >
-      <p>{message}</p>
+      <hr className="my-2" />
+      <p className="text-lg">{message}</p>
       <br />
       <p>- Ivy Ready</p>
-      {/* <hr /> */}
-      {/* <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> */}
     </div >
   )
 }

@@ -29,7 +29,7 @@ export default function ContactForm({ type, coachName }) {
       console.log(e);
       setResponseMessage({
         success: false,
-        message: 'Oops something went wrong. Please try again.',
+        message: 'Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.',
       });
     }
     setSubmitting(false);
