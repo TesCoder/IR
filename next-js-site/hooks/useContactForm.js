@@ -7,7 +7,7 @@ const useContactForm = () => {
     location: '',
     email: '',
     phone: '',
-    year: '',
+    year: 'JR',
     contact: [],
     option: [],
     info: [],

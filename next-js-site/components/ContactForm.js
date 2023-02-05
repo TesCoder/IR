@@ -54,6 +54,7 @@ export default function ContactForm({ type, coachName }) {
         <Alert message={responseMessage.message} success={responseMessage.success} />
       </div>
       <form onSubmit={handleSubmit}>
+        <button onClick={() => console.log("Values:", values)}>LOG</button>
         <div className="row mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <div className="col">
@@ -280,8 +281,7 @@ export default function ContactForm({ type, coachName }) {
               </div>
               <div className="mb-3">
                 <label htmlFor="year" className="form-label"
-                >How did you hear about Ivy Ready?</label
-                >
+                >What would you like to know more about?</label>
                 <div className="form-check">
                   <input
                     className="form-check-input"
@@ -328,10 +328,9 @@ export default function ContactForm({ type, coachName }) {
           ['FULL', 'INFO', 'CALL'].includes(type) &&
           <div className='mb-3'>
             <label htmlFor="year" className="form-label">
-              Current Year
+              Student Current Year
             </label>
-            <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year">
-              <option defaultValue>Select your class</option>
+            <select className="form-select" id='year' name='year' onChange={handleChange} aria-label="Current Year" defaultValue="JR">
               <option value="FR">Freshman</option>
               <option value="SP">Sophomore</option>
               <option value="JR">Junior</option>
