@@ -94,7 +94,7 @@ export default function Agreement() {
       <div className="h-screen flex flex-col justify-center items-center">
         <div className="bg-gray-100 w-1/2 px-4 py-5 shadow-xl rounded-lg text-center ">
           <div className='flex justify-center'>
-            <Image src='/images/logo-circle.png' width={300} height={300} alt="Logo" />
+            <Image src='/images/logo-circle.png' width={300} height={300} alt="Logo" priority />
           </div>
           <h1 className="text-center text-ivy-blue text-3xl font-semibold my-3">Application Support Agreement</h1>
           <Button onClick={() => setIsFirstOpen(false)}>Get Started!</Button>
