@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function GenerateUrl({ hostname }) {
-  console.log("HOSTNAME:", hostname)
+  // console.log("HOSTNAME:", hostname)
   const [packageType, setPackageType] = useState('essays-only')
   const [numSchools, setNumSchools] = useState()
   const [price, setPrice] = useState()
@@ -51,7 +51,7 @@ export default function GenerateUrl({ hostname }) {
 
   return (
     <div className="bg-gray-100 h-screen flex flex-col justify-center items-center">
-      <div className="bg-white w-1/2 px-5 py-3 shadow-lg rounded-lg">
+      <div className="bg-white  w-4/5 md:w-1/2 px-5 py-3 shadow-lg rounded-lg">
         <h1 className="text-center text-2xl font-bold">Generate Url</h1>
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
@@ -81,8 +81,8 @@ export default function GenerateUrl({ hostname }) {
 
         {url && (
           <div>
-            <hr className="m-3" />
-            <h1 className="font-bold text-lg my-1">Copy the generated slug below</h1>
+            <hr className="my-3 mx-2" />
+            <h1 className="font-bold text-lg my-1">Copy the generated url below</h1>
             <div className="flex gap-4 align-middle">
               <input value={url} className="form-control" readOnly />
               <Button onClick={() => navigator.clipboard.writeText(url)}>Copy</Button>

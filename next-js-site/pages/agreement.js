@@ -92,7 +92,7 @@ export default function Agreement() {
   if (isFirstOpen) {
     return (
       <div className="h-screen flex flex-col justify-center items-center">
-        <div className="bg-gray-100 w-1/2 px-4 py-5 shadow-xl rounded-lg text-center ">
+        <div className="bg-gray-100 w-4/5 md:w-1/2 px-4 py-5 shadow-xl rounded-lg text-center ">
           <div className='flex justify-center'>
             <Image src='/images/logo-circle.png' width={300} height={300} alt="Logo" priority />
           </div>
