@@ -1,23 +1,18 @@
+import { useRouter } from "next/router";
 import Alert from '@/components/Alert';
-import { packages } from '@/data/agreementInfo';
 import useAgreementForm from '@/hooks/useAgreementForm'
 import signAgreement from '@/lib/signAgreement';
-import '@/styles/agreement.module.css'
-import Image from 'next/image'
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState } from "react";
+import encryptor from "@/lib/hash";
+import { packages } from "@/data/agreementInfo";
 
-export async function getServerSideProps(context) {
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
-
-export default function Agreement() {
+export default function Sign() {
   const router = useRouter()
-  const { packageType, schools, price } = router.query
-  const { values, handleChange } = useAgreementForm({ price, packageType, schools });
+  const { id } = router.query
+  const decrypted = encryptor.decrypt(id)
+  const details = decrypted.split("-")
+
+  const { values, handleChange } = useAgreementForm();
   const [isSubmitting, setSubmitting] = useState(false);
 
   const [responseMessage, setResponseMessage] = useState(
@@ -30,11 +25,6 @@ export default function Agreement() {
     try {
       const res = await signAgreement(values);
       if (res.status === 250) {
-        // Below logic was for the pdf download functionality
-        // const blob = await res.blob();
-        // const url = URL.createObjectURL(blob);
-        // console.log("DOWNLOAD URL:", url)
-        // setDownloadURL(url);
         setResponseMessage(
           { success: true, message: 'Agreement signed! You can now safely close this tab.' });
       } else {
@@ -64,25 +54,14 @@ export default function Agreement() {
             <Alert message={responseMessage.message} success={responseMessage.success} />
           </div>
         </div>
-        {/* <div className='row justify-content-center'>
-          <div className='col text-center'>
-            <a href={downloadURL} download="Ivy Ready - Signed Agreement.pdf" className="btn btn-outline-danger text-center">
-              Download Signed PDF
-            </a>
-          </div>
-        </div> */}
       </div>
     )
   }
 
-  if (!price || !schools || !packages[packageType]) {
+  if (!packages[details[0]]) {
     return (
-      <div className="container">
-        <div className='row mt-5 justify-content-center'>
-          <div className='col-5'>
-            <Alert message={"Invalid URL. Please contact us if this issue persists."} success={false} />
-          </div>
-        </div>
+      <div>
+        <h1>INVALID URL</h1>
       </div>
     )
   }
@@ -112,9 +91,9 @@ export default function Agreement() {
             ><strong>Click here</strong></a> for services included with each package.
           </p>
           <form onSubmit={handleSubmit}>
-            <div className="row">
-              <label htmlFor="date" className="col-sm-2 col-form-label">Date</label>
-              <div className="col-sm-10">
+            <div className="mb-3 row">
+              <label htmlFor="date" className="col-sm-1 col-form-label">Date</label>
+              <div className="col-sm-11">
                 <input
                   type="text"
                   readOnly
@@ -125,45 +104,29 @@ export default function Agreement() {
                 />
               </div>
             </div>
-
-            <div className="row">
-              <label htmlFor="type" className="col-sm-2 col-form-label">Package</label>
-              <div className="col-sm-10">
+            <div className="mb-3 row">
+              <label htmlFor="package" className="col-sm-1 col-form-label">Package Type</label>
+              <div className="col-sm-11">
                 <input
                   type="text"
                   readOnly
                   className="form-control-plaintext"
-                  id="packageType"
-                  name="packageType"
-                  value={packages[packageType]}
+                  id="package"
+                  name="package"
+                  value={new Date().toLocaleDateString()}
                 />
               </div>
             </div>
-
-            <div className="row">
-              <label htmlFor="schools" className="col-sm-2 col-form-label">Number of Schools</label>
-              <div className="col-sm-10">
+            <div className="mb-3 row">
+              <label htmlFor="date" className="col-sm-1 col-form-label">Date</label>
+              <div className="col-sm-11">
                 <input
                   type="text"
                   readOnly
                   className="form-control-plaintext"
-                  id="schools"
-                  name="schools"
-                  value={schools}
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <label htmlFor="price" className="col-sm-2 col-form-label">Total</label>
-              <div className="col-sm-10">
-                <input
-                  type="text"
-                  readOnly
-                  className="form-control-plaintext"
-                  id="price"
-                  name="price"
-                  defaultValue={`$${price}`}
+                  id="date"
+                  name="date"
+                  value={new Date().toLocaleDateString()}
                 />
               </div>
             </div>
@@ -377,7 +340,7 @@ export default function Agreement() {
               >
             </p>
 
-            <button className="btn bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg" type="submit">{
+            <button className="btn btn-primary" type="submit">{
               isSubmitting ?
                 (
                   <div className="spinner-border text-light" role="status">
