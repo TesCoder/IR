@@ -17,8 +17,8 @@ export async function getServerSideProps(context) {
 
 export default function Agreement() {
   const router = useRouter()
-  const { packageType, schools, price } = router.query
-  const { values, handleChange } = useAgreementForm({ price, packageType, schools });
+  const { packageType, schools, price, coach } = router.query
+  const { values, handleChange } = useAgreementForm({ price, packageType: packages[packageType], schools, coach: coach.split("-").join(" ") });
   const [isSubmitting, setSubmitting] = useState(false);
   const [isFirstOpen, setIsFirstOpen] = useState(true)
 
@@ -77,7 +77,7 @@ export default function Agreement() {
     )
   }
 
-  if (!price || !schools || !packages[packageType]) {
+  if (!price || !schools || !packages[packageType] || !coach) {
     return (
       <div className="container">
         <div className='row mt-5 justify-content-center'>
@@ -94,7 +94,7 @@ export default function Agreement() {
       <div className="h-screen flex flex-col justify-center items-center">
         <div className="bg-gray-100 w-4/5 md:w-1/2 px-4 py-5 shadow-xl rounded-lg text-center ">
           <div className='flex justify-center'>
-            <Image src='/images/logo-circle.png' width={300} height={300} alt="Logo" priority />
+            <Image onClick={() => setIsFirstOpen(false)} className="cursor-pointer hover:drop-shadow-lg" src='/images/logo-circle.png' width={300} height={300} alt="Logo" priority />
           </div>
           <h1 className="text-center text-ivy-blue text-3xl font-semibold my-3">Application Support Agreement</h1>
           <Button onClick={() => setIsFirstOpen(false)}>Get Started!</Button>
@@ -138,48 +138,6 @@ export default function Agreement() {
                   id="date"
                   name="date"
                   value={new Date().toLocaleDateString()}
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <label htmlFor="type" className="col-sm-2 col-form-label">Package</label>
-              <div className="col-sm-10">
-                <input
-                  type="text"
-                  readOnly
-                  className="form-control-plaintext"
-                  id="packageType"
-                  name="packageType"
-                  value={packages[packageType]}
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <label htmlFor="schools" className="col-sm-2 col-form-label">Number of Schools</label>
-              <div className="col-sm-10">
-                <input
-                  type="text"
-                  readOnly
-                  className="form-control-plaintext"
-                  id="schools"
-                  name="schools"
-                  value={schools}
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <label htmlFor="price" className="col-sm-2 col-form-label">Total</label>
-              <div className="col-sm-10">
-                <input
-                  type="text"
-                  readOnly
-                  className="form-control-plaintext"
-                  id="price"
-                  name="price"
-                  defaultValue={`$${price}`}
                 />
               </div>
             </div>
@@ -259,6 +217,7 @@ export default function Agreement() {
                 className="form-control"
                 id="studentName"
                 name="studentName"
+                pattern='\w+\s+\w+'
                 value={values.studentName}
                 onChange={handleChange}
               />
@@ -292,10 +251,54 @@ export default function Agreement() {
               />
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="coach" className="form-label">Coach</label>
-              <input type="text" className="form-control" id="coach" name="coach" value={values.coach}
-                onChange={handleChange} />
+            <div className='row'>
+              <label htmlFor="coach" className="col-sm-2 form-label">Coach</label>
+              <div className="col-sm-10">
+                <input type="text" readOnly className="form-control-plaintext" id="coach" name="coach" value={values.coach} />
+              </div>
+            </div>
+
+
+            <div className="row">
+              <label htmlFor="type" className="col-sm-2 col-form-label">Package</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  readOnly
+                  className="form-control-plaintext"
+                  id="packageType"
+                  name="packageType"
+                  value={packages[packageType]}
+                />
+              </div>
+            </div>
+
+            <div className="row">
+              <label htmlFor="schools" className="col-sm-2 col-form-label">Number of Schools</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  readOnly
+                  className="form-control-plaintext"
+                  id="schools"
+                  name="schools"
+                  value={schools}
+                />
+              </div>
+            </div>
+
+            <div className="row mb-3">
+              <label htmlFor="price" className="col-sm-2 col-form-label">Total</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  readOnly
+                  className="form-control-plaintext"
+                  id="price"
+                  name="price"
+                  defaultValue={`$${price}`}
+                />
+              </div>
             </div>
 
             <div className="mb-3">

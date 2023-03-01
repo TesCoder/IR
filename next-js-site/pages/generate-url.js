@@ -2,6 +2,7 @@ import { Button } from "@/components/Button";
 import { packages } from "@/data/agreementInfo";
 import encryptor from "@/lib/hash";
 import { useState } from "react";
+import { members } from ".";
 
 export async function getServerSideProps(context) {
   return {
@@ -16,6 +17,7 @@ export default function GenerateUrl({ hostname }) {
   const [packageType, setPackageType] = useState('essays-only')
   const [numSchools, setNumSchools] = useState()
   const [price, setPrice] = useState()
+  const [coach, setCoach] = useState()
 
   const [url, setUrl] = useState()
   const [hash, setHash] = useState()
@@ -35,6 +37,10 @@ export default function GenerateUrl({ hostname }) {
         setPrice(e.target.value)
         break;
 
+      case "coach":
+        setCoach(e.target.value)
+        break;
+
       default:
         break;
     }
@@ -43,7 +49,7 @@ export default function GenerateUrl({ hostname }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     // const toHash = [packageType, numSchools, price].join("-")
-    setUrl(`${hostname}/agreement?packageType=${packageType}&schools=${numSchools}&price=${price}`)
+    setUrl(`${hostname}/agreement?packageType=${packageType}&schools=${numSchools}&price=${price}&coach=${coach}`)
     // const hashed = encryptor.encrypt(toHash)
     // setHash(hashed)
   }
@@ -68,9 +74,22 @@ export default function GenerateUrl({ hostname }) {
               {Object.entries(packages).map(([key, value]) => <option key={key} value={key}>{value}</option>)})
             </select>
           </div>
+          <div className='mb-3'>
+            <label htmlFor="year" className="form-label">
+              Coach
+            </label>
+            <select className="form-select" id='coach' name='coach' onChange={handleChange} aria-label="coach" required>
+              <option value="" selected>Select a Coach</option>
+              {members.map(({ name }, idx) => <option key={idx} value={name.split(" ").join("-")}>{name}</option>)})
+            </select>
+          </div>
           <div className="row mb-3">
             <div className="col">
-              <input type="text" onChange={handleChange} className="form-control" name="num-schools" placeholder="# of Schools" aria-label="Number of Schools" required />
+              {/* <input type="text" onChange={handleChange} className="form-control" name="num-schools" placeholder="# of Schools" aria-label="Number of Schools" required /> */}
+              <select className="form-select" id='num-schools' name='num-schools' onChange={handleChange} aria-label="Number of schools" required>
+                <option value="" selected>Select # of Schools</option>
+                {[5, 10, 15, 20].map((val, idx) => <option key={idx} value={val}>{val}</option>)})
+              </select>
             </div>
             <div className="col">
               <input type="text" onChange={handleChange} className="form-control" name="cost" placeholder="Cost" aria-label="Cost" required />
