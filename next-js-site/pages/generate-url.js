@@ -7,7 +7,7 @@ import { members } from ".";
 export async function getServerSideProps(context) {
   return {
     props: {
-      hostname: context.req.headers.host
+      hostname: context.req.headers.host,
     }, // will be passed to the page component as props
   }
 }
@@ -49,7 +49,7 @@ export default function GenerateUrl({ hostname }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     // const toHash = [packageType, numSchools, price].join("-")
-    setUrl(`${hostname}/agreement?packageType=${packageType}&schools=${numSchools}&price=${price}&coach=${coach}`)
+    setUrl(`${window.location.protocol}//${hostname}/agreement?packageType=${packageType}&schools=${numSchools}&price=${price}&coach=${coach}`)
     // const hashed = encryptor.encrypt(toHash)
     // setHash(hashed)
   }
@@ -78,16 +78,16 @@ export default function GenerateUrl({ hostname }) {
             <label htmlFor="year" className="form-label">
               Coach
             </label>
-            <select className="form-select" id='coach' name='coach' onChange={handleChange} aria-label="coach" required>
-              <option value="" selected>Select a Coach</option>
+            <select className="form-select" id='coach' name='coach' defaultValue="" onChange={handleChange} aria-label="coach" required>
+              <option value="" >Select a Coach</option>
               {members.map(({ name }, idx) => <option key={idx} value={name.split(" ").join("-")}>{name}</option>)})
             </select>
           </div>
           <div className="row mb-3">
             <div className="col">
               {/* <input type="text" onChange={handleChange} className="form-control" name="num-schools" placeholder="# of Schools" aria-label="Number of Schools" required /> */}
-              <select className="form-select" id='num-schools' name='num-schools' onChange={handleChange} aria-label="Number of schools" required>
-                <option value="" selected>Select # of Schools</option>
+              <select className="form-select" id='num-schools' name='num-schools' defaultValue="" onChange={handleChange} aria-label="Number of schools" required>
+                <option value="" >Select # of Schools</option>
                 {[5, 10, 15, 20].map((val, idx) => <option key={idx} value={val}>{val}</option>)})
               </select>
             </div>
@@ -103,8 +103,11 @@ export default function GenerateUrl({ hostname }) {
             <hr className="my-3 mx-2" />
             <h1 className="font-bold text-lg my-1">Copy the generated url below</h1>
             <div className="flex gap-4 align-middle">
-              <input value={url} className="form-control" readOnly />
-              <Button onClick={() => navigator.clipboard.writeText(url)}>Copy</Button>
+              <textarea value={url} className="form-control" readOnly />
+              <div className="flex flex-col gap-2">
+                <Button onClick={() => navigator.clipboard.writeText(url)}>Copy</Button>
+                <Button onClick={() => window.open(url, "_blank")}>Open</Button>
+              </div>
             </div>
           </div>
         )}
