@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useAgreementForm = () => {
+const useAgreementForm = (defaults) => {
   const [values, setValues] = useState({
     date: new Date().toLocaleDateString(),
     year: new Date().getFullYear(),
@@ -13,7 +13,11 @@ const useAgreementForm = () => {
     studentPhone: '',
     coach: '',
     payment: '',
-    signature: ''
+    signature: '',
+    // packageType: '',
+    // schools: '',
+    // price: '',
+    ...defaults
   });
 
   const handleChange = (e) => {

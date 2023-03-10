@@ -5,7 +5,7 @@ export default function Alert({ success, message }) {
     <div className={`bg-ivy-red py-4 px-4 rounded-lg shadow-md text-white font-raleway`} role="alert" >
       <h2 className="text-3xl font-semibold" >
         {/* <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill" /></svg> */}
-        {success ? "Form Submitted!" : "Error Submitting Form"}
+        {success ? "Form Submitted!" : "Form Error"}
       </h2 >
       <hr className="my-2" />
       <p className="text-lg">{message}</p>

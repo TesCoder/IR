@@ -58,9 +58,9 @@
         ><strong> for services included with each package.)</strong>
       </p>
       <form action="/submit" method="POST">
-        <div class="mb-3 row">
-          <label for="date" class="col-sm-1 col-form-label">Date</label>
-          <div class="col-sm-11">
+        <div class="row">
+          <label for="date" class="col-sm-2 col-form-label">Date</label>
+          <div class="col-sm-9">
             <input
               type="text"
               readonly
@@ -68,6 +68,48 @@
               id="date"
               name="date"
               value="<%= form.date %>"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="type" class="col-sm-2 col-form-label">Package</label>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              readonly
+              class="form-control-plaintext"
+              id="packageType"
+              name="packageType"
+              value="<%= form.packageType %>"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="schools" class="col-sm-2 col-form-label">Number of Schools</label>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              readonly
+              class="form-control-plaintext"
+              id="schools"
+              name="schools"
+              value="<%= form.schools %>"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="price" class="col-sm-2 col-form-label">Total</label>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              readonly
+              class="form-control-plaintext"
+              id="price"
+              name="price"
+              value="<%= form.price %>"
             />
           </div>
         </div>
@@ -110,6 +152,13 @@
           />
         </div>
 
+        <div class="page">
+          <div class="watermark">
+            <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
+            <h1>Official <%= form.date %></h1>
+          </div>
+        </div>
+
         <div class="mb-3">
           <label for="parentEmail" class="form-label"
             >Parent (Legal Guardian) Email Address</label
@@ -136,13 +185,6 @@
             id="parentPhone"
             name="parentPhone"
           />
-        </div>
-
-        <div class="page">
-          <div class="watermark">
-            <img src="/ejsAssets/watermark.svg" alt="Logo watermark" />
-            <h1>Official <%= form.date %></h1>
-          </div>
         </div>
 
         <div class="mb-3">
