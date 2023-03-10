@@ -101,7 +101,7 @@ export default function GenerateUrl({ hostname }) {
         {url && (
           <div>
             <hr className="my-3 mx-2" />
-            <h1 className="font-bold text-lg my-1">Copy the generated url below</h1>
+            <h1 className="font-bold text-lg my-1">TEST Copy the generated url below</h1>
             <div className="flex gap-4 align-middle">
               <textarea value={url} className="form-control" readOnly />
               <div className="flex flex-col gap-2">
