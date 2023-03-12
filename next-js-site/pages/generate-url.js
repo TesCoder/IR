@@ -58,7 +58,7 @@ export default function GenerateUrl({ hostname }) {
   return (
     <div className="bg-gray-100 h-screen flex flex-col justify-center items-center">
       <div className="bg-white  w-4/5 md:w-1/2 px-5 py-3 shadow-lg rounded-lg">
-        <h1 className="text-center text-2xl font-bold">Generate Url</h1>
+        <h1 className="text-center text-2xl font-bold">Generate Url TEST </h1>
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor="year" className="form-label">
