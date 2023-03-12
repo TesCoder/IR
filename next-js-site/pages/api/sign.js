@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   req.body.id = id
 
   const response = await fetch(
-    'https://us-central1-tsion-consulting.cloudfunctions.net/helloHttp',
+    process.env.GOOGLE_CLOUD_FUNCTION_URL,
     {
       method: 'POST',
       headers: {

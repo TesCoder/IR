@@ -1,5 +1,7 @@
 import vCardsJS from 'vcards-js';
 import { sendEmail } from './utils/sendEmail';
+import { updateSheet } from './utils/updateSheet'
+
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
@@ -16,6 +18,13 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
   vCard.email = email;
   vCard.cellPhone = phone;
   vCard.note = `
+    Conversion Date: ${today.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' })}
+    Conversion Time: ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}
+    Conversion Type: Form
+    Conversion Source: ${heard}
+    Student Year: ${year}
+    Conversion Status: Form submission
+
     Type: ${type}
     Name: ${fname} ${lname}
     City, State: ${location}
@@ -23,9 +32,7 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
     Phone: ${phone}
     Preferred Contact Method: ${contact}
     Which option interests you?: ${option}
-    How did you hear about Ivy Ready?: ${heard}
     What would you like to know more about?: ${info}
-    Current Year: ${year}
     Service Requested: ${service}
     ${coach ? `Coach Request ${coach}` : ""}
   `;
@@ -39,17 +46,26 @@ export default async function handler(req, res) {
 
   const vCard = getVCard(req.body)
 
-  const filename = `${prefix} ${fname} ${lname}.vcf`
+  const id = `${prefix} ${fname} ${lname}`
+  const success = await updateSheet({id ,...req.body})
+
+  const filename = `${id}.vcf`
   const emailOptions = {
     subject: `Contact Form Submission`,
     html: `
       <ul>
+        <li><strong>Conversion Date:</strong> ${today.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
+        <li><strong>Conversion Time:</strong> ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
+        <li><strong>Conversion Type:</strong> Form</li>
+        <li><strong>Conversion Source:</strong> ${heard}</li>
+        <li><strong>Conversion Status:</strong> Form Submission</li>
+        <li><strong>Student Year:</strong> ${year}</li>
+        <li><strong>Added to Google Sheet:</strong> ${success}</li>
         <li><strong>Type:</strong> ${type}</li>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
         <li><strong>City, State:</strong> ${location}</li>
         <li><strong>Email:</strong> ${email}</li>
         <li><strong>Phone:</strong> ${phone}</li>
-        <li><strong>Current Year:</strong> ${year}</li>
         <li><strong>Preferred Contact Method:</strong> ${contact}</li>
         <li><strong>Which option interests you?:</strong> ${option}</li>
         <li><strong>How did you hear about Ivy Ready?:</strong> ${heard}</li>

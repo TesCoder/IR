@@ -9,7 +9,7 @@
     "url": "https://github.com/tameney22/tsion-consulting"
   },
   "scripts": {
-    "deploy": "gcloud functions deploy helloHttp --runtime nodejs18 --trigger-http --allow-unauthenticated"
+    "deploy": "gcloud functions deploy generatePdf --runtime nodejs18 --trigger-http --allow-unauthenticated"
   },
   "engines": {
     "node": ">=12.0.0"

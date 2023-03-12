@@ -11,7 +11,7 @@ const pdf = require('html-pdf')
  * @param {Object} req Cloud Function request context.
  * @param {Object} res Cloud Function response context.
  */
-functions.http('helloHttp', async (req, res) => {
+functions.http('generatePdf', async (req, res) => {
   console.log("RECEIVED FORM:", req.body)
   const templatesDir = path.join(process.cwd(), 'templates');
   var html = fs.readFileSync(templatesDir + '/toPdf.html', 'utf8');

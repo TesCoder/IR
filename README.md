@@ -16,6 +16,10 @@ To get the site up and running on your local machine, you will need to set the s
 TITAN_EMAIL="<titan-email-address>"
 TITAN_PASSWORD="<titan-email-password>"
 RECIPIENT_EMAIL="<your-email-here>"
+
+GOOGLE_SERVICE_PRIVATE_KEY=<private-key>
+GOOGLE_CLIENT_EMAIL=<service-account-email>
+SPREADSHEET_ID=<google-spreadsheet-id-from-url>
 ```
 
 ### gcloud-functions

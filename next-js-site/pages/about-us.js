@@ -38,7 +38,7 @@ export default function About() {
       </Modal>
       <div className='flex bg-about-hero bg-cover bg-center h-4/5 bg-blue-300 py-48'>
         <div className='m-auto text-center'>
-          <h1 className='text-7xl text-white' style={{ "textShadow": "2px 2px 2px #000;" }}>Admission and Financial Aid Experts</h1>
+          <h1 className='text-7xl text-white' style={{ "textShadow": "2px 2px 2px #000" }}>Admission and Financial Aid Experts</h1>
         </div>
       </div>
 

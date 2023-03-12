@@ -130,7 +130,7 @@ export default function Home() {
       {/* Main Banner */}
       <div className='flex bg-hero bg-cover h-4/5 bg-blue-300 py-48'>
         <div className='m-auto text-center'>
-          <h1 className='text-7xl text-white' style={{ "textShadow": "2px 2px 2px #000;" }}>Ivy Ready College Consulting</h1>
+          <h1 className='text-7xl text-white' style={{ "textShadow": "2px 2px 2px #000" }}>Ivy Ready College Consulting</h1>
           <h4 className='text-2xl my-3 drop-shadow-lg italic font-medium'>
             Personalized College Admission Support
             <br />

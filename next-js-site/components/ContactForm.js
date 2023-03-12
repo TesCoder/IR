@@ -54,7 +54,7 @@ export default function ContactForm({ type, coachName }) {
         <Alert message={responseMessage.message} success={responseMessage.success} />
       </div>
       <form onSubmit={handleSubmit}>
-        <button onClick={() => console.log("Values:", values)}>LOG</button>
+        {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
         <div className="row mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <div className="col">
@@ -247,10 +247,10 @@ export default function ContactForm({ type, coachName }) {
                     type="checkbox"
                     name="heard"
                     onChange={handleChange}
-                    value="Phone"
-                    id="phone"
+                    value="Google Search"
+                    id="google"
                   />
-                  <label className="form-check-label" htmlFor="phone">
+                  <label className="form-check-label" htmlFor="google">
                     Google Search
                   </label>
                 </div>
@@ -260,10 +260,10 @@ export default function ContactForm({ type, coachName }) {
                     type="checkbox"
                     name="heard"
                     onChange={handleChange}
-                    value="Email"
-                    id="phone"
+                    value="Mail"
+                    id="mail"
                   />
-                  <label className="form-check-label" htmlFor="phone"> Mail </label>
+                  <label className="form-check-label" htmlFor="mail"> Mail </label>
                 </div>
                 <div className="form-check">
                   <input
@@ -272,9 +272,9 @@ export default function ContactForm({ type, coachName }) {
                     name="heard"
                     onChange={handleChange}
                     value="Family or Friends"
-                    id="phone"
+                    id="famOrFriends"
                   />
-                  <label className="form-check-label" htmlFor="phone">
+                  <label className="form-check-label" htmlFor="famOrFriends">
                     Family or Friends
                   </label>
                 </div>
