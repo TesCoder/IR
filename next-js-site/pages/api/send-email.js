@@ -23,7 +23,7 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
     Conversion Type: Form
     Conversion Source: ${heard}
     Student Year: ${year}
-    Conversion Status: Form submission
+    Status: Form submission
 
     Type: ${type}
     Name: ${fname} ${lname}
@@ -32,6 +32,7 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
     Phone: ${phone}
     Preferred Contact Method: ${contact}
     Which option interests you?: ${option}
+    How did you hear about Ivy Ready?: ${heard}
     What would you like to know more about?: ${info}
     Service Requested: ${service}
     ${coach ? `Coach Request ${coach}` : ""}
@@ -47,7 +48,7 @@ export default async function handler(req, res) {
   const vCard = getVCard(req.body)
 
   const id = `${prefix} ${fname} ${lname}`
-  const success = await updateSheet({id ,...req.body})
+  const success = await updateSheet({ id, ...req.body })
 
   const filename = `${id}.vcf`
   const emailOptions = {
@@ -58,10 +59,9 @@ export default async function handler(req, res) {
         <li><strong>Conversion Time:</strong> ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
         <li><strong>Conversion Type:</strong> Form</li>
         <li><strong>Conversion Source:</strong> ${heard}</li>
-        <li><strong>Conversion Status:</strong> Form Submission</li>
         <li><strong>Student Year:</strong> ${year}</li>
-        <li><strong>Added to Google Sheet:</strong> ${success}</li>
-        <li><strong>Type:</strong> ${type}</li>
+        <li><strong>Status:</strong> Form Submission</li>
+        <br>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
         <li><strong>City, State:</strong> ${location}</li>
         <li><strong>Email:</strong> ${email}</li>
@@ -72,6 +72,8 @@ export default async function handler(req, res) {
         <li><strong>What would you like to know more about?:</strong> ${info}</li>
         <li><strong>Service Requested:</strong> ${service}</li>
         ${coach ? `<li><strong>Coach Request:</strong> ${coach}</li>` : ''}
+        <li><strong>Added to Google Sheet:</strong> ${success}</li>
+        <li><strong>Type:</strong> ${type}</li>
       </ul>
       `,
     attachments: [
