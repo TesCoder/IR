@@ -25,7 +25,6 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
     Student Year: ${year}
     Status: Form submission
 
-    Type: ${type}
     Name: ${fname} ${lname}
     City, State: ${location}
     Email: ${email}
@@ -36,6 +35,7 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
     What would you like to know more about?: ${info}
     Service Requested: ${service}
     ${coach ? `Coach Request ${coach}` : ""}
+    Type: ${type}
   `;
 
   return vCard;
