@@ -3,6 +3,11 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 const { SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_SERVICE_PRIVATE_KEY } = process.env
 
 const doc = new GoogleSpreadsheet(SPREADSHEET_ID)
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+const colNames = ["Date", "Time", "ConvType", "Stage", "StageDesc", "Email", "Phone", "FirstName", "LastName", "Prospect", "StudentYear", "ProvidedLocation", "ContactMethod", "Options", "InfoRequested", "ConvSource"]
 
 export const updateSheet = async ({ id, coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service }) => {
   console.log("REACHED UPDATE SHEET!")
@@ -14,8 +19,15 @@ export const updateSheet = async ({ id, coach, type, fname, lname, location, ema
 
     await doc.loadInfo();
 
-    const sheet = doc.sheetsByIndex[0];
+    let sheet = doc.sheetsByIndex[0];
     const today = new Date();
+    const month = monthNames[today.getMonth()];
+    const desiredTitle = `${month} ${today.getFullYear()}`
+    // If first sheet is from previous/other month create new sheet with this month's name 
+    if (sheet.title != desiredTitle) {
+      sheet = await doc.addSheet({ title: desiredTitle, headerValues: colNames });
+      await sheet.updateProperties({ index: 0 })
+    }
 
     await sheet.addRow({
       Prospect: id,
