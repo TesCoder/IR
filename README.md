@@ -1,6 +1,6 @@
-# Ivy Ready
+# IR
 
-This repository contains all the code used for implementing the form signing and contact form features for Ivy Ready.
+This repository contains all the code used for implementing the form signing and contact form features for IR.
 
 ## Components
 
