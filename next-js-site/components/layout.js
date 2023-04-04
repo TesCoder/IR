@@ -6,13 +6,13 @@ const noNavPages = ["/contact"];
 
 export default function Layout({ children }) {
   const { pathname } = useRouter();
-  const hideNav = noNavPages.includes(pathname);
+  const hide = noNavPages.includes(pathname);
 
   return (
     <>
-      {!hideNav && <Navbar />}
+      {!hide && <Navbar />}
       <main className="min-h-screen font-raleway">{children}</main>
-      {!hideNav && <Footer />}
+      {!hide && <Footer />}
     </>
   );
 }
