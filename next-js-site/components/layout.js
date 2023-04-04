@@ -15,7 +15,7 @@ export default function Layout({ children }) {
     <>
       {!hideNav && <Navbar />}
       <main className="min-h-screen font-raleway">{children}</main>
-      {/* <Footer /> */}
+      {!hideNav && <Footer />}
     </>
   );
 }
