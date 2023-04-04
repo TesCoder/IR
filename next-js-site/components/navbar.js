@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Navbar() {
   return (
 
-    <nav className="navbar navbar-expand-md bg-body-tertiary text-white font-raleway font-medium p-0 navbar-dark uppercase" data-bs-theme="dark">
+    <nav id="custom-nav" className="navbar navbar-expand-md bg-body-tertiary text-white font-raleway font-medium p-0 navbar-dark uppercase" data-bs-theme="dark">
       <div className="container-fluid bg-ivy-red">
         <Link className="navbar-brand" href="/">
           <Image src="/images/logo-white.png" alt="Logo" width={100} height={110} priority />
