@@ -54,6 +54,10 @@ export default function ContactForm({ type, coachName }) {
         <Alert message={responseMessage.message} success={responseMessage.success} />
       </div>
       <form onSubmit={handleSubmit}>
+      <h1 className='font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3'>
+        Have any Questions?
+      </h1>
+      <p className='text-lg my-3 text-gray-700'>Please complete the form below for a prompt reply.</p>
         {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
         <div className="row mb-3">
           <label htmlFor="name" className="form-label">Name</label>
