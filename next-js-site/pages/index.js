@@ -271,8 +271,8 @@ export default function Home() {
       </Section>
 
 
-      <Section id="application-support-questions-section" title="Have any questions?" >
-        <p className='text-lg my-3 text-gray-700'>Please complete the form below for a prompt reply.</p>
+      <Section id="application-support-questions-section" >
+
         <ContactForm type="FULL" />
       </Section>
 
