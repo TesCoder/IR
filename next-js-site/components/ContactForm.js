@@ -23,7 +23,9 @@ export default function ContactForm({ type, coachName }) {
       const res = await sendEmail({ type, coach: coachName, ...values });
       if (res.status === 250) {
         setResponseMessage(
-          { success: true, message: 'Thank you for your message. We will be reaching out to you soon.' });
+          { success: true, message: 'Thank you for your message. We will be reaching out to you soon.' 
+        });
+        window.location.href = 'https://ivyready.com/contact-us-form-submitted#top';
       }
     } catch (e) {
       console.log(e);
