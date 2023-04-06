@@ -240,7 +240,7 @@ export default function Home() {
           Our team is comprised of former admission officers who have extensive
           experience supporting students with the college admission process. We
           offer <HyperLink href="/#application-support-questions-section">application support packages</HyperLink>
-          , <HyperLink href="/hourly-consultation">hourly consultation</HyperLink>, and{" "}
+          , <HyperLink href="/#application-support-questions-section">hourly consultation</HyperLink>, and{" "}
           <HyperLink href="/evaluation">Application Evaluation</HyperLink>.
         </p>
         <p className=" text-xl text-center font-bold text-gray-700">
