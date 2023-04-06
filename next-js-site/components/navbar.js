@@ -42,6 +42,14 @@ export default function Navbar() {
                 Services
               </a>
               <ul className="dropdown-menu bg-ivy-red">
+              <li>
+                  <Link
+                    className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                    href="/"
+                  >
+                    Admission Support
+                  </Link>
+                </li>
                 <li>
                   <Link
                     className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
@@ -58,18 +66,11 @@ export default function Navbar() {
                     Application Evaluation
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                    href="/"
-                  >
-                    Hourly Consultation
-                  </Link>
-                </li>
+                
               </ul>
             </li>
 
-            <div className="sm:hidden lg:block
+            <div className="hidden sm:hidden lg:block
               -my-6 mx-5
             ">{LogoProjector()}</div>
 
