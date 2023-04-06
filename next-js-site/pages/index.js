@@ -243,7 +243,7 @@ export default function Home() {
           , <HyperLink href="#test">hourly consultation</HyperLink>, and{" "}
           <HyperLink href="#test">Application Evaluation</HyperLink>.
         </p>
-        <p className=" text-xl font-bold text-gray-700">
+        <p className=" text-xl text-center font-bold text-gray-700">
           Sign up for your (free) introductory session!
         </p>
 
