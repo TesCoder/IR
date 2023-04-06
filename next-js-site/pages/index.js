@@ -553,7 +553,7 @@ export default function Home() {
             ))}
           </div>
           <button
-            className="carousel-control-prev bg-transparent"
+            className="visually-hidden carousel-control-prev bg-transparent"
             type="button"
             data-bs-target="#testimonials"
             data-bs-slide="prev"
@@ -565,7 +565,7 @@ export default function Home() {
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next bg-transparent"
+            className="visually-hidden carousel-control-next bg-transparent"
             type="button"
             data-bs-target="#testimonials"
             data-bs-slide="next"
