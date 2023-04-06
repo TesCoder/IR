@@ -4,7 +4,7 @@ export default function Modal({ id, title, children }) {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header bg-ivy-red text-white">
-            <h1 className="modal-title fs-5" id="staticBackdropLabel">{title}</h1>
+            <h1 className="modal-title fs-5 text-white" id="staticBackdropLabel">{title}</h1>
             <button type="button" className="font-bold text-white ml-6 font-mono" data-bs-dismiss="modal" aria-label="Close">X</button>
           </div>
           <div className="modal-body">

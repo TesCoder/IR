@@ -25,8 +25,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'ivy-blue': "#2d5780",
-        'ivy-red': "#990000"
+        'ivy-blue': "#2D5780",
+        'ivy-red': "#990001"
       },
       backgroundImage: {
         'hero': "url('/images/banner.jpg')",
