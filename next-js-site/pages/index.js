@@ -7,6 +7,11 @@ import Modal from '@/components/Modal'
 import { Button, ButtonRow } from '@/components/Button'
 import { useState } from 'react'
 
+import ReactGA from 'react-ga';
+const TRACKING_ID = "UA-64646703-2";
+ReactGA.initialize(TRACKING_ID);
+
+
 const MarqueeElement = ({ children }) => <span className="text-2xl mx-2 text-ivy-blue font-light">{...children}</span>
 
 const HyperLink = ({ href, children }) => <Link className='underline text-ivy-blue font-medium' href={href}>{...children}</Link>
@@ -155,7 +160,8 @@ export default function Home() {
         <Button onClick={() => window.open("/#application-support-questions-section", "_self")}>Contact Us</Button>
       </Section>
 
-      <Section title="Meet a Few Members of Our Team and Their Admission Background" darkBg centerContent>
+      <Section title="" darkBg centerContent>
+        <h2>Meet a Few Members of Our Team and Their Admission Background</h2>
         <p className=' text-xl text-center my-2 text-gray-700'>Our team is comprised of former admission officers with official admission experience and expertise supporting students with the college admission process. </p>
         <div className='flex justify-center my-4 flex-wrap md:flex-nowrap overflow-visible'>
           {members.map(({ name, imgSrc }, i) => <Profile key={i} name={name} imgSrc={imgSrc} />)}
@@ -270,10 +276,8 @@ export default function Home() {
         </div>
       </Section>
 
-
       <Section id="application-support-questions-section" >
-
-        <ContactForm type="FULL" />
+          <ContactForm type="FULL" />
       </Section>
 
       <ButtonRow setModalType={setModalType} />

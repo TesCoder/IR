@@ -5,10 +5,13 @@ import { useState } from "react";
 import sendEmail from "../lib/sendEmail";
 import Alert from "@/components/Alert";
 import Link from "next/link";
+import useAnalyticsEventTracker from './useAnalyticsEventTracker';
 
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
 export default function ContactForm({ type, coachName }) {
+  const gaEventTracker = useAnalyticsEventTracker('Contact us');
+  
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false);
@@ -29,6 +32,7 @@ export default function ContactForm({ type, coachName }) {
           message:
             "Thank you for your message. We will be reaching out to you soon.",
         });
+        gaEventTracker('email')
         window.location.href =
           "https://ivyready.com/contact-us-form-submitted#top";
       }
@@ -416,7 +420,7 @@ export default function ContactForm({ type, coachName }) {
               onChange={handleChange}
               aria-label="Current Year"
             >
-              <option defaultValue>Select your class</option>
+              <option defaultValue>Select evaluation type</option>
               <option value="Single">
                 Single Evaluation (30-minute Coach Review & 30-minute
                 Discussion)
