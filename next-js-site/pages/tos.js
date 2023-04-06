@@ -1,4 +1,4 @@
-// import '../styles/globals.css';
+// import {"'"}../styles/globals.css{"'"};
 
 export default function TermsOfService() {
     return (
@@ -6,9 +6,9 @@ export default function TermsOfService() {
             <div className="mx-60 mt-5">
                 <h1 className="text-center text-ivy-blue text-3xl font-semibold my-3">Terms of Service</h1>
                 <h2>Terms of Service</h2><br></br><br></br>
-                    By using our service, you agree to abide by Ivy Ready's Terms of Service and additional guidelines agreed with the College Application Coach (if applicable) during the administration of a service.
+                    By using our service, you agree to abide by Ivy Ready{"'"}s Terms of Service and additional guidelines agreed with the College Application Coach (if applicable) during the administration of a service.
                     <br></br><br></br>
-                    Note: In this Agreement the term "You" refers to both the Parent (legal guardian) and Applicant (student) unless specified.
+                    Note: In this Agreement the term {"You"} refers to both the Parent (legal guardian) and Applicant (student) unless specified.
                     <br></br><br></br>
                     <h2>Terms</h2>
                     <ul className="list-disc pl-10">
@@ -107,7 +107,7 @@ export default function TermsOfService() {
                                     <p>Direct Mail Marketing</p>
                                     <ul className="list-[circle] pl-10">
                                         <li>
-                                            <p>You may opt out of direct mail marketing by emailing us at contact@ivyready.com with the subject line "opt out" and the email body containing your full name and the address where the mail was received.</p>
+                                            <p>You may opt out of direct mail marketing by emailing us at contact@ivyready.com with the subject line {"opt out"} and the email body containing your full name and the address where the mail was received.</p>
                                         </li>
                                     </ul>
                                 </li>
@@ -187,13 +187,13 @@ export default function TermsOfService() {
                             <p>Whilst we endeavor to keep the information on our website and social media channels up-to-date and correct, they are available “as is.” We do not warrant that it will be uninterrupted or error-free. There may be delays, omissions, interruptions and inaccuracies in the information provided.</p>
                         </li>
                         <li>
-                            <p>ALL CONTENT AND INFORMATION ATTAINED FROM IVY READY LLC OR IT'S REPRESENTATIVES IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, ABOUT THE COMPLETENESS, ACCURACY, RELIABILITY, TIMELINESS, PERFORMANCE, SUITABILITY, WITHOUT LIMITATION, THOSE OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE RESERVE THE RIGHT TO CORRECT ANY ERRORS OR OMISSIONS. YOU ACKNOWLEDGE THAT SUCH INFORMATION AND MATERIALS MAY CONTAIN INACCURACIES OR ERRORS AND WE EXPRESSLY EXCLUDE LIABILITY FOR ANY SUCH INACCURACIES OR ERRORS TO THE FULLEST EXTENT PERMITTED BY LAW. ANY RELIANCE YOU PLACE ON SUCH INFORMATION IS THEREFORE STRICTLY AT YOUR OWN RISK. WE ARE NOT ENDORSING AN ADMISSION OUTCOME AND CANNOT VOUCH FOR A SPECIFIC VALIDITY OR RELIABILITY. IN NO EVENT WILL IVY READY OR IT'S REPRESENTATIVES OR COACHES BE LIABLE FOR ANY LOSS OR DAMAGE INCLUDING WITHOUT LIMITATION, INDIRECT OR CONSEQUENTIAL LOSS, INJURY OR DAMAGE ARISING FROM THE USE OF OUR SERVICES OR THIS WEBSITE, INCLUDING DUE TO ERRORS, OMISSIONS, INTERRUPTIONS OR OTHER INACCURACIES.</p>
+                            <p>ALL CONTENT AND INFORMATION ATTAINED FROM IVY READY LLC OR IT{"'"}S REPRESENTATIVES IS PROVIDED {"AS IS"} WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, ABOUT THE COMPLETENESS, ACCURACY, RELIABILITY, TIMELINESS, PERFORMANCE, SUITABILITY, WITHOUT LIMITATION, THOSE OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE RESERVE THE RIGHT TO CORRECT ANY ERRORS OR OMISSIONS. YOU ACKNOWLEDGE THAT SUCH INFORMATION AND MATERIALS MAY CONTAIN INACCURACIES OR ERRORS AND WE EXPRESSLY EXCLUDE LIABILITY FOR ANY SUCH INACCURACIES OR ERRORS TO THE FULLEST EXTENT PERMITTED BY LAW. ANY RELIANCE YOU PLACE ON SUCH INFORMATION IS THEREFORE STRICTLY AT YOUR OWN RISK. WE ARE NOT ENDORSING AN ADMISSION OUTCOME AND CANNOT VOUCH FOR A SPECIFIC VALIDITY OR RELIABILITY. IN NO EVENT WILL IVY READY OR IT{"'"}S REPRESENTATIVES OR COACHES BE LIABLE FOR ANY LOSS OR DAMAGE INCLUDING WITHOUT LIMITATION, INDIRECT OR CONSEQUENTIAL LOSS, INJURY OR DAMAGE ARISING FROM THE USE OF OUR SERVICES OR THIS WEBSITE, INCLUDING DUE TO ERRORS, OMISSIONS, INTERRUPTIONS OR OTHER INACCURACIES.</p>
                         </li>
                         <li>
                             <p>YOU AGREE TO INDEMNIFY AND HOLD US HARMLESS AS WELL AS OUR DIRECTORS, OFFICERS, MANAGERS, EMPLOYEES, INDEPENDENT CONTRACTORS, AND AFFILIATES FROM AND AGAINST ALL LOSSES, EXPENSES, DAMAGES AND COSTS, INCLUDING REASONABLE ATTORNEYS’ FEES, RESULTING FROM ANY RELIANCE YOU PLACE ON OUR SERVICES OR VIOLATION BY YOU OF THESE TERMS. WE RESERVE THE RIGHT TO TAKE OVER THE EXCLUSIVE DEFENSE OF ANY CLAIM FOR WHICH WE ARE ENTITLED TO INDEMNIFICATION. IN SUCH EVENT, YOU SHALL PROVIDE US WITH SUCH COOPERATION AS IS REASONABLY REQUESTED BY US.</p>
                         </li>
                         <li>
-                            <p>Ivy Ready® is a registered trademark. The website IvyReady.com and its contents are the property of Ivy Ready LLC. All rights reserved. Any use of the term "Ivy Ready" outside of direct correspondence with Ivy Ready requires the use of the '®' symbol. Any redistribution or reproduction of any part of the website content, marketing material, service agreements, email phone correspondence or phone conversations with Ivy Ready Representatives is prohibited other than the following:
+                            <p>Ivy Ready® is a registered trademark. The website IvyReady.com and its contents are the property of Ivy Ready LLC. All rights reserved. Any use of the term {"Ivy Ready"} outside of direct correspondence with Ivy Ready requires the use of the {"'"}®{"'"} symbol. Any redistribution or reproduction of any part of the website content, marketing material, service agreements, email phone correspondence or phone conversations with Ivy Ready Representatives is prohibited other than the following:
                             <ul class=" list-disc pl-5">
                                 <li>
                                        <p>You may print, copy or download content for personal use only.</p>
@@ -222,7 +222,7 @@ export default function TermsOfService() {
                                        <p>is obscene, pornographic, or sexually explicit;</p>
                                 </li>
                                 <li>
-                                       <p>violates a person's right to privacy;</p>
+                                       <p>violates a person{"'"}s right to privacy;</p>
                                 </li>
                                 <li>
                                        <p>violates any local, state, national, or international law;</p>
@@ -251,13 +251,13 @@ export default function TermsOfService() {
                             <p>You acknowledge that all prices are subject to change without notice. Quotes are estimates that only become binding once an agreement has been signed or payment has been processed. Quotes (as they are estimates) may be modified up or down during the move towards agreement as the parties negotiate and come to a better understanding of the work required.</p>
                         </li>
                         <li>
-                            <p>You acknowledge that Ivy Ready may use the terms "admission officer," "admission reader," "admission counselor," "seasonal reader," and "admission advisor" (with their plural versions, e.g., admissions officer) interchangeably on our website, during correspondence, in this Agreement or elsewhere.</p>
+                            <p>You acknowledge that Ivy Ready may use the terms {"\"admission officer,\"\"admission reader,\" \"admission counselor,\" \"seasonal reader,\" and \"admission advisor\""} (with their plural versions, e.g., admissions officer) interchangeably on our website, during correspondence, in this Agreement or elsewhere.</p>
                         </li>
                         <li>
                             <p>You acknowledge that the presence of college graduates, former admission officers, or past and present membership(s) in admission or counseling organizations in no way implies ongoing association or affiliation, indirectly or directly, with any particular organization, college or university.</p>
                         </li>
                         <li>
-                            <p>You acknowledge that services provided by Ivy Ready are not based on the admission criteria of a particular school, and that coaches are matched with clients based on the client's preference, logistical limitations, and, at times, at random.</p>
+                            <p>You acknowledge that services provided by Ivy Ready are not based on the admission criteria of a particular school, and that coaches are matched with clients based on the client{"'"}s preference, logistical limitations, and, at times, at random.</p>
                         </li>
                         <li>
                             <p>You acknowledge that Ivy Ready LLC serves merely as a broker to connect prospective clients with independent contractors for college planning and application support.</p>
