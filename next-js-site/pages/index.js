@@ -317,7 +317,7 @@ export default function Home() {
         />
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/fee">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
         </p>
       </Section>
 
@@ -373,7 +373,7 @@ export default function Home() {
         </ul>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/fee">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
         </p>
       </Section>
 
@@ -421,7 +421,7 @@ export default function Home() {
         </ul>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/fee">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
         </p>
       </Section>
 
@@ -519,7 +519,7 @@ export default function Home() {
         </p>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/fee">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-sectionfee">here</HyperLink>.
         </p>
       </Section>
 
