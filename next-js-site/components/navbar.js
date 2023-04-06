@@ -29,7 +29,7 @@ export default function Navbar() {
           >
               {!Navbar && <LogoProjector/>}
               
-            <ul className="navbar-nav text-white space-x-5 mt-4 ">
+            <ul className="navbar-nav text-white space-x-5 mt-1 -mb-4 ">
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/">
                   Admission Support
