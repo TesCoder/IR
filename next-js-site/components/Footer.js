@@ -15,13 +15,14 @@ export default function Footer() {
         </Link>
       </div>
 
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 mx-10 text-center ">
         <Link className="underline hover:opacity-75" href="/tos">TERMS OF SERVICE</Link> |
         <Link className="underline hover:opacity-75" href="/">PRIVACY POLICY</Link> |
         <span>IVY READY LLC © {new Date().getFullYear()}</span>
       </div>
 
-      <p className="font-medium mt-3">IVY READY® IS A REGISTERED TRADEMARK. IVY READY IS NOT AFFILIATED WITH THE IVY LEAGUE OR ITS MEMBER UNIVERSITIES.</p>
+      <p className="font-medium mt-3 mx-10 text-center ">
+        IVY READY® IS A REGISTERED TRADEMARK. IVY READY IS NOT AFFILIATED WITH THE IVY LEAGUE OR ITS MEMBER UNIVERSITIES.</p>
     </footer>
   )
 }
