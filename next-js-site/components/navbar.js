@@ -96,7 +96,7 @@ export default function Navbar() {
               <li className="nav-item">
               <Link
                 href={"/#application-support-questions-section"}
-                className="btn btn-light text-ivy-red uppercase font-semibold"
+                className="btn btn-light text-ivy-red uppercase font-semibold rounded-full"
               >
                 Contact Us
               </Link>
