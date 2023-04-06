@@ -382,8 +382,9 @@ export default function ContactForm({ type, coachName }) {
               name="year"
               onChange={handleChange}
               aria-label="Current Year"
-              defaultValue="JR"
+              defaultValue="default"
             >
+               <option value="default"></option>
               <option value="FR">Freshman</option>
               <option value="SP">Sophomore</option>
               <option value="JR">Junior</option>
