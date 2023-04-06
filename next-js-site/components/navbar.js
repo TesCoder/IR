@@ -106,7 +106,7 @@ export default function Navbar() {
         </div>
       </nav>
       
-      <div className="z-40 md:hidden ml-36 bg-ivy-red">{LogoProjector()}</div>
+      <div className="z-40 md:hidden ml-24 bg-ivy-red">{LogoProjector()}</div>
 
      </div>
   );
