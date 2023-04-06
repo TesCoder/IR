@@ -175,8 +175,8 @@ export default function Home() {
         <ContactForm type={modalType} />
       </Modal>
       <div className="flex justify-center">
-        <div className="overflow-x-hidden w-5/6 md:w-1/3 ">
-          <div className="py-4 animate-marquee whitespace-nowrap ">
+        <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
+          <div className="py-3 animate-marquee whitespace-nowrap ">
             <MarqueeElement>Ivy Ready</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Dream it</MarqueeElement>
@@ -228,7 +228,7 @@ export default function Home() {
       <Section title="Apply with Confidence" darkBg centerContent>
         <h2 className="text-center text-2xl  text-ivy-blue font-medium my-4">
           Ivy Ready offers personalized college admission coaching by matching
-          prospective applicants with former admission officers.
+          prospective applicants <b>with former admission officers</b>.
         </h2>
         <p className=" text-xl text-center my-2 text-gray-700">
           We specialize in providing a personalized admission strategy for each
@@ -298,12 +298,12 @@ export default function Home() {
 
       <Section title="Ivy Ready Application Support Packages">
         <p>
-          We offer Essays-only Support, Comprehensive Support, and Comprehensive
-          Support with Logistics. All packages come with unlimited hours of
+          We offer <b>Essays-only Support, Comprehensive Support, and Comprehensive
+          Support with Logistics</b>. All packages come with unlimited hours of
           essay editing and admission support. (In addition, we offer{" "}
           <HyperLink href="/hourly-consultation">hourly consultation</HyperLink>{" "}
           and{" "}
-          <HyperLink href="#application-evaluation">
+          <HyperLink href="/evaluation">
             Application Evaluation
           </HyperLink>
           .)

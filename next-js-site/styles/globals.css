@@ -125,7 +125,7 @@ p, li{
 }
 
 h1 {
-  @apply font-medium text-2xl md:text-4xl text-ivy-blue mb-3
+  @apply  text-2xl md:text-4xl text-ivy-blue mb-3
 }
 
 h2 {
