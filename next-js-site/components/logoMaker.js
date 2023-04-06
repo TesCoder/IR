@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function logoProjector() {
+export default function LogoProjector() {
     return (
         <>
         <Link className="navbar-brand" href="/">

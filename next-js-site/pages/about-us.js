@@ -30,7 +30,7 @@ export default function About() {
 
   return (
     <>
-      <Modal id="contactModal" title={modalType == "INFO" ? "Tell us how we can best serve you." : "Enter your info for a quick call."}>
+      <Modal  id="contactModal" title={modalType == "INFO" ? "Tell us how we can best serve you." : "Enter your info for a quick call."}>
         <ContactForm type={modalType} />
       </Modal>
       <Modal id="coachModal" title={`Request an Introductory Session with ${coach}`}>
