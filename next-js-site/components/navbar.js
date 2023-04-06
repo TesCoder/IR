@@ -7,7 +7,8 @@ export default function Navbar() {
   return (
      <div className=" flex sm:justify-center bg-ivy-red">
       <nav
-        className="z-0 navbar navbar-expand-md  text-white font-raleway font-medium p-0 navbar-dark uppercase"
+        className="z-0 navbar pb-3 navbar-expand-md  text-white 
+        font-raleway font-medium p-0 navbar-dark uppercase"
         data-bs-theme="dark"
       >
         <div className="container-fluid bg-ivy-red"> 
@@ -29,7 +30,7 @@ export default function Navbar() {
           >
               {!Navbar && <LogoProjector/>}
               
-            <ul className="navbar-nav text-white space-x-5 mt-1 -mb-6 ">
+            <ul className="navbar-nav text-white md:space-x-5 mt-1 -mb-6 ">
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/">
                   Admission Support
@@ -106,7 +107,7 @@ export default function Navbar() {
         </div>
       </nav>
       
-      <div className="z-40 md:hidden ml-20 bg-ivy-red">{LogoProjector()}</div>
+      <div id="logoModifier" className="z-40 md:hidden ml-20 bg-ivy-red">{LogoProjector()}</div>
 
      </div>
   );
