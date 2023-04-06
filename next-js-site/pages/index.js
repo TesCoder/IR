@@ -239,9 +239,9 @@ export default function Home() {
         <p className=" text-xl text-center my-2 text-gray-700">
           Our team is comprised of former admission officers who have extensive
           experience supporting students with the college admission process. We
-          offer <HyperLink href="#test">application support packages</HyperLink>
-          , <HyperLink href="#test">hourly consultation</HyperLink>, and{" "}
-          <HyperLink href="#test">Application Evaluation</HyperLink>.
+          offer <HyperLink href="/#application-support-questions-section">application support packages</HyperLink>
+          , <HyperLink href="/hourly-consultation">hourly consultation</HyperLink>, and{" "}
+          <HyperLink href="/evaluation">Application Evaluation</HyperLink>.
         </p>
         <p className=" text-xl text-center font-bold text-gray-700">
           Sign up for your (free) introductory session!
@@ -519,7 +519,7 @@ export default function Home() {
         </p>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/#application-support-questions-sectionfee">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
         </p>
       </Section>
 
