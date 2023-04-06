@@ -271,7 +271,7 @@ export default function Home() {
 
       <Section title="" darkBg centerContent>
         <h2>Meet a Few Members of Our Team and Their Admission Background</h2>
-        <p className=" text-xl text-center my-2 text-gray-700">
+        <p className="pCentered">
           Our team is comprised of former admission officers with official
           admission experience and expertise supporting students with the
           college admission process.{" "}
@@ -281,7 +281,7 @@ export default function Home() {
             <Profile key={i} name={name} imgSrc={imgSrc} />
           ))}
         </div>
-        <p className=" text-xl text-center my-3 text-gray-700">
+        <p className="pCentered">
           Our college counselors are located in cities across the U.S. Contact
           us if a coach with the particular background you seek is not listed.
           We are dedicated to finding the perfect coach for you.
@@ -297,11 +297,11 @@ export default function Home() {
       </Section>
 
       <Section title="Ivy Ready Application Support Packages">
-        <p className=" text-xl my-3 text-gray-700">
+        <p>
           We offer Essays-only Support, Comprehensive Support, and Comprehensive
           Support with Logistics. All packages come with unlimited hours of
           essay editing and admission support. (In addition, we offer{" "}
-          <HyperLink href="#hourly-consultation">hourly consultation</HyperLink>{" "}
+          <HyperLink href="/hourly-consultation">hourly consultation</HyperLink>{" "}
           and{" "}
           <HyperLink href="#application-evaluation">
             Application Evaluation
@@ -315,7 +315,7 @@ export default function Home() {
           height={1080}
           alt="Services Table"
         />
-        <p className=" text-xl my-3 text-gray-700">
+        <p>
           To request our fee structure or ask questions, click{" "}
           <HyperLink href="/fee">here</HyperLink>.
         </p>
@@ -324,7 +324,7 @@ export default function Home() {
       <ButtonRow setModalType={setModalType} />
 
       <Section title="Process Overview">
-        <p className="text-xl my-3 text-gray-700">
+        <p>
           Our admission support begins by first matching prospective applicants
           with a coach who is best fit to work with them. Once the family has
           identified their coach, they can begin by creating a timeline for
@@ -371,7 +371,7 @@ export default function Home() {
             addition to providing admission expertise.
           </li>
         </ul>
-        <p className=" text-xl my-3 text-gray-700">
+        <p>
           To request our fee structure or ask questions, click{" "}
           <HyperLink href="/fee">here</HyperLink>.
         </p>
@@ -380,46 +380,46 @@ export default function Home() {
       <ButtonRow setModalType={setModalType} />
 
       <Section title="Summary of the Writing Process">
-        <p className="text-lg my-3 text-gray-700">
+        <p>
           Support with the writing portion of the application process will
           consume a significant part of the support timeline. Please find below
           an estimate of the number of writing pieces required to apply to a set
           number of schools.
         </p>
 
-        <p className="my-3 text-lg">
-          <strong>10 schools</strong>: ~78 writing pieces, each will need to go
+        <p>
+          <strong>10 schools</strong>: 78 writing pieces, each will need to go
           through prompt discussion, outline critique, 4-5 draft reviews
         </p>
         <ul>
-          <li>~3-4 unique personal statements</li>
-          <li>~30 supplemental essays</li>
-          <li>~40 short answer questions</li>
-          <li>~1-2 special circumstances essays (if applicable)</li>
+          <li>3-4 unique personal statements</li>
+          <li>30 supplemental essays</li>
+          <li>40 short answer questions</li>
+          <li>1-2 special circumstances essays (if applicable)</li>
         </ul>
 
-        <p className="my-3 text-lg">
-          <strong>15 schools</strong>: ~121 writing pieces, each will need to go
+        <p>
+          <strong>15 schools</strong>: 121 writing pieces, each will need to go
           through prompt discussion, outline critique, 4-5 draft reviews
         </p>
         <ul>
-          <li>~6-8 unique personal statements</li>
-          <li>~45 supplemental essays</li>
-          <li>~60 short answer questions</li>
-          <li>~1-2 special circumstances essays (if applicable)</li>
+          <li>6-8 unique personal statements</li>
+          <li>45 supplemental essays</li>
+          <li>60 short answer questions</li>
+          <li>1-2 special circumstances essays (if applicable)</li>
         </ul>
 
-        <p className="my-3 text-lg">
+        <p>
           <strong>20 schools</strong>: 164 writing pieces, each will need to go
           through prompt discussion, outline critique, 4-5 draft reviews
         </p>
         <ul>
-          <li>~9-12 unique personal statements</li>
-          <li>~60 supplemental essays</li>
-          <li>~80 short answer questions</li>
-          <li>~1-2 special circumstances essays (if applicable)</li>
+          <li>9-12 unique personal statements</li>
+          <li>60 supplemental essays</li>
+          <li>80 short answer questions</li>
+          <li>1-2 special circumstances essays (if applicable)</li>
         </ul>
-        <p className=" text-xl my-3 text-gray-700">
+        <p>
           To request our fee structure or ask questions, click{" "}
           <HyperLink href="/fee">here</HyperLink>.
         </p>
@@ -428,7 +428,7 @@ export default function Home() {
       <ButtonRow setModalType={setModalType} />
 
       <Section title="Detailed Comparison of Packages">
-        <p className=" text-lg my-3 text-gray-700">
+        <p>
           Essays-only Support is an excellent option for applicants who have
           personalized admission support at their high school, but are looking
           for feedback on their essays. However, the college application process
@@ -445,13 +445,13 @@ export default function Home() {
           extensive planning, preparation, and oversight—included as a part of
           Comprehensive Support and Comprehensive Support with Logistics.
         </p>
-        <p className=" text-lg my-3 text-gray-700">
+        <p>
           Comprehensive Support with Logistics is best for applicants looking
           for complete support from the planning stage through application
           submission. On the other hand, Comprehensive Support is the most
           common option and covers support outside of the Essays-only package.
         </p>
-        <p className=" text-lg my-3 text-gray-700">
+        <p>
           The writing portion of the application will be the most time-intensive
           component of this process. The bulk of our coaching will revolve
           around crafting and honing a compelling narrative and developing the
@@ -465,7 +465,7 @@ export default function Home() {
           require extensive planning and follow-through from early summer
           through submission.
         </p>
-        <p className=" text-lg my-3 text-gray-700">
+        <p>
           In addition, supplemental essays represent each school&apos;s unique
           evaluation criteria. Schools will be looking closely at these essays
           to further gauge the applicant&apos;s interest and commitment to their
@@ -478,7 +478,7 @@ export default function Home() {
           school because key elements are missing, or is simply not committed to
           entry into their institution.
         </p>
-        <p className=" text-lg my-3 text-gray-700">
+        <p>
           If the applicant is able to manage the logistical aspects of this
           process, Essays-only Support and Comprehensive Support will be the
           right option. Otherwise, we recommend Comprehensive Support with
@@ -496,7 +496,7 @@ export default function Home() {
           documents are submitted on time, and by being there when anything
           comes up at the last minute, etc.
         </p>
-        <p className=" text-lg my-3 text-gray-700">
+        <p>
           When it comes to personal statements, while the same essay may be used
           as a template for multiple submission, we recommend writing an essay
           tailored to each school and program. In instances where admission is
@@ -517,10 +517,7 @@ export default function Home() {
           every applicant independently, each submission must be prepared in a
           same manner that ensures maximum potential for the best outcome.{" "}
         </p>
-        <p className=" text-lg my-3 text-gray-700"></p>
-        <p className=" text-lg my-3 text-gray-700"></p>
-        <p className=" text-lg my-3 text-gray-700"></p>
-        <p className=" text-xl my-3 text-gray-700">
+        <p>
           To request our fee structure or ask questions, click{" "}
           <HyperLink href="/fee">here</HyperLink>.
         </p>
@@ -556,7 +553,7 @@ export default function Home() {
             ))}
           </div>
           <button
-            className="carousel-control-prev"
+            className="carousel-control-prev bg-transparent"
             type="button"
             data-bs-target="#testimonials"
             data-bs-slide="prev"
@@ -568,7 +565,7 @@ export default function Home() {
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next"
+            className="carousel-control-next bg-transparent"
             type="button"
             data-bs-target="#testimonials"
             data-bs-slide="next"

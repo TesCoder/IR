@@ -10,7 +10,7 @@ import useAnalyticsEventTracker from './useAnalyticsEventTracker';
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
 export default function ContactForm({ type, coachName }) {
-  const gaEventTracker = useAnalyticsEventTracker('Contact us');
+  // const gaEventTracker = useAnalyticsEventTracker('Contact us');
   
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
@@ -76,7 +76,7 @@ export default function ContactForm({ type, coachName }) {
             <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
               Have any Questions?
             </h1>
-            <p className="text-lg my-3 text-gray-700">
+            <p>
               Please complete the form below for a prompt reply.
             </p>
           </>

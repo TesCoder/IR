@@ -5,102 +5,109 @@ import LogoProjector from "./logoMaker";
 
 export default function Navbar() {
   return (
-    <nav
-      className="navbar navbar-expand-md bg-body-tertiary text-white font-raleway font-medium p-0 navbar-dark uppercase"
-      data-bs-theme="dark"
-    >
-      <div className="container-fluid bg-ivy-red"> 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row"
-          id="navbarNav"
-        >
-          <ul className="navbar-nav text-white space-x-5 mt-4 mb-2 ">
-            <li className="nav-item">
-              <Link className="nav-link text-white hover:opacity-75" href="/">
-                Admission Support
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link text-white dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Services
-              </a>
-              <ul className="dropdown-menu bg-ivy-red">
-              <li>
-                  <Link
-                    className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                    href="/"
-                  >
-                    Admission Support
-                  </Link>
-                </li>
+     <div className=" flex sm:justify-center bg-ivy-red">
+      <nav
+        className="z-0 navbar navbar-expand-md  text-white font-raleway font-medium p-0 navbar-dark uppercase"
+        data-bs-theme="dark"
+      >
+        <div className="container-fluid bg-ivy-red"> 
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        
+          <div
+            className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row"
+            id="navbarNav"
+          >
+              {!Navbar && <LogoProjector/>}
+              
+            <ul className="navbar-nav text-white space-x-5 mt-4 ">
+              <li className="nav-item">
+                <Link className="nav-link text-white hover:opacity-75" href="/">
+                  Admission Support
+                </Link>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link text-white dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Services
+                </a>
+                <ul className="dropdown-menu bg-ivy-red">
                 <li>
-                  <Link
-                    className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                    href="/hourly-consultation"
-                  >
-                    Hourly Consultation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                    href="/evaluation"
-                  >
-                    Application Evaluation
-                  </Link>
-                </li>
-                
-              </ul>
-            </li>
+                    <Link
+                      className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/"
+                    >
+                      Admission Support
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/hourly-consultation"
+                    >
+                      Hourly Consultation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/evaluation"
+                    >
+                      Application Evaluation
+                    </Link>
+                  </li>
+                  
+                </ul>
+              </li>
 
-            <div className="hidden sm:hidden lg:block
-              -my-6 mx-5
-            ">{LogoProjector()}</div>
+              <div className="hidden sm:hidden lg:block
+              ">{LogoProjector()}</div> 
 
-            <li className="nav-item">
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white hover:opacity-75"
+                  href="/#testimonials"
+                >
+                  Testimonials
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white hover:opacity-75"
+                  href="/about-us"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li className="nav-item">
               <Link
-                className="nav-link text-white hover:opacity-75"
-                href="/#testimonials"
+                href={"/#application-support-questions-section"}
+                className="btn btn-light text-ivy-red uppercase font-semibold"
               >
-                Testimonials
+                Contact Us
               </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link text-white hover:opacity-75"
-                href="/about-us"
-              >
-                About Us
-              </Link>
-            </li>
-            <li className="nav-item">
-            <Link
-              href={"/#application-support-questions-section"}
-              className="btn btn-light text-ivy-red uppercase font-semibold"
-            >
-              Contact Us
-            </Link>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      
+      <div className="z-40 md:hidden ml-36 bg-ivy-red">{LogoProjector()}</div>
+
+     </div>
   );
 }

@@ -1,7 +1,8 @@
 // Button function below corresponds to Get in Touch, Get a Quick, Call now
 export function Button({ className, children, ...others }) {
   return (
-    <button className={`bg-ivy-red text-white py-2 px-4  rounded-3xl transition-colors hover:bg-red-700 ${className ? className : ""}`} {...others}>
+    <button 
+     className={` ${className ? className : ""}`} {...others}>
       {children}
     </button>
   )

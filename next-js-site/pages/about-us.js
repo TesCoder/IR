@@ -82,7 +82,6 @@ export default function About() {
           </h1>
         </div>
       </div>
-
       <Section title="About Us" centerContent>
         <p className="text-xl text-center my-3 text-gray-700">
           Ivy Ready&apos;s mission is to provide a personalized admission
@@ -98,7 +97,6 @@ export default function About() {
         </p>
         <ButtonRow setModalType={setModalType} lightBg />
       </Section>
-
       <Section
         title="Meet a Few Members of Our Team and Their Admission Background"
         darkBg
@@ -112,7 +110,6 @@ export default function About() {
           We are dedicated to finding the perfect coach for you.
         </p>
       </Section>
-
       {members.map(({ name, imgSrc, past, description }, i) => (
         <Section key={i} darkBg={i % 2 != 0}>
           <CoachInfo
@@ -125,7 +122,6 @@ export default function About() {
           />
         </Section>
       ))}
-
       <ButtonRow setModalType={setModalType} lightBg />
     </>
   );
