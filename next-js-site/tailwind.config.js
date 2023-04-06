@@ -6,6 +6,22 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  screens: {
+    'sm': '340px',
+    // => @media (min-width: 640px) { ... }
+
+    'md': '768px',
+    // => @media (min-width: 768px) { ... }
+
+    'lg': '1024px',
+    // => @media (min-width: 1024px) { ... }
+
+    'xl': '1280px',
+    // => @media (min-width: 1280px) { ... }
+
+    '2xl': '1536px',
+    // => @media (min-width: 1536px) { ... }
+  },
   theme: {
     extend: {
       colors: {
@@ -16,11 +32,18 @@ module.exports = {
         'hero': "url('/images/banner.jpg')",
         'about-hero': "url('/images/about-banner.jpg')",
       },
+      listStyleType: {
+        none: 'none',
+        disc: 'disc',
+        decimal: 'decimal',
+        square: 'square',
+        roman: 'upper-roman',
+      },
       fontFamily: {
         raleway: ["Raleway"]
       },
       animation: {
-        marquee: 'marquee 25s linear infinite',
+        marquee: 'marquee 8s linear infinite',
       },
       keyframes: {
         marquee: {

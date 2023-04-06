@@ -128,14 +128,14 @@ export default function Home() {
       </div>
 
       {/* Main Banner */}
-      <div className='flex bg-hero bg-cover h-4/5 bg-blue-300 py-48'>
+      <div className='flex bg-hero bg-cover bg-blue-300 pt-20 sm:py-72 md:py-72 lg:py-80 2xl:py-96' style={{ "height": "400px" }}>
         <div className='m-auto text-center'>
-          <h1 className='text-7xl text-white' style={{ "textShadow": "2px 2px 2px #000" }}>Ivy Ready College Consulting</h1>
-          <h4 className='text-2xl my-3 drop-shadow-lg italic font-medium'>
+          <h1 className='text-ivy-red text-4xl lg:text-7xl ' style={{ "text-shadow": "5px 5px 5px white" }}>Ivy Ready College Consulting</h1>
+          {/* <h4 className='text-2xl my-3 drop-shadow-lg italic font-medium'>
             Personalized College Admission Support
             <br />
             by Former Admission Officers
-          </h4>
+          </h4> */}
         </div>
       </div>
 

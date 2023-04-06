@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import LogoProjector from "./logoMaker";
+
 
 export default function Navbar() {
   return (
@@ -7,20 +9,7 @@ export default function Navbar() {
       className="navbar navbar-expand-md bg-body-tertiary text-white font-raleway font-medium p-0 navbar-dark uppercase"
       data-bs-theme="dark"
     >
-      <div className="container-fluid bg-ivy-red">
-        <Link className="navbar-brand" href="/">
-          <Image
-            src="/images/logo-white.png"
-            alt="Logo"
-            width={100}
-            height={110}
-            priority
-          />
-        </Link>
-        {/* <Link className="navbar-brand" href="/">
-          Navbar
-        </Link> */}
-
+      <div className="container-fluid bg-ivy-red"> 
         <button
           className="navbar-toggler"
           type="button"
@@ -32,15 +21,14 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
         <div
-          className="collapse navbar-collapse flex justify-between flex-col md:flex-row"
+          className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row"
           id="navbarNav"
         >
-          <ul className="navbar-nav text-white font-bold">
+          <ul className="navbar-nav text-white space-x-5 mt-4 mb-2 ">
             <li className="nav-item">
               <Link className="nav-link text-white hover:opacity-75" href="/">
-                Admissions Support
+                Admission Support
               </Link>
             </li>
             <li className="nav-item dropdown">
@@ -53,10 +41,10 @@ export default function Navbar() {
               >
                 Services
               </a>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu bg-ivy-red">
                 <li>
                   <Link
-                    className="dropdown-item text-white hover:opacity-75"
+                    className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
                     href="/hourly-consultation"
                   >
                     Hourly Consultation
@@ -64,7 +52,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link
-                    className="dropdown-item text-white hover:opacity-75"
+                    className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
                     href="/evaluation"
                   >
                     Application Evaluation
@@ -72,7 +60,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link
-                    className="dropdown-item text-white hover:opacity-75"
+                    className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
                     href="/"
                   >
                     Hourly Consultation
@@ -80,6 +68,11 @@ export default function Navbar() {
                 </li>
               </ul>
             </li>
+
+            <div className="sm:hidden lg:block
+              -my-6 mx-5
+            ">{LogoProjector()}</div>
+
             <li className="nav-item">
               <Link
                 className="nav-link text-white hover:opacity-75"
@@ -96,15 +89,15 @@ export default function Navbar() {
                 About Us
               </Link>
             </li>
-          </ul>
-          <div className="mb-2 md:mb-0">
+            <li className="nav-item">
             <Link
               href={"/#application-support-questions-section"}
               className="btn btn-light text-ivy-red uppercase font-semibold"
             >
               Contact Us
             </Link>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
