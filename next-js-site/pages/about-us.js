@@ -98,7 +98,7 @@ export default function About() {
         <ButtonRow setModalType={setModalType} lightBg />
       </Section>
       <Section
-        className="text-center" title="Meet a Few Members of Our Team and Their Admission Background"
+        title="Meet a Few Members of Our Team and Their Admission Background"
         darkBg
       >
         <p className="text-xl text-center my-3 text-gray-700">
