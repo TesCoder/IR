@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Navbar from "./navbar";
-import LogoProjector from "./logoMaker";
+
 const noNavPages = ["/contact"];
 
 export default function Layout({ children }) {
@@ -19,4 +19,3 @@ export default function Layout({ children }) {
     </>
   );
 }
-
