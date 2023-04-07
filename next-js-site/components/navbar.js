@@ -16,7 +16,7 @@ export default function Navbar() {
         z-40 w-3/12 justify-center -mb-12 md:-mb-4 bg-ivy-red
         "
         >
-          {LogoProjector()}
+          <LogoProjector />
         </div>
       )}
 
@@ -126,7 +126,7 @@ export default function Navbar() {
       </nav>
 
       <div id="logoModifier" className="z-40 md:hidden ml-20 bg-ivy-red">
-        {LogoProjector()}
+        <LogoProjector />
       </div>
     </div>
   );
