@@ -20,6 +20,9 @@ export default function ContactForm({ type, coachName }) {
     message: "",
   });
 
+  const [formConf, setFormConf] = useState("");
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
@@ -435,10 +438,13 @@ export default function ContactForm({ type, coachName }) {
           </div>
         )}
 
+        <div>{formConf}</div>
+
         <div className="col-12">
           <button
             className="btn bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg"
             type="submit"
+            onClick={() => setFormConf("Thank you, your submission has been received. We will get back to you soon.")}
           >
             {isSubmitting ? (
               <div className="spinner-border text-light" role="status">
