@@ -70,7 +70,7 @@ export const members = [
       "In addition to her experience as an Admission Officer, Erika has taught Advanced Placement Language and Composition for more than a quarter century, and has guided thousands of seniors in the writing of successful college essays, including her own daughter, a recent graduate of Columbia University. Erika has written hundreds of letters of recommendation, as well, and knows the college admissions process from a variety of perspectives: student, parent, teacher, and admissions officer. She enjoys showing young people that, as daunting an experience as the admissions process is, it can also be an exciting opportunity for students to discover both who they are, and who it is they wish to become. Erika has been an admissions consultant both domestically and throughout Asia, having traveled to and worked with students in India, South Korea, and China. She most enjoys helping students with the essay writing process, and watching them discover their voices as both writers and as young adults who are ready to offer their gifts to the world.",
   },
   {
-    name: "David Spiegel",
+    name: "David Emerson",
     imgSrc: "/images/members/david.png",
     past: [
       "B.A., Brown University",
