@@ -39,7 +39,6 @@ export default function Navbar() {
             className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row"
             id="navbarNav"
           >
-              {!Navbar && <LogoProjector/>}
               
             <ul className="navbar-nav text-white md:space-x-5 mt-1 -mb-6 ">
               <li className="nav-item">

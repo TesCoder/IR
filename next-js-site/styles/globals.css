@@ -148,7 +148,7 @@ button {
 
 }
 
-@media (min-width: 500px) {
+@media (max-width: 765px) {
   #logoModifier {
       display: none;
   }
