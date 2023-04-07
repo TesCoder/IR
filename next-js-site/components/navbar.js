@@ -1,11 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import LogoProjector from "./logoMaker";
+import { useState } from "react";
 
 
 export default function Navbar() {
+  const [logoVisibility, setLogoVisibility] = useState(false)
+
   return (
-     <div className=" flex sm:justify-center bg-ivy-red">
+     <div className="flex flex-col sm:justify-center bg-ivy-red">
+      
+      {!logoVisibility &&
+        <div id="logoModifier1" className="container 
+        sm:visible md:visible lg:hidden
+        z-40 w-3/12 justify-center -mb-12 bg-ivy-red">{LogoProjector()}</div>
+      }
+
       <nav
         className="z-0 navbar pb-3 navbar-expand-md  text-white 
         font-raleway font-medium p-0 navbar-dark uppercase"
@@ -21,7 +31,7 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon" onClick={() => setLogoVisibility(!logoVisibility)}></span>
           </button>
         
           <div
