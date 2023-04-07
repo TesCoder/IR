@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { Button, ButtonRow } from "@/components/Button";
 
+// oriiginal const
+//   const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
+
 export default function CoachInfo({ setCoach, imgSrc, name, past, description }) {
     return (
         <div className="flex flex-col md:flex-row text-lg">
