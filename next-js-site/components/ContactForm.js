@@ -442,7 +442,7 @@ export default function ContactForm({ type, coachName }) {
           >
             {isSubmitting ? (
               <div className="spinner-border text-light" role="status" 
-                    onClick={()=>gaEventTracker('FormSubmit')}>
+                    >
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (
@@ -451,6 +451,7 @@ export default function ContactForm({ type, coachName }) {
           </button>
         </div>
       </form>
-    </div>
+      
+          </div>
   );
 }

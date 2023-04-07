@@ -182,6 +182,9 @@ export default function Evaluation() {
         </p>
         <ContactForm type="EVAL" />
       </Section>
+      <div> 
+       <a href="#" className="text-white" onClick={()=>gaEventTracker('call')}>Call Us</a>
+      </div>
     </>
   );
 }
