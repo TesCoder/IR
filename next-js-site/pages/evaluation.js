@@ -15,7 +15,6 @@ const Goal = ({ title, content }) => (
 
 
 export default function Evaluation() {
-  const gaEventTracker = useAnalyticsEventTracker('Contact us');
   return (
     <>
       <Head>
@@ -187,7 +186,7 @@ export default function Evaluation() {
         <ContactForm type="EVAL" />
       </Section>
       <div> 
-       <a href="#" className="text-white" onClick={()=>gaEventTracker('call')}>Call Us</a>
+       <a href="#" className="" onClick={()=>gaEventTracker('call')}>-</a>
       </div>
     </>
   );

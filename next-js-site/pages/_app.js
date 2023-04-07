@@ -4,9 +4,17 @@ import '@/styles/globals.css'
 import Head from "next/head";
 import Script from "next/script";
 
-import ReactGA from "react-ga";
-const TRACKING_ID = "UA-332342581";
-ReactGA.initialize(TRACKING_ID);
+// Google Analytics
+import React from 'react'
+import { withRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
+const RouteChangeTracker = ({ history }) => {
+   history.listen((location, action) => {
+       ReactGA.set({ page: location.pathname });
+       ReactGA.pageview(location.pathname);
+   });
+   return <div></div>;
+};
 
 function App({ Component, pageProps }) {
   return (
