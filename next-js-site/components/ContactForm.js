@@ -11,8 +11,6 @@ export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
 export default function ContactForm({ type, coachName }) {
   const gaEventTracker = useAnalyticsEventTracker('Contact us');
-  
-  
 
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
@@ -442,7 +440,7 @@ export default function ContactForm({ type, coachName }) {
           >
             {isSubmitting ? (
               <div className="spinner-border text-light" role="status" 
-                    >
+                  >
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (
