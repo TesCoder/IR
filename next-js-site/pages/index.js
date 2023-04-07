@@ -128,7 +128,7 @@ export const members = [
   },
   {
     hideOnHome: true,
-    name: "Gregg",
+    name: "Gregg Prigerson",
     imgSrc: "/images/members/gregg.jpg",
     past: ["Former Admission Officer, Stanford University"],
     description:
@@ -136,7 +136,7 @@ export const members = [
   },
   {
     hideOnHome: true,
-    name: "Deborah",
+    name: "Deborah Foel",
     imgSrc: "/images/members/deborah.jpg",
     past: [
       "B.A., The George Washington University",
