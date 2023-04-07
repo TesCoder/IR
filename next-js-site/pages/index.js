@@ -37,7 +37,7 @@ const Profile = ({ imgSrc, name }) => (
 export const members = [
   {
     name: "James Dean",
-    imgSrc: "/images/members/james.png",
+    imgSrc: "/images/members/james.jpg",
     past: [
       "B.S., Stanford University",
       "Former Admission Officer, Stanford University",
@@ -47,7 +47,7 @@ export const members = [
   },
   {
     name: "Ariel Englesby",
-    imgSrc: "/images/members/ariel.png",
+    imgSrc: "/images/members/ariel.jpg",
     past: [
       "B.A., Stanford University",
       "M.A., University of Southern California (USC)",
@@ -58,7 +58,7 @@ export const members = [
   },
   {
     name: "Erika Robinson",
-    imgSrc: "/images/members/erika.png",
+    imgSrc: "/images/members/erika.jpg",
     past: [
       "B.A., Harvard University (English)",
       "M.Div., Episcopal Divinity School",
@@ -71,7 +71,7 @@ export const members = [
   },
   {
     name: "David Emerson",
-    imgSrc: "/images/members/david.png",
+    imgSrc: "/images/members/david.jpg",
     past: [
       "B.A., Brown University",
       "J.D., Cornell University",
@@ -82,7 +82,7 @@ export const members = [
   },
   {
     name: "Alicia Stewart",
-    imgSrc: "/images/members/alicia.png",
+    imgSrc: "/images/members/alicia.jpg",
     past: [
       "B.A., George Washington University",
       "MBA Candidate, Whitman School of Business, Syracuse University",
@@ -93,7 +93,7 @@ export const members = [
   },
   {
     name: "Marie Arlen",
-    imgSrc: "/images/members/marie.png",
+    imgSrc: "/images/members/marie.jpg",
     past: [
       "B.A., University of Pennsylvania",
       "Former Admissions Officer, Columbia University",
@@ -103,7 +103,7 @@ export const members = [
   },
   {
     name: "Anna Cross",
-    imgSrc: "/images/members/anna.png",
+    imgSrc: "/images/members/anna.jpg",
     past: [
       "B.A., University of San Francisco",
       "MPH, University of San Francisco",
@@ -129,7 +129,7 @@ export const members = [
   {
     hideOnHome: true,
     name: "Gregg",
-    imgSrc: "/images/members/gregg.png",
+    imgSrc: "/images/members/gregg.jpg",
     past: ["Former Admission Officer, Stanford University"],
     description:
       "Gregg has extensive experience (and success!) supporting students with their applications to Stanford and other highly selective schools. During his tenure as an admission officer at Stanford University, he reviewed domestic and international applications. He is an accomplished college counselor who has helped students put forward powerful narratives to increase their admission chances.",
@@ -137,7 +137,7 @@ export const members = [
   {
     hideOnHome: true,
     name: "Deborah",
-    imgSrc: "/images/members/deborah.png",
+    imgSrc: "/images/members/deborah.jpg",
     past: [
       "B.A., The George Washington University",
       "MPM, Carnegie Mellon University",
