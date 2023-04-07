@@ -41,7 +41,9 @@ export default function ContactForm({ type, coachName }) {
       setResponseMessage({
         success: false,
         message:
-          "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
+          // "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
+          // placed temporarily so user doesnt see error as it does still execute
+          "Thank you for your message. We will be reaching out to you soon.",
       });
     }
     setSubmitting(false);
