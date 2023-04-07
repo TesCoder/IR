@@ -6,8 +6,41 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { members } from ".";
-import CoachInfo from "@/components/CoachInfo";
 
+const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
+  <div className="flex flex-col md:flex-row text-lg">
+    <div className="w-full md:w-1/5 flex flex-col items-center">
+      <Image
+        className="rounded-full shadow-md mb-2 w-4/5"
+        src={imgSrc}
+        width={128}
+        height={128}
+        alt=" profile picture"
+      />
+    </div>
+    <div className="w-full md:w-4/5">
+      <h2 className="font-bold text-2xl text-ivy-blue mb-2">{name}</h2>
+      <p>College Counseling Professional</p>
+      {past.map((p, i) => (
+        <p className="font-medium" key={i}>
+          {p}
+        </p>
+      ))}
+      <p className="my-3">{description}</p>
+      <div className="flex items-start">
+        <Button
+          onClick={() => {
+            setCoach(name);
+          }}
+          data-bs-toggle="modal"
+          data-bs-target="#coachModal"
+        >
+          Request an introductory Session with {name}
+        </Button>
+      </div>
+    </div>
+  </div>
+);
 
 export default function About() {
   // FULL, INFO, CALL, or EVAL
@@ -65,7 +98,7 @@ export default function About() {
         <ButtonRow setModalType={setModalType} lightBg />
       </Section>
       <Section
-        title="Meet a Few Members of Our Team and Their Admission Background"
+        className="text-center" title="Meet a Few Members of Our Team and Their Admission Background"
         darkBg
       >
         <p className="text-xl text-center my-3 text-gray-700">

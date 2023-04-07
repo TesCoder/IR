@@ -129,8 +129,6 @@ h1 {
 }
 
 h2 {
-  /* text-center text-2xl  text-ivy-blue font-medium my-4 */
-  /* @apply font-normal text-2xl text-ivy-blue mb-3 */
   font-weight: 500;
   font-size: 23px;
   line-height: 1.5em;
@@ -142,8 +140,6 @@ ul {
 }
 
 button {
-  /* style={{ "text-shadow": "5px 15px 10px black"}} */
-  /* text-shadow: "5px 5px 5px 5px red" */
   @apply bg-ivy-red text-white py-2 px-4 rounded-3xl transition-colors hover:bg-red-700
 
 }
@@ -153,9 +149,3 @@ button {
       display: none;
   }
 }
-/* 
-@media (max-width: 500px) {
-  #logoModifier1 {
-      display: none;
-  }
-} */

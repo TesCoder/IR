@@ -7,10 +7,6 @@ import Modal from "@/components/Modal";
 import { Button, ButtonRow } from "@/components/Button";
 import { useState } from "react";
 
-import ReactGA from 'react-ga';
-const TRACKING_ID = "UA-8QK4L246C4"; // YOUR_OWN_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
-
 const MarqueeElement = ({ children }) => (
   <span className="text-2xl mx-2 text-ivy-blue font-light">{...children}</span>
 );
