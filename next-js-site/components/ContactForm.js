@@ -5,13 +5,13 @@ import { useState } from "react";
 import sendEmail from "../lib/sendEmail";
 import Alert from "@/components/Alert";
 import Link from "next/link";
-import useAnalyticsEventTracker from './useAnalyticsEventTracker';
+import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
 
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
 export default function ContactForm({ type, coachName }) {
   // const gaEventTracker = useAnalyticsEventTracker('Contact us');
-  
+
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false);
@@ -19,9 +19,6 @@ export default function ContactForm({ type, coachName }) {
     success: false,
     message: "",
   });
-
-  const [formConf, setFormConf] = useState("");
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,18 +32,13 @@ export default function ContactForm({ type, coachName }) {
           message:
             "Thank you for your message. We will be reaching out to you soon.",
         });
-        gaEventTracker('email')
-        window.location.href =
-          "https://ivyready.com/contact-us-form-submitted#top";
       }
     } catch (e) {
       console.log(e);
       setResponseMessage({
         success: false,
         message:
-          // "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
-          // placed temporarily so user doesnt see error as it does still execute
-          "Thank you for your message. We will be reaching out to you soon.",
+          "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
       });
     }
     setSubmitting(false);
@@ -81,9 +73,7 @@ export default function ContactForm({ type, coachName }) {
             <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
               Have any Questions?
             </h1>
-            <p>
-              Please complete the form below for a prompt reply.
-            </p>
+            <p>Please complete the form below for a prompt reply.</p>
           </>
         )}
         {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
@@ -389,7 +379,7 @@ export default function ContactForm({ type, coachName }) {
               aria-label="Current Year"
               defaultValue="default"
             >
-               <option value="default"></option>
+              <option value="default"></option>
               <option value="FR">Freshman</option>
               <option value="SP">Sophomore</option>
               <option value="JR">Junior</option>
@@ -438,13 +428,10 @@ export default function ContactForm({ type, coachName }) {
           </div>
         )}
 
-        <div>{formConf}</div>
-
         <div className="col-12">
           <button
             className="btn bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg"
             type="submit"
-            onClick={() => setFormConf("Thank you, your submission has been received. We will get back to you soon.")}
           >
             {isSubmitting ? (
               <div className="spinner-border text-light" role="status">
