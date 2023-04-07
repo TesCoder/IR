@@ -13,7 +13,8 @@ export default function Navbar() {
       {!logoVisibility &&
         <div id="logoModifier1" className="container 
         sm:visible md:visible lg:hidden
-        z-40 w-3/12 justify-center -mb-12 bg-ivy-red">{LogoProjector()}</div>
+        z-40 w-3/12 justify-center -mb-12 md:-mb-4 bg-ivy-red
+        ">{LogoProjector()}</div>
       }
 
       <nav
