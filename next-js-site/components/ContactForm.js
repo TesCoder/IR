@@ -10,8 +10,10 @@ import useAnalyticsEventTracker from './useAnalyticsEventTracker';
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
 export default function ContactForm({ type, coachName }) {
-  // const gaEventTracker = useAnalyticsEventTracker('Contact us');
+  const gaEventTracker = useAnalyticsEventTracker('Contact us');
   
+  
+
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false);
@@ -439,7 +441,8 @@ export default function ContactForm({ type, coachName }) {
             type="submit"
           >
             {isSubmitting ? (
-              <div className="spinner-border text-light" role="status">
+              <div className="spinner-border text-light" role="status" 
+                    onClick={()=>gaEventTracker('FormSubmit')}>
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (

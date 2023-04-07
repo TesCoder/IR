@@ -4,6 +4,10 @@ import '@/styles/globals.css'
 import Head from "next/head";
 import Script from "next/script";
 
+import ReactGA from "react-ga";
+const TRACKING_ID = "UA-64646703-2";
+ReactGA.initialize(TRACKING_ID);
+
 function App({ Component, pageProps }) {
   return (
     <Layout>
