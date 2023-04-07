@@ -23,7 +23,7 @@ export default function ContactForm({ type, coachName }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    console.log("Values:", values);
+    // console.log("Values:", values);
     try {
       const res = await sendEmail({ type, coach: coachName, ...values });
       if (res.status === 250) {
