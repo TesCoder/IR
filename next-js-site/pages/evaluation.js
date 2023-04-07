@@ -3,7 +3,6 @@ import ContactForm from "@/components/ContactForm";
 import Section from "@/components/Section";
 import Head from "next/head";
 import Image from "next/image";
-import useAnalyticsEventTracker from '../components/useAnalyticsEventTracker';
 
 const Goal = ({ title, content }) => (
   <div className="text-center">
@@ -11,8 +10,6 @@ const Goal = ({ title, content }) => (
     <p className="text-lg text-center my-3 text-gray-700">{content}</p>
   </div>
 );
-
-
 
 export default function Evaluation() {
   return (
