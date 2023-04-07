@@ -46,27 +46,15 @@ export default function ContactForm({ type, coachName }) {
 
   if (responseMessage.success) {
     return (
-      <div className="container">
-        <div className="row mt-5 justify-content-center">
-          <div className="col">
-            <Alert
-              message={responseMessage.message}
-              success={responseMessage.success}
-            />
-          </div>
-        </div>
-      </div>
+      <Alert
+        message={responseMessage.message}
+        success={responseMessage.success}
+      />
     );
   }
 
   return (
     <div className="">
-      <div className="">
-        <Alert
-          message={responseMessage.message}
-          success={responseMessage.success}
-        />
-      </div>
       <form onSubmit={handleSubmit}>
         {type == "FULL" && (
           <>
@@ -441,6 +429,11 @@ export default function ContactForm({ type, coachName }) {
               "Submit"
             )}
           </button>
+          {/* Error would show here */}
+          <Alert
+            message={responseMessage.message}
+            success={responseMessage.success}
+          />
         </div>
       </form>
     </div>

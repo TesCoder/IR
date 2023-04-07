@@ -2,7 +2,7 @@ export default function Alert({ success, message }) {
   if (!message) return;
   return (
     <div
-      className={`bg-ivy-red py-4 px-4 rounded-lg shadow-md text-white font-raleway`}
+      className="bg-ivy-red py-4 px-4 rounded-lg shadow-md text-white font-raleway"
       role="alert"
     >
       <h2 className="text-3xl font-semibold text-white">
