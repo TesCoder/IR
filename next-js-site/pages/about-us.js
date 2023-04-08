@@ -5,9 +5,9 @@ import Section from "@/components/Section";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import { members } from ".";
+import { members } from "../components/membersList";
 
-const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
+const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div className="flex flex-col md:flex-row text-lg">
     <div className="w-full md:w-1/5 flex flex-col items-center">
       <Image
@@ -19,7 +19,7 @@ const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
       />
     </div>
     <div className="w-full md:w-4/5">
-      <h2 className="font-bold text-2xl text-ivy-blue mb-2">{name}</h2>
+      <h2 className="font-bold text-2xl text-ivy-blue mb-2">{fname}</h2>
       <p>College Counseling Professional</p>
       {past.map((p, i) => (
         <p className="font-medium" key={i}>
@@ -30,12 +30,12 @@ const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
       <div className="flex items-start">
         <Button
           onClick={() => {
-            setCoach(name);
+            setCoach(fname);
           }}
           data-bs-toggle="modal"
           data-bs-target="#coachModal"
         >
-          Request an introductory Session with {name}
+          Request an introductory Session with {fname}
         </Button>
       </div>
     </div>
@@ -56,6 +56,7 @@ export default function About() {
           content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
         />
       </Head>
+      
       <Modal
         id="contactModal"
         title={
@@ -66,12 +67,14 @@ export default function About() {
       >
         <ContactForm type={modalType} />
       </Modal>
+
       <Modal
         id="coachModal"
         title={`Request an Introductory Session with ${coach}`}
       >
         <ContactForm type="INFO" coachName={coach} />
       </Modal>
+
       <div className="flex bg-about-hero bg-cover bg-center h-4/5 bg-blue-300 py-48">
         <div className="m-auto text-center">
           <h1
@@ -110,12 +113,12 @@ export default function About() {
           We are dedicated to finding the perfect coach for you.
         </p>
       </Section>
-      {members.map(({ name, imgSrc, past, description }, i) => (
+      {members.map(({ fname, imgSrc, past, description }, i) => (
         <Section key={i} darkBg={i % 2 != 0}>
           <CoachInfo
             setCoach={setCoach}
             setModalType={setModalType}
-            name={name}
+            fname={fname}
             imgSrc={imgSrc}
             past={past}
             description={description}
