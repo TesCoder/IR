@@ -196,7 +196,7 @@ export default function Home() {
         <Button
           className="text-center"
           onClick={() =>
-            window.open("/#application-support-questions-section", "_self")
+            window.open("/about-us#top", "_self")
           }
         >
           Read their Profiles
