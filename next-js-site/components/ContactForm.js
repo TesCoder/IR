@@ -66,7 +66,7 @@ export default function ContactForm({ type, coachName }) {
             "Thank you for your message. We will be reaching out to you soon.",
         });
         window.location.href =
-          "https://ivyready.com/contact-us-form-submitted#top";
+          "/form-submitted#top";
       }
     } catch (e) {
       console.log(e);
