@@ -81,36 +81,22 @@ export default function ContactForm({ type, coachName }) {
 
   if (responseMessage.success) {
     return (
-      <div className="container">
-        <div className="row mt-5 justify-content-center">
-          <div className="col">
-            <Alert
-              message={responseMessage.message}
-              success={responseMessage.success}
-            />
-          </div>
-        </div>
-      </div>
+      <Alert
+        message={responseMessage.message}
+        success={responseMessage.success}
+      />
     );
   }
 
   return (
     <div className="">
-      <div className="">
-        <Alert
-          message={responseMessage.message}
-          success={responseMessage.success}
-        />
-      </div>
       <form onSubmit={handleSubmit}>
         {type == "FULL" && (
           <>
             <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
               Have any Questions?
             </h1>
-            <p>
-              Please complete the form below for a prompt reply.
-            </p>
+            <p>Please complete the form below for a prompt reply.</p>
           </>
         )}
         {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
@@ -431,7 +417,7 @@ export default function ContactForm({ type, coachName }) {
               aria-label="Current Year"
               defaultValue="default"
             >
-               <option value="default"></option>
+              <option value="default"></option>
               <option value="FR">Freshman</option>
               <option value="SP">Sophomore</option>
               <option value="JR">Junior</option>
@@ -497,6 +483,11 @@ export default function ContactForm({ type, coachName }) {
               "Submit"
             )}
           </button>
+          {/* Error would show here */}
+          <Alert
+            message={responseMessage.message}
+            success={responseMessage.success}
+          />
         </div>
       </form>
       
