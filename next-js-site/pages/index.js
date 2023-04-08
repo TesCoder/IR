@@ -199,7 +199,7 @@ export default function Home() {
             window.open("/#application-support-questions-section", "_self")
           }
         >
-          LEARN MORE
+          Read their Profiles
         </Button>
       </Section>
 
