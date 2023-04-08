@@ -74,7 +74,7 @@ export default function Home() {
 
       <Modal
         id="coachModal"
-        title={`Schedule your introductory call with ${coach}`}
+        title={`Schedule your intro call with ${coach}`}
       >
         <ContactForm type="COACH" coachName={coach} />
       </Modal>

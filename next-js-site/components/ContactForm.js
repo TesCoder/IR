@@ -24,7 +24,7 @@ const Profile = ({ name, imgSrc, admCollege, description }) => (
       <div className="flex flex-col  justify-center text-center">
         <span className="text-ivy-blue text-center text-2xl font-semibold">{name} </span>
         <span className="text-ivy-blue text-center ">Admission: {admCollege}</span>
-        <span className="truncate w-80 text-center justify-center">{description}</span>
+        <span className="truncate w-80 ml-2 text-center justify-center">{description}</span>
         <a className="underline hover:cursor" onClick={() => window.location.href =
           "/about-us#top"}>Learn More</a>
       </div>
