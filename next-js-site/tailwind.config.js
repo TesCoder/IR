@@ -29,7 +29,7 @@ module.exports = {
         'ivy-red': "#990001"
       },
       backgroundImage: {
-        'hero': "url('/images/banner.jpg')",
+        'hero': "url('/images/banner.webp')",
         'about-hero': "url('/images/about-banner.jpg')",
       },
       listStyleType: {
