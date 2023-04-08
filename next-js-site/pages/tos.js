@@ -1,8 +1,6 @@
-// import '../styles/globals.css';
-
 export default function TermsOfService() {
   return (
-    <div className="mx-60 mt-5">
+    <div className="p-10">
       <h1 className="text-center text-ivy-blue text-3xl font-semibold my-3">
         Terms of Service
       </h1>
