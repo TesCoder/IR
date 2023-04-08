@@ -8,7 +8,6 @@ import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
 import { useState } from "react";
 import { members } from "../components/membersList";
 
-
 const MarqueeElement = ({ children }) => (
   <span className="text-2xl mx-2 text-ivy-blue font-light">{...children}</span>
 );
@@ -31,21 +30,21 @@ export default function Home() {
         src={imgSrc}
         width={128}
         height={128}
-        alt=" profile picture"
+        alt="profile picture"
       />
       <span className="text-ivy-blue ">{fname} </span>
       <span className="truncate w-20 text-center">{admCollege}</span>
       {/* <ButtonRow2 setModalType={setModalType} /> */}
       <button
-      className="mb-4"
-          onClick={() => {
-            setCoach(name);
-          }}
-          data-bs-toggle="modal"
-          data-bs-target="#coachModal"
-        >
-          Learn More
-        </button>
+        className="mb-4"
+        onClick={() => {
+          setCoach(name);
+        }}
+        data-bs-toggle="modal"
+        data-bs-target="#coachModal"
+      >
+        Learn More
+      </button>
     </div>
   );
 
@@ -72,13 +71,10 @@ export default function Home() {
         <ContactForm type={modalType} />
       </Modal>
 
-      <Modal
-        id="coachModal"
-        title={`Schedule your intro call with ${coach}`}
-      >
-        <ContactForm type="COACH" coachName={coach} />
+      <Modal id="coachModal" title={`Schedule your intro call with ${coach}`}>
+        <ContactForm showProfile={true} coachName={coach} />
       </Modal>
-      
+
       <div className="flex justify-center">
         <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
           <div className="py-3 animate-marquee whitespace-nowrap ">
@@ -117,7 +113,7 @@ export default function Home() {
         <div className="m-auto text-center">
           <h1
             className="text-ivy-red text-4xl lg:text-7xl "
-            style={{ "text-shadow": "5px 5px 5px white" }}
+            style={{ textShadow: "5px 5px 5px white" }}
           >
             Ivy Ready College Consulting
           </h1>
@@ -144,9 +140,16 @@ export default function Home() {
         <p className=" text-xl text-center my-2 text-gray-700">
           Our team is comprised of former admission officers who have extensive
           experience supporting students with the college admission process. We
-          offer <HyperLink href="/#application-support-questions-section">application support packages</HyperLink>
-          , <HyperLink href="/#application-support-questions-section">hourly consultation</HyperLink>, and{" "}
-          <HyperLink href="/evaluation">Application Evaluation</HyperLink>.
+          offer{" "}
+          <HyperLink href="/#application-support-questions-section">
+            application support packages
+          </HyperLink>
+          ,{" "}
+          <HyperLink href="/#application-support-questions-section">
+            hourly consultation
+          </HyperLink>
+          , and <HyperLink href="/evaluation">Application Evaluation</HyperLink>
+          .
         </p>
         <p className=" text-xl text-center font-bold text-gray-700">
           Sign up for your (free) introductory session!
@@ -182,10 +185,18 @@ export default function Home() {
           college admission process.{" "}
         </p>
         <div className="flex justify-center my-4 flex-wrap md:flex-nowrap overflow-visible">
-
-        {members.map(({ fname, name, imgSrc, admCollege, description }, i) => (
-          <Profile key={i} fname= {fname} name={name} imgSrc={imgSrc} admCollege={admCollege} description={description} />
-        ))}
+          {members.map(
+            ({ fname, name, imgSrc, admCollege, description }, i) => (
+              <Profile
+                key={i}
+                fname={fname}
+                name={name}
+                imgSrc={imgSrc}
+                admCollege={admCollege}
+                description={description}
+              />
+            )
+          )}
         </div>
 
         <p className="pCentered">
@@ -195,9 +206,7 @@ export default function Home() {
         </p>
         <Button
           className="text-center"
-          onClick={() =>
-            window.open("/about-us#top", "_self")
-          }
+          onClick={() => window.open("/about-us#top", "_self")}
         >
           Read their Profiles
         </Button>
@@ -205,14 +214,15 @@ export default function Home() {
 
       <Section title="Ivy Ready Application Support Packages">
         <p>
-          We offer <b>Essays-only Support, Comprehensive Support, and Comprehensive
-          Support with Logistics</b>. All packages come with unlimited hours of
-          essay editing and admission support. (In addition, we offer{" "}
+          We offer{" "}
+          <b>
+            Essays-only Support, Comprehensive Support, and Comprehensive
+            Support with Logistics
+          </b>
+          . All packages come with unlimited hours of essay editing and
+          admission support. (In addition, we offer{" "}
           <HyperLink href="/hourly-consultation">hourly consultation</HyperLink>{" "}
-          and{" "}
-          <HyperLink href="/evaluation">
-            Application Evaluation
-          </HyperLink>
+          and <HyperLink href="/evaluation">Application Evaluation</HyperLink>
           .)
         </p>
         <Image
@@ -224,7 +234,10 @@ export default function Home() {
         />
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">
+            here
+          </HyperLink>
+          .
         </p>
       </Section>
 
@@ -280,7 +293,10 @@ export default function Home() {
         </ul>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">
+            here
+          </HyperLink>
+          .
         </p>
       </Section>
 
@@ -328,7 +344,10 @@ export default function Home() {
         </ul>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">
+            here
+          </HyperLink>
+          .
         </p>
       </Section>
 
@@ -426,7 +445,10 @@ export default function Home() {
         </p>
         <p>
           To request our fee structure or ask questions, click{" "}
-          <HyperLink href="/#application-support-questions-section">here</HyperLink>.
+          <HyperLink href="/#application-support-questions-section">
+            here
+          </HyperLink>
+          .
         </p>
       </Section>
 
