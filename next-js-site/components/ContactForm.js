@@ -5,12 +5,45 @@ import { useState } from "react";
 import sendEmail from "../lib/sendEmail";
 import Alert from "@/components/Alert";
 import Link from "next/link";
-import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
+import Image from "next/image";
+import { members } from "../components/membersList";
+import { Button, ButtonRow } from "@/components/Button";
 
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
+const Profile = ({ name, imgSrc, admCollege, description }) => (
+      <div className="flex flex-row 5/5 items-center mb-2 border shadow ">
+        <Image
+          className="rounded-full w-1/5 m-2 shadow-2xl"
+          src={imgSrc}
+          width={128}
+          height={128}
+          alt=" profile picture"
+        />
+        <div className="flex flex-col w-3/5 justify-center text-center">
+          <span className="text-ivy-blue text-center text-2xl font-semibold">{name} </span>
+          <span className="text-ivy-blue text-center ">Admission: {admCollege}</span>
+          <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span>
+          <a className="underline hover:cursor" 
+              onClick={() => window.location.href =
+            "/about-us#top"}>Learn More</a>
+        </div>
+        
+        {/* <button className="" href="/about-us">Learn More</button> */}
+        {/* <Button
+            onClick={() => {
+              setCoach(name);
+            }}
+            data-bs-toggle="modal"
+            data-bs-target="#coachModal"
+          >
+            Learn More About {name}
+        </Button> */}
+    </div>
+  )        
+
+
 export default function ContactForm({ type, coachName }) {
-  // const gaEventTracker = useAnalyticsEventTracker('Contact us');
 
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm();
@@ -23,7 +56,7 @@ export default function ContactForm({ type, coachName }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    console.log("Values:", values);
+    // console.log("Values:", values);
     try {
       const res = await sendEmail({ type, coach: coachName, ...values });
       if (res.status === 250) {
@@ -32,6 +65,8 @@ export default function ContactForm({ type, coachName }) {
           message:
             "Thank you for your message. We will be reaching out to you soon.",
         });
+        window.location.href =
+          "/form-submitted#top";
       }
     } catch (e) {
       console.log(e);
@@ -65,6 +100,21 @@ export default function ContactForm({ type, coachName }) {
           </>
         )}
         {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
+
+        { type == "COACH" && ( 
+          members.map(({ fname, name, imgSrc, admCollege, description}, i) =>{
+            if (name === coachName) {
+              // console.log({coachName})
+              return (
+                <Profile key={i} name={name} imgSrc={imgSrc} admCollege={admCollege} description={description} />
+              )
+            }
+            // return (
+            //   console.log("not match")
+            // );
+          })
+        )}
+
         <div className="row mb-3">
           <label htmlFor="name" className="form-label">
             Name
@@ -78,7 +128,7 @@ export default function ContactForm({ type, coachName }) {
               className="form-control"
               placeholder="First name"
               aria-label="First name"
-              required
+              // required
             />
           </div>
           <div className="col">
@@ -90,7 +140,7 @@ export default function ContactForm({ type, coachName }) {
               className="form-control"
               placeholder="Last name"
               aria-label="Last name"
-              required
+              // required
             />
           </div>
         </div>
@@ -107,7 +157,7 @@ export default function ContactForm({ type, coachName }) {
               className="form-control"
               id="location"
               placeholder="Alexandria, Virginia"
-              required
+              // required
             />
           </div>
         )}
@@ -124,7 +174,7 @@ export default function ContactForm({ type, coachName }) {
             className="form-control"
             id="email"
             placeholder="name@example.com"
-            required
+            // required
           />
         </div>
         <div className="mb-3">
@@ -139,7 +189,7 @@ export default function ContactForm({ type, coachName }) {
             className="form-control"
             id="phone"
             placeholder="123-456-7890"
-            required
+            // required
           />
         </div>
         {type == "FULL" && (
@@ -415,6 +465,9 @@ export default function ContactForm({ type, coachName }) {
             </select>
           </div>
         )}
+        
+      
+
 
         <div className="col-12">
           <button
@@ -422,7 +475,8 @@ export default function ContactForm({ type, coachName }) {
             type="submit"
           >
             {isSubmitting ? (
-              <div className="spinner-border text-light" role="status">
+              <div className="spinner-border text-light" role="status" 
+                  >
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (
@@ -436,6 +490,7 @@ export default function ContactForm({ type, coachName }) {
           />
         </div>
       </form>
-    </div>
+      
+          </div>
   );
 }
