@@ -28,7 +28,10 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
         Admission Experience: {admCollege}
       </span>
       {/* <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span> */}
-      <Link
+      <a className="underline hover:cursor"  
+              onClick={() => window.location.href =
+            "/about-us#"+JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()} >Learn More About {fname}</a>
+      {/* <Link
         className="underline hover:cursor"
         href={`/about-us#${JSON.stringify({ fname })
           .split(":")[1]
@@ -37,7 +40,7 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
           .toLowerCase()}`}
       >
         Learn More About {fname}
-      </Link>
+      </Link> */}
     </div>
 
     {/* <button className="" href="/about-us">Learn More</button> */}
