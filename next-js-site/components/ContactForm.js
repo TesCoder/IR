@@ -17,7 +17,7 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
           className="rounded-full w-1/5 m-2 shadow-2xl"
           src={imgSrc}
           width={128}
-          height={128}
+          height={128} 
           alt=" profile picture"
         />
         <div className="flex flex-col w-3/5 justify-center text-center">
