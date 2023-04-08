@@ -9,6 +9,7 @@ import { members } from "../components/membersList";
 
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div className="flex flex-col md:flex-row text-lg">
+    <span id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></span>
     <div className="w-full md:w-1/5 flex flex-col items-center">
       <Image
         className="rounded-full shadow-md mb-2 w-4/5"
@@ -127,5 +128,6 @@ export default function About() {
       ))}
       <ButtonRow setModalType={setModalType} lightBg />
     </>
+     
   );
 }

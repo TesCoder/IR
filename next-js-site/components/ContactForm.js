@@ -11,7 +11,7 @@ import { Button, ButtonRow } from "@/components/Button";
 
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
-const Profile = ({ name, imgSrc, admCollege, description }) => (
+const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
       <div className="flex flex-row 5/5 items-center mb-2 border shadow ">
         <Image
           className="rounded-full w-1/5 m-2 shadow-2xl"
@@ -22,11 +22,12 @@ const Profile = ({ name, imgSrc, admCollege, description }) => (
         />
         <div className="flex flex-col w-3/5 justify-center text-center">
           <span className="text-ivy-blue text-center text-2xl font-semibold">{name} </span>
-          <span className="text-ivy-blue text-center ">Admission: {admCollege}</span>
-          <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span>
+          <span className="text-ivy-blue text-center ">Admission Exerience: {admCollege}</span>
+          {/* <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span> */}
           <a className="underline hover:cursor" 
               onClick={() => window.location.href =
-            "/about-us#top"}>Learn More</a>
+            "/about-us#"+JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()} >Learn More About {fname}</a>
+
         </div>
         
         {/* <button className="" href="/about-us">Learn More</button> */}
@@ -106,7 +107,7 @@ export default function ContactForm({ type, coachName }) {
             if (name === coachName) {
               // console.log({coachName})
               return (
-                <Profile key={i} name={name} imgSrc={imgSrc} admCollege={admCollege} description={description} />
+                <Profile key={i} fname={fname} name={name} imgSrc={imgSrc} admCollege={admCollege} description={description} />
               )
             }
             // return (
