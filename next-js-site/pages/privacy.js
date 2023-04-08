@@ -12,7 +12,7 @@ export default function TermsOfService() {
         <p>
             Any information you provide to us will not be sold to any third party. Unless you ask us not to, we may contact you via email in the future to tell you about specials, new products or services, or changes to this privacy policy.        </p>
             <ul className="list-disc pl-10">
-          <li>
+          <li> 
             Access and Control over Information
             <ul className="list-[circle] pl-10">
               <li>
