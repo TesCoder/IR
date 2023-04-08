@@ -2,7 +2,7 @@ import { Button } from "@/components/Button";
 import { packages } from "@/data/agreementInfo";
 import encryptor from "@/lib/hash";
 import { useState } from "react";
-import { members } from ".";
+import { members } from "../components/membersList";
 
 export async function getServerSideProps(context) {
   return {
