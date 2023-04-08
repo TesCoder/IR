@@ -1,5 +1,3 @@
-// import '../styles/globals.css';
-
 export default function TermsOfService() {
   return (
     <div className="p-10">
