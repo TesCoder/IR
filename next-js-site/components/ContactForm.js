@@ -17,14 +17,14 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
           className="rounded-full w-1/5 m-2 shadow-2xl"
           src={imgSrc}
           width={128}
-          height={128} 
+          height={128}
           alt=" profile picture"
         />
         <div className="flex flex-col w-3/5 justify-center text-center">
           <span className="text-ivy-blue text-center text-2xl font-semibold">{name} </span>
           <span className="text-ivy-blue text-center ">Admission Exerience: {admCollege}</span>
           {/* <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span> */}
-          <a className="underline hover:cursor" 
+          <a className="underline hover:cursor"  
               onClick={() => window.location.href =
             "/about-us#"+JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()} >Learn More About {fname}</a>
 
