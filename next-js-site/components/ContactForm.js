@@ -67,7 +67,6 @@ export default function ContactForm({ type, coachName }) {
           message:
             "Thank you for your message. We will be reaching out to you soon.",
         });
-        gaEventTracker('email')
         window.location.href =
           "https://ivyready.com/contact-us-form-submitted#top";
       }
@@ -121,14 +120,14 @@ export default function ContactForm({ type, coachName }) {
         { type == "COACH" && ( 
           members.map(({ fname, name, imgSrc, admCollege, description}, i) =>{
             if (name === coachName) {
-              console.log({coachName})
+              // console.log({coachName})
               return (
                 <Profile key={i} name={name} imgSrc={imgSrc} admCollege={admCollege} description={description} />
               )
             }
-            return (
-              console.log("not match")
-            );
+            // return (
+            //   console.log("not match")
+            // );
           })
         )}
 
