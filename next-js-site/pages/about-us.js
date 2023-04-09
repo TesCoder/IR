@@ -95,8 +95,6 @@ export default function About() {
           background, interest and aspirations. Our team is comprised of former
           admission officers and graduates of top schools with extensive
           experience supporting students with college planing and admission.
-        </p>
-        <p className="text-xl text-center my-3 text-gray-700">
           Our college counselors are located in cities across the U.S. To
           accommodate students&apos; schedules, we offer counseling via video
           conference, email, and phone.
@@ -107,14 +105,6 @@ export default function About() {
         title="Meet a Few Members of Our Team and Their Admission Background"
         darkBg
       >
-        <p className="text-xl text-center my-3 text-gray-700">
-          Our team is comprised of former admission officers and graduates of
-          highly selective schools. Contact us if a coach with the particular
-          background you seek is not listed . We have an extended list not shown
-          here.
-          <br />
-          We are dedicated to finding the perfect coach for you.
-        </p>
       </Section>
       {members.map(({ fname, imgSrc, past, description }, i) => (
         <Section key={i} darkBg={i % 2 != 0}>
