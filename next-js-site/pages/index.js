@@ -52,7 +52,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Ivy Ready Consulting - Ivy Ready College Admission Consulting
+          Ivy Ready College Admission Consulting
         </title>
         <meta
           name="description"
@@ -75,8 +75,6 @@ export default function Home() {
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
 
-
-
       {/* Main Banner */}
       <div
         className="flex bg-hero bg-cover bg-blue-300 pt-20 sm:py-72 md:py-72 lg:py-80 2xl:py-96"
@@ -97,7 +95,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Marquee */}
+      {/* Main Banner */}
       <div className="flex justify-center">
         <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
           <div className="py-3 animate-marquee whitespace-nowrap ">
