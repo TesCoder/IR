@@ -14,10 +14,10 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
     
     <div className="w-full md:w-1/5 flex flex-col items-center">
       <Image
-        className="rounded-full shadow-md mb-2 w-4/5"
+        className="rounded-full shadow-lg mb-2 w-4/5"
         src={imgSrc}
-        width={128}
-        height={128}
+        width={400}
+        height={400}
         alt=" profile picture"
       />
     </div>
