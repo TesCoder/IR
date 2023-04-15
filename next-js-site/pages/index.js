@@ -213,7 +213,7 @@ export default function Home() {
         </Button>
       </Section>
 
-      <Section title="Ivy Ready Application Support Packages">
+      <Section id="chart" title="Ivy Ready Application Support Packages">
         <p>
           We offer{" "}
           <b>
