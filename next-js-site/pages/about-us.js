@@ -56,7 +56,10 @@ export default function About() {
         <title>About Us - Ivy Ready College Admission Consulting</title>
         <meta
           name="description"
-          content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
+          content="Ivy Ready's team is made up of former admission officers and 
+          graduates from top schools who have extensive experience in supporting students 
+          with college planning and admission. Our mission is to provide a personalized admission 
+          strategy for each student."
         />
       </Head>
       
@@ -84,27 +87,29 @@ export default function About() {
             className="text-7xl text-white"
             style={{ textShadow: "2px 2px 2px #000" }}
           >
-            Admission and Financial Aid Experts
           </h1>
         </div>
       </div>
       <Section title="About Us" centerContent>
-        <p className="text-xl text-center my-3 text-gray-700">
-          Ivy Ready&apos;s mission is to provide a personalized admission
-          strategy for each student by capitalizing on their strengths,
-          background, interest and aspirations. Our team is comprised of former
-          admission officers and graduates of top schools with extensive
-          experience supporting students with college planing and admission.
-          Our college counselors are located in cities across the U.S. To
-          accommodate students&apos; schedules, we offer counseling via video
-          conference, email, and phone.
+        <p className="text-center my-3">
+          Ivy Ready&apos;s mission is to provide a personalized admission strategy for each student by 
+          capitalizing on their strengths, background, interest and aspirations. We value the diversity 
+          of the families we serve and devote tremendous effort to ensure every student has the opportunity 
+          to share their compelling story.
         </p>
         <ButtonRow setModalType={setModalType} lightBg />
       </Section>
       <Section
-        title="Meet a Few Members of Our Team and Their Admission Background"
+        title=""
         darkBg
       >
+        <h2>Meet a Few Members of Our Team and Their Admission Background</h2>
+        <p className="text-center">
+        Our team is comprised of former admission officers and graduates of highly selective schools. 
+        Contact us if a coach with the particular background you seek is not listed . We have an extended 
+        list not shown here. We are dedicated to finding the perfect coach for you.
+
+        </p>
       </Section>
       {members.map(({ fname, imgSrc, past, description }, i) => (
         <Section key={i} darkBg={i % 2 != 0}>
