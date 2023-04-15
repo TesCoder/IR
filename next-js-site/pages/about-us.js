@@ -92,12 +92,7 @@ export default function About() {
         <p className="text-xl text-center my-3 text-gray-700">
           Ivy Ready&apos;s mission is to provide a personalized admission
           strategy for each student by capitalizing on their strengths,
-          background, interest and aspirations. Our team is comprised of former
-          admission officers and graduates of top schools with extensive
-          experience supporting students with college planing and admission.
-          Our college counselors are located in cities across the U.S. To
-          accommodate students&apos; schedules, we offer counseling via video
-          conference, email, and phone.
+          background, interest and aspirations. 
         </p>
         <ButtonRow setModalType={setModalType} lightBg />
       </Section>
