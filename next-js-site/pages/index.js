@@ -26,10 +26,10 @@ export default function Home() {
   const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
     <div className="w-1/3 md:w-1/6 flex flex-col items-center mx-2">
       <Image
-        className="rounded-full shadow-md mb-2"
+        className="rounded-full shadow-lg mb-2 w-4/5"
         src={imgSrc}
-        width={128}
-        height={128}
+        width={400}
+        height={400}
         alt="profile picture"
       />
       <span className="text-ivy-blue ">{fname} </span>
@@ -213,7 +213,7 @@ export default function Home() {
         </Button>
       </Section>
 
-      <Section title="Ivy Ready Application Support Packages">
+      <Section id="chart" title="Ivy Ready Application Support Packages">
         <p>
           We offer{" "}
           <b>
@@ -473,7 +473,7 @@ export default function Home() {
             {["B", "C", "D", "E", "F", "H", "I", "J"].map((letter, i) => (
               <div key={i} className="carousel-item">
                 <Image
-                  src={`/images/carousel/${letter}.png`}
+                  src={`/images/testimonials/${letter}.png`}
                   width={400}
                   height={350}
                   className="d-block w-100"

@@ -2,7 +2,7 @@ export const members = [
     {
       fname: "James",
       name: "James Dean",
-      imgSrc: "/images/members/james.jpg",
+      imgSrc: "/images/members/james.png",
       admCollege: "Stanford",
       past: [
         "B.S., Stanford University",
@@ -14,7 +14,7 @@ export const members = [
     {
       fname: "Ariel",
       name: "Ariel Englesby",
-      imgSrc: "/images/members/ariel.jpg",
+      imgSrc: "/images/members/ariel.png",
       admCollege: "Stanford",
       past: [
         "B.A., Stanford University",
@@ -27,7 +27,7 @@ export const members = [
     {
       fname: "Erika",
       name: "Erika Robinson",
-      imgSrc: "/images/members/erika.jpg",
+      imgSrc: "/images/members/erika.png",
       admCollege: "Princeton, Columbia, Harvard",
       past: [
         "B.A., Harvard University (English)",
@@ -37,12 +37,12 @@ export const members = [
         "Seasonal Admission Reader, Harvard University",
       ],
       description:
-        "In addition to her experience as an Admission Officer, Erika has taught Advanced Placement Language and Composition for more than a quarter century, and has guided thousands of seniors in the writing of successful college essays, including her own daughter, a recent graduate of Columbia University. Erika has written hundreds of letters of recommendation, as well, and knows the college admissions process from a variety of perspectives: student, parent, teacher, and admissions officer. She enjoys showing young people that, as daunting an experience as the admissions process is, it can also be an exciting opportunity for students to discover both who they are, and who it is they wish to become. Erika has been an admissions consultant both domestically and throughout Asia, having traveled to and worked with students in India, South Korea, and China. She most enjoys helping students with the essay writing process, and watching them discover their voices as both writers and as young adults who are ready to offer their gifts to the world.",
+        "In addition to her experience as an Admission Officer, Erika has taught Advance  d Placement Language and Composition for more than a quarter century, and has guided thousands of seniors in the writing of successful college essays, including her own daughter, a recent graduate of Columbia University. Erika has written hundreds of letters of recommendation, as well, and knows the college admissions process from a variety of perspectives: student, parent, teacher, and admissions officer. She enjoys showing young people that, as daunting an experience as the admissions process is, it can also be an exciting opportunity for students to discover both who they are, and who it is they wish to become. Erika has been an admissions consultant both domestically and throughout Asia, having traveled to and worked with students in India, South Korea, and China. She most enjoys helping students with the essay writing process, and watching them discover their voices as both writers and as young adults who are ready to offer their gifts to the world.",
     },
     {
       fname: "David",
       name: "David Emerson",
-      imgSrc: "/images/members/david.jpg",
+      imgSrc: "/images/members/david.png",
       admCollege: "Brown",
       past: [
         "B.A., Brown University",
@@ -55,7 +55,7 @@ export const members = [
     {
       fname: "Alicia",
       name: "Alicia Stewart",
-      imgSrc: "/images/members/alicia.jpg",
+      imgSrc: "/images/members/alicia.png",
       admCollege: "Columbia",
       past: [
         "B.A., George Washington University",
@@ -68,7 +68,7 @@ export const members = [
     {
       fname: "Marie",
       name: "Marie Arlen",
-      imgSrc: "/images/members/marie.jpg",
+      imgSrc: "/images/members/marie.png",
       admCollege: "Columbia",
       past: [
         "B.A., University of Pennsylvania",
@@ -80,7 +80,7 @@ export const members = [
     {
       fname: "Anna",
       name: "Anna Cross",
-      imgSrc: "/images/members/anna.jpg",
+      imgSrc: "/images/members/anna.png",
       admCollege: "UCBerkeley",
       past: [
         "B.A., University of San Francisco",
@@ -110,7 +110,7 @@ export const members = [
       hideOnHome: true,
       fname: "Gregg",
       name: "Gregg Prigerson",
-      imgSrc: "/images/members/gregg.jpg",
+      imgSrc: "/images/members/gregg.png",
       admCollege: "Stanford",
       past: ["Former Admission Officer, Stanford University"],
       description:
@@ -120,7 +120,7 @@ export const members = [
       hideOnHome: true,
       fname: "Deborah",
       name: "Deborah Foel",
-      imgSrc: "/images/members/deborah.jpg",
+      imgSrc: "/images/members/deborah.png",
       admCollege: "Carnegie Mellon",
       past: [
         "B.A., The George Washington University",

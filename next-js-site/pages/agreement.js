@@ -104,7 +104,12 @@ export default function Agreement() {
   }
 
   return (
-    <div className='container mt-4'>
+    <div className='container mt-0 m-4 border border-red-700 shadow-sm'>
+      <div className='p-4 flex justify-content-center'>
+        <Image onClick={() => setIsFirstOpen(false)} className="cursor-pointer hover:drop-shadow-lg" src='/images/logo-circle.png' 
+        width={200} height={200} alt="Logo" priority />
+      </div>
+
       <div className='row justify-content-center'>
         <div className='col-5'>
           <Alert message={responseMessage.message} success={responseMessage.success} />
