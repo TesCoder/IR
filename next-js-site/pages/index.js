@@ -228,9 +228,9 @@ export default function Home() {
         </p>
         <Image
           className="shadow-md"
-          src="/images/table.jpg"
-          width={1080}
-          height={1080}
+          src="/images/table.webp"
+          width={4164}
+          height={6162}
           alt="Services Table"
         />
         <p>
