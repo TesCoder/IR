@@ -23,7 +23,7 @@ export const sendEmail = async ({ subject, html, attachments }) => {
     const result = await transport.sendMail(mailOptions);
     return { success: true, message: `Message sent.` }
   } catch (e) {
-    console.error(e);
+    // console.error(e);
     return { success: false, error: e.message }
   }
 }
