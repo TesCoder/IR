@@ -41,6 +41,7 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
   return vCard;
 }
 
+// api endpoint
 export default async function handler(req, res) {
   // res.status(200).json({ msg: "REACHED", data: req.body })
   const { coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service } = req.body
@@ -86,7 +87,7 @@ export default async function handler(req, res) {
   };
 
   const result = await sendEmail(emailOptions);
-  console.log('Result:', result);
+  // console.log('Result:', result);
   if (result.success) {
     return res.status(250).json(result)
   } else {

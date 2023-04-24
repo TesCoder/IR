@@ -58,7 +58,7 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
 
 export default function ContactForm({ type, coachName, showProfile }) {
   // Form Types: FULL, INFO, CALL, or EVAL
-  const { values, handleChange } = useContactForm();
+  const { values, handleChange } = useContactForm(); // hook
   const [isSubmitting, setSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState({
     success: false,
@@ -66,7 +66,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
   });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevents page from reloading when a form is submtted
     setSubmitting(true);
     // console.log("Values:", values);
     try {
@@ -80,7 +80,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
         window.location.href = "/form-submitted#top";
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       setResponseMessage({
         success: false,
         message:
