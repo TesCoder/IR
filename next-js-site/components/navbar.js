@@ -4,10 +4,12 @@ import LogoProjector from "./logoMaker";
 import { useState } from "react";
 
 export default function Navbar() {
+  // hides logo in mobile when navbar-toggle is clicked
   const [logoVisibility, setLogoVisibility] = useState(false);
 
   return (
-    <div className="flex flex-col sm:justify-center bg-ivy-red">
+    // "fixed w-full z-20 top-0 left-0" persist navabar on scrolling
+    <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
       {!logoVisibility && (
         <div
           id="logoModifier1"
@@ -25,7 +27,7 @@ export default function Navbar() {
         font-raleway font-medium p-0 navbar-dark uppercase"
         data-bs-theme="dark"
       >
-        <div className="container-fluid bg-ivy-red">
+        <div className="container-fluid bg-ivy-red mt-2">
           <button
             className="navbar-toggler"
             type="button"
@@ -37,15 +39,15 @@ export default function Navbar() {
           >
             <span
               className="navbar-toggler-icon"
-              onClick={() => setLogoVisibility(!logoVisibility)}
+              onClick={() => setLogoVisibility(!logoVisibility)} // hides logo in mobile when navbar-toggle is clicked
             ></span>
           </button>
 
           <div
-            className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row"
+            className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row mt-10"
             id="navbarNav"
           >
-            <ul className="navbar-nav text-white md:space-x-5 mt-1 -mb-6 ">
+            <ul className="navbar-nav text-white md:space-x-5 -mt-20 md:-mb-6">
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/">
                   Admission Support
@@ -128,6 +130,6 @@ export default function Navbar() {
       <div id="logoModifier" className="z-40 md:hidden ml-20 bg-ivy-red">
         <LogoProjector />
       </div>
-    </div>
+    </nav>
   );
 }
