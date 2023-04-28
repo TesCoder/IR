@@ -76,7 +76,7 @@ export default function Home() {
       </Modal>
 
       {/* Main Marquee */}
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-20">
         <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
           <div className="py-3 animate-marquee whitespace-nowrap ">
             <MarqueeElement>Ivy Ready</MarqueeElement>
