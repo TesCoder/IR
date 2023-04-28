@@ -27,7 +27,7 @@ export default function Navbar() {
         font-raleway font-medium p-0 navbar-dark uppercase"
         data-bs-theme="dark"
       >
-        <div className="container-fluid bg-ivy-red mt-2">
+        <div className="container-fluid bg-ivy-red mt-4">
           <button
             className="navbar-toggler"
             type="button"

@@ -75,27 +75,9 @@ export default function Home() {
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
 
-      {/* Main Banner */}
-      <div
-        className="flex bg-hero bg-cover bg-white pt-20 sm:py-72 md:py-72 lg:py-80 2xl:py-96"
-        style={{ height: "400px" }}
-      >
-        <div className="m-auto text-center">
-          <h1
-            className="text-ivy-red text-4xl lg:text-7xl "
-            style={{ textShadow: "5px 5px 5px white" }}
-          >
-            Ivy Ready College Consulting
-          </h1>
-          {/* <h4 className='text-2xl my-3 drop-shadow-lg italic font-medium'>
-            Personalized College Admission Support
-            <br />
-            by Former Admission Officers
-          </h4> */}
-        </div>
-      </div>
+      <div className="m-20"></div>
 
-      {/* Main Banner */}
+      {/* Main Marquee */}
       <div className="flex justify-center">
         <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
           <div className="py-3 animate-marquee whitespace-nowrap ">
@@ -116,6 +98,31 @@ export default function Home() {
             <MarqueeElement>Dream it</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Ivy Ready</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Dream it</MarqueeElement>
@@ -123,6 +130,26 @@ export default function Home() {
             <MarqueeElement>Reach it</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>
           </div>
+        </div>
+      </div>
+
+      {/* Main Banner */}
+      <div
+        className="flex bg-hero bg-cover bg-white pt-20 sm:py-72 md:py-72 lg:py-80 2xl:py-96"
+        style={{ height: "400px" }}
+      >
+        <div className="m-auto text-center">
+          <h1
+            className="text-ivy-red text-4xl lg:text-7xl "
+            style={{ textShadow: "5px 5px 5px white" }}
+          >
+            Ivy Ready College Consulting
+          </h1>
+          {/* <h4 className='text-2xl my-3 drop-shadow-lg italic font-medium'>
+            Personalized College Admission Support
+            <br />
+            by Former Admission Officers
+          </h4> */}
         </div>
       </div>
 

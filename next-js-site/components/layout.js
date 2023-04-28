@@ -13,7 +13,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      {!hide && <Navbar class="sticky top-0 z-50" />}
+      {!hide && <Navbar/>}
       <main className="min-h-screen font-raleway ">{children}</main>
       {!hide && <Footer />}
     </>
