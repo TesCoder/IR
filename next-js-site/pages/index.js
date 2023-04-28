@@ -98,6 +98,31 @@ export default function Home() {
             <MarqueeElement>Dream it</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Ivy Ready</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Dream it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
+            <MarqueeElement>Reach it</MarqueeElement>
+            <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Ivy Ready</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>
             <MarqueeElement>Dream it</MarqueeElement>
