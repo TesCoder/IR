@@ -75,8 +75,6 @@ export default function Home() {
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
 
-      <div className="m-20"></div>
-
       {/* Main Marquee */}
       <div className="flex justify-center">
         <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
@@ -490,7 +488,7 @@ export default function Home() {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <Image
-                src="/images/carousel/A.png"
+                src="/images/testimonials/A.png"
                 width={400}
                 height={350}
                 className="d-block w-100"
