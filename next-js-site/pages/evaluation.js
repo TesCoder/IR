@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import Section from "@/components/Section";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 const Goal = ({ title, content }) => (
   <div className="text-center">
@@ -24,9 +25,10 @@ export default function Evaluation() {
         />
       </Head>
       <Section>
-        <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue">
+        <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mt-10">
           Submit your best application with the feedback of former admission
-          officers! (<strong className="font-bold">Sign Up</strong>)
+          officers!
+          <Link className="font-bold" href="/evaluation/#sign-up" > (Sign Up) </Link>
         </h1>
       </Section>
 
@@ -154,10 +156,13 @@ export default function Evaluation() {
             title="Seize your Future"
             content="Without a compelling application, you may miss out on the school meant for you. Why take chances when you can get professional feedback beforehand?"
           />
+          <span id='sign-up'></span>   
         </div>
       </Section>
 
-      <Section>
+       
+       
+      <Section id="">
         <Image
           className="mx-auto mb-4"
           src="/images/ivy-eval.png"
