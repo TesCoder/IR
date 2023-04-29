@@ -49,7 +49,7 @@ export default function Navbar() {
           >
             <ul className="navbar-nav text-white md:space-x-5 -mt-20 md:-mb-6">
               <li className="nav-item">
-                <Link className="nav-link text-white hover:opacity-75" href="/">
+                <Link className="nav-link text-white hover:opacity-75" href="/#chart">
                   Admission Support
                 </Link>
               </li>
@@ -67,7 +67,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="/"
+                      href="/#chart"
                     >
                       Admission Support
                     </Link>
@@ -101,7 +101,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
-                  href="/#testimonials"
+                  href="/#testimonials-section"
                 >
                   Testimonials
                 </Link>

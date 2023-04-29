@@ -76,7 +76,7 @@ export default function Home() {
       </Modal>
 
       {/* Main Marquee */}
-      <div className="flex justify-center mt-20">
+      <div className="flex justify-center">
         <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
           <div className="py-3 animate-marquee whitespace-nowrap ">
             <MarqueeElement>Ivy Ready</MarqueeElement>
@@ -236,9 +236,10 @@ export default function Home() {
         >
           Read their Profiles
         </Button>
+        <span className="" id="chart"></span>
       </Section>
 
-      <Section id="chart" title="Ivy Ready Application Support Packages">
+      <Section title="Ivy Ready Application Support Packages">
         <p>
           We offer{" "}
           <b>
@@ -469,6 +470,7 @@ export default function Home() {
           every applicant independently, each submission must be prepared in a
           same manner that ensures maximum potential for the best outcome.{" "}
         </p>
+        
         <p>
           To request our fee structure or ask questions, click{" "}
           <HyperLink href="/#application-support-questions-section">
@@ -476,7 +478,9 @@ export default function Home() {
           </HyperLink>
           .
         </p>
+        <span className="" id="testimonials-section"></span>
       </Section>
+      
 
       <Section id="testimonials" title="Testimonials" darkBg>
         {/* Bootstrap Carousel */}
@@ -532,9 +536,10 @@ export default function Home() {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
+        <span id="application-support-questions-section"></span>
       </Section>
 
-      <Section id="application-support-questions-section">
+      <Section>
         <ContactForm type="FULL" />
       </Section>
 
