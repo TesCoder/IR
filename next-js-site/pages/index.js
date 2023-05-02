@@ -8,10 +8,6 @@ import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
 import { useState } from "react";
 import { members } from "../components/membersList";
 
-const MarqueeElement = ({ children }) => (
-  <span className="text-2xl mx-2 text-ivy-blue font-light">{...children}</span>
-);
-
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
     {...children}
@@ -74,62 +70,6 @@ export default function Home() {
       <Modal id="coachModal" title={`Schedule your intro call with ${coach}`}>
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
-
-      {/* Main Marquee */}
-      <div className="flex justify-center">
-        <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
-          <div className="py-3 animate-marquee whitespace-nowrap ">
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-          </div>
-        </div>
-      </div>
 
       {/* Main Banner */}
       <div

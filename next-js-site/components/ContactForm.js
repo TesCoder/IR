@@ -30,7 +30,8 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
       {/* <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span> */}
       <a className="underline hover:cursor"  
               onClick={() => window.location.href =
-            "/about-us#"+JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()} >Learn More About {fname}</a>
+                        "/about-us#"+JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()
+                      }>Learn More About {fname}</a>
       {/* <Link
         className="underline hover:cursor"
         href={`/about-us#${JSON.stringify({ fname })
