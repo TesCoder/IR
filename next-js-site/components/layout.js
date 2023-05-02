@@ -12,11 +12,12 @@ export default function Layout({ children }) {
   // an iFrame of ContactForm is implemented in SQS site temporarily
   const hide = noNavPages.includes(pathname);
 
+  // create layout for website NavBar, Marque, Content, then Footer
   return (
     <>
     <div className="mt-20"></div>
       {!hide && <Navbar/>}
-      <MarqueeDisplay/>
+      <MarqueeDisplay/> 
       <main className="min-h-screen font-raleway">{children}</main>
       {!hide && <Footer />}
     </>
