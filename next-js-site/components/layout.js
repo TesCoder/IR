@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Navbar from "./navbar";
+import MarqueeDisplay from "./marqueeDisplay";
 
 const noNavPages = ["/contact"];
 
@@ -13,8 +14,10 @@ export default function Layout({ children }) {
 
   return (
     <>
+    <div className="mt-20"></div>
       {!hide && <Navbar/>}
-      <main className="min-h-screen font-raleway ">{children}</main>
+      <MarqueeDisplay/>
+      <main className="min-h-screen font-raleway">{children}</main>
       {!hide && <Footer />}
     </>
   );

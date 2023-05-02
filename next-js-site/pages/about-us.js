@@ -8,38 +8,39 @@ import { useState } from "react";
 import { members } from "../components/membersList";
 
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
-  <div className="flex flex-col md:flex-row text-lg">
-    {/* anchor to jump to each members' section from home page */}
-    <span id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></span>
-    
-    <div className="w-full md:w-1/5 flex flex-col items-center">
-      <Image
-        className="rounded-full shadow-lg mb-2 w-4/5"
-        src={imgSrc}
-        width={400}
-        height={400}
-        alt=" profile picture"
-      />
-    </div>
-    <div className="w-full md:w-4/5">
-      <h2 className="font-bold text-2xl text-ivy-blue mb-2">{fname}</h2>
-      <p>College Counseling Professional</p>
-      {past.map((p, i) => (
-        <p className="font-medium" key={i}>
-          {p}
-        </p>
-      ))}
-      <p className="my-3">{description}</p>
-      <div className="flex items-start">
-        <Button
-          onClick={() => {
-            setCoach(fname);
-          }}
-          data-bs-toggle="modal"
-          data-bs-target="#coachModal"
-        >
-          Request an introductory Session with {fname}
-        </Button>
+  <div>
+    <div className="mb-20" id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></div>
+    <div className="flex flex-col md:flex-row text-lg shadow p-20">
+      {/* anchor to jump to each members' section from home page */}
+      <div className="w-full md:w-1/5 flex flex-col items-center">
+        <Image
+          className="rounded-full shadow-lg mb-2 w-4/5"
+          src={imgSrc}
+          width={400}
+          height={400}
+          alt=" profile picture"
+        />
+      </div>
+      <div className="w-full md:w-4/5">
+        <h2 className="font-bold text-2xl text-ivy-blue mb-2">{fname}</h2>
+        <p>College Counseling Professional</p>
+        {past.map((p, i) => (
+          <p className="font-medium" key={i}>
+            {p}
+          </p>
+        ))}
+        <p className="my-3">{description}</p>
+        <div className="flex items-start">
+          <Button
+            onClick={() => {
+              setCoach(fname);
+            }}
+            data-bs-toggle="modal"
+            data-bs-target="#coachModal"
+          >
+            Request an introductory Session with {fname}
+          </Button>
+        </div>
       </div>
     </div>
   </div>
