@@ -1,13 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
-import Section from "@/components/Section";
-import Modal from "@/components/Modal";
-import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
-import { useState } from "react";
-import { members } from "../components/membersList";
-
 {/* Main Marquee */}
 
 const MarqueeElement = ({ children }) => (
