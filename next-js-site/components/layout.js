@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Navbar from "./navbar";
-import MarqueeDisplay from "./marqueeDisplay.js";
+import MarqueeDisplay from "./MarqueeDisplay";
 
 const noNavPages = ["/contact"];
 
