@@ -17,7 +17,7 @@ export default function Footer() {
 
       <div className="flex flex-row gap-2 mx-10 text-center ">
         <Link className="underline hover:opacity-75" href="/tos">TERMS OF SERVICE</Link> |
-        <Link className="underline hover:opacity-75" href="/">PRIVACY POLICY</Link> |
+        <Link className="underline hover:opacity-75" href="/tos#privacy-policy">PRIVACY POLICY</Link> |
         <span>IVY READY LLC © {new Date().getFullYear()}</span>
       </div>
 
