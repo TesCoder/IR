@@ -94,16 +94,16 @@ export default function About() {
             className="text-white text-4xl lg:text-7xl "
             style={{ textShadow: "5px 5px 5px black" }}
           >
-            Our Mission
+            About Us
           </h1>
           <h2 className="text-white shadow text-center mb-10"
             style={{ textShadow: "5px 5px 5px black" }}
-          > Dedicated to Excellence</h2>
+          > Professionals Dedicated to Excellence</h2>
         </div>
       </div>
       
 
-      <Section title="About Us" centerContent>
+      <Section title="Our Mission" centerContent>
         <p className="text-lg text-center my-3">
           Ivy Ready&apos;s mission is to provide a personalized admission strategy for each student by 
           capitalizing on their strengths, background, interest and aspirations. We value the diversity 
