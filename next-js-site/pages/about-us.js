@@ -9,7 +9,7 @@ import { members } from "../components/membersList";
 
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div>
-    <div className="mb-20" id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></div>
+    <div className="" id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></div>
     <div className="flex flex-col md:flex-row text-lg shadow p-20">
       {/* anchor to jump to each members' section from home page */}
       <div className="w-full md:w-1/5 flex flex-col items-center">
