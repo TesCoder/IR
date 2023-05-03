@@ -94,7 +94,7 @@ export default function About() {
             className="text-white text-4xl lg:text-7xl "
             style={{ textShadow: "5px 5px 5px black" }}
           >
-            About Us
+            Our Mission
           </h1>
           <h2 className="text-white shadow text-center mb-10"
             style={{ textShadow: "5px 5px 5px black" }}
