@@ -31,6 +31,7 @@ module.exports = {
       backgroundImage: {
         'hero': "url('/images/banner.webp')",
         'about-hero': "url('/images/about-banner.jpg')",
+        'hourly-banner': "url('/images/hourly/hourlyconsultation.jpg')",
       },
       listStyleType: {
         none: 'none',

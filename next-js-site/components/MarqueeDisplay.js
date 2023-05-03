@@ -5,7 +5,7 @@ export default function MarqueeDisplay() {
   );
     return (
       <div className="flex justify-center">
-        <div className="overflow-x-hidden w-5/6 md:w-3/3 ">
+        <div className="overflow-x-hidden w-5/6 md:w-3/3 sm:mt-14 lg:mt-0">
           <div className="py-3 animate-marquee whitespace-nowrap ">
             <MarqueeElement>Ivy Ready</MarqueeElement>
             <MarqueeElement>〰️</MarqueeElement>

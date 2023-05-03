@@ -17,7 +17,7 @@ export default function Layout({ children }) {
     <>
     <div className="mt-20"></div>
       {!hide && <Navbar/>}
-      <MarqueeDisplay/> 
+      < MarqueeDisplay /> 
       <main className="min-h-screen font-raleway">{children}</main>
       {!hide && <Footer />}
     </>

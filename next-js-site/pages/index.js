@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* Main Banner */}
       <div
-        className="flex bg-hero bg-cover bg-white pt-20 sm:py-72 md:py-72 lg:py-80 2xl:py-96"
+        className="flex bg-hero bg-cover bg-white pt-20 sm:py-72 "
         style={{ height: "400px" }}
       >
         <div className="m-auto text-center">

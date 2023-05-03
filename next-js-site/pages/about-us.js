@@ -72,7 +72,9 @@ export default function About() {
             : "Enter your info for a quick call."
         }
       >
-        <ContactForm type={modalType} />
+
+      <ContactForm type={modalType} />
+
       </Modal>
 
       <Modal
@@ -82,15 +84,25 @@ export default function About() {
         <ContactForm type="INFO" coachName={coach} />
       </Modal>
 
-      <div className="flex bg-about-hero bg-cover bg-center h-4/5 bg-blue-300 py-48">
+      {/* "banner" */}
+      <div
+        className="flex bg-about-hero bg-cover bg-white bg-center pt-20 sm:py-72"
+        style={{ height: "400px" }}
+      >
         <div className="m-auto text-center">
           <h1
-            className="text-7xl text-white"
-            style={{ textShadow: "2px 2px 2px #000" }}
+            className="text-white text-4xl lg:text-7xl "
+            style={{ textShadow: "5px 5px 5px black" }}
           >
+            About Us
           </h1>
+          <h2 className="text-white shadow text-center mb-10"
+            style={{ textShadow: "5px 5px 5px black" }}
+          > Dedicated to Excellence</h2>
         </div>
       </div>
+      
+
       <Section title="About Us" centerContent>
         <p className="text-lg text-center my-3">
           Ivy Ready&apos;s mission is to provide a personalized admission strategy for each student by 

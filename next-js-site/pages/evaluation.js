@@ -25,6 +25,13 @@ export default function Evaluation() {
         />
       </Head>
       <Section>
+      <Image
+          className="mx-auto mb-4"
+          src="/images/ivy-eval.png"
+          width={200}
+          height={200}
+          alt="Scale"
+        />
         <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mt-10">
           Submit your best application with the feedback of former admission
           officers!
@@ -33,6 +40,7 @@ export default function Evaluation() {
       </Section>
 
       <Section
+        centerContent
         darkBg
         title="A one-of-a-kind evaluation for a once-in-a-lifetime opportunity"
       >
@@ -163,13 +171,13 @@ export default function Evaluation() {
        
        
       <Section id="">
-        <Image
+        {/* <Image
           className="mx-auto mb-4"
           src="/images/ivy-eval.png"
           width={200}
           height={200}
           alt="Scale"
-        />
+        /> */}
         <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
           Choose from Single-School Evaluation or Multiple-School Package
         </h1>
