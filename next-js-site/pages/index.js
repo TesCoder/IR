@@ -194,9 +194,9 @@ export default function Home() {
         </p>
         <Image
           className="shadow-md"
-          src="/images/table.webp"
-          width={4164}
-          height={6162}
+          src="/images/table.png"
+          width={2000}
+          height={2792}
           alt="Services Table"
         />
         <p>
