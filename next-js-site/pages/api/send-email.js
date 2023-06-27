@@ -56,6 +56,7 @@ export default async function handler(req, res) {
     subject: `Contact Form Submission`,
     html: `
       <ul>
+        <li><strong>Label:</strong>${id}</li>
         <li><strong>Conversion Date:</strong> ${today.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
         <li><strong>Conversion Time:</strong> ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
         <li><strong>Conversion Type:</strong> Form</li>
