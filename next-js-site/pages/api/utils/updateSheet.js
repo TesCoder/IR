@@ -37,6 +37,10 @@ const colNames = [
   "InfoRequested",
   "ConvSource",
   "Address",
+  "Street",
+  "City",
+  "State",
+  "Zip",
 ];
 
 export const updateSheet = async ({
@@ -55,6 +59,10 @@ export const updateSheet = async ({
   heard,
   service,
   addressStr,
+  street,
+  city,
+  state,
+  zip,
 }) => {
   console.log("REACHED UPDATE SHEET!");
   try {
@@ -100,6 +108,10 @@ export const updateSheet = async ({
       StageDesc: "Form Submission",
       Stage: 0,
       Address: addressStr,
+      Street: street,
+      City: city,
+      State: state,
+      Zip: zip,
     });
     return true;
   } catch (e) {

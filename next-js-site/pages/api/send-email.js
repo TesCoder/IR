@@ -108,7 +108,15 @@ export default async function handler(req, res) {
   }
 
   const id = `${prefix} ${fname} ${lname}`;
-  const success = await updateSheet({ id, addressStr, ...req.body });
+  const success = await updateSheet({
+    id,
+    addressStr,
+    street,
+    city,
+    state,
+    zip,
+    ...req.body,
+  });
 
   const filename = `${id}.vcf`;
   const emailOptions = {
