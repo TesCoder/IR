@@ -36,6 +36,7 @@ const colNames = [
   "Options",
   "InfoRequested",
   "ConvSource",
+  "Address",
 ];
 
 export const updateSheet = async ({
@@ -53,6 +54,7 @@ export const updateSheet = async ({
   info,
   heard,
   service,
+  addressStr,
 }) => {
   console.log("REACHED UPDATE SHEET!");
   try {
@@ -67,7 +69,7 @@ export const updateSheet = async ({
     const today = new Date();
     // const month = monthNames[today.getMonth()];
     const desiredTitle = `${today.getFullYear()}`;
-    // If first sheet is from previous/other month create new sheet with this month's name
+    // If first sheet is from previous/other month create new sheet with this year's name
     if (sheet.title != desiredTitle) {
       sheet = await doc.addSheet({
         title: desiredTitle,
@@ -97,6 +99,7 @@ export const updateSheet = async ({
       ConvType: "Form",
       StageDesc: "Form Submission",
       Stage: 0,
+      Address: addressStr,
     });
     return true;
   } catch (e) {

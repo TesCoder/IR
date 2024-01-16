@@ -1,25 +1,56 @@
-import vCardsJS from 'vcards-js';
-import { sendEmail } from './utils/sendEmail';
-import { updateSheet } from './utils/updateSheet'
+import vCardsJS from "vcards-js";
+import { sendEmail } from "./utils/sendEmail";
+import { updateSheet } from "./utils/updateSheet";
+import { getAddress } from "@/lib/endato";
 
-
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 // IR-2021Oct30 Jane Doe
 const today = new Date();
-const prefix = 'IR-' + today.getFullYear() + months[today.getMonth()] + today.getDate();
+const prefix =
+  "IR-" + today.getFullYear() + months[today.getMonth()] + today.getDate();
 
-
-const getVCard = ({ coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service }) => {
+const getVCard = ({
+  coach,
+  type,
+  fname,
+  lname,
+  location,
+  email,
+  phone,
+  year,
+  contact,
+  option,
+  info,
+  heard,
+  service,
+}) => {
   const vCard = vCardsJS();
 
-  vCard.firstName = prefix + ' ' + fname;
+  vCard.firstName = prefix + " " + fname;
   vCard.lastName = lname;
   vCard.email = email;
   vCard.cellPhone = phone;
   vCard.note = `
-    Conversion Date: ${today.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' })}
-    Conversion Time: ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}
+    Conversion Date: ${today.toLocaleDateString("en-US", {
+      timeZone: "America/Los_Angeles",
+    })}
+    Conversion Time: ${today.toLocaleTimeString("en-US", {
+      timeZone: "America/Los_Angeles",
+    })}
     Conversion Type: Form
     Conversion Source: ${heard}
     Student Year: ${year}
@@ -39,32 +70,67 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
   `;
 
   return vCard;
-}
+};
 
 // api endpoint
 export default async function handler(req, res) {
   // res.status(200).json({ msg: "REACHED", data: req.body })
-  const { coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service } = req.body
+  const {
+    coach,
+    type,
+    fname,
+    lname,
+    location,
+    email,
+    phone,
+    year,
+    contact,
+    option,
+    info,
+    heard,
+    service,
+  } = req.body;
 
-  const vCard = getVCard(req.body)
+  const vCard = getVCard(req.body);
 
-  const id = `${prefix} ${fname} ${lname}`
-  const success = await updateSheet({ id, ...req.body })
+  // use endato API to get address info
+  const address = await getAddress({ fname, lname, phone, email });
+  let addressStr = "N/A";
+  if (address) {
+    const { street, city, state, zip } = address;
+    addressStr = `${street}, ${city}, ${state} ${zip}`;
 
-  const filename = `${id}.vcf`
+    // update vCard with address info
+    vCard.homeAddress.street = street;
+    vCard.homeAddress.city = city;
+    vCard.homeAddress.stateProvince = state;
+    vCard.homeAddress.postalCode = zip;
+  }
+
+  const id = `${prefix} ${fname} ${lname}`;
+  const success = await updateSheet({ id, addressStr, ...req.body });
+
+  const filename = `${id}.vcf`;
   const emailOptions = {
     subject: `Contact Form Submission`,
     html: `
       <ul>
         <li><strong>Label:</strong> ${id}</li>
-        <li><strong>Conversion Date:</strong> ${today.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
-        <li><strong>Conversion Time:</strong> ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
+        <li><strong>Conversion Date:</strong> ${today.toLocaleDateString(
+          "en-US",
+          { timeZone: "America/Los_Angeles" }
+        )}</li>
+        <li><strong>Conversion Time:</strong> ${today.toLocaleTimeString(
+          "en-US",
+          { timeZone: "America/Los_Angeles" }
+        )}</li>
         <li><strong>Conversion Type:</strong> Form</li>
         <li><strong>Conversion Source:</strong> ${heard}</li>
         <li><strong>Student Year:</strong> ${year}</li>
         <li><strong>Status:</strong> Form Submission</li>
         <br>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
+        <li><strong>Address (from Endato):</strong> ${addressStr}</li>
         <li><strong>City, State:</strong> ${location}</li>
         <li><strong>Email:</strong> ${email}</li>
         <li><strong>Phone:</strong> ${phone}</li>
@@ -73,7 +139,7 @@ export default async function handler(req, res) {
         <li><strong>How did you hear about Ivy Ready?:</strong> ${heard}</li>
         <li><strong>What would you like to know more about?:</strong> ${info}</li>
         <li><strong>Service Requested:</strong> ${service}</li>
-        ${coach ? `<li><strong>Coach Request:</strong> ${coach}</li>` : ''}
+        ${coach ? `<li><strong>Coach Request:</strong> ${coach}</li>` : ""}
         <li><strong>Added to Google Sheet:</strong> ${success}</li>
         <li><strong>Type:</strong> ${type}</li>
       </ul>
@@ -82,7 +148,7 @@ export default async function handler(req, res) {
       {
         filename: filename,
         contentType: `text/vcard`,
-        content: vCard.getFormattedString()
+        content: vCard.getFormattedString(),
       },
     ],
   };
@@ -90,8 +156,8 @@ export default async function handler(req, res) {
   const result = await sendEmail(emailOptions);
   // console.log('Result:', result);
   if (result.success) {
-    return res.status(250).json(result)
+    return res.status(250).json(result);
   } else {
-    return res.status(404).json(result)
+    return res.status(404).json(result);
   }
 }
