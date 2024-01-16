@@ -1,6 +1,6 @@
 const { ENDATO_API_KEY_NAME, ENDATO_API_KEY_PASSWORD } = process.env;
 
-export const getAddress = async ({ fname, lname, phone, email }) => {
+export const getPersonalInfo = async ({ fname, lname, phone, email }) => {
   const body = {
     FirstName: fname,
     LastName: lname,
@@ -35,5 +35,5 @@ export const getAddress = async ({ fname, lname, phone, email }) => {
 
   console.log("Request Body:", body);
   console.dir(res, { depth: null });
-  return res.person?.addresses[0];
+  return { address: res.person?.addresses[0], age: res.person?.age };
 };

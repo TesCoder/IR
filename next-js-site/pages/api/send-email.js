@@ -1,7 +1,7 @@
 import vCardsJS from "vcards-js";
 import { sendEmail } from "./utils/sendEmail";
 import { updateSheet } from "./utils/updateSheet";
-import { getAddress } from "@/lib/endato";
+import { getPersonalInfo } from "@/lib/endato";
 
 const months = [
   "Jan",
@@ -94,9 +94,9 @@ export default async function handler(req, res) {
   const vCard = getVCard(req.body);
 
   // use endato API to get address info
-  const address = await getAddress({ fname, lname, phone, email });
-  if (address) {
-    const { street, city, state, zip } = address;
+  const infoResponse = await getPersonalInfo({ fname, lname, phone, email });
+  if (infoResponse) {
+    const { street, city, state, zip } = infoResponse.address;
     // update vCard with address info
     vCard.homeAddress.street = street;
     vCard.homeAddress.city = city;
@@ -107,7 +107,8 @@ export default async function handler(req, res) {
   const id = `${prefix} ${fname} ${lname}`;
   const success = await updateSheet({
     id,
-    address,
+    address: infoResponse?.address,
+    age: infoResponse?.age,
     ...req.body,
   });
 
@@ -132,8 +133,8 @@ export default async function handler(req, res) {
         <br>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
         <li><strong>Address (from Endato):</strong> ${
-          address
-            ? `${address.street}, ${address.city}, ${address.state} ${address.zip}`
+          infoResponse.address
+            ? `${infoResponse.address.street}, ${infoResponse.address.city}, ${infoResponse.address.state} ${infoResponse.address.zip}`
             : "N/A"
         }</li>
         <li><strong>City, State:</strong> ${location}</li>

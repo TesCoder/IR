@@ -36,6 +36,7 @@ const colNames = [
   "Options",
   "InfoRequested",
   "ConvSource",
+  "EstimatedDateOfBirth",
   "Address",
   "Street",
   "City",
@@ -59,6 +60,7 @@ export const updateSheet = async ({
   heard,
   service,
   address,
+  age,
 }) => {
   console.log("REACHED UPDATE SHEET!");
   try {
@@ -82,6 +84,18 @@ export const updateSheet = async ({
       await sheet.updateProperties({ index: 0 });
     }
 
+    let dob;
+    if (age) {
+      // use string aage to estimate date of birth
+      age = parseInt(age, 10);
+      const currentDate = new Date();
+      currentDate.setFullYear(currentDate.getFullYear() - age);
+      const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+      const day = currentDate.getDate().toString().padStart(2, "0");
+      const year = currentDate.getFullYear();
+      dob = `${month}/${day}/${year}`;
+    }
+
     await sheet.addRow({
       Prospect: id,
       FirstName: fname,
@@ -103,6 +117,7 @@ export const updateSheet = async ({
       ConvType: "Form",
       StageDesc: "Form Submission",
       Stage: 0,
+      EstimatedDateOfBirth: dob,
       Address:
         address &&
         `${address.street}, ${address.city}, ${address.state} ${address.zip}`,
