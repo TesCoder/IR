@@ -28,10 +28,20 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
         Admission Experience: {admCollege}
       </span>
       {/* <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span> */}
-      <a className="underline hover:cursor"  
-              onClick={() => window.location.href =
-                        "/about-us#"+JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()
-                      }>Learn More About {fname}</a>
+      <a
+        className="underline hover:cursor"
+        onClick={() =>
+          (window.location.href =
+            "/about-us#" +
+            JSON.stringify({ fname })
+              .split(":")[1]
+              .replace('"', "")
+              .replace('"}', "")
+              .toLowerCase())
+        }
+      >
+        Learn More About {fname}
+      </a>
       {/* <Link
         className="underline hover:cursor"
         href={`/about-us#${JSON.stringify({ fname })
@@ -135,7 +145,8 @@ export default function ContactForm({ type, coachName, showProfile }) {
 
         <div className="row mb-3">
           <label htmlFor="name" className="form-label">
-            Name
+            Name{" "}
+            <span className="text-ivy-red font-thin text-sm">Required</span>
           </label>
           <div className="col">
             <input
@@ -146,7 +157,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
               className="form-control"
               placeholder="First name"
               aria-label="First name"
-              // required
+              required
             />
           </div>
           <div className="col">
@@ -158,7 +169,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
               className="form-control"
               placeholder="Last name"
               aria-label="Last name"
-              // required
+              required
             />
           </div>
         </div>
@@ -182,7 +193,8 @@ export default function ContactForm({ type, coachName, showProfile }) {
 
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
-            Email address
+            Email Address{" "}
+            <span className="text-ivy-red font-thin text-sm">Required</span>
           </label>
           <input
             type="email"
@@ -192,7 +204,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
             className="form-control"
             id="email"
             placeholder="name@example.com"
-            // required
+            required
           />
         </div>
         <div className="mb-3">
