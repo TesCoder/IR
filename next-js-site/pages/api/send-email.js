@@ -95,11 +95,8 @@ export default async function handler(req, res) {
 
   // use endato API to get address info
   const address = await getAddress({ fname, lname, phone, email });
-  let addressStr = "N/A";
   if (address) {
     const { street, city, state, zip } = address;
-    addressStr = `${street}, ${city}, ${state} ${zip}`;
-
     // update vCard with address info
     vCard.homeAddress.street = street;
     vCard.homeAddress.city = city;
@@ -110,11 +107,7 @@ export default async function handler(req, res) {
   const id = `${prefix} ${fname} ${lname}`;
   const success = await updateSheet({
     id,
-    addressStr,
-    street,
-    city,
-    state,
-    zip,
+    address,
     ...req.body,
   });
 

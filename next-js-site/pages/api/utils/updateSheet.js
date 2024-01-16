@@ -58,11 +58,7 @@ export const updateSheet = async ({
   info,
   heard,
   service,
-  addressStr,
-  street,
-  city,
-  state,
-  zip,
+  address,
 }) => {
   console.log("REACHED UPDATE SHEET!");
   try {
@@ -107,11 +103,13 @@ export const updateSheet = async ({
       ConvType: "Form",
       StageDesc: "Form Submission",
       Stage: 0,
-      Address: addressStr,
-      Street: street,
-      City: city,
-      State: state,
-      Zip: zip,
+      Address:
+        address &&
+        `${address.street}, ${address.city}, ${address.state} ${address.zip}`,
+      Street: address?.street,
+      City: address?.city,
+      State: address?.state,
+      Zip: address?.zip,
     });
     return true;
   } catch (e) {
