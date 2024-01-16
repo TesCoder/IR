@@ -11,6 +11,8 @@ export const getAddress = async ({ fname, lname, phone, email }) => {
   }
 
   if (phone) {
+    // extract digits
+    phone = phone.replace(/\D/g, "");
     body.Phone = phone;
   }
 

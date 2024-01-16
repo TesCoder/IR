@@ -131,7 +131,11 @@ export default async function handler(req, res) {
         <li><strong>Status:</strong> Form Submission</li>
         <br>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
-        <li><strong>Address (from Endato):</strong> ${addressStr}</li>
+        <li><strong>Address (from Endato):</strong> ${
+          address
+            ? `${address.street}, ${address.city}, ${address.state} ${address.zip}`
+            : "N/A"
+        }</li>
         <li><strong>City, State:</strong> ${location}</li>
         <li><strong>Email:</strong> ${email}</li>
         <li><strong>Phone:</strong> ${phone}</li>
