@@ -131,9 +131,15 @@ export default function Home() {
           height={500}
           alt="Record"
         />
-        <h3 className="font-semibold text-lg my-4 text-gray-500 uppercase italic">
-          Ask for original copies!
-        </h3>
+        
+          <br></br>
+        <h2>Trusted by Families in Silicon Valley and Elsewhere!</h2>
+        <Image
+          src="/images/recognized.jpeg"
+          width={1080}
+          height={500}
+          alt="recognized"
+        />
         <Button
           onClick={() =>
             window.open("/#application-support-questions-section", "_self")
@@ -142,6 +148,7 @@ export default function Home() {
           Contact Us
         </Button>
       </Section>
+
 
       <Section title="" darkBg centerContent>
         <h2>Meet a Few Members of Our Team and Their Admission Background</h2>
