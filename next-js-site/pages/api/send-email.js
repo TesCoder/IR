@@ -1,7 +1,7 @@
 import vCardsJS from "vcards-js";
 import { sendEmail } from "./utils/sendEmail";
 import { updateSheet } from "./utils/updateSheet";
-import { getPersonalInfo } from "@/lib/endato";
+import { getPersonalInfo } from "@/lib/e";
 
 const months = [
   "Jan",
@@ -93,7 +93,7 @@ export default async function handler(req, res) {
 
   const vCard = getVCard(req.body);
 
-  // use endato API to get address info
+  // use e API to get address info
   const infoResponse = await getPersonalInfo({ fname, lname, phone, email });
   if (infoResponse) {
     const { street, city, state, zip } = infoResponse.address;
@@ -132,7 +132,7 @@ export default async function handler(req, res) {
         <li><strong>Status:</strong> Form Submission</li>
         <br>
         <li><strong>Name:</strong> ${fname} ${lname}</li>
-        <li><strong>Address (from Endato):</strong> ${
+        <li><strong>Address (fromE):</strong> ${
           infoResponse.address
             ? `${infoResponse.address.street}, ${infoResponse.address.city}, ${infoResponse.address.state} ${infoResponse.address.zip}`
             : "N/A"
