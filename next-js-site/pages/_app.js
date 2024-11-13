@@ -11,6 +11,8 @@ function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="../public/images/logo-circle.png"/>
+
       </Head>
 
       {/* required for modal (popup forms) to work until transtion to full tailwindcss */}
