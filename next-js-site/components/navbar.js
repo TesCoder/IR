@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LogoProjector from "./logoMaker";
 import { useState } from "react";
+import Script from 'next/script'; // necessary for ads manager
 
 export default function Navbar() {
   // hides logo in mobile when navbar-toggle is clicked
@@ -130,6 +131,19 @@ export default function Navbar() {
       <div id="logoModifier" className="z-40 md:hidden ml-20 bg-ivy-red">
         <LogoProjector />
       </div>
+
+      <Script id="google-tag-manager">
+      {`
+        (function(w,d,s,l,i) {
+          w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W9GBBGKJ');
+      `}
+    </Script>
+
+      
       
     </nav>
   );
