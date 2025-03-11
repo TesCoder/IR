@@ -143,8 +143,25 @@ export default function Navbar() {
       `}
     </Script>
 
-      
+      {/* Google Analytics Script - Load gtag.js */}
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-8QK4L246C4"
+      />
+
+      {/* Google Analytics Script - Initialize gtag */}
+      <Script id="google-analytics-config">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8QK4L246C4');
+        `}
+      </Script>
       
     </nav>
   );
 }
+
+
