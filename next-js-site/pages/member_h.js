@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import { members } from "../components/membersList_h";
+import { members_h } from "../components/membersList_h";
 
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div>
@@ -51,7 +51,7 @@ export default function MemberH({ id }) {
   const [coach, setCoach] = useState();
 
   // Find the member with matching first name
-  const member = members.find(m => m.fname.toLowerCase() === id.toLowerCase());
+  const member = members_h.find(m => m.fname.toLowerCase() === id.toLowerCase());
 
   if (!member) {
     return (
@@ -96,8 +96,8 @@ export async function getStaticProps({ params }) {
 // This function gets called at build time to generate paths
 export async function getStaticPaths() {
   // Get the paths we want to pre-render based on members
-  const paths = members.map((member) => ({
-    params: { id: member.fname.toLowerCase() },
+  const paths = members_h.map((member) => ({
+    params: { id: members_h.fname.toLowerCase() },
   }));
 
   // We'll pre-render only these paths at build time.
