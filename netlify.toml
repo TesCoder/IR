@@ -1,7 +1,7 @@
 [build]
   base = "next-js-site"
-  command = "npm run build"
-  publish = "next-js-site/.next"
+  command = "npm run build && npm run export"
+  publish = "next-js-site/out"
 
 [context.production.environment]
   NODE_VERSION = "20"
