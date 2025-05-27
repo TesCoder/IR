@@ -1,7 +1,7 @@
 [build]
-  base = "next-js-site/"
+  base = "next-js-site"
   command = "npm run build"
-  publish = ".next"
+  publish = "next-js-site/.next"
 
 [context.production.environment]
-  NODE_VERSION = "20"    # Force Node.js 20
+  NODE_VERSION = "20"

@@ -5,11 +5,11 @@ import Section from "@/components/Section";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import { members_h } from "../components/membersList_h";
+import { members_h } from "@/components/membersList_h";
 
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div>
-    <div className="" id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></div>
+    <div className="" id={fname.toLowerCase()}></div>
     <div className="flex flex-col md:flex-row text-lg shadow p-20">
       <div className="w-full md:w-1/5 flex flex-col items-center">
         <Image
@@ -17,7 +17,7 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
           src={imgSrc}
           width={400}
           height={400}
-          alt=" profile picture"
+          alt="profile picture"
         />
       </div>
       <div className="w-full md:w-4/5">
@@ -31,9 +31,7 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
         <p className="my-3">{description}</p>
         <div className="flex items-start">
           <Button
-            onClick={() => {
-              setCoach(fname);
-            }}
+            onClick={() => setCoach(fname)}
             data-bs-toggle="modal"
             data-bs-target="#coachModal"
           >
@@ -46,12 +44,10 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
 );
 
 export default function MemberH({ id }) {
-  // FULL, INFO, CALL, or EVAL
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
 
-  // Find the member with matching first name
-  const member = members_h.find(m => m.fname.toLowerCase() === id.toLowerCase());
+  const member = members_h.find((m) => m.id === id);
 
   if (!member) {
     return (
@@ -65,9 +61,8 @@ export default function MemberH({ id }) {
   }
 
   return (
-    <> 
-      <Section title="" darkBg>
-      </Section>
+    <>
+      <Section title="" darkBg />
       <Section darkBg={false}>
         <CoachInfo
           setCoach={setCoach}
@@ -83,27 +78,23 @@ export default function MemberH({ id }) {
   );
 }
 
-// This function gets called at build time to generate paths
-export async function getStaticProps({ params }) {
-  // Pass the first name to the page component as props
+// ✅ Called at build time to generate paths
+export async function getStaticPaths() {
+  const paths = members_h.map((member) => ({
+    params: { id: member.id },
+  }));
+
   return {
-    props: {
-      id: params.id
-    }
+    paths,
+    fallback: false, // or 'blocking' if you want dynamic fallback
   };
 }
 
-// This function gets called at build time to generate paths
-export async function getStaticPaths() {
-  // Get the paths we want to pre-render based on members
-  const paths = members_h.map((member) => ({
-    params: { id: members_h.fname.toLowerCase() },
-  }));
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
+// ✅ Fetch member data based on ID
+export async function getStaticProps({ params }) {
   return {
-    paths,
-    fallback: blocking,
+    props: {
+      id: params.id,
+    },
   };
 }
