@@ -78,7 +78,7 @@ export default function MemberH({ id }) {
   );
 }
 
-// ✅ Called at build time to generate paths
+// Called at build time to generate paths
 export async function getStaticPaths() {
   const paths = members_h.map((member) => ({
     params: { id: member.id },
@@ -90,7 +90,7 @@ export async function getStaticPaths() {
   };
 }
 
-// ✅ Fetch member data based on ID
+// Fetch member data based on ID
 export async function getStaticProps({ params }) {
   return {
     props: {
