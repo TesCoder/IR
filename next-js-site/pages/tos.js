@@ -5,7 +5,7 @@ export default function TermsOfService() {
         Terms of Service
       </h1>
       <p>
-        By using our service, you agree to abide by Ivy Ready&rsquo;s Terms of
+        By using our service, you agree to abide by Ivy Ready&rsquo;s Terms of 
         Service and additional guidelines agreed with the College Application
         Coach (if applicable) during the administration of a service. Note: In
         this Agreement the term <strong>You</strong> refers to both the Parent
@@ -258,8 +258,8 @@ export default function TermsOfService() {
             information provided.
         </li>
         <li>
-            ALL CONTENT AND INFORMATION ATTAINED FROM IVY READY LLC OR
-            IT&rsquo;S REPRESENTATIVES IS PROVIDED <strong>AS IS</strong>{" "}
+            ALL CONTENT AND INFORMATION ATTAINED FROM IVY READY LLC OR IT&rsquo;S 
+            REPRESENTATIVES IS PROVIDED <strong>AS IS</strong>{" "}
             WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
             INCLUDING, ABOUT THE COMPLETENESS, ACCURACY, RELIABILITY,
             TIMELINESS, PERFORMANCE, SUITABILITY, WITHOUT LIMITATION, THOSE OF
@@ -281,7 +281,7 @@ export default function TermsOfService() {
           YOU AGREE TO INDEMNIFY AND HOLD US HARMLESS AS WELL AS OUR DIRECTORS,
           OFFICERS, MANAGERS, EMPLOYEES, INDEPENDENT CONTRACTORS, AND AFFILIATES
           FROM AND AGAINST ALL LOSSES, EXPENSES, DAMAGES AND COSTS, INCLUDING
-          REASONABLE {"ATTORNEYS&rsquo;"} FEES, RESULTING FROM ANY RELIANCE YOU PLACE
+          REASONABLE ATTORNEYS&rsquo; FEES, RESULTING FROM ANY RELIANCE YOU PLACE
           ON OUR SERVICES OR VIOLATION BY YOU OF THESE TERMS. WE RESERVE THE
           RIGHT TO TAKE OVER THE EXCLUSIVE DEFENSE OF ANY CLAIM FOR WHICH WE ARE
           ENTITLED TO INDEMNIFICATION. IN SUCH EVENT, YOU SHALL PROVIDE US WITH
@@ -344,12 +344,12 @@ export default function TermsOfService() {
         </li>
         <li>
             Ivy Ready believes in creating a safe working environment. You
-            acknowledge that Ivy Ready, its employees and affiliates reserve the
-            right to refuse service to anyone. You understand that any comments
-            or actions (sexual or otherwise) that lead to the mistreatment
-            (physical, emotional or otherwise) or insinuation of harm (bodily or
-            otherwise) towards Ivy Ready or it&rsquo;s representatives will
-            result in internal documentation, possible termination of service
+            acknowledge that Ivy Ready, its employees and affiliates reserve 
+            the right to refuse service to anyone. You understand that any 
+            comments or actions (sexual or otherwise) that lead to the mistreatment 
+            (physical, emotional or otherwise) or insinuation of harm (bodily or 
+            otherwise) towards Ivy Ready or it&rsquo;s representatives will 
+            result in internal documentation, possible termination of service 
             without refund and may be joined with legal action.
         </li>
         <li>
