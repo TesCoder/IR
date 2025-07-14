@@ -91,27 +91,28 @@ export default function TermsOfService() {
           the work completed and/or time spent by the original Coach.
         </li>
       </ul>
+
       <h2>Refund Policy for Packages</h2>
-      <ul className="list-disc pl-10">
+      <ul className="list-disc pl-10 space-y-4">
         <li>
-          Refunds are available within 30 days after the counsellor and student
-          have entered into an agreement, the 30 days will begin after the first
-          counseling meeting. Hours the College Application Coach has already
-          worked with the student will be deducted from the total payment at the
-          rate of $350 per hour.
+          <strong>Standard Refund Window:</strong>
+          <ul className="list-[circle] pl-8 mt-2 space-y-2">
+            <li>Refunds are available within 30 days after your first counseling meeting</li>
+            <li>This 30-day period begins after you sign the agreement and complete your first meeting</li>
+            <li>Time spent on introductory calls before signing doesn't count toward this 30-day window</li>
+            <li>Used hours will be deducted at $350/hour from any refund</li>
+          </ul>
         </li>
-        <span  id="privacy-policy"></span>
+
         <li>
-          Refunds are not available more than 30 days after the student’s
-          initial call with the College Application Coach, except in case of an
-          emergency as follows: In case of an emergency that hinders the
-          Applicant from continuing this process (e.g. medical leave with a
-          note), refunds are available after the initial 30 days since the first
-          call with the College Application Coach. Hours the College Application
-          Coach has already worked with the student will be deducted from the
-          refund at the rate of $350 per hour.
+          <strong>Emergency Refund Exception:</strong>
+          <ul className="list-[circle] pl-8 mt-2 space-y-2">
+            <li>After 30 days, refunds are only available for emergencies (e.g., medical leave with documentation)</li>
+            <li>Same $350/hour deduction applies for used coaching time</li>
+          </ul>
         </li>
       </ul>
+
       <h2>Privacy Policy</h2>
       Ivy Ready LLC owns and manages the website IvyReady.com. We can be reached
       via e-mail at contact[at]ivyready.com. Any information you provide to us
@@ -156,8 +157,8 @@ export default function TermsOfService() {
             <ul className="list-[circle] pl-10">
               <li>
                 You may opt out of direct mail marketing by emailing us at
-                contact@ivyready.com with the subject lines
-                <strong>opt out</strong> and the email body containing your full
+                contact@ivyready.com with the subject line 
+                {"\"opt out\""} and the email body containing your full
                 name and the address where the mail was received.
               </li>
             </ul>
@@ -280,7 +281,7 @@ export default function TermsOfService() {
           YOU AGREE TO INDEMNIFY AND HOLD US HARMLESS AS WELL AS OUR DIRECTORS,
           OFFICERS, MANAGERS, EMPLOYEES, INDEPENDENT CONTRACTORS, AND AFFILIATES
           FROM AND AGAINST ALL LOSSES, EXPENSES, DAMAGES AND COSTS, INCLUDING
-          REASONABLE ATTORNEYS&rsqo; FEES, RESULTING FROM ANY RELIANCE YOU PLACE
+          REASONABLE {"ATTORNEYS's"}; FEES, RESULTING FROM ANY RELIANCE YOU PLACE
           ON OUR SERVICES OR VIOLATION BY YOU OF THESE TERMS. WE RESERVE THE
           RIGHT TO TAKE OVER THE EXCLUSIVE DEFENSE OF ANY CLAIM FOR WHICH WE ARE
           ENTITLED TO INDEMNIFICATION. IN SUCH EVENT, YOU SHALL PROVIDE US WITH
@@ -290,7 +291,7 @@ export default function TermsOfService() {
           Ivy Ready® is a registered trademark. The website IvyReady.com and its
           contents are the property of Ivy Ready LLC. All rights reserved. Any
           use of the term <strong>Ivy Ready</strong> outside of direct
-          correspondence with Ivy Ready requires the use of the &copy; symbol.
+          correspondence with Ivy Ready requires the use of the &reg; symbol.
           Any redistribution or reproduction of any part of the website content,
           marketing material, service agreements, email phone correspondence or
           phone conversations with Ivy Ready Representatives is prohibited other
@@ -367,16 +368,15 @@ export default function TermsOfService() {
             understanding of the work required.
         </li>
         <li>
-            You acknowledge that Ivy Ready may use the terms
-            <string>
-              &quot;admission officer,&quot;&quot;admission reader,&quot;
-              &quot;admission counselor,&quot; &quot;seasonal reader,&quot; and
-              &quot;admission advisor&quot;
-            </string>
-            (with their plural versions, e.g., admissions officer)
-            interchangeably on our website, during correspondence, in this
-            Agreement or elsewhere.
+          You acknowledge that Ivy Ready may use the terms 
+          <span className="font-medium">
+            &quot;admission officer&quot;, &quot;admission reader&quot;, &quot;admission counselor&quot;, 
+            &quot;seasonal reader&quot;, and &quot;admission advisor&quot;
+          </span> 
+          (with their plural versions, e.g., admissions officer) interchangeably on our website, 
+          during correspondence, in this Agreement or elsewhere.
         </li>
+
         <li>
             You acknowledge that the presence of college graduates, former
             admission officers, or past and present membership(s) in admission
@@ -412,6 +412,11 @@ export default function TermsOfService() {
             indications of suitability, reliability or as predictive tool of a
             product or service performance and should not be relied upon as
             bases for any purchase decisions.
+        </li>
+        <li>
+            Ivy Ready is not liable for delays or failures in performance resulting 
+            from acts beyond its reasonable control, including but not limited to 
+            acts of God, natural disasters, pandemics, government actions, or internet outages.
         </li>
         <li>
             You agree that you have read and will abide by these Terms of
