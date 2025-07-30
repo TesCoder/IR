@@ -71,31 +71,6 @@ export default function Home() {
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
 
-      {/* Main Banner */}
-
-      {/*
-      <div
-        className="flex bg-hero bg-cover bg-white pt-20 sm:py-72 "
-        style={{ height: "400px" }}
-      >
-        <div className="m-auto text-center">
-          <h1
-            className="text-ivy-red text-4xl lg:text-7xl "
-            style={{ textShadow: "5px 5px 5px white" }}
-          >
-            Ivy Ready College Consulting
-          </h1>
-          {/* <h4 className='text-2xl my-3 drop-shadow-lg italic font-medium'>
-            Personalized College Admission Support
-            <br />
-            by Former Admission Officers
-          </h4>
-        </div>
-      </div>
-      */}
-      
-
-
     {/* Enhanced Hero Section with Overlay */}
 
     <div className="relative flex bg-hero bg-cover bg-center pt-20 sm:py-72">
@@ -139,42 +114,31 @@ export default function Home() {
   </div>
 </Section>
 
-
-
-
       {/* Apply */}
       <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
 
-        <h2 className="text-center text-2xl  text-ivy-blue font-medium my-4">
-          Ivy Ready offers personalized college admission coaching by pairing
-          prospective applicants <b>with former admission officers</b>.
+
+        <h2 className="pCentered">
+          Ivy Ready pairs students with former Ivy League admissions officers to deliver expert, personalized guidance through every part of the college application. Our flexible support includes application packages, hourly consultation, and evaluation services.
         </h2>
-        <p className=" text-xl text-center my-2 text-gray-700">
-          We specialize in providing a personalized admission strategy for each
-          student—whether they are applying to the Ivy League or local
-          schools—by capitalizing on their strengths, background, interest, and
-          aspirations.
-        </p>
-        <p className=" text-xl text-center my-2 text-gray-700">
-          Our team is comprised of former admission officers who have extensive
-          experience supporting students with the college admission process. We
-          offer{" "}
-          <HyperLink href="/#application-support-questions-section">
-            application support packages
-          </HyperLink>
-          ,{" "}
-          <HyperLink href="/#application-support-questions-section">
-            hourly consultation
-          </HyperLink>
-          , and <HyperLink href="/evaluation">Application Evaluation</HyperLink>
-          .
-        </p>
+
         <p className=" text-xl text-center font-bold text-gray-700">
           Sign up for your (free) introductory session!
         </p>
 
-        <ButtonRow setModalType={setModalType} />
+
+        <Button
+          onClick={() => setModalType("CALL")}
+          data-bs-toggle="modal"
+          data-bs-target="#contactModal"
+        >
+          Request Free Intro Call
+        </Button>
+
+
       </Section>
+
+
 
       <Section title="Our stellar record speaks for itself!" centerContent>
         <Image
@@ -193,7 +157,11 @@ export default function Home() {
           alt="recognized"
         />
         
-      <Button onClick={() => window.open("/#application-support-questions-section", "_self")}>
+      <Button
+        onClick={() => setModalType("INFO")}
+        data-bs-toggle="modal"
+        data-bs-target="#contactModal"
+      >
         Schedule Free Strategy Call
       </Button>
 
@@ -247,7 +215,10 @@ export default function Home() {
         </div>
       </Section>
 
-        {/* Testimonials new */}
+
+      {/* Testimonials new */}
+      <span className="" id="testimonials-section"></span>
+
       <Section title="Testimonials" darkBg centerContent>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center">
           Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
