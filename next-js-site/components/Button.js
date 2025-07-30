@@ -16,7 +16,7 @@ export function Button({ className = "", children, ...others }) {
 export const ButtonRow = ({ setModalType, lightBg }) => (
   <div className={`flex justify-center ${lightBg ? "" : "bg-gray-100"}`}>
     <div className="my-5 flex flex-col gap-x-10 gap-y-4 items-center md:flex-row">
-      
+
       <Button
         onClick={() => setModalType("INFO")}
         data-bs-toggle="modal"
@@ -33,9 +33,10 @@ export const ButtonRow = ({ setModalType, lightBg }) => (
         Request Free Intro Call
       </Button>
 
-      <Button onClick={() => window.open("tel:650-383-0352", "_self")}>
+
+      {/* <Button href="tel:650-383-0352">
         Talk to an Admissions Expert
-      </Button>
+      </Button> */}
       
     </div>
   </div>
