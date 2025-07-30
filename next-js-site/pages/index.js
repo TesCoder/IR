@@ -118,13 +118,15 @@ export default function Home() {
       Families trust Ivy Ready for personalized coaching and peace of mind.
     </p>
 
-
       <Button
         className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
         onClick={() => setModalType("INFO")}
+        data-bs-toggle="modal"
+        data-bs-target="#contactModal"
       >
-        Get Your Free Intro Session
+         Get Your Free Intro Session
       </Button>
+
     </div>
   </div>
 
