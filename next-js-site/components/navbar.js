@@ -50,7 +50,7 @@ export default function Navbar() {
           >
             <ul className="navbar-nav text-white md:space-x-5 -mt-20 md:-mb-6">
               <li className="nav-item">
-                <Link className="nav-link text-white hover:opacity-75" href="/#chart">
+                <Link className="nav-link text-white hover:opacity-75" href="/support-packages">
                   Admission Support
                 </Link>
               </li>
@@ -62,17 +62,9 @@ export default function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Services
+                  Other Services
                 </a>
                 <ul className="dropdown-menu bg-ivy-red">
-                  <li>
-                    <Link
-                      className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="/#chart"
-                    >
-                      Admission Support
-                    </Link>
-                  </li>
                   <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
