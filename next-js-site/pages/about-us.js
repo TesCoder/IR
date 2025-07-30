@@ -22,14 +22,21 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
         />
       </div>
       <div className="w-full md:w-4/5">
-        <h2 className="font-bold text-2xl text-ivy-blue mb-2">{fname}</h2>
-        <p>College Counseling Professional</p>
+
+        <h2 className="font-bold text-2xl text-ivy-blue mb-0.5" style={{ lineHeight: "1" }}>
+          {fname}
+        </h2>
+        <p className="font-medium mb-0.5" style={{ lineHeight: "1" }}>
+          College Counseling Professional
+        </p>
         {past.map((p, i) => (
-          <p className="font-medium" key={i}>
+          <p className="font-medium mb-0.5" style={{ lineHeight: "1" }} key={i}>
             {p}
           </p>
         ))}
+
         <p className="my-3">{description}</p>
+
         <div className="flex items-start">
           <Button
             onClick={() => {
@@ -41,6 +48,7 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
             Request an introductory Session with {fname}
           </Button>
         </div>
+
       </div>
     </div>
   </div>

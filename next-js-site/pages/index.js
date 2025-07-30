@@ -81,6 +81,7 @@ export default function Home() {
     />
 
     <div className="relative z-10 m-auto text-center px-4">
+      
       <h1 className="text-white text-5xl lg:text-7xl font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
         Ivy Ready College Consulting
       </h1>
@@ -89,9 +90,9 @@ export default function Home() {
         Personalized admissions coaching from former Ivy League admissions officers.
       </h2>
 
-    <p className="text-white text-base lg:text-lg mt-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-normal">
-      Families trust Ivy Ready for personalized coaching and peace of mind.
-    </p>
+      <p className="text-white text-base lg:text-lg mt-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-normal">
+        Families trust Ivy Ready for personalized coaching and peace of mind.
+      </p>
 
       <Button
         className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
