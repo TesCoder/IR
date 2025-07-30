@@ -34,11 +34,11 @@ export default function page() {
         />
       </Head>
  
-      <Section> 
+      <Section className="flex justify-center"> 
         <Image
           className="shadow-md"
           src="/images/agreement/agreement_exit.png"
-          width={1000}
+          width={900}
           height={717}
           alt="agreement_exit"
         /> 

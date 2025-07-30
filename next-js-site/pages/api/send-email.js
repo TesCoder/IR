@@ -3,41 +3,14 @@ import { sendEmail } from "./utils/sendEmail";
 import { updateSheet } from "./utils/updateSheet";
 import { getPersonalInfo } from "@/lib/e";
 
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec", ];
 
 // IR-2021Oct30 Jane Doe
 const today = new Date();
 const prefix =
   "IR-" + today.getFullYear() + months[today.getMonth()] + today.getDate();
 
-const getVCard = ({
-  coach,
-  type,
-  fname,
-  lname,
-  location,
-  email,
-  phone,
-  year,
-  contact,
-  option,
-  info,
-  heard,
-  service,
-}) => {
+const getVCard = ({ coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service, }) => {
   const vCard = vCardsJS();
 
   vCard.firstName = prefix + " " + fname;
@@ -76,19 +49,7 @@ const getVCard = ({
 export default async function handler(req, res) {
   // res.status(200).json({ msg: "REACHED", data: req.body })
   const {
-    coach,
-    type,
-    fname,
-    lname,
-    location,
-    email,
-    phone,
-    year,
-    contact,
-    option,
-    info,
-    heard,
-    service,
+    coach,type,fname,lname,location,email,phone,year,contact,option,info,heard,service,
   } = req.body;
 
   const vCard = getVCard(req.body);

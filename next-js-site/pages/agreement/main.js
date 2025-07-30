@@ -8,11 +8,9 @@ import TermsOfService from '../tos';
 export async function getServerSideProps(context) {
   const { query } = context;
 
-  // page access param
-  const au3u38403 = query.w;
-
   // Only allow correct query key to open page
   //** NOTE: IF UPDATING CODE, UPDATE LINKS!! */
+  const au3u38403 = query.w; // page access param
   if (au3u38403 !== "AxXdi1VS4pzmXTevH49A-qQe6kfrY0dvtzczO7cbj") {
     return {
       notFound: true, // 404 if incorrect or missing
