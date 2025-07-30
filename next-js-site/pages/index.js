@@ -72,6 +72,8 @@ export default function Home() {
       </Modal>
 
       {/* Main Banner */}
+
+      {/*
       <div
         className="flex bg-hero bg-cover bg-white pt-20 sm:py-72 "
         style={{ height: "400px" }}
@@ -87,14 +89,62 @@ export default function Home() {
             Personalized College Admission Support
             <br />
             by Former Admission Officers
-          </h4> */}
+          </h4>
         </div>
       </div>
+      */}
+      
+
+
+    {/* Enhanced Hero Section with Overlay */}
+
+    <div className="relative flex bg-hero bg-cover bg-center pt-20 sm:py-72">
+    {/* Soft overlay (you can leave this at 0.08 as you have) */}
+    <div
+      className="absolute inset-0"
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
+    />
+
+    <div className="relative z-10 m-auto text-center px-4">
+      <h1 className="text-white text-5xl lg:text-7xl font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+        Ivy Ready College Consulting
+      </h1>
+
+      <h2 className="text-white text-xl lg:text-2xl mt-6 max-w-1xl mx-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)] font-medium">
+        Personalized admissions coaching from former Ivy League admissions officers.
+      </h2>
+
+    <p className="text-white text-base lg:text-lg mt-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-normal">
+      Families trust Ivy Ready for personalized coaching and peace of mind.
+    </p>
+
+
+      <Button
+        className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
+        onClick={() => setModalType("INFO")}
+      >
+        Get Your Free Intro Session
+      </Button>
+    </div>
+  </div>
+
+
+<Section title="Our Track Record in Numbers" centerContent>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+    <div><h2 className="text-4xl font-bold text-ivy-blue">92%</h2><p>Accepted to Top 3 Choices</p></div>
+    <div><h2 className="text-4xl font-bold text-ivy-blue">$3.4M</h2><p>Total Scholarships Earned</p></div>
+    <div><h2 className="text-4xl font-bold text-ivy-blue">4.8★</h2><p>Average Rating from Families</p></div>
+  </div>
+</Section>
+
+
+
 
       {/* Apply */}
-      <Section title="Apply with Confidence" darkBg centerContent>
+      <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
+
         <h2 className="text-center text-2xl  text-ivy-blue font-medium my-4">
-          Ivy Ready offers personalized college admission coaching by matching
+          Ivy Ready offers personalized college admission coaching by pairing
           prospective applicants <b>with former admission officers</b>.
         </h2>
         <p className=" text-xl text-center my-2 text-gray-700">
@@ -129,7 +179,7 @@ export default function Home() {
           src="/images/scans.jpeg"
           width={1080}
           height={500}
-          alt="Record"
+          alt="Top college acceptances including Stanford, Harvard, Yale, and more — Ivy Ready success record"
         />
         
           <br></br>
@@ -140,14 +190,12 @@ export default function Home() {
           height={500}
           alt="recognized"
         />
-        <Button
-          onClick={() =>
-            window.open("/#application-support-questions-section", "_self")
-          }
-        >
-          Contact Us
-        </Button>
-      </Section>
+        
+      <Button onClick={() => window.open("/#application-support-questions-section", "_self")}>
+        Schedule Free Strategy Call
+      </Button>
+
+       </Section>
 
 
       <Section title="" darkBg centerContent>
@@ -177,12 +225,11 @@ export default function Home() {
           us if a coach with the particular background you seek is not listed.
           We are dedicated to finding the perfect coach for you.
         </p>
-        <Button
-          className="text-center"
-          onClick={() => window.open("/about-us#top", "_self")}
-        >
-          Read their Profiles
+
+        <Button className="text-center" onClick={() => window.open("/about-us#top", "_self")}>
+          Meet Your Admissions Coaches
         </Button>
+
         <span className="" id="chart"></span>
       </Section>
 
