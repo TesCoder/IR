@@ -201,7 +201,6 @@ export default function Home() {
           Meet Your Admissions Coaches
         </Button>
 
-        <span className="" id="chart"></span>
       </Section>
 
 
