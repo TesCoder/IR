@@ -118,7 +118,10 @@ export default function ContactForm({ type, coachName, showProfile }) {
             <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
               Have any Questions?
             </h1>
-            <p>Please complete the form below for a prompt reply.</p>
+
+            <p className="text-lg text-center  mb-8 max-w-2xl mx-auto">
+              Start your journey by completing the form below. We'll help you find the right plan and match you with the best advisor for your needs.
+            </p>
           </>
         )}
         {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
@@ -257,89 +260,30 @@ export default function ContactForm({ type, coachName, showProfile }) {
                 </label>
               </div>
             </div>
+
             <div className="mb-3">
-              <label htmlFor="option" className="form-label">
-                Which option interests you?
-              </label>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="option"
-                  onChange={handleChange}
-                  value="Essays-Only Support"
-                  id="essays"
-                />
-                <label className="form-check-label" htmlFor="essays">
-                  Essays-Only Support
+              <div className="mb-3">
+                <label htmlFor="option" className="form-label">
+                  Which option interests you?
                 </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
+                <select
+                  className="form-select"
+                  id="option"
                   name="option"
+                  value={values.option}
                   onChange={handleChange}
-                  value="Comprehensive Support"
-                  id="comp-supp"
-                />
-                <label className="form-check-label" htmlFor="comp-supp">
-                  Comprehensive Support
-                </label>
+                >
+                  <option value="">Select an option</option>
+                  <option value="Essays-Only Support">Essays-Only Support</option>
+                  <option value="Comprehensive Support">Comprehensive Support</option>
+                  <option value="Comprehensive Support with Logistics">Comprehensive Support with Logistics</option>
+                  <option value="Hourly Consultation">Hourly Consultation</option>
+                  <option value="Application Evaluation">Application Evaluation</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="option"
-                  onChange={handleChange}
-                  value="Comprehensive Support with Logistics"
-                  id="comp-supp-log"
-                />
-                <label className="form-check-label" htmlFor="comp-supp-log">
-                  Comprehensive Support with Logistics
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="option"
-                  onChange={handleChange}
-                  value="Hourly Consultation"
-                  id="hourly"
-                />
-                <label className="form-check-label" htmlFor="hourly">
-                  Hourly Consultation
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="option"
-                  onChange={handleChange}
-                  value="Application Evaluation"
-                  id="evaluation"
-                />
-                <label className="form-check-label" htmlFor="evaluation">
-                  Application Evaluation
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="option"
-                  onChange={handleChange}
-                  value="Other"
-                  id="other"
-                />
-                <label className="form-check-label" htmlFor="other">
-                  {" "}
-                  Other{" "}
-                </label>
-              </div>
+
+
             </div>
             <div className="mb-3">
               <label htmlFor="year" className="form-label">

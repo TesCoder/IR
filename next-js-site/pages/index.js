@@ -48,7 +48,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Ivy Ready College Admission Consulting
+          <h1> Ivy Ready College Admission Consulting </h1>
         </title>
         <meta
           name="description"
@@ -250,6 +250,7 @@ export default function Home() {
  
 
       <Section darkBg>
+        
         <ContactForm type="FULL" />
       </Section>
 
