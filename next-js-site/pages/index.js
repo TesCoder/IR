@@ -107,39 +107,72 @@ export default function Home() {
   </div>
 
 
-<Section title="Our Track Record in Numbers"  centerContent>
-  <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
-    <div><h2 className="text-6xl font-bold text-ivy-blue">92%</h2><p>Accepted to Top 3 Choices</p></div>
-    <div><h2 className="text-6xl font-bold text-ivy-blue">$3.4M</h2><p>Total Scholarships Earned</p></div>
-    <div><h2 className="text-6xl font-bold text-ivy-blue">4.8★</h2><p>Average Rating from Families</p></div>
-  </div>
-</Section>
-
-      {/* Apply */}
-      <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
-
+      <Section title="Our Track Record in Numbers"  centerContent>
 
         <h2 className="pCentered">
-          Ivy Ready pairs students with former Ivy League admissions officers to deliver expert, personalized guidance through every part of the college application. Our flexible support includes application packages, hourly consultation, and evaluation services.
+          Ivy Ready empowers students to craft exceptional applications that get results. From essays to strategy, our support drives real outcomes—top school admissions, major scholarships, and family peace of mind.
         </h2>
 
-        <p className=" text-xl text-center font-bold text-gray-700">
-          Sign up for your (free) introductory session!
-        </p>
-
-
-        <Button
-          onClick={() => setModalType("CALL")}
-          data-bs-toggle="modal"
-          data-bs-target="#contactModal"
-        >
-          Request Free Intro Call
-        </Button>
-
-
+        <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div><h2 className="text-6xl font-bold text-ivy-blue">92%</h2><p>Accepted to Top 3 Choices</p></div>
+          <div><h2 className="text-6xl font-bold text-ivy-blue">$3.4M</h2><p>Total Scholarships Earned</p></div>
+          <div><h2 className="text-6xl font-bold text-ivy-blue">4.8★</h2><p>Average Rating from Families</p></div>
+        </div>
       </Section>
 
+      {/* Testimonials new */}
+      <span className="" id="testimonials-section"></span>
+      <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
 
+        {/* Integrated Testimonials Carousel */}
+        <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center">
+          Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
+        </p>
+
+        <div
+          id="testimonials-carousel"
+          className="carousel carousel-fade"
+          data-bs-ride="carousel"
+          data-bs-interval="5000"
+          data-bs-pause="hover"
+        >
+          <div className="carousel-inner">
+            {[
+              { src: "/images/testimonials/A.png", alt: "Amazing evaluation feedback" },
+              { src: "/images/testimonials/B.png", alt: "Great firm recognition" },
+              { src: "/images/testimonials/C.png", alt: "Spoke with former Ivy League counselor" },
+              { src: "/images/testimonials/D.png", alt: "Inspired to apply to Harvard" },
+              { src: "/images/testimonials/E.png", alt: "Thankful for Ivy Ready and Princeton" },
+              { src: "/images/testimonials/F.png", alt: "Admitted to UPenn, class of 2020" },
+              { src: "/images/testimonials/H.png", alt: "Tutor recommends Ivy Ready to students" },
+              { src: "/images/testimonials/I.png", alt: "Guidance office support for applicants" },
+              { src: "/images/testimonials/J.png", alt: "Regret not finding Ivy Ready sooner" },
+            ].map((item, index) => (
+              <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
+                <Image
+                  src={item.src}
+                  width={600}
+                  height={420}
+                  className="d-block mx-auto rounded-md shadow-lg"
+                  alt={item.alt}
+                />
+                <p className="mt-4 text-base text-gray-600 text-center italic opacity-90 max-w-xl mx-auto">
+                  {item.alt}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+          <Button
+            onClick={() => setModalType("CALL")}
+            data-bs-toggle="modal"
+            data-bs-target="#contactModal"
+            className="mb-10 mt-2"
+          >
+            Request Free Intro Call
+        </Button>
+      </Section>
 
       <Section title="Our stellar record speaks for itself!" centerContent>
         <Image
@@ -214,65 +247,7 @@ export default function Home() {
           </Button>
         </div>
       </Section>
-
-
-      {/* Testimonials new */}
-      <span className="" id="testimonials-section"></span>
-
-      <Section title="Testimonials" darkBg centerContent>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center">
-          Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
-        </p>
-
-        {/* <div id="testimonials-carousel" className="carousel slide" data-bs-ride="carousel"> */}
-        <div 
-          id="testimonials-carousel" 
-          className="carousel carousel-fade" 
-          data-bs-ride="carousel"
-          data-bs-interval="5000"  // 6 seconds
-          data-bs-pause="hover"
-          >
-
-        
-          <div className="carousel-inner">
-
-            {[
-              { src: "/images/testimonials/A.png", alt: "Amazing evaluation feedback" },
-              { src: "/images/testimonials/B.png", alt: "Great firm recognition" },
-              { src: "/images/testimonials/C.png", alt: "Spoke with former Ivy League counselor" },
-              { src: "/images/testimonials/D.png", alt: "Inspired to apply to Harvard" },
-              { src: "/images/testimonials/E.png", alt: "Thankful for Ivy Ready and Princeton" },
-              { src: "/images/testimonials/F.png", alt: "Admitted to UPenn, class of 2020" },
-              { src: "/images/testimonials/H.png", alt: "Tutor recommends Ivy Ready to students" },
-              { src: "/images/testimonials/I.png", alt: "Guidance office support for applicants" },
-              { src: "/images/testimonials/J.png", alt: "Regret not finding Ivy Ready sooner" },
-            ].map((item, index) => (
-              <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
-                <Image
-                  src={item.src}
-                  width={600}
-                  height={420}
-                  className="d-block mx-auto rounded-md shadow-lg"
-                  alt={item.alt}
-                />
-                <p className="mt-4 text-base text-gray-600 text-center italic opacity-90 max-w-xl mx-auto"> {item.alt} </p>
-                
-              </div>
-
-            ))}
-          </div>
-
-          <button className="carousel-control-prev visually-hidden" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-
-          <button className="carousel-control-next visually-hidden" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
-      </Section>
+ 
 
       <Section>
         <ContactForm type="FULL" />
