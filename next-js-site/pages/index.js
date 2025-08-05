@@ -249,12 +249,10 @@ export default function Home() {
       </Section>
  
 
-      <Section>
+      <Section darkBg>
         <ContactForm type="FULL" />
       </Section>
 
-      <Section darkBg>
-      </Section>
 
     </>
   );
