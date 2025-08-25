@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
 import TermsOfService from '../tos';
+import { sendEmailNotification } from "@/utils/sendEmailNotification";
 
 
 export async function getServerSideProps(context) {
@@ -45,11 +46,17 @@ export default function AgreementForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Agreement submitted successfully!');
-  };
+
+    try {
+      await sendEmailNotification(formData); // 🎯 send the email
+      // alert("Agreement submitted successfully!");
+    } catch (err) {
+      console.error("Failed to send email:", err);
+      // alert("There was a problem submitting the agreement.");
+    }
+};
 
   // Package options (read-only display)
   const packages = [
