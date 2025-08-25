@@ -1,3 +1,5 @@
+// pages/api/send-email.js
+
 import vCardsJS from "vcards-js";
 import { sendEmail } from "./utils/sendEmail";
 import { updateSheet } from "./utils/updateSheet";
@@ -48,9 +50,39 @@ const getVCard = ({ coach, type, fname, lname, location, email, phone, year, con
 // api endpoint
 export default async function handler(req, res) {
   // res.status(200).json({ msg: "REACHED", data: req.body })
+  
+  if (req.method !== "POST") {
+    return res.status(405).json({ success: false, error: "Method Not Allowed" });
+  }
+
   const {
-    coach,type,fname,lname,location,email,phone,year,contact,option,info,heard,service,
+    coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service,
   } = req.body;
+
+  // Handle Agreement submissions separately, skips vcard generation
+  if (type === "AGREEMENT") {
+    const subject = "Agreement Form Submission";
+    const html = `
+      <h3>Agreement Submission</h3>
+      <ul>
+        ${Object.entries(req.body)
+          .map(([k, v]) => `<li><strong>${k}:</strong> ${String(v ?? "")}</li>`)
+          .join("")}
+      </ul>
+    `;
+
+    try {
+      const result = await sendEmail({ subject, html });
+      if (result.success) {
+        return res.status(200).json({ success: true });
+      } else {
+        return res.status(500).json({ success: false, error: "Mailer returned failure" });
+      }
+    } catch (err) {
+      console.error("Agreement email error:", err);
+      return res.status(500).json({ success: false, error: err.message });
+    }
+  }
 
   const vCard = getVCard(req.body);
 
@@ -127,7 +159,7 @@ export default async function handler(req, res) {
   const result = await sendEmail(emailOptions);
   // console.log('Result:', result);
   if (result.success) {
-    return res.status(250).json(result);
+    return res.status(200).json(result);
   } else {
     return res.status(404).json(result);
   }

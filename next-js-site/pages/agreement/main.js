@@ -55,13 +55,22 @@ export default function AgreementForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await sendEmail(formData); // send the agreement form data
-      alert("Agreement submitted successfully!");
+      // Tag this source so the API can branch
+      const res = await sendEmail({ ...formData, type: "AGREEMENT" });
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result?.success) {
+        alert("Agreement submitted successfully!");
+      } else {
+        console.error("Email not sent:", result);
+        alert("There was a problem submitting the agreement.");
+      }
     } catch (err) {
       console.error("Failed to send email:", err);
       alert("There was a problem submitting the agreement.");
     }
   };
+
 
   // Package options (read-only display)
   const packages = [
@@ -102,9 +111,9 @@ export default function AgreementForm() {
             We are dedicated to building a package that suits your needs.{" "}
 
 
- <a href="https://ivyready.com/#chart" className="text-blue-600 hover:underline">
-                  (Click here for services included with each package.)
-                </a>
+            {/* <a href="https://ivyready.com/#chart" className="text-blue-600 hover:underline">
+              (Click here for services included with each package.)
+            </a> */}
           </p>
 
           {/* Date Field */}

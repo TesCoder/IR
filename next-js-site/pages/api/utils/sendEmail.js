@@ -1,3 +1,5 @@
+// pages/api/utils/sendEmail.js
+
 const { TITAN_EMAIL, TITAN_PASSWORD, RECIPIENT_EMAIL } = process.env;
 import nodemailer from 'nodemailer';
 
