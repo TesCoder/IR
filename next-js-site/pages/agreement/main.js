@@ -114,7 +114,7 @@ export default function AgreementForm() {
             <p className="my-4 text-gray-700 bg-gray-50">
               This Agreement signed at the above date is made by and between Ivy Ready® LLC ({"\"Company\""}), AND
             </p>
-            <input
+            {/* <input
               type="text"
               name="clientInfo"
               value={formData.clientInfo}
@@ -122,7 +122,7 @@ export default function AgreementForm() {
               className="w-full p-2 border border-gray-400 bg-gray-50"
               placeholder='Example: Jane Smith whose address is 1111 Henry Drive, San Diego, CA 91977 ("Client")'
               required
-            />
+            /> */}
           </div>
 
           {/* Client Information */}
