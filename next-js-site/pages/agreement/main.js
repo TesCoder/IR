@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
 import TermsOfService from '../tos';
-import { sendEmail } from "@/lib/sendEmail";
+import sendEmail from "../lib/sendEmail"; 
 
 
 export async function getServerSideProps(context) {
@@ -24,6 +24,12 @@ export async function getServerSideProps(context) {
 }
 
 export default function AgreementForm() {
+  const [isSubmitting, setSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState({
+    success: false,
+    message: "",
+  });
+
   const [formData, setFormData] = useState({
     date: new Date().toLocaleDateString('en-US'),
     parentName: '',
@@ -48,15 +54,14 @@ export default function AgreementForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      await sendEmail(formData); // 🎯 send the email
-      // alert("Agreement submitted successfully!");
+      await sendEmail(formData); // send the agreement form data
+      alert("Agreement submitted successfully!");
     } catch (err) {
       console.error("Failed to send email:", err);
-      // alert("There was a problem submitting the agreement.");
+      alert("There was a problem submitting the agreement.");
     }
-};
+  };
 
   // Package options (read-only display)
   const packages = [
