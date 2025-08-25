@@ -38,8 +38,8 @@ export default function page() {
         <Image
           className="shadow-md"
           src="/images/agreement/agreement_exit.png"
-          width={900}
-          height={717}
+          width={810}
+          height={645}
           alt="agreement_exit"
         /> 
       </Section> 
