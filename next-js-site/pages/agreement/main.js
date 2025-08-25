@@ -53,15 +53,7 @@ export default function AgreementForm() {
 
   // Package options (read-only display)
   const packages = [
-    { name: 'Essays-only Support up to 5 Schools', price: '$6,400 (20% off $8,000)' },
-    // { name: 'Essays-only Support up to 10 Schools', price: '$8,000 (20% off $10,000)' },
-    // { name: 'Essays-only Support up to 15 Schools', price: '$10,000 (17% off $12,000)' },
-    // { name: 'Comprehensive Support up to 5 Schools', price: '$10,000 (17% off $12,000)' },
-    // { name: '[Most common] Comprehensive Support up to 10 Schools', price: '$12,000 (14% off $14,000)' },
-    // { name: 'Comprehensive Support up to 15 Schools', price: '$14,000 (12.5% off $16,000)' },
-    // { name: 'Comprehensive Support with Logistics up to 5 Schools', price: '$14,000 (12.5% off $16,000)' },
-    // { name: 'Comprehensive Support with Logistics up to 10 Schools', price: '$16,000 (11% off $18,000)' },
-    // { name: 'Comprehensive Support with Logistics up to 15 Schools', price: '$18,000 (10% off $20,000)' }
+    { name: 'Comprehensive Support up to 10 Schools Schools', price: '$8,000' },
   ];
 
   return (
@@ -240,7 +232,7 @@ export default function AgreementForm() {
             
             <div className="mt-4">
               <h3 className="font-medium text-gray-700 mb-2">Assigned Coach</h3>
-              <div className="p-3 border rounded bg-gray-50"> James </div>
+              <div className="p-3 border rounded bg-gray-50"> Heather </div>
             </div>
           </div>
 

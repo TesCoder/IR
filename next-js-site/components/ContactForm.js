@@ -75,6 +75,16 @@ export default function ContactForm({ type, coachName, showProfile }) {
     success: false,
     message: "",
   });
+  const heardOptions = [
+    { id: "google", label: "Google Search", value: "Google Search" },
+    { id: "mail", label: "Mail", value: "Mail" },
+    { id: "famOrFriends", label: "Family or Friends", value: "Family or Friends" },
+  ];
+  const infoOptions = [
+    { id: "general", label: "General Info", value: "General Info" },
+    { id: "fee", label: "Fee Structure", value: "Fee Structure" },
+    { id: "other", label: "Other", value: "Other" },
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // prevents page from reloading when a form is submtted
@@ -282,101 +292,65 @@ export default function ContactForm({ type, coachName, showProfile }) {
                   <option value="Other">Other</option>
                 </select>
               </div>
+            </div>
 
 
+
+
+
+           <div className="mb-3">
+            <label htmlFor="heard" className="form-label">
+              How did you hear about Ivy Ready?
+            </label>
+            <div className="flex flex-wrap gap-x-6">
+              {heardOptions.map(({ id, label, value }) => (
+                <div className="form-check form-check-inline" key={id}>
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="heard"
+                    id={id}
+                    value={value}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label" htmlFor={id}>
+                    {label}
+                  </label>
+                </div>
+              ))}
             </div>
-            <div className="mb-3">
-              <label htmlFor="year" className="form-label">
-                How did you hear about Ivy Ready?
-              </label>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="heard"
-                  onChange={handleChange}
-                  value="Google Search"
-                  id="google"
-                />
-                <label className="form-check-label" htmlFor="google">
-                  Google Search
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="heard"
-                  onChange={handleChange}
-                  value="Mail"
-                  id="mail"
-                />
-                <label className="form-check-label" htmlFor="mail">
-                  {" "}
-                  Mail{" "}
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="heard"
-                  onChange={handleChange}
-                  value="Family or Friends"
-                  id="famOrFriends"
-                />
-                <label className="form-check-label" htmlFor="famOrFriends">
-                  Family or Friends
-                </label>
-              </div>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="info" className="form-label">
+              What would you like to know more about?
+            </label>
+            <div className="flex flex-wrap gap-x-6">
+              {infoOptions.map(({ id, label, value }) => (
+                <div className="form-check form-check-inline" key={id}>
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="info"
+                    id={id}
+                    value={value}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label" htmlFor={id}>
+                    {label}
+                  </label>
+                </div>
+              ))}
             </div>
-            <div className="mb-3">
-              <label htmlFor="year" className="form-label">
-                What would you like to know more about?
-              </label>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="info"
-                  onChange={handleChange}
-                  value="General Info"
-                  id="general"
-                />
-                <label className="form-check-label" htmlFor="general">
-                  General Info
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="info"
-                  onChange={handleChange}
-                  value="Fee Structure"
-                  id="fee"
-                />
-                <label className="form-check-label" htmlFor="fee">
-                  Fee Structure
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  name="info"
-                  onChange={handleChange}
-                  value="Other"
-                  id="other"
-                />
-                <label className="form-check-label" htmlFor="other">
-                  {" "}
-                  Other{" "}
-                </label>
-              </div>
-            </div>
+          </div>
+            
           </>
         )}
+
+        
+
+
+
 
         {["FULL", "INFO", "CALL"].includes(type) && (
           <div className="mb-3">

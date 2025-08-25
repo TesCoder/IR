@@ -236,7 +236,6 @@ export default function Home() {
 
       </Section>
 
-
       <Section title="Compare Our Support Options">
         <p className="text-center text-lg text-gray-700 max-w-2xl mx-auto">
           From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family.
