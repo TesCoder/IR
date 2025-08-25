@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
 import TermsOfService from '../tos';
-import sendEmail from "../lib/sendEmail"; 
+import sendEmail from "@/lib/sendEmail"; 
 
 
 export async function getServerSideProps(context) {
