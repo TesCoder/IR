@@ -71,7 +71,6 @@ export default function AgreementForm() {
     }
   };
 
-
   // Package options (read-only display)
   const packages = [
     { name: 'Comprehensive Support up to 10 Schools Schools', price: '$8,000' },
@@ -236,6 +235,39 @@ export default function AgreementForm() {
                 <option value="Senior">Senior</option>
               </select>
             </div>
+
+
+            <div>
+              <label className="block text-gray-700 mb-1">Payment Method</label>
+              <select
+                name="paymentMethod"
+                value={formData.paymentMethod}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-400 bg-gray-50"
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="paypal">Pay with Paypal (Paypal charges a 5% fee)</option>
+                <option value="zelle">Pay via Zelle to contact@ivyready.com</option>
+              </select>
+            </div>
+
+
+            <div>
+              <label className="block text-gray-700 mb-1">Payment Installments</label>
+              <select
+                name="paymentInstallment"
+                value={formData.paymentInstallment}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-400 bg-gray-50"
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="paypal">One-time Payment</option>
+                <option value="zelle">Pay two times (one at start and 1/2 way)</option>
+              </select>
+            </div>
+
           </div>
 
           {/* Package Selection */}
