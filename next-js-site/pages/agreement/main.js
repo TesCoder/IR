@@ -61,6 +61,7 @@ export default function AgreementForm() {
 
       if (res.ok && result?.success) {
         alert("Agreement submitted successfully!");
+        router.push("/agreement/exit?w=mFNZyw88mlMgm5Zj473z-VCHQDs4kZ06gtw3TdfJq");
       } else {
         console.error("Email not sent:", result);
         alert("There was a problem submitting the agreement.");
