@@ -264,8 +264,8 @@ export default function AgreementForm() {
                 required
               >
                 <option value="">Select an option</option>
-                <option value="paypal">Pay all at once (most common)</option>
-                <option value="zelle">Pay in two installments (first at start and second half way)</option>
+                <option value="oncePaymentInstallment">Pay all at once (most common)</option>
+                <option value="twoPaymentInstallment">Pay in two installments (first at start and second half way)</option>
               </select>
             </div>
 
