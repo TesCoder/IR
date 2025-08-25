@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
 import TermsOfService from '../tos';
-import { sendEmailNotification } from "@/utils/sendEmailNotification";
+import { sendEmail } from "@/lib/sendEmail";
 
 
 export async function getServerSideProps(context) {
@@ -50,7 +50,7 @@ export default function AgreementForm() {
     e.preventDefault();
 
     try {
-      await sendEmailNotification(formData); // 🎯 send the email
+      await sendEmail(formData); // 🎯 send the email
       // alert("Agreement submitted successfully!");
     } catch (err) {
       console.error("Failed to send email:", err);
