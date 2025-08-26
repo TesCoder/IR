@@ -60,15 +60,15 @@ export default function AgreementForm() {
       const result = await res.json().catch(() => ({}));
 
       if (res.ok && result?.success) {
-        alert("Agreement submitted successfully!");
+        // alert("Agreement submitted successfully!");
         router.push("/agreement/exit?w=mFNZyw88mlMgm5Zj473z-VCHQDs4kZ06gtw3TdfJq");
       } else {
         console.error("Email not sent:", result);
-        alert("There was a problem submitting the agreement.");
+        // alert("There was a problem submitting the agreement.");
       }
     } catch (err) {
       console.error("Failed to send email:", err);
-      alert("There was a problem submitting the agreement.");
+      // alert("There was a problem submitting the agreement.");
     }
   };
 
