@@ -349,7 +349,6 @@ export default function AgreementForm() {
               Submit Agreement
             </button>
           </div>
-          
         </form>
 
          {/* Terms and Conditions */}
