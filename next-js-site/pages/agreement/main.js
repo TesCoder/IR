@@ -290,28 +290,6 @@ export default function AgreementForm() {
             </div>
           </div>
 
-          {/* Terms and Conditions */}
-          <div className="border-b pb-6">
-            <h2 className="font-medium text-2xl text-ivy-blue my-3">Terms and Conditions</h2>
-            <div className="bg-gray-50 p-4 rounded-lg max-h-96 overflow-y-auto mb-4">
-             <TermsOfService />
-            </div>
-            <div className="flex items-start mt-4">
-              <input
-                type="checkbox"
-                id="agree-to-terms"
-                name="agreedToTerms"
-                checked={formData.agreedToTerms}
-                onChange={handleChange}
-                className="mt-1"
-                required
-              />
-              <label htmlFor="agree-to-terms" className="ml-2 block text-gray-700">
-                I have read and agree to abide by Ivy {"\"Ready\"s"} Terms of Service.
-              </label>
-            </div>
-          </div>
-
           {/* Signature */}
           <div>
             <h2 className="font-medium text-2xl text-ivy-blue my-3">Signature</h2>
@@ -343,11 +321,27 @@ export default function AgreementForm() {
             </div>
           </div>
 
+          <div className="flex items-start mt-4">
+              <input
+                type="checkbox"
+                id="agree-to-terms"
+                name="agreedToTerms"
+                checked={formData.agreedToTerms}
+                onChange={handleChange}
+                className="mt-1"
+                required
+              />
+              <label htmlFor="agree-to-terms" className="ml-2 block text-gray-700">
+                I have read and agree to abide by Ivy {"Ready\'s"} Terms of Service.
+              </label>
+            </div>
+
           <div>
             <p>We will provide you with a countersigned copy after submission.</p>
           </div>
+
           {/* Submit Button */}
-          <div className="flex pb-40">
+          <div className="flex pb-4">
             <button
               type="submit"
               className="bg-ivy-red text-white py-2 px-4 rounded-3xl transition-colors hover:bg-ivy-blue"
@@ -357,6 +351,15 @@ export default function AgreementForm() {
           </div>
           
         </form>
+
+         {/* Terms and Conditions */}
+          <div className="w-full -mx-10" >
+            <div >
+             <TermsOfService />
+            </div>
+
+          </div>
+
       </section>
     </>
   );
