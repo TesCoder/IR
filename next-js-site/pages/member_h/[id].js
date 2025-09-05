@@ -29,7 +29,8 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
           </p>
         ))}
         <p className="my-3">{description}</p>
-        <div className="flex items-start">
+
+        {/* <div className="flex items-start">
           <Button
             onClick={() => setCoach(fname)}
             data-bs-toggle="modal"
@@ -38,6 +39,7 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
             Request an introductory Session with {fname}
           </Button>
         </div>
+         */}
       </div>
     </div>
   </div>
@@ -73,7 +75,8 @@ export default function MemberH({ id }) {
           description={member.description}
         />
       </Section>
-      <ButtonRow setModalType={setModalType} lightBg />
+
+      {/* <ButtonRow setModalType={setModalType} lightBg /> */}
     </>
   );
 }
