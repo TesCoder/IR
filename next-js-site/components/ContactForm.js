@@ -1,3 +1,5 @@
+"use client";
+
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import useContactForm from "../hooks/useContactForm";
@@ -8,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { members } from "../components/membersList";
 import { Button, ButtonRow } from "@/components/Button";
+import { useRouter } from "next/navigation";
 
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
@@ -68,6 +71,8 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
 );
 
 export default function ContactForm({ type, coachName, showProfile }) {
+  const router = useRouter();
+
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm(); // hook
   const [isSubmitting, setSubmitting] = useState(false);
@@ -87,21 +92,16 @@ export default function ContactForm({ type, coachName, showProfile }) {
   ];
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // prevents page from reloading when a form is submtted
+    e.preventDefault();
     setSubmitting(true);
-    // console.log("Values:", values);
     try {
       const res = await sendEmail({ type, coach: coachName, ...values });
       if (res.status === 250) {
-        setResponseMessage({
-          success: true,
-          message:
-            "Thank you for your message. We will be reaching out to you soon.",
-        });
-        window.location.href = "/form-submitted#top";
+        // Redirect immediately; don't set success state first
+        router.replace("/form-submitted#top");
+        return; // stop here
       }
     } catch (e) {
-      // console.log(e);
       setResponseMessage({
         success: false,
         message:
@@ -293,8 +293,6 @@ export default function ContactForm({ type, coachName, showProfile }) {
                 </select>
               </div>
             </div>
-
-
 
 
 
