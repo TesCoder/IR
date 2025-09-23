@@ -96,11 +96,14 @@ export default function ContactForm({ type, coachName, showProfile }) {
     setSubmitting(true);
     try {
       const res = await sendEmail({ type, coach: coachName, ...values });
-      if (res.status === 250) {
-        // Redirect immediately; don't set success state first
-        router.replace("/form-submitted#top");
-        return; // stop here
-      }
+
+      router.replace("/form-submitted#top");
+
+      // if (res.status === 250) {
+      //   // Redirect immediately; don't set success state first
+      //   router.replace("/form-submitted#top");
+      //   return; // stop here
+      // }
     } catch (e) {
       setResponseMessage({
         success: false,
