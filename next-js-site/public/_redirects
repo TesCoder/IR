@@ -1,2 +1,3 @@
-/directmail*  /index.html  302
-/directmail*  /index.html  200
+# Send /directmail to homepage (with UTM params preserved)
+ /directmail      /    302
+ /directmail/*    /    302
