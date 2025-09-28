@@ -97,10 +97,11 @@ export default function ContactForm({ type, coachName, showProfile }) {
     try {
       const res = await sendEmail({ type, coach: coachName, ...values });
 
+      // Redirect immediately; don't set success state first
       router.replace("/form-submitted#top");
 
-      // if (res.status === 250) {
-      //   // Redirect immediately; don't set success state first
+      // if (res.status === 200) {
+      //   
       //   router.replace("/form-submitted#top");
       //   return; // stop here
       // }
