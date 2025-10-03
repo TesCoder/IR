@@ -72,11 +72,6 @@ export default function AgreementForm() {
     }
   };
 
-  // Package options (read-only display)
-  const packages = [
-    { name: 'Comprehensive Support up to 10 Schools Schools', price: '$8,000' },
-  ];
-
   return (
     <>
       <div className='flex justify-end pr-20'>
@@ -254,7 +249,7 @@ export default function AgreementForm() {
             </div>
 
 
-            <div>
+            {/* <div>
               <label className="block text-gray-700 mb-1">Payment Installments</label>
               <select
                 name="paymentInstallment"
@@ -267,28 +262,32 @@ export default function AgreementForm() {
                 <option value="oncePaymentInstallment">Pay all at once (most common)</option>
                 <option value="twoPaymentInstallment">Pay in two installments (first at start and second half way)</option>
               </select>
-            </div>
+            </div> */}
 
           </div>
 
-          {/* Package Selection */}
-          <div className="border-b pb-6">
-            <h2 className="font-medium text-2xl text-ivy-blue my-3">Package Selection</h2>
-            <div className="space-y-3">
-              {packages.map((pkg, index) => (
-                <div key={index} className="p-3 border rounded bg-gray-50">
-                  {/* <div className="font-medium">{pkg.name}</div>
-                  <div className="text-gray-600">{pkg.price}  </div> */}
-                  <div className="font-medium">{pkg.name} {pkg.price} </div>
-                </div>
-              ))}
+          {/* Package Selection Simplified */}
+             <div>
+              <label className="block text-gray-700 mb-1">Package Selection</label>
+              <select
+                name="paymentMethod"
+                value={formData.paymentMethod}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-400 bg-gray-50"
+                required
+              >
+                <option value="">Package Selection</option>
+                <option value="paypal">Comprehensive Support up to 10 Schools Schools $5,000</option>
+                <option value="zelle">Comprehensive Support with Logistics up to 10 Schools $6,000</option>
+              </select>
             </div>
             
             <div className="mt-4">
               <h3 className="font-medium text-gray-700 mb-2">Assigned Coach</h3>
-              <div className="p-3 border rounded bg-gray-50"> Heather </div>
+              {/* <div className="p-3 border rounded bg-gray-50"> Heather </div> */}
+              <div className="p-3 border rounded bg-gray-50"> James </div>
+
             </div>
-          </div>
 
           {/* Signature */}
           <div>
