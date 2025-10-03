@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { members } from "../components/membersList";
 import { Button, ButtonRow } from "@/components/Button";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; // needed for redirecting from page
 
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
@@ -71,7 +71,7 @@ const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
 );
 
 export default function ContactForm({ type, coachName, showProfile }) {
-  const router = useRouter();
+  const router = useRouter(); // needed for redirecting from page
 
   // Form Types: FULL, INFO, CALL, or EVAL
   const { values, handleChange } = useContactForm(); // hook
@@ -98,7 +98,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
       const res = await sendEmail({ type, coach: coachName, ...values });
 
       // Redirect immediately; don't set success state first
-      router.replace("/form-submitted#top");
+      router.replace("/form-submitted#top"); // redirect to page after submission
 
       // if (res.status === 200) {
       //   

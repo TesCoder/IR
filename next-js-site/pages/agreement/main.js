@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from "next/link";
 import TermsOfService from '../tos';
 import sendEmail from "@/lib/sendEmail"; 
+import { useRouter } from "next/navigation"; // needed for redirecting from page
 
 
 export async function getServerSideProps(context) {
@@ -24,6 +25,8 @@ export async function getServerSideProps(context) {
 }
 
 export default function AgreementForm() {
+  const router = useRouter(); // needed for redirecting from page
+
   const [isSubmitting, setSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState({
     success: false,
@@ -61,7 +64,7 @@ export default function AgreementForm() {
       const result = await res.json().catch(() => ({}));
 
       // Redirect immediately; don't set success state first
-      router.replace("/agreement/exit?w=mFNZyw88mlMgm5Zj473z-VCHQDs4kZ06gtw3TdfJq");
+      router.replace("/agreement/exit?w=mFNZyw88mlMgm5Zj473z-VCHQDs4kZ06gtw3TdfJq"); // redirect to page after submission
 
       // unclear but some glitch in sendEmail is causign below not to work
       // if (res.status === 200) {
