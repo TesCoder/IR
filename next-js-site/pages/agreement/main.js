@@ -244,6 +244,29 @@ export default function AgreementForm() {
               </select>
             </div>
 
+             <div className="mt-4">
+              <h3 className="font-medium text-gray-700 mb-2">Assigned Coach</h3>
+              {/* <div className="p-3 border rounded bg-gray-50"> Heather </div> */}
+              <div className="p-2 border bg-gray-50" value="james"> James </div>
+
+            </div>
+
+            {/* Package Selection Simplified */}
+             <div>
+              <label className="block text-gray-700 mb-1">Package Selection</label>
+              <select
+                name="packageSelection"
+                value={formData.packageSelection}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-400 bg-gray-50"
+                required
+              >
+                <option value="">Package Selection</option>
+                <option value="cs10">Comprehensive Support up to 10 Schools Schools $5,000</option>
+                <option value="cswl10">Comprehensive Support with Logistics up to 10 Schools $6,000</option>
+              </select>
+            </div>
+
 
             <div>
               <label className="block text-gray-700 mb-1">Payment Method</label>
@@ -278,28 +301,7 @@ export default function AgreementForm() {
 
           </div>
 
-          {/* Package Selection Simplified */}
-             <div>
-              <label className="block text-gray-700 mb-1">Package Selection</label>
-              <select
-                name="packageSelection"
-                value={formData.packageSelection}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-400 bg-gray-50"
-                required
-              >
-                <option value="">Package Selection</option>
-                <option value="cs10">Comprehensive Support up to 10 Schools Schools $5,000</option>
-                <option value="cswl10">Comprehensive Support with Logistics up to 10 Schools $6,000</option>
-              </select>
-            </div>
-            
-            <div className="mt-4">
-              <h3 className="font-medium text-gray-700 mb-2">Assigned Coach</h3>
-              {/* <div className="p-3 border rounded bg-gray-50"> Heather </div> */}
-              <div className="p-3 border rounded bg-gray-50" value="james"> James </div>
-
-            </div>
+          
 
           {/* Signature */}
           <div>
