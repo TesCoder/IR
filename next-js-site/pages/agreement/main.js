@@ -244,12 +244,21 @@ export default function AgreementForm() {
               </select>
             </div>
 
-             <div className="mt-4">
-              <h3 className="font-medium text-gray-700 mb-2">Assigned Coach</h3>
-              {/* <div className="p-3 border rounded bg-gray-50"> Heather </div> */}
-              <div className="p-2 border bg-gray-50" value="james"> James </div>
 
+            <div>
+              <label className="block text-gray-700 mb-1">Assigned Coach</label>
+              <select
+                name="assignedCoach"
+                value={formData.assignedCoach}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-400 bg-gray-50"
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="james">James</option>
+              </select>
             </div>
+
 
             {/* Package Selection Simplified */}
              <div>
