@@ -41,6 +41,8 @@ export default function AgreementForm() {
     studentName: '',
     studentEmail: '',
     studentPhone: '',
+    packageSelection: '',
+    assignedCoach: '',
     studentYear: '',
     agreedToTerms: false,
     signature: '',
@@ -207,56 +209,7 @@ export default function AgreementForm() {
             </div>
 
           </div>
-
-        {/* Terms and Conditions */}
-            <div className=" max-w-3xl mx-auto p-6 w-full  max-h-40 overflow-y-auto border bg-white shadow-sm">
-              <h2 className="text-lg font-semibold mb-2">Project-Specific Terms</h2>
-              <ul className="list-disc pl-10">
-                <li>
-                  I agree to abide by professional standards and general business expectations,
-                  including timely email response and essay draft reviews.
-                </li>
-                <li>
-                  I agree to provide the above Client(s) with services that are a part of the above
-                  package or hourly consultation.
-                </li>
-                <li>
-                  I acknowledge the total payment for this service as noted above is for
-                  package-based work or assessed based on hours of service for hourly consultation
-                  at the hourly consultation rate.
-                </li>
-                <li>
-                  I acknowledge the total payment for this service as noted above is for
-                  package-based work or assessed based on hours of service for hourly consultation
-                  at the hourly consultation rate.
-                </li>
-                <li>
-                  <strong>Package only:</strong> I agree to do my best to see this project through from
-                  start to finish and meet the Client's reasonable expectations until project is
-                  completed.
-                </li>
-                <li>
-                  <strong>Package only:</strong> I acknowledge payment will be distributed based on the
-                  payment distribution schedule, which will be provided to me with the countersigned
-                  agreement. Payment will be deposited once or twice a month, or in bulk. Specific
-                  dates of payment will depend on whether dates fall on business day or weekend,
-                  allowing for unexpected delays.
-                </li>
-                <li>
-                  <strong>Package only:</strong> I will notify Ivy Ready &amp; Parents of any unexpected
-                  events (unresponsiveness from student, missed outline or draft submission deadlines,
-                  etc.) within three business day.
-                </li>
-                <li>
-                  <strong>Hourly consultation only:</strong> Payment for hourly consultation will be
-                  distributed as applicable (one time or multiple times based on the number of hours a
-                  family signs up.)
-                </li>
-              </ul>
-
-            </div>
-                    
-
+ 
           {/* Signature */}
           <div>
             <h2 className="font-medium text-2xl text-ivy-blue my-3">Signature</h2>
@@ -308,7 +261,7 @@ export default function AgreementForm() {
           </div>
 
           {/* Submit Button */}
-          <div className="flex pb-4">
+          <div className="flex">
             <button
               type="submit"
               className="bg-ivy-red text-white py-2 px-4 rounded-3xl transition-colors hover:bg-ivy-blue"
@@ -316,7 +269,58 @@ export default function AgreementForm() {
               Submit Agreement
             </button>
           </div>
+
+           {/* Terms and Conditions */}
+            <div className=" max-w-3xl overflow-y-auto  bg-white shadow-sm">
+              <h2 className="text-lg font-semibold mb-2">Project-Specific Terms</h2>
+              <ul className="list-disc ">
+                <li>
+                  I agree to abide by professional standards and general business expectations,
+                  including timely email response and essay draft reviews.
+                </li>
+                <li>
+                  I agree to provide the above Client(s) with services that are a part of the above
+                  package or hourly consultation.
+                </li>
+                <li>
+                  I acknowledge the total payment for this service as noted above is for
+                  package-based work or assessed based on hours of service for hourly consultation
+                  at the hourly consultation rate.
+                </li>
+                <li>
+                  I acknowledge the total payment for this service as noted above is for
+                  package-based work or assessed based on hours of service for hourly consultation
+                  at the hourly consultation rate.
+                </li>
+                <li>
+                  <strong>Package only:</strong> I agree to do my best to see this project through from
+                  start to finish and meet the Client's reasonable expectations until project is
+                  completed.
+                </li>
+                <li>
+                  <strong>Package only:</strong> I acknowledge payment will be distributed based on the
+                  payment distribution schedule, which will be provided to me with the countersigned
+                  agreement. Payment will be deposited once or twice a month, or in bulk. Specific
+                  dates of payment will depend on whether dates fall on business day or weekend,
+                  allowing for unexpected delays.
+                </li>
+                <li>
+                  <strong>Package only:</strong> I will notify Ivy Ready &amp; Parents of any unexpected
+                  events (unresponsiveness from student, missed outline or draft submission deadlines,
+                  etc.) within three business day.
+                </li>
+                <li>
+                  <strong>Hourly consultation only:</strong> Payment for hourly consultation will be
+                  distributed as applicable (one time or multiple times based on the number of hours a
+                  family signs up.)
+                </li>
+              </ul>
+
+            </div>
+            
         </form>
+
+       
 
          
       </section>

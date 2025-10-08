@@ -42,6 +42,8 @@ export default function AgreementForm() {
     studentEmail: '',
     studentPhone: '',
     studentYear: '',
+    packageSelection: '',
+    assignedCoach: '',
     agreedToTerms: false,
     signature: '',
     dob: ''
