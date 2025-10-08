@@ -13,6 +13,10 @@ function App({ Component, pageProps }) {
     '/agreement/cover',
     '/agreement/exit',
     '/agreement/main',
+
+    '/agreement_project/cover',
+    '/agreement_project/exit',
+    '/agreement_project/main',
   ];
 
   const excludeLayout = noLayoutPages.includes(router.pathname);
