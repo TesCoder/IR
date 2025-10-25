@@ -90,30 +90,35 @@ export default function ContactForm({ type, coachName, showProfile }) {
     { id: "fee", label: "Fee Structure", value: "Fee Structure" },
     { id: "other", label: "Other", value: "Other" },
   ];
-
+ 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      const res = await sendEmail({ type, coach: coachName, ...values });
+  e.preventDefault();
+  setSubmitting(true);
 
-      // Redirect immediately; don't set success state first
-      router.replace("/form-submitted#top"); // redirect to page after submission
+  try {
+    const formData = new FormData(e.target);
 
-      // if (res.status === 200) {
-      //   
-      //   router.replace("/form-submitted#top");
-      //   return; // stop here
-      // }
-    } catch (e) {
-      setResponseMessage({
-        success: false,
-        message:
-          "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
-      });
+    // 🧠 Honeypot: if it's filled, quietly stop
+    if (formData.get("middle_name")) {
+      console.warn("Bot detected: honeypot field filled");
+      setSubmitting(false);
+      return;
     }
+
+    // Proceed normally
+    const res = await sendEmail({ type, coach: coachName, ...values });
+    router.replace("/form-submitted#top");
+  } catch (err) {
+    console.error(err);
+    setResponseMessage({
+      success: false,
+      message:
+        "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
+    });
     setSubmitting(false);
+  }
   };
+
 
   if (responseMessage.success) {
     return (
@@ -177,6 +182,10 @@ export default function ContactForm({ type, coachName, showProfile }) {
               required
             />
           </div>
+          
+          {/*honeypot input middle_name */}
+          <input type="text" name="middle_name" style={{ position: "absolute", left: "-9999px" }} tabIndex="-1" autoComplete="off" aria-hidden="true" />
+
           <div className="col">
             <input
               type="text"
