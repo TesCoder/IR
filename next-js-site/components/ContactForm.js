@@ -98,12 +98,12 @@ export default function ContactForm({ type, coachName, showProfile }) {
   try {
     const formData = new FormData(e.target);
 
-    // 🧠 Honeypot: if it's filled, quietly stop
-    if (formData.get("middle_name")) {
-      console.warn("Bot detected: honeypot field filled");
-      setSubmitting(false);
-      return;
-    }
+    // // 🧠 Honeypot: if it's filled, quietly stop
+    // if (formData.get("middle_name")) {
+    //   console.warn("Bot detected: honeypot field filled");
+    //   setSubmitting(false);
+    //   return;
+    // }
 
     // Proceed normally
     const res = await sendEmail({ type, coach: coachName, ...values });
@@ -184,7 +184,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
           </div>
           
           {/*honeypot input middle_name */}
-          <input type="text" name="middle_name" style={{ position: "absolute", left: "-9999px" }} tabIndex="-1" autoComplete="off" aria-hidden="true" />
+          {/* <input type="text" name="middle_name" style={{ position: "absolute", left: "-9999px" }} tabIndex="-1" autoComplete="off" aria-hidden="true" /> */}
 
           <div className="col">
             <input
