@@ -68,7 +68,7 @@ export const updateSheet = async ({
   try {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY,
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
     });
 
     await doc.loadInfo();

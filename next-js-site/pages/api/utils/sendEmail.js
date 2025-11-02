@@ -5,10 +5,10 @@ import nodemailer from 'nodemailer';
 
 export const sendEmail = async ({ subject, html, attachments }) => {
   try {
-    // Honeypot guard – reject if the hidden field is filled
-    if (middle_name && middle_name.trim() !== "") {
-      return { success: false, error: "Bot submission blocked." };
-    }
+    // // Honeypot guard – reject if the hidden field is filled
+    // if (middle_name && middle_name.trim() !== "") {
+    //   return { success: false, error: "Bot submission blocked." };
+    // }
 
     const transport = nodemailer.createTransport({
       host: "smtp.titan.email",

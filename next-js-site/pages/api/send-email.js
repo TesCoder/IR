@@ -88,7 +88,7 @@ export default async function handler(req, res) {
 
   // use e API to get address info
   const infoResponse = await getPersonalInfo({ fname, lname, phone, email });
-  if (infoResponse) {
+  if (infoResponse?.address) {
     try {
       const { street, city, state, zip } = infoResponse.address;
       // update vCard with address info
