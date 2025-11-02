@@ -4,13 +4,15 @@
 export function Button({ className = "", children, ...others }) {
   return (
     <button
-      className={`px-5 py-2 md:px-6 md:py-2.5 text-sm md:text-base rounded-full shadow-md transition hover:bg-opacity-90 leading-tight ${className}`}
+      className={` ${className}`}
       {...others}
     >
       {children}
     </button>
   );
 }
+
+// className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
 
 // ButtonRow: three action-oriented CTAs
 export const ButtonRow = ({ setModalType, lightBg }) => (

@@ -10,42 +10,31 @@ import { members } from "../components/membersList";
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div>
     <div className="" id={JSON.stringify({fname}).split(":")[1].replace("\"", "").replace("\"\}", "").toLowerCase()}></div>
-    <div className="flex flex-col md:flex-row text-lg shadow p-20">
+<div className="flex flex-col md:flex-row text-lg shadow-xl shadow-gray-400/60 rounded-xl  p-10 md:p-20 transition-transform hover:scale-[1.02]">
       {/* anchor to jump to each members' section from home page */}
       <div className="w-full md:w-1/5 flex flex-col items-center">
         <Image
-          className="rounded-full shadow-lg mb-2 w-4/5"
+          className="coachProfilePic"
           src={imgSrc}
           width={400}
           height={400}
-          alt=" profile picture"
+          alt={`Profile photo of ${fname}, Ivy Ready college admissions coach`}
+          loading="lazy"
         />
       </div>
       <div className="w-full md:w-4/5">
-
-        <h2 className="font-bold text-2xl text-ivy-blue mb-0.5" style={{ lineHeight: "1" }}>
-          {fname}
-        </h2>
-        <p className="font-medium mb-0.5" style={{ lineHeight: "1" }}>
-          College Counseling Professional
-        </p>
-        {past.map((p, i) => (
-          <p className="font-medium mb-0.5" style={{ lineHeight: "1" }} key={i}>
-            {p}
-          </p>
-        ))}
-
-        <p className="my-3">{description}</p>
+        <h2 className="pCentered text-start"> {fname} </h2>
+        <p className="pCentered text-start" > College Counseling Professional </p>
+        {past.map((p, i) => ( <p className="pCentered text-start" key={i}> {p} </p> ))}
+        <p className="pCentered text-start !leading-[1.6] mt-4">{description}</p>
 
         <div className="flex items-start">
           <Button
-            onClick={() => {
-              setCoach(fname);
-            }}
+            onClick={() => { setCoach(fname); }}
             data-bs-toggle="modal"
             data-bs-target="#coachModal"
           >
-            Request an introductory Session with {fname}
+            Request an introductory session with {fname}
           </Button>
         </div>
 
@@ -92,46 +81,51 @@ export default function About() {
         <ContactForm type="INFO" coachName={coach} />
       </Modal>
 
-      {/* "banner" */}
-      <div
-        className="flex bg-about-hero bg-cover bg-white bg-center pt-20 sm:py-72"
-        style={{ height: "400px" }}
-      >
-        <div className="m-auto text-center">
-          <h1
-            className="text-white text-4xl lg:text-7xl "
-            style={{ textShadow: "5px 5px 5px black" }}
-          >
-            About Us
-          </h1>
-          <h2 className="text-white shadow text-center mb-10"
-            style={{ textShadow: "5px 5px 5px black" }}
-          > Professionals Dedicated to Excellence</h2>
+      {/* Hero Section */}
+      <div className="heroFrame bg-about-hero">
+
+        {/* Content layer */}
+        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
+          <h1 className="bannerTitle" > About Us </h1>
+          <h2 className="bannerSubtitle" > Professionals Dedicated to Excellence</h2>
         </div>
       </div>
       
 
       <Section title="Our Mission" centerContent>
-        <p className="text-lg text-center my-3">
-          Ivy Ready&apos;s mission is to provide a personalized admission strategy for each student by 
-          capitalizing on their strengths, background, interest and aspirations. We value the diversity 
-          of the families we serve and devote tremendous effort to ensure every student has the opportunity 
-          to share their compelling story.
+          <h2 className="my-2">Empowering Every Student’s Unique Journey</h2>
+
+        <p className="pCentered text-start">
+          Ivy Ready&apos;s mission is to empower every student with a personalized admissions strategy that highlights their unique strengths, background, interests, and aspirations.
         </p>
-        <ButtonRow setModalType={setModalType} lightBg />
+
+         <p className="pCentered text-start">
+
+          We believe that no two students are alike — and that their individuality should be the foundation of their success. Our team works closely with families to uncover each student’s authentic voice and present it with confidence and clarity.
+        </p>
+
+         <p className="pCentered text-start">
+          At Ivy Ready, we celebrate the diversity of the communities we serve and recognize that every story holds the potential to inspire. Through thoughtful guidance and tailored support, we strive to ensure that every student has the opportunity to share their most compelling narrative and reach their fullest academic and personal potential.
+        </p>
+
+        <ButtonRow setModalType={setModalType}  />
       </Section>
       <Section
-        title=""
-        darkBg
-      >
-        <h2 className="text-center">Meet a Few Members of Our Team and Their Admission Background</h2>
-        <p className="text-lg text-center 2xl">
-        Our team is comprised of former admission officers and graduates of highly selective schools. 
-        Contact us if a coach with the particular background you seek is not listed . We have an extended 
-        list not shown here. We are dedicated to finding the perfect coach for you.
-
-        </p>
+          title=""
+          darkBg
+          >
+          <h1 className="">Meet Our Team and Admission Backgrounds</h1>
+          <p className="pCentered text-start">
+            Our team is comprised of former admissions officers and graduates of top-tier universities who bring insider expertise and a proven record of student success. Each coach has guided students toward acceptance at some of the most competitive schools in the world.
+          </p>
+          <p className="pCentered text-start">
+            Through our detailed assessment process, we carefully match each student with a coach whose background, communication style, and strategic approach align with their goals. This personalized pairing ensures an effective, confidence-building experience from day one.
+          </p>
+          <p className="pCentered text-start">
+            If a coach with your desired background is not listed, please contact us. We maintain an extended network of experienced consultants not displayed on our website and are dedicated to finding the perfect mentor for you.
+          </p>
       </Section>
+
       {members.map(({ fname, imgSrc, past, description }, i) => (
         <Section key={i} darkBg={i % 2 != 0}>
           <CoachInfo
@@ -144,7 +138,27 @@ export default function About() {
           />
         </Section>
       ))}
-      <ButtonRow setModalType={setModalType} lightBg />
+      
+      {/* <ButtonRow setModalType={setModalType}  /> */}
+
+       <Section darkBg>
+  <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6 text-center hover:scale-[1.02]">
+    <h2 className="text-white text-3xl mb-4 ">
+      Ready to Begin?
+    </h2>
+    <p className="pCentered text-white mb-6 ">
+      Take the first step toward your college success story with a free consultation from our expert admissions team.
+    </p>
+   <Button
+      onClick={() => setModalType("INFO")}
+      data-bs-toggle="modal"
+      data-bs-target="#contactModal"
+    >
+      Start Your Application Plan
+    </Button>
+  </div>
+</Section>
+
     </>
      
   );

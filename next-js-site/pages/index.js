@@ -22,14 +22,15 @@ export default function Home() {
   const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
     <div className="w-1/3 md:w-1/6 flex flex-col items-center mx-2">
       <Image
-        className="rounded-full shadow-lg mb-2 w-4/5"
+        className="coachProfilePic"
         src={imgSrc}
         width={400}
         height={400}
         alt="profile picture"
+        loading="lazy"
       />
       <span className="text-ivy-blue ">{fname} </span>
-      <span className="truncate w-20 text-center">{admCollege}</span>
+      <span className="pCentered !text-[110%] truncate w-20 text-centert">{admCollege}</span>
       {/* <ButtonRow2 setModalType={setModalType} /> */}
       <button
         className="mb-4"
@@ -47,9 +48,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          <h1> Ivy Ready College Admission Consulting </h1>
-        </title>
+        <title> <h1> Ivy Ready College Admission Consulting </h1> </title>
         <meta
           name="description"
           content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
@@ -71,41 +70,27 @@ export default function Home() {
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
 
-    {/* Enhanced Hero Section with Overlay */}
+      {/* Hero Section */}
+      <div className="heroFrame bg-hero " >
+        {/* Overlay layer */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
-    <div className="relative flex bg-hero bg-cover bg-center pt-20 sm:py-72">
-    {/* Soft overlay (you can leave this at 0.08 as you have) */}
-    <div
-      className="absolute inset-0"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
-    />
+        {/* Content layer */}
+        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
+          <h1 className="bannerTitle">Ivy Ready College Consulting</h1>
+          <h2 className="bannerSubtitle">
+            Personalized admissions coaching by former admissions officers.
+          </h2>
 
-    <div className="relative z-10 m-auto text-center px-4">
-      
-      <h1 className="text-white text-5xl lg:text-7xl font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
-        Ivy Ready College Consulting
-      </h1>
-
-      <h2 className="text-white text-xl lg:text-2xl mt-6 max-w-1xl mx-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)] font-medium">
-        Personalized admissions coaching from former Ivy League admissions officers.
-      </h2>
-
-      <p className="text-white text-base lg:text-lg mt-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] font-normal">
-        Families trust Ivy Ready for personalized coaching and peace of mind.
-      </p>
-
-      <Button
-        className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
-        onClick={() => setModalType("INFO")}
-        data-bs-toggle="modal"
-        data-bs-target="#contactModal"
-      >
-         Get Your Free Intro Session
-      </Button>
-
-    </div>
-  </div>
-
+          <Button
+            onClick={() => setModalType('INFO')}
+            data-bs-toggle="modal"
+            data-bs-target="#contactModal"
+          >
+            Get Your FREE Consultation
+          </Button>
+        </div>
+      </div>
 
       <Section title="Our Track Record in Numbers"  centerContent>
 
@@ -114,9 +99,13 @@ export default function Home() {
         </h2>
 
         <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div><h2 className="text-6xl font-bold text-ivy-blue">92%</h2><p>Accepted to Top 3 Choices</p></div>
-          <div><h2 className="text-6xl font-bold text-ivy-blue">$3.4M</h2><p>Total Scholarships Earned</p></div>
-          <div><h2 className="text-6xl font-bold text-ivy-blue">4.8★</h2><p>Average Rating from Families</p></div>
+          <div>
+              <h2 className="h2StatTitle">92%</h2>
+              <p className="h2StatSubtitle">Accepted to Top 3 Choices</p></div>
+          <div><h2 className="h2StatTitle">$3.4M</h2>
+              <p className="h2StatSubtitle">Total Scholarships Earned</p></div>
+          <div><h2 className="h2StatTitle">4.8★</h2>
+              <p className="h2StatSubtitle" >Avg Rating from Families</p></div>
         </div>
       </Section>
 
@@ -124,9 +113,8 @@ export default function Home() {
       <span className="" id="testimonials-section"></span>
       <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
 
-        {/* Integrated Testimonials Carousel */}
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center">
-          Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
+      <p className="pCentered ">
+        Families trust Ivy Ready for personalized coaching and peace of mind. Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
         </p>
 
         <div
@@ -155,6 +143,7 @@ export default function Home() {
                   height={420}
                   className="d-block mx-auto rounded-md shadow-lg"
                   alt={item.alt}
+                  loading="lazy"
                 />
                 <p className="mt-4 text-base text-gray-600 text-center italic opacity-90 max-w-xl mx-auto">
                   {item.alt}
@@ -168,7 +157,6 @@ export default function Home() {
             onClick={() => setModalType("CALL")}
             data-bs-toggle="modal"
             data-bs-target="#contactModal"
-            className="mb-10 mt-2"
           >
             Request Free Intro Call
         </Button>
@@ -180,6 +168,7 @@ export default function Home() {
           width={1080}
           height={500}
           alt="Top college acceptances including Stanford, Harvard, Yale, and more — Ivy Ready success record"
+          loading="lazy"
         />
         
           <br></br>
@@ -189,6 +178,7 @@ export default function Home() {
           width={1080}
           height={500}
           alt="recognized"
+          loading="lazy"
         />
         
       <Button
@@ -202,8 +192,7 @@ export default function Home() {
        </Section>
 
 
-      <Section title="" darkBg centerContent>
-        <h2>Meet a Few Members of Our Team and Their Admission Background</h2>
+      <Section title="Meet Our Team and Admission Backgrounds" darkBg centerContent>
         <p className="pCentered">
           Our team is comprised of former admission officers with official
           admission experience and expertise supporting students with the
@@ -232,12 +221,12 @@ export default function Home() {
 
         <Button className="text-center" onClick={() => window.open("/about-us#top", "_self")}>
           Meet Your Admissions Coaches
-        </Button>
+        </Button> fuck
 
       </Section>
 
       <Section title="Compare Our Support Options">
-        <p className="text-center text-lg text-gray-700 max-w-2xl mx-auto">
+        <p className="pCentered max-w-2xl mx-auto">
           From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family.
         </p>
         <div className="flex justify-center mt-6">
@@ -249,8 +238,9 @@ export default function Home() {
  
 
       <Section darkBg>
-        
-        <ContactForm type="FULL" />
+        <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6">
+          <ContactForm type="FULL" />
+        </div>
       </Section>
 
 

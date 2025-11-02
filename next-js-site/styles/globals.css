@@ -91,16 +91,6 @@ body {
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-}
-
-body {
   font-family: 'Raleway', sans-serif; /* Add this if not present */
 }
 
@@ -119,20 +109,25 @@ a {
   @apply w-max;
 }
 
-p,
 li {
   /* @apply text-lg my-4 text-gray-700; */
   @apply my-4 text-gray-700;
 }
 
+/* ----------------------- */
+
+/* MAIN p paragraph */
 .pCentered {
-  @apply text-lg text-center my-2 text-gray-700;
+  @apply text-lg text-center my-3 text-gray-700 text-[130%];
 }
+
+/* ----------------------- */
 
 h1 {
   @apply  text-2xl md:text-4xl text-ivy-blue mb-3 text-center
 }
 
+/* ----------------------- */
 h2 {
   font-weight: 500;
   font-size: 23px;
@@ -140,16 +135,47 @@ h2 {
   color: #2d5780;
 }
 
+/* Stats home page */
+.h2StatTitle {
+  @apply text-6xl font-bold text-ivy-blue;
+}
+
+.h2StatSubtitle {
+  @apply text-lg text-center my-4 text-gray-700 text-[180%] leading-[1.4];
+}
+
+/* ----------------------- */
+
 ul {
   @apply list-disc list-inside;
 }
 
 button {
-  @apply bg-ivy-red text-white py-2 px-4 rounded-3xl transition-colors hover:bg-ivy-blue
+  @apply bg-ivy-red hover:bg-ivy-blue text-lg text-white py-2 px-4 my-4 rounded-3xl transition-colors shadow-md  hover:bg-opacity-90 leading-tight 
+  
+}
+
+.bannerTitle {
+  @apply text-white text-5xl lg:text-7xl  drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]
+}
+
+
+.bannerSubtitle {
+  @apply text-white text-xl lg:text-2xl mt-6 mx-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)] font-medium
 }
 
 @media (max-width: 765px) {
   #logoModifier {
     display: none;
   }
+}
+
+.coachProfilePic {
+  @apply rounded-full mb-2 w-4/5 shadow-[0_0_20px_#000] 
+}
+
+.heroFrame {
+  @apply relative flex bg-cover pt-20 sm:py-72;
+  background-position: center top 20%;
+  height: 400px;
 }

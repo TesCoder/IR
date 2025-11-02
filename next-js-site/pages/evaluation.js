@@ -24,26 +24,15 @@ export default function Evaluation() {
           content="Ivy Ready offers expert application evaluation services to provide students with personalized feedback and recommendations to enhance their application and increase their chances of success."
         />
       </Head>
-      <Section>
-      <Image
-          className="mx-auto mb-4"
-          src="/images/ivy-eval.png"
-          width={200}
-          height={200}
-          alt="Scale"
-        />
-        <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mt-10">
-          Submit your best application with the feedback of former admission
-          officers!
-          <Link className="font-bold" href="/evaluation/#sign-up" > (Sign Up) </Link>
-        </h1>
-      </Section>
 
       <Section
         centerContent
         darkBg
-        title="A one-of-a-kind evaluation for a once-in-a-lifetime opportunity"
+        title="Get a one-of-a-kind evaluation!"
       >
+         <h1 className="pCentered">
+          Ivy Ready Evaluation is an affordable option for students who would like feedback before official submission. 
+        </h1>
         <Image
           src="/images/sample-evaluation.png"
           width={1080}

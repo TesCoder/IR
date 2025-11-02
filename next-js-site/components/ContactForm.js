@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation"; // needed for redirecting from page
 export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
 
 const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
-  <div className="flex flex-row items-center mb-3 border shadow-md rounded-lg p-2">
+  <div className="flex flex-row items-center pCentered text-start border shadow-md rounded-lg p-2">
     <Image
       className="rounded-full w-1/5 shadow-2xl"
       src={imgSrc}
@@ -134,12 +134,12 @@ export default function ContactForm({ type, coachName, showProfile }) {
       <form onSubmit={handleSubmit}>
         {type == "FULL" && (
           <>
-            <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
-              Have any Questions?
+            <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue pCentered text-start">
+              Start your journey by completing the form below
             </h1>
 
-            <p className="text-lg text-center  mb-8 max-w-2xl mx-auto">
-              Start your journey by completing the form below. We'll help you find the right plan and match you with the best advisor for your needs.
+            <p className="pCentered text-start ">
+              We'll help you find the right plan and match you with the best advisor for your needs.
             </p>
           </>
         )}
@@ -165,7 +165,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
             // );
           })}
 
-        <div className="row mb-3">
+        <div className="row pCentered text-start">
           <label htmlFor="name" className="form-label">
             Name{" "}
             <span className="text-ivy-red font-thin text-sm">Required</span>
@@ -200,7 +200,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
           </div>
         </div>
         {type == "FULL" && (
-          <div className="mb-3">
+          <div className="pCentered text-start">
             <label htmlFor="location" className="form-label">
               City, State
             </label>
@@ -217,7 +217,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
           </div>
         )}
 
-        <div className="mb-3">
+        <div className="pCentered text-start">
           <label htmlFor="email" className="form-label">
             Email Address{" "}
             <span className="text-ivy-red font-thin text-sm">Required</span>
@@ -233,7 +233,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="pCentered text-start">
           <label htmlFor="phone" className="form-label">
             Phone Number
           </label>
@@ -250,7 +250,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
         </div>
         {type == "FULL" && (
           <>
-            <div className="mb-3">
+            <div className="pCentered text-start">
               <label htmlFor="contact" className="form-label">
                 Preferred Contact Method
               </label>
@@ -284,8 +284,8 @@ export default function ContactForm({ type, coachName, showProfile }) {
               </div>
             </div>
 
-            <div className="mb-3">
-              <div className="mb-3">
+            <div className="pCentered text-start">
+              <div className="pCentered text-start">
                 <label htmlFor="option" className="form-label">
                   Which option interests you?
                 </label>
@@ -309,7 +309,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
 
 
 
-           <div className="mb-3">
+           <div className="pCentered text-start">
             <label htmlFor="heard" className="form-label">
               How did you hear about Ivy Ready?
             </label>
@@ -332,7 +332,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
             </div>
           </div>
 
-          <div className="mb-3">
+          <div className="pCentered text-start">
             <label htmlFor="info" className="form-label">
               What would you like to know more about?
             </label>
@@ -356,15 +356,10 @@ export default function ContactForm({ type, coachName, showProfile }) {
           </div>
             
           </>
-        )}
-
-        
-
-
-
+        )} 
 
         {["FULL", "INFO", "CALL"].includes(type) && (
-          <div className="mb-3">
+          <div className="pCentered text-start">
             <label htmlFor="year" className="form-label">
               Student Current Year
             </label>
@@ -386,7 +381,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
         )}
 
         {["FULL", "INFO", "EVAL"].includes(type) && (
-          <div className="mb-3">
+          <div className="pCentered text-start">
             <label htmlFor="service" className="form-label">
               {type == "EVAL" ? "Message" : "How may we best serve you?"}
             </label>
@@ -402,7 +397,7 @@ export default function ContactForm({ type, coachName, showProfile }) {
         )}
 
         {type == "EVAL" && (
-          <div className="mb-3">
+          <div className="pCentered text-start">
             <label htmlFor="evaluation" className="form-label">
               Evaluation
             </label>
@@ -448,3 +443,282 @@ export default function ContactForm({ type, coachName, showProfile }) {
     </div>
   );
 }
+
+
+// {/* {type == "FULL" && ( <> <h1> Have any Questions? </h1> <p className="pCentered mb-8 max-w-2xl mx-auto"> Start your journey by completing the form below. We'll help you find the right plan and match you with the best advisor for your needs. </p> </> )} */}
+
+//             {showProfile &&
+//               members.map(({ fname, name, imgSrc, admCollege, description }, i) => {
+//                 if (name === coachName) {
+//                   return (
+//                     <Profile
+//                       key={i}
+//                       fname={fname}
+//                       name={name}
+//                       imgSrc={imgSrc}
+//                       admCollege={admCollege}
+//                       description={description}
+//                     />
+//                   );
+//                 }
+//               })}
+
+//             {/* --- keep all existing fields below unchanged --- */}
+//             <div className="row pCentered text-start">
+//               <label htmlFor="name" className="form-label">
+//                 Name <span className="text-ivy-red font-thin text-sm">Required</span>
+//               </label>
+//               <div className="col">
+//                 <input
+//                   type="text"
+//                   name="fname"
+//                   value={values.fname}
+//                   onChange={handleChange}
+//                   className="form-control"
+//                   placeholder="First name"
+//                   aria-label="First name"
+//                   required
+//                 />
+//               </div>
+
+//               {/* honeypot */}
+//               <input
+//                 type="text"
+//                 name="middle_name"
+//                 style={{ position: "absolute", left: "-9999px" }}
+//                 tabIndex="-1"
+//                 autoComplete="off"
+//                 aria-hidden="true"
+//               />
+
+//               <div className="col">
+//                 <input
+//                   type="text"
+//                   name="lname"
+//                   value={values.lname}
+//                   onChange={handleChange}
+//                   className="form-control"
+//                   placeholder="Last name"
+//                   aria-label="Last name"
+//                   required
+//                 />
+//               </div>
+//             </div>
+
+//             {type == "FULL" && (
+//               <div className="pCentered text-start">
+//                 <label htmlFor="location" className="form-label">City, State</label>
+//                 <input
+//                   type="text"
+//                   name="location"
+//                   value={values.location}
+//                   onChange={handleChange}
+//                   className="form-control"
+//                   id="location"
+//                   placeholder="Alexandria, Virginia"
+//                 />
+//               </div>
+//             )}
+
+//             <div className="pCentered text-start md:flex md:space-x-6 md:items-start">
+//               {/* Left column */}
+//               <div className="md:w-1/2">
+//                 <label htmlFor="option" className="form-label block mb-1">
+//                   Email Address <span className="text-ivy-red font-thin text-sm">Required</span>
+//                 </label>
+//                 <input
+//                   type="email"
+//                   name="email"
+//                   value={values.email}
+//                   onChange={handleChange}
+//                   className="form-control"
+//                   id="email"
+//                   placeholder="name@example.com"
+//                   required
+//                 />
+//               </div>
+
+//               {/* Right column */}
+//               <div className="md:w-1/2">
+//                 <label htmlFor="phone" className="form-label block mb-1">
+//                   Phone Number
+//                 </label>
+//                 <input
+//                   type="tel"
+//                   name="phone"
+//                   value={values.phone}
+//                   onChange={handleChange}
+//                   className="form-control"
+//                   id="phone"
+//                   placeholder="123-456-7890"
+//                 />
+//               </div>
+//             </div>
+
+
+//             {type == "FULL" && (
+//               <>
+//                 <div className="pCentered text-start">
+//                   <label className="form-label">Preferred Contact Method</label>
+//                   <div className="flex flex-wrap gap-x-6">
+//                     {["Phone", "Email"].map((method) => (
+//                       <div className="form-check" key={method}>
+//                         <input
+//                           className="form-check-input"
+//                           name="contact"
+//                           onChange={handleChange}
+//                           type="checkbox"
+//                           value={method}
+//                           id={method.toLowerCase()}
+//                         />
+//                         <label className="form-check-label" htmlFor={method.toLowerCase()}>
+//                           {method}
+//                         </label>
+//                       </div>
+//                     ))}
+//                   </div>
+//                 </div>
+
+//                 <div className="pCentered text-start md:flex md:space-x-6 md:items-start">
+//                   {/* Left dropdown */}
+//                   <div className="md:w-1/2">
+//                     <label htmlFor="option" className="form-label block mb-1">
+//                       Interested option
+//                     </label>
+//                     <select
+//                       className="form-select"
+//                       id="option"
+//                       name="option"
+//                       value={values.option}
+//                       onChange={handleChange}
+//                     >
+//                       <option value="">Select an option</option>
+//                       <option value="Essays-Only Support">Essay Support Only</option>
+//                       <option value="Comprehensive Support">Comprehensive Support</option>
+//                       <option value="Comprehensive Support with Logistics">
+//                         Comprehensive + Logistics
+//                       </option>
+//                       <option value="Hourly Consultation">Hourly Consultation</option>
+//                       <option value="Application Evaluation">Application Evaluation</option>
+//                       <option value="Other">Other</option>
+//                     </select>
+//                   </div>
+
+//                   {/* Right dropdown */}
+//                   <div className="md:w-1/2">
+//                     <label htmlFor="heard" className="form-label block mb-1">
+//                       How did you find us?
+//                     </label>
+//                     <select
+//                       className="form-select"
+//                       id="heard"
+//                       name="heard"
+//                       value={values.heard}
+//                       onChange={handleChange}
+//                     >
+//                       <option value="">Select an option</option>
+//                       {heardOptions.map(({ id, label, value }) => (
+//                         <option key={id} value={value}>
+//                           {label}
+//                         </option>
+//                       ))}
+//                     </select>
+//                   </div>
+//                 </div>
+
+//                 <div className="pCentered text-start">
+//                   <label htmlFor="info" className="form-label">
+//                     Learn More About
+//                   </label>
+//                   <select
+//                     className="form-select"
+//                     id="info"
+//                     name="info"
+//                     value={values.info}
+//                     onChange={handleChange}
+//                   >
+//                     <option value="">Select an option</option>
+//                     {infoOptions.map(({ id, label, value }) => (
+//                       <option key={id} value={value}>
+//                         {label}
+//                       </option>
+//                     ))}
+//                   </select>
+//                 </div>
+//               </>
+//             )}
+
+//             {["FULL", "INFO", "CALL"].includes(type) && (
+//               <div className="pCentered text-start">
+//                 <label htmlFor="year" className="form-label">Student Current Year</label>
+//                 <select
+//                   className="form-select"
+//                   id="year"
+//                   name="year"
+//                   onChange={handleChange}
+//                   aria-label="Current Year"
+//                   defaultValue="default"
+//                 >
+//                   <option value="default"></option>
+//                   <option value="FR">Freshman</option>
+//                   <option value="SP">Sophomore</option>
+//                   <option value="JR">Junior</option>
+//                   <option value="SR">Senior</option>
+//                 </select>
+//               </div>
+//             )}
+
+//             {["FULL", "INFO", "EVAL"].includes(type) && (
+//               <div className="pCentered text-start">
+//                 <label htmlFor="service" className="form-label">
+//                   {type == "EVAL" ? "Message" : "How may we best serve you?"}
+//                 </label>
+//                 <textarea
+//                   className="form-control"
+//                   name="service"
+//                   id="service"
+//                   onChange={handleChange}
+//                   value={values.service}
+//                   rows="3"
+//                 ></textarea>
+//               </div>
+//             )}
+
+//             {type == "EVAL" && (
+//               <div className="pCentered text-start">
+//                 <label htmlFor="evaluation" className="form-label">Evaluation</label>
+//                 <select
+//                   className="form-select"
+//                   id="evaluation"
+//                   name="evaluation"
+//                   onChange={handleChange}
+//                   aria-label="Current Year"
+//                 >
+//                   <option defaultValue>Select evaluation type</option>
+//                   <option value="Single">Single Evaluation (30-minute Coach Review & 30-minute Discussion)</option>
+//                   <option value="Multiple">Multiple-school Package (Depends on Number of Schools)</option>
+//                 </select>
+//               </div>
+//             )}
+
+//             <div className="col-12">
+//               <Button
+//                 type="submit"
+//                 className="bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg flex items-center justify-center"
+//                 disabled={isSubmitting}
+//               >
+//                 {isSubmitting ? (
+//                   <div className="spinner-border text-light" role="status">
+//                     <span className="visually-hidden">Loading...</span>
+//                   </div>
+//                 ) : (
+//                   "Submit"
+//                 )}
+//               </Button>
+//               <Alert message={responseMessage.message} success={responseMessage.success} />
+//             </div>
+//           </form>
+//           {/* --- end of unchanged form --- */}
+//         </div>
+//       </div>
+//     </div>

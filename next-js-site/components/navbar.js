@@ -3,10 +3,13 @@ import Link from "next/link";
 import LogoProjector from "./logoMaker";
 import { useState } from "react";
 import Script from 'next/script'; // necessary for ads manager
+import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
 
 export default function Navbar() {
   // hides logo in mobile when navbar-toggle is clicked
   const [logoVisibility, setLogoVisibility] = useState(false);
+  const [modalType, setModalType] = useState("INFO");
+
 
   return (
     // "fixed w-full z-20 top-0 left-0" persist navabar on scrolling
@@ -108,13 +111,16 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  href={"/#application-support-questions-section"}
-                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full"
-                >
-                  Contact Us
-                </Link>
-              </li>
+                <Button
+                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full my-0"
+                      onClick={() => setModalType("INFO")}
+                      data-bs-toggle="modal"
+                      data-bs-target="#contactModal"
+                    >
+                      FREE Consultation
+                    </Button>
+                </li>
+              
             </ul>
           </div>
         </div>
