@@ -105,9 +105,26 @@ export default function ContactForm({ type, coachName, showProfile }) {
       return;
     }
 
-    // Proceed normally
+    // Send submitted info to email and google sheets
     const res = await sendEmail({ type, coach: coachName, ...values });
+
+    // Close Bootstrap modal so its black overlay/backdrop is removed before SPA navigation
+    try {
+      const { Modal } = await import("bootstrap"); // ensure JS API is available
+      const el = document.getElementById("contactModal");
+      if (el) {
+        const inst = Modal.getInstance(el) || new Modal(el);
+        inst.hide();
+      }
+    } catch { /* no-op if bootstrap isn't loaded */ }
+
+    // Fallback safety: remove any leftover backdrop/body lock
+    document.body.classList.remove("modal-open");
+    document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
+
+    // Now navigate to form submission page
     router.replace("/form-submitted#top");
+
   } catch (err) {
     console.error(err);
     setResponseMessage({

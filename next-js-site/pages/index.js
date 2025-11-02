@@ -84,7 +84,7 @@ export default function Home() {
 
           <Button
             onClick={() => setModalType('INFO')}
-            data-bs-toggle="modal"
+            data-bs-toggle="modal" // triggers Bootstrap modal (adds transparent black backdrop) (aka popup)
             data-bs-target="#contactModal"
           >
             Get Your FREE Consultation
