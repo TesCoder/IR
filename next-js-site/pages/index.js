@@ -221,7 +221,7 @@ export default function Home() {
 
         <Button className="text-center" onClick={() => window.open("/about-us#top", "_self")}>
           Meet Your Admissions Coaches
-        </Button> fuck
+        </Button> 
 
       </Section>
 
@@ -238,9 +238,7 @@ export default function Home() {
  
 
       <Section darkBg>
-        <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6">
           <ContactForm type="FULL" />
-        </div>
       </Section>
 
 
