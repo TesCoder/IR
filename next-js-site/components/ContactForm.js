@@ -14,31 +14,31 @@ import { members } from "../components/membersList";
 export const FORM_TYPES = { INFO: "INFO", CALL: "CALL", FULL: "FULL", EVAL: "EVAL" };
 
 const Profile = ({ fname, name, imgSrc, admCollege }) => (
-  <div className="flex flex-row items-center mb-3 border shadow-md rounded-lg p-2">
-    <Image
-      className="rounded-full w-1/5 shadow-2xl"
-      src={imgSrc}
-      width={128}
-      height={128}
-      alt={`Profile photo of ${fname}, Ivy Ready coach`}
-      loading="lazy"
-    />
-    <div className="flex flex-col justify-center text-center">
-      <span className="text-ivy-blue text-center text-2xl font-semibold">
-        {name}
-      </span>
-      <span className="text-ivy-blue text-center ">
-        Admission Experience: {admCollege}
-      </span>
-      <a
-        className="underline hover:cursor-pointer"
-        onClick={() => {
-          const hash = (fname || "").toLowerCase();
-          window.location.href = `/about-us#${hash}`;
-        }}
-      >
-        Learn More About {fname}
-      </a>
+    <div className="flex items-center mb-3 border shadow-md rounded-lg py-2 px-4 w-full gap-4">
+      <Image
+        className="rounded-full w-1/5 shadow-2xl"
+        src={imgSrc}
+        width={128}
+        height={128}
+        alt={`Profile photo of ${fname}, Ivy Ready coach`}
+        loading="lazy"
+      />
+      <div className="flex flex-col justify-center text-center">
+        <span className="text-ivy-blue text-center text-2xl font-semibold">
+          {name}
+        </span>
+        <span className="text-ivy-blue text-center ">
+          Admission Experience: {admCollege}
+        </span>
+        <a
+          className="underline hover:cursor-pointer"
+          onClick={() => {
+            const hash = (fname || "").toLowerCase();
+            window.location.href = `/about-us#${hash}`;
+          }}
+        >
+          Learn More About {fname}
+        </a>
     </div>
   </div>
 );

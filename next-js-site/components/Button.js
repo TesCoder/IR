@@ -15,8 +15,8 @@ export function Button({ className = "", children, ...others }) {
 // className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
 
 // ButtonRow: three action-oriented CTAs
-export const ButtonRow = ({ setModalType, lightBg }) => (
-  <div className={`flex justify-center ${lightBg ? "" : "bg-gray-100"}`}>
+export const ButtonRow = ({ setModalType, darkBg }) => (
+  <div className={`flex justify-center ${darkBg ? "bg-[#2D5780]" : "bg-gray-100"}`}>
     <div className="my-5 flex flex-col gap-x-10 gap-y-4 items-center md:flex-row">
 
       <Button

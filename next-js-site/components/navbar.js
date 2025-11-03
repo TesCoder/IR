@@ -112,7 +112,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Button
-                  className="btn btn-light  uppercase font-semibold rounded-full my-0"
+                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full my-0"
                       onClick={() => setModalType("INFO")}
                       data-bs-toggle="modal"
                       data-bs-target="#contactModal"

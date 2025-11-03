@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import Section from "@/components/Section";
+import ContactForm from "@/components/ContactForm";
 
 export default function Footer() {
   return (
     <footer className="bg-white text-ivy-blue font-medium py-10 flex flex-col items-center m-0">
+
+      {/* <Section darkBg>
+        <ContactForm type="FULL" />
+      </Section> */}
+
       <div className="flex flex-row gap-4">
         <Link className="hover:opacity-75" href="/#application-support-questions-section">CONTACT US</Link>
         <Link className="hover:opacity-75" href="/#">HOME</Link>

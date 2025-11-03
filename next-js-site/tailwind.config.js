@@ -29,9 +29,9 @@ module.exports = {
         'ivy-red': "#990001"
       },
       backgroundImage: {
-        'hero': "url('/images/banner.webp')",
+        'hero': "url('/images/banner/uDaptSSjK1.webp')",
         'about-hero': "url('/images/about-banner.jpg')",
-        'hourly-banner': "url('/images/hourly/hourlyconsultation.jpg')",
+        'hourly-hero': "url('/images/hourly/hourlyconsultation.jpg')",
       },
       listStyleType: {
         none: 'none',

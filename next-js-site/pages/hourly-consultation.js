@@ -14,24 +14,21 @@ export default function HourlyConsultation() {
       </Head>
 
       {/* "banner" */}
-      <div
-        className="flex bg-hourly-banner bg-cover bg-white pt-20 sm:py-72"
-        style={{ height: "400px" }}
-      >
-        <div className="m-auto text-center">
-          <h1
-            className="bannerTitle"
-            style={{ textShadow: "5px 5px 5px black" }}
-          >
-            Hourly Consultation
-          </h1>
-          <h2 className="bannerSubtitle"
-            style={{ textShadow: "5px 5px 5px black" }}
-          > An excellent alterntive to long-term packages.</h2>
+
+       {/* Hero Section */}
+      <div className="heroFrame bg-hourly-hero">
+
+        {/* Content layer */}
+        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
+          <h1 className="bannerTitle" > Hourly Consultation </h1>
+          <h2 className="bannerSubtitle" > An excellent alterntive to long-term packages.</h2>
         </div>
       </div>
 
-      <Section>
+
+
+
+          <Section darkBg>
         <ContactForm type="FULL" />
       </Section>
     </>

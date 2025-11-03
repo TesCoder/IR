@@ -29,7 +29,7 @@ export default function Home() {
         alt="profile picture"
         loading="lazy"
       />
-      <span className="text-ivy-blue ">{fname} </span>
+      <span className="pCentered mt-2">{fname} </span>
       <span className="pCentered !text-[110%] truncate w-20 text-centert">{admCollege}</span>
       {/* <ButtonRow2 setModalType={setModalType} /> */}
       <button
@@ -105,7 +105,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="heroFrame bg-hero " >
         {/* Overlay layer */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
 
         {/* Content layer */}
         <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
@@ -257,14 +257,37 @@ export default function Home() {
 
       </Section>
 
-      <Section title="Compare Our Support Options" centerContent>
-        <p className="pCentered text-center">
-          From hourly consultation, essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family.
-        </p>
-        <div className="flex justify-center mt-6">
-          <Button onClick={() => window.open("/support-packages", "_self")}>
-            Compare Packages
-          </Button>
+
+
+      <Section>
+        <div className="md:grid md:grid-cols-3 gap-8 items-center">
+
+          {/* LEFT PANEL */}
+          <div className="">
+            <h1 className=" font-bold text-ivy-blue mb-4">
+              Compare Support Options
+            </h1>
+            <p className="pCentered text-start leading-relaxed mb-6">
+              From hourly consultation, essays-only guidance to fully managed application logistics,
+              Ivy Ready offers tailored support for every applicant and family.
+            </p>
+            <Button className="mb-10" onClick={() => window.open("/support-packages", "_self")}>
+              Compare Packages
+            </Button>
+          </div>
+
+          {/* RIGHT PANEL (IMAGE) */}
+          <div className="md:col-span-2 flex justify-center">
+            <Image
+              src="/images/home_section_images/5ezZg4xRm1.jpg" // replace with your chosen image path
+              width={1000}
+              height={400}
+              alt="Ivy Ready Support Packages comparison"
+              className="rounded-xl shadow-lg"
+              loading="lazy"
+            />
+          </div>
+
         </div>
       </Section>
  
