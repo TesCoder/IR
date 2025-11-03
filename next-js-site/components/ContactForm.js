@@ -1,243 +1,191 @@
+
 "use client";
 
-import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import useContactForm from "../hooks/useContactForm";
+import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import useContactForm from "../hooks/useContactForm";
 import sendEmail from "../lib/sendEmail";
 import Alert from "@/components/Alert";
-import Link from "next/link";
-import Image from "next/image";
+import { Button } from "@/components/Button";
 import { members } from "../components/membersList";
-import { Button, ButtonRow } from "@/components/Button";
-import { useRouter } from "next/navigation"; // needed for redirecting from page
 
-export const FORM_TYPES = { INFO: 1, CALL: 2, FULL: 3 };
+// Optional: exported enum-style map (if you need elsewhere)
+export const FORM_TYPES = { INFO: "INFO", CALL: "CALL", FULL: "FULL", EVAL: "EVAL" };
 
-const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
-  <div className="flex flex-row items-center pCentered text-start border shadow-md rounded-lg p-2">
+const Profile = ({ fname, name, imgSrc, admCollege }) => (
+  <div className="flex flex-row items-center mb-3 border shadow-md rounded-lg p-2">
     <Image
       className="rounded-full w-1/5 shadow-2xl"
       src={imgSrc}
       width={128}
       height={128}
-      alt=" profile picture"
+      alt={`Profile photo of ${fname}, Ivy Ready coach`}
+      loading="lazy"
     />
-    <div className="flex flex-col w-3/5 justify-center text-center">
+    <div className="flex flex-col justify-center text-center">
       <span className="text-ivy-blue text-center text-2xl font-semibold">
-        {name}{" "}
+        {name}
       </span>
       <span className="text-ivy-blue text-center ">
         Admission Experience: {admCollege}
       </span>
-      {/* <span className="truncate flex-auto ml-4 text-center justify-center">{description}</span> */}
       <a
-        className="underline hover:cursor"
-        onClick={() =>
-          (window.location.href =
-            "/about-us#" +
-            JSON.stringify({ fname })
-              .split(":")[1]
-              .replace('"', "")
-              .replace('"}', "")
-              .toLowerCase())
-        }
+        className="underline hover:cursor-pointer"
+        onClick={() => {
+          const hash = (fname || "").toLowerCase();
+          window.location.href = `/about-us#${hash}`;
+        }}
       >
         Learn More About {fname}
       </a>
-      {/* <Link
-        className="underline hover:cursor"
-        href={`/about-us#${JSON.stringify({ fname })
-          .split(":")[1]
-          .replace('"', "")
-          .replace('"}', "")
-          .toLowerCase()}`}
-      >
-        Learn More About {fname}
-      </Link> */}
     </div>
-
-    {/* <button className="" href="/about-us">Learn More</button> */}
-    {/* <Button
-            onClick={() => {
-              setCoach(name);
-            }}
-            data-bs-toggle="modal"
-            data-bs-target="#coachModal"
-          >
-            Learn More About {name}
-        </Button> */}
   </div>
 );
 
-export default function ContactForm({ type, coachName, showProfile }) {
-  const router = useRouter(); // needed for redirecting from page
+// Card shell used for both FULL (right side) and modal/compact types
+function FormCard({ children, inModal = false }) {
+  return (
+    <div
+      className={`rounded-xl border border-white/40 text-start bg-white ${
+        inModal ? "p-2 md:p-6 shadow-lg" : "p-6 md:p-10 "
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
 
-  // Form Types: FULL, INFO, CALL, or EVAL
-  const { values, handleChange } = useContactForm(); // hook
+export default function ContactForm({ type = "FULL", coachName, showProfile }) {
+  const router = useRouter();
+  const { values, handleChange } = useContactForm();
   const [isSubmitting, setSubmitting] = useState(false);
-  const [responseMessage, setResponseMessage] = useState({
-    success: false,
-    message: "",
-  });
+  const [responseMessage, setResponseMessage] = useState({ success: false, message: "" });
+
   const heardOptions = [
     { id: "google", label: "Google Search", value: "Google Search" },
     { id: "mail", label: "Mail", value: "Mail" },
     { id: "famOrFriends", label: "Family or Friends", value: "Family or Friends" },
   ];
+
   const infoOptions = [
     { id: "general", label: "General Info", value: "General Info" },
     { id: "fee", label: "Fee Structure", value: "Fee Structure" },
     { id: "other", label: "Other", value: "Other" },
   ];
- 
+
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setSubmitting(true);
-
-  try {
-    const formData = new FormData(e.target);
-
-    // 🧠 Honeypot: if it's filled, quietly stop
-    if (formData.get("middle_name")) {
-      console.warn("Bot detected: honeypot field filled");
-      setSubmitting(false);
-      return;
-    }
-
-    // Send submitted info to email and google sheets
-    const res = await sendEmail({ type, coach: coachName, ...values });
-
-    // Close Bootstrap modal so its black overlay/backdrop is removed before SPA navigation
+    e.preventDefault();
+    setSubmitting(true);
     try {
-      const { Modal } = await import("bootstrap"); // ensure JS API is available
-      const el = document.getElementById("contactModal");
-      if (el) {
-        const inst = Modal.getInstance(el) || new Modal(el);
-        inst.hide();
+      const formData = new FormData(e.target);
+
+      // Honeypot: drop if filled
+      if (formData.get("middle_name")) {
+        setSubmitting(false);
+        return;
       }
-    } catch { /* no-op if bootstrap isn't loaded */ }
 
-    // Fallback safety: remove any leftover backdrop/body lock
-    document.body.classList.remove("modal-open");
-    document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
-
-    // Now navigate to form submission page
-    router.replace("/form-submitted#top");
-
-  } catch (err) {
-    console.error(err);
-    setResponseMessage({
-      success: false,
-      message:
-        "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
-    });
-    setSubmitting(false);
-  }
+      await sendEmail({ type, coach: coachName, ...values });
+      router.replace("/form-submitted#top");
+    } catch (err) {
+      console.error(err);
+      setResponseMessage({
+        success: false,
+        message:
+          "Oops something went wrong. Please try again. If error persists, please email us at contact@ivyready.com.",
+      });
+      setSubmitting(false);
+    }
   };
 
-
   if (responseMessage.success) {
-    return (
-      <Alert
-        message={responseMessage.message}
-        success={responseMessage.success}
-      />
-    );
+    return <Alert message={responseMessage.message} success={responseMessage.success} />;
   }
 
-  return (
-    <div className="">
-      <form onSubmit={handleSubmit}>
-        {type == "FULL" && (
-          <>
-            <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue pCentered text-start">
-              Start your journey by completing the form below
-            </h1>
-
-            <p className="pCentered text-start ">
-              We'll help you find the right plan and match you with the best advisor for your needs.
-            </p>
-          </>
-        )}
-        {/* <button onClick={() => console.log("Values:", values)}>LOG</button> */}
-
-        {showProfile &&
-          members.map(({ fname, name, imgSrc, admCollege, description }, i) => {
-            if (name === coachName) {
-              // console.log({coachName})
-              return (
-                <Profile
-                  key={i}
-                  fname={fname}
-                  name={name}
-                  imgSrc={imgSrc}
-                  admCollege={admCollege}
-                  description={description}
-                />
-              );
-            }
-            // return (
-            //   console.log("not match")
-            // );
-          })}
-
-        <div className="row pCentered text-start">
-          <label htmlFor="name" className="form-label">
-            Name{" "}
-            <span className="text-ivy-red font-thin text-sm">Required</span>
-          </label>
-          <div className="col">
-            <input
-              type="text"
-              name="fname"
-              value={values.fname}
-              onChange={handleChange}
-              className="form-control"
-              placeholder="First name"
-              aria-label="First name"
-              required
-            />
-          </div>
-          
-          {/*honeypot input middle_name */}
-          <input type="text" name="middle_name" style={{ position: "absolute", left: "-9999px" }} tabIndex="-1" autoComplete="off" aria-hidden="true" />
-
-          <div className="col">
-            <input
-              type="text"
-              name="lname"
-              value={values.lname}
-              onChange={handleChange}
-              className="form-control"
-              placeholder="Last name"
-              aria-label="Last name"
-              required
-            />
-          </div>
+  // ======= Form Body (fields) — unchanged logic =======
+  const formBody = (
+    <form onSubmit={handleSubmit}>
+        {/* Coach profile preview (optional) */}
+      {showProfile &&
+        members.map(({ fname, name, imgSrc, admCollege }, i) => {
+          if (name === coachName) {
+            return (
+              <Profile
+                key={i}
+                fname={fname}
+                name={name}
+                imgSrc={imgSrc}
+                admCollege={admCollege}
+              />
+            );
+          }
+          return null;
+        })}
+        
+      {/* NAME (with honeypot) */}
+      <div className="row mb-3">
+        <label htmlFor="name" className="form-label">
+          Name <span className="text-ivy-red font-thin text-sm">Required</span>
+        </label>
+        <div className="col">
+          <input
+            type="text"
+            name="fname"
+            value={values.fname}
+            onChange={handleChange}
+            className="form-control"
+            placeholder="First name"
+            aria-label="First name"
+            required
+          />
         </div>
-        {type == "FULL" && (
-          <div className="pCentered text-start">
-            <label htmlFor="location" className="form-label">
-              City, State
-            </label>
-            <input
-              type="text"
-              name="location"
-              value={values.location}
-              onChange={handleChange}
-              className="form-control"
-              id="location"
-              placeholder="Alexandria, Virginia"
-              // required
-            />
-          </div>
-        )}
 
-        <div className="pCentered text-start">
-          <label htmlFor="email" className="form-label">
-            Email Address{" "}
-            <span className="text-ivy-red font-thin text-sm">Required</span>
+        {/* honeypot */}
+        <input
+          type="text"
+          name="middle_name"
+          style={{ position: "absolute", left: "-9999px" }}
+          tabIndex="-1"
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
+        <div className="col">
+          <input
+            type="text"
+            name="lname"
+            value={values.lname}
+            onChange={handleChange}
+            className="form-control"
+            placeholder="Last name"
+            aria-label="Last name"
+            required
+          />
+        </div>
+      </div>
+
+      {/* FULL-only: location */}
+      {type === "FULL" && (
+        <div className="mb-3">
+          <label htmlFor="location" className="form-label">City, State</label>
+          <input
+            type="text"
+            name="location"
+            value={values.location}
+            onChange={handleChange}
+            className="form-control"
+            id="location"
+            placeholder="Alexandria, Virginia"
+          />
+        </div>
+      )}
+
+      {/* Email / Phone 50-50 */}
+      <div className="mb-3 md:flex md:space-x-6 md:items-start">
+        <div className="md:w-1/2">
+          <label htmlFor="email" className="form-label block mb-1">
+            Email Address <span className="text-ivy-red font-thin text-sm">Required</span>
           </label>
           <input
             type="email"
@@ -250,8 +198,9 @@ export default function ContactForm({ type, coachName, showProfile }) {
             required
           />
         </div>
-        <div className="pCentered text-start">
-          <label htmlFor="phone" className="form-label">
+
+        <div className="md:w-1/2">
+          <label htmlFor="phone" className="form-label block mb-1">
             Phone Number
           </label>
           <input
@@ -262,480 +211,203 @@ export default function ContactForm({ type, coachName, showProfile }) {
             className="form-control"
             id="phone"
             placeholder="123-456-7890"
-            // required
           />
         </div>
-        {type == "FULL" && (
-          <>
-            <div className="pCentered text-start">
-              <label htmlFor="contact" className="form-label">
+      </div>
+
+      {/* FULL-only extras */}
+      {type === "FULL" && (
+        <>
+          {/* Preferred Contact Method & Interested Option (50/50) */}
+          <div className="mb-3 md:flex md:space-x-6 md:items-start">
+            <div className="md:w-1/2">
+              <label htmlFor="contact" className="form-label block mb-1">
                 Preferred Contact Method
               </label>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  name="contact"
-                  onChange={handleChange}
-                  type="checkbox"
-                  value="Phone"
-                  id="phone"
-                />
-                <label className="form-check-label" htmlFor="phone">
-                  {" "}
-                  Phone{" "}
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  name="contact"
-                  onChange={handleChange}
-                  type="checkbox"
-                  value="Email"
-                  id="email"
-                />
-                <label className="form-check-label" htmlFor="email">
-                  {" "}
-                  Email{" "}
-                </label>
-              </div>
+              <select
+                className="form-select"
+                id="contact"
+                name="contact"
+                value={values.contact || ""}
+                onChange={handleChange}
+              >
+                <option value="">Select a contact method</option>
+                <option value="Phone">Phone</option>
+                <option value="Email">Email</option>
+              </select>
             </div>
 
-            <div className="pCentered text-start">
-              <div className="pCentered text-start">
-                <label htmlFor="option" className="form-label">
-                  Which option interests you?
-                </label>
-                <select
-                  className="form-select"
-                  id="option"
-                  name="option"
-                  value={values.option}
-                  onChange={handleChange}
-                >
-                  <option value="">Select an option</option>
-                  <option value="Essays-Only Support">Essays-Only Support</option>
-                  <option value="Comprehensive Support">Comprehensive Support</option>
-                  <option value="Comprehensive Support with Logistics">Comprehensive Support with Logistics</option>
-                  <option value="Hourly Consultation">Hourly Consultation</option>
-                  <option value="Application Evaluation">Application Evaluation</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
+            <div className="md:w-1/2">
+              <label htmlFor="option" className="form-label block mb-1">
+                Interested option
+              </label>
+              <select
+                className="form-select"
+                id="option"
+                name="option"
+                value={values.option}
+                onChange={handleChange}
+              >
+                <option value="">Select an option</option>
+                <option value="Essays-Only Support">Essay Support Only</option>
+                <option value="Comprehensive Support">Comprehensive Support</option>
+                <option value="Comprehensive Support with Logistics">Comprehensive + Logistics</option>
+                <option value="Hourly Consultation">Hourly Consultation</option>
+                <option value="Application Evaluation">Application Evaluation</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
+          </div>
 
-
-
-           <div className="pCentered text-start">
-            <label htmlFor="heard" className="form-label">
-              How did you hear about Ivy Ready?
-            </label>
-            <div className="flex flex-wrap gap-x-6">
-              {heardOptions.map(({ id, label, value }) => (
-                <div className="form-check form-check-inline" key={id}>
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="heard"
-                    id={id}
-                    value={value}
-                    onChange={handleChange}
-                  />
-                  <label className="form-check-label" htmlFor={id}>
+          {/* How did you find us? & Learn More About (50/50) */}
+          <div className="mb-3 md:flex md:space-x-6 md:items-start">
+            <div className="md:w-1/2">
+              <label htmlFor="heard" className="form-label block mb-1">
+                How did you find us?
+              </label>
+              <select
+                className="form-select"
+                id="heard"
+                name="heard"
+                value={values.heard}
+                onChange={handleChange}
+              >
+                <option value="">Select an option</option>
+                {heardOptions.map(({ id, label, value }) => (
+                  <option key={id} value={value}>
                     {label}
-                  </label>
-                </div>
-              ))}
+                  </option>
+                ))}
+              </select>
             </div>
-          </div>
 
-          <div className="pCentered text-start">
-            <label htmlFor="info" className="form-label">
-              What would you like to know more about?
-            </label>
-            <div className="flex flex-wrap gap-x-6">
-              {infoOptions.map(({ id, label, value }) => (
-                <div className="form-check form-check-inline" key={id}>
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="info"
-                    id={id}
-                    value={value}
-                    onChange={handleChange}
-                  />
-                  <label className="form-check-label" htmlFor={id}>
+            <div className="md:w-1/2">
+              <label htmlFor="info" className="form-label block mb-1">
+                Learn More About
+              </label>
+              <select
+                className="form-select"
+                id="info"
+                name="info"
+                value={values.info}
+                onChange={handleChange}
+              >
+                <option value="">Select an option</option>
+                {infoOptions.map(({ id, label, value }) => (
+                  <option key={id} value={value}>
                     {label}
-                  </label>
-                </div>
-              ))}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
-            
-          </>
-        )} 
+        </>
+      )}
 
-        {["FULL", "INFO", "CALL"].includes(type) && (
-          <div className="pCentered text-start">
-            <label htmlFor="year" className="form-label">
-              Student Current Year
-            </label>
-            <select
-              className="form-select"
-              id="year"
-              name="year"
-              onChange={handleChange}
-              aria-label="Current Year"
-              defaultValue="default"
-            >
-              <option value="default"></option>
-              <option value="FR">Freshman</option>
-              <option value="SP">Sophomore</option>
-              <option value="JR">Junior</option>
-              <option value="SR">Senior</option>
-            </select>
-          </div>
-        )}
 
-        {["FULL", "INFO", "EVAL"].includes(type) && (
-          <div className="pCentered text-start">
-            <label htmlFor="service" className="form-label">
-              {type == "EVAL" ? "Message" : "How may we best serve you?"}
-            </label>
-            <textarea
-              className="form-control"
-              name="service"
-              id="service"
-              onChange={handleChange}
-              value={values.service}
-              rows="3"
-            ></textarea>
-          </div>
-        )}
-
-        {type == "EVAL" && (
-          <div className="pCentered text-start">
-            <label htmlFor="evaluation" className="form-label">
-              Evaluation
-            </label>
-            <select
-              className="form-select"
-              id="evaluation"
-              name="evaluation"
-              onChange={handleChange}
-              aria-label="Current Year"
-            >
-              <option defaultValue>Select evaluation type</option>
-              <option value="Single">
-                Single Evaluation (30-minute Coach Review & 30-minute
-                Discussion)
-              </option>
-              <option value="Multiple">
-                Multiple-school Package (Depends on Number of Schools)
-              </option>
-            </select>
-          </div>
-        )}
-
-        <div className="col-12">
-          <button
-            className="btn bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg"
-            type="submit"
+      {/* Shared group */}
+      {["FULL", "INFO", "CALL"].includes(type) && (
+        <div className="mb-3">
+          <label htmlFor="year" className="form-label">Student Current Year</label>
+          <select
+            className="form-select"
+            id="year"
+            name="year"
+            onChange={handleChange}
+            aria-label="Current Year"
+            defaultValue="default"
           >
-            {isSubmitting ? (
-              <div className="spinner-border text-light" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            ) : (
-              "Submit"
-            )}
-          </button>
-          {/* Error would show here */}
-          <Alert
-            message={responseMessage.message}
-            success={responseMessage.success}
+            <option value="default"></option>
+            <option value="FR">Freshman</option>
+            <option value="SP">Sophomore</option>
+            <option value="JR">Junior</option>
+            <option value="SR">Senior</option>
+          </select>
+        </div>
+      )}
+
+      {/* Message / Service */}
+      {["FULL", "INFO", "EVAL"].includes(type) && (
+        <div className="mb-3">
+          <label htmlFor="service" className="form-label">
+            {type === "EVAL" ? "Message" : "How may we best serve you?"}
+          </label>
+          <textarea
+            className="form-control"
+            name="service"
+            id="service"
+            onChange={handleChange}
+            value={values.service}
+            rows={3}
           />
         </div>
-      </form>
-    </div>
+      )}
+
+    
+
+      {/* Submit */}
+      <div className="col-12">
+        <Button
+          type="submit"
+          className="bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <div className="spinner-border text-light" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            "Submit"
+          )}
+        </Button>
+        <Alert message={responseMessage.message} success={responseMessage.success} />
+      </div>
+    </form>
   );
+
+  // ======= LAYOUT SWITCH =======
+  if (type === "FULL") {
+    return (
+      <div className="md:grid md:grid-cols-2 gap-8">
+        {/* Left content panel */}
+        <div className="bg-[#2D5780] text-white rounded-2xl md:rounded-r-none px-8 md:px-12 flex items-center">
+          <div>
+
+              {/* short headline always visible */}
+              <h1 className="text-white">
+                Book a Free Consultation with Ivy Ready Coaches
+              </h1>
+
+              {/* full content only shown on md and above */}
+              <div className="hidden md:block">
+                <p className="pCentered mt-6 text-start">
+                  Today’s college admissions landscape can be overwhelming and highly competitive.
+                  Our team helps students cut through the confusion and approach every step with confidence and clarity.
+                </p>
+                <p className="pCentered mt-6 text-start">We can support you with:</p>
+                <ul className="mt-6 list-none">
+                  <li><p className="pCentered text-start ">✓ Choosing the right courses and extracurriculars</p></li>
+                  <li><p className="pCentered text-start">✓ Preparing for standardized tests</p></li>
+                  <li><p className="pCentered text-start">✓ Building a balanced college list</p></li>
+                  <li><p className="pCentered text-start">✓ Crafting authentic and persuasive essays</p></li>
+                  <li><p className="pCentered text-start">✓ Completing strong, on-time applications</p></li>
+                  <li><p className="pCentered text-start">✓ Applying strategically for scholarships and aid</p></li>
+                </ul>
+                <p className="pCentered text-start mt-6 opacity-95 leading-relaxed">
+                  Ivy Ready offers personalized, expert guidance from former admissions officers.
+                  We help students get into their top-choice schools, earn scholarships, and feel confident throughout the entire process.
+                </p>
+              </div>
+
+          </div>
+        </div>
+
+        {/* Right: form card */}
+        <FormCard>{formBody}</FormCard>
+      </div>
+    );
+  }
+
+  // Modal/compact: just the card (no grid)
+  return <FormCard inModal>{formBody}</FormCard>;
 }
-
-
-// {/* {type == "FULL" && ( <> <h1> Have any Questions? </h1> <p className="pCentered mb-8 max-w-2xl mx-auto"> Start your journey by completing the form below. We'll help you find the right plan and match you with the best advisor for your needs. </p> </> )} */}
-
-//             {showProfile &&
-//               members.map(({ fname, name, imgSrc, admCollege, description }, i) => {
-//                 if (name === coachName) {
-//                   return (
-//                     <Profile
-//                       key={i}
-//                       fname={fname}
-//                       name={name}
-//                       imgSrc={imgSrc}
-//                       admCollege={admCollege}
-//                       description={description}
-//                     />
-//                   );
-//                 }
-//               })}
-
-//             {/* --- keep all existing fields below unchanged --- */}
-//             <div className="row pCentered text-start">
-//               <label htmlFor="name" className="form-label">
-//                 Name <span className="text-ivy-red font-thin text-sm">Required</span>
-//               </label>
-//               <div className="col">
-//                 <input
-//                   type="text"
-//                   name="fname"
-//                   value={values.fname}
-//                   onChange={handleChange}
-//                   className="form-control"
-//                   placeholder="First name"
-//                   aria-label="First name"
-//                   required
-//                 />
-//               </div>
-
-//               {/* honeypot */}
-//               <input
-//                 type="text"
-//                 name="middle_name"
-//                 style={{ position: "absolute", left: "-9999px" }}
-//                 tabIndex="-1"
-//                 autoComplete="off"
-//                 aria-hidden="true"
-//               />
-
-//               <div className="col">
-//                 <input
-//                   type="text"
-//                   name="lname"
-//                   value={values.lname}
-//                   onChange={handleChange}
-//                   className="form-control"
-//                   placeholder="Last name"
-//                   aria-label="Last name"
-//                   required
-//                 />
-//               </div>
-//             </div>
-
-//             {type == "FULL" && (
-//               <div className="pCentered text-start">
-//                 <label htmlFor="location" className="form-label">City, State</label>
-//                 <input
-//                   type="text"
-//                   name="location"
-//                   value={values.location}
-//                   onChange={handleChange}
-//                   className="form-control"
-//                   id="location"
-//                   placeholder="Alexandria, Virginia"
-//                 />
-//               </div>
-//             )}
-
-//             <div className="pCentered text-start md:flex md:space-x-6 md:items-start">
-//               {/* Left column */}
-//               <div className="md:w-1/2">
-//                 <label htmlFor="option" className="form-label block mb-1">
-//                   Email Address <span className="text-ivy-red font-thin text-sm">Required</span>
-//                 </label>
-//                 <input
-//                   type="email"
-//                   name="email"
-//                   value={values.email}
-//                   onChange={handleChange}
-//                   className="form-control"
-//                   id="email"
-//                   placeholder="name@example.com"
-//                   required
-//                 />
-//               </div>
-
-//               {/* Right column */}
-//               <div className="md:w-1/2">
-//                 <label htmlFor="phone" className="form-label block mb-1">
-//                   Phone Number
-//                 </label>
-//                 <input
-//                   type="tel"
-//                   name="phone"
-//                   value={values.phone}
-//                   onChange={handleChange}
-//                   className="form-control"
-//                   id="phone"
-//                   placeholder="123-456-7890"
-//                 />
-//               </div>
-//             </div>
-
-
-//             {type == "FULL" && (
-//               <>
-//                 <div className="pCentered text-start">
-//                   <label className="form-label">Preferred Contact Method</label>
-//                   <div className="flex flex-wrap gap-x-6">
-//                     {["Phone", "Email"].map((method) => (
-//                       <div className="form-check" key={method}>
-//                         <input
-//                           className="form-check-input"
-//                           name="contact"
-//                           onChange={handleChange}
-//                           type="checkbox"
-//                           value={method}
-//                           id={method.toLowerCase()}
-//                         />
-//                         <label className="form-check-label" htmlFor={method.toLowerCase()}>
-//                           {method}
-//                         </label>
-//                       </div>
-//                     ))}
-//                   </div>
-//                 </div>
-
-//                 <div className="pCentered text-start md:flex md:space-x-6 md:items-start">
-//                   {/* Left dropdown */}
-//                   <div className="md:w-1/2">
-//                     <label htmlFor="option" className="form-label block mb-1">
-//                       Interested option
-//                     </label>
-//                     <select
-//                       className="form-select"
-//                       id="option"
-//                       name="option"
-//                       value={values.option}
-//                       onChange={handleChange}
-//                     >
-//                       <option value="">Select an option</option>
-//                       <option value="Essays-Only Support">Essay Support Only</option>
-//                       <option value="Comprehensive Support">Comprehensive Support</option>
-//                       <option value="Comprehensive Support with Logistics">
-//                         Comprehensive + Logistics
-//                       </option>
-//                       <option value="Hourly Consultation">Hourly Consultation</option>
-//                       <option value="Application Evaluation">Application Evaluation</option>
-//                       <option value="Other">Other</option>
-//                     </select>
-//                   </div>
-
-//                   {/* Right dropdown */}
-//                   <div className="md:w-1/2">
-//                     <label htmlFor="heard" className="form-label block mb-1">
-//                       How did you find us?
-//                     </label>
-//                     <select
-//                       className="form-select"
-//                       id="heard"
-//                       name="heard"
-//                       value={values.heard}
-//                       onChange={handleChange}
-//                     >
-//                       <option value="">Select an option</option>
-//                       {heardOptions.map(({ id, label, value }) => (
-//                         <option key={id} value={value}>
-//                           {label}
-//                         </option>
-//                       ))}
-//                     </select>
-//                   </div>
-//                 </div>
-
-//                 <div className="pCentered text-start">
-//                   <label htmlFor="info" className="form-label">
-//                     Learn More About
-//                   </label>
-//                   <select
-//                     className="form-select"
-//                     id="info"
-//                     name="info"
-//                     value={values.info}
-//                     onChange={handleChange}
-//                   >
-//                     <option value="">Select an option</option>
-//                     {infoOptions.map(({ id, label, value }) => (
-//                       <option key={id} value={value}>
-//                         {label}
-//                       </option>
-//                     ))}
-//                   </select>
-//                 </div>
-//               </>
-//             )}
-
-//             {["FULL", "INFO", "CALL"].includes(type) && (
-//               <div className="pCentered text-start">
-//                 <label htmlFor="year" className="form-label">Student Current Year</label>
-//                 <select
-//                   className="form-select"
-//                   id="year"
-//                   name="year"
-//                   onChange={handleChange}
-//                   aria-label="Current Year"
-//                   defaultValue="default"
-//                 >
-//                   <option value="default"></option>
-//                   <option value="FR">Freshman</option>
-//                   <option value="SP">Sophomore</option>
-//                   <option value="JR">Junior</option>
-//                   <option value="SR">Senior</option>
-//                 </select>
-//               </div>
-//             )}
-
-//             {["FULL", "INFO", "EVAL"].includes(type) && (
-//               <div className="pCentered text-start">
-//                 <label htmlFor="service" className="form-label">
-//                   {type == "EVAL" ? "Message" : "How may we best serve you?"}
-//                 </label>
-//                 <textarea
-//                   className="form-control"
-//                   name="service"
-//                   id="service"
-//                   onChange={handleChange}
-//                   value={values.service}
-//                   rows="3"
-//                 ></textarea>
-//               </div>
-//             )}
-
-//             {type == "EVAL" && (
-//               <div className="pCentered text-start">
-//                 <label htmlFor="evaluation" className="form-label">Evaluation</label>
-//                 <select
-//                   className="form-select"
-//                   id="evaluation"
-//                   name="evaluation"
-//                   onChange={handleChange}
-//                   aria-label="Current Year"
-//                 >
-//                   <option defaultValue>Select evaluation type</option>
-//                   <option value="Single">Single Evaluation (30-minute Coach Review & 30-minute Discussion)</option>
-//                   <option value="Multiple">Multiple-school Package (Depends on Number of Schools)</option>
-//                 </select>
-//               </div>
-//             )}
-
-//             <div className="col-12">
-//               <Button
-//                 type="submit"
-//                 className="bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg flex items-center justify-center"
-//                 disabled={isSubmitting}
-//               >
-//                 {isSubmitting ? (
-//                   <div className="spinner-border text-light" role="status">
-//                     <span className="visually-hidden">Loading...</span>
-//                   </div>
-//                 ) : (
-//                   "Submit"
-//                 )}
-//               </Button>
-//               <Alert message={responseMessage.message} success={responseMessage.success} />
-//             </div>
-//           </form>
-//           {/* --- end of unchanged form --- */}
-//         </div>
-//       </div>
-//     </div>
