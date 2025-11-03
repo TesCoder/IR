@@ -55,20 +55,52 @@ export default function Home() {
         />
       </Head>
 
-      <Modal
-        id="contactModal"
-        title={
-          modalType == "INFO"
-            ? "Tell us how we can best serve you."
-            : "Enter your info for a quick call."
-        }
-      >
-        <ContactForm type={modalType} />
-      </Modal>
+     {/* ===============================
+            MODALS — DO NOT REMOVE
+            These handle all "popup" forms on the site.
+            Both are required for buttons using data-bs-target.
+        ================================ */}
 
-      <Modal id="coachModal" title={`Schedule your intro call with ${coach}`}>
-        <ContactForm showProfile={true} coachName={coach} />
-      </Modal>
+        {/* CONTACT MODAL 
+            - Triggered by: 
+                * "FREE Consultation" button (navbar)
+                * "Get Your FREE Consultation" button (hero)
+                * "Request Free Intro Call" button (testimonials)
+                * "Schedule Free Strategy Call" button (final CTA)
+            - Uses `modalType` state to show either:
+                * "INFO" → Full form (general inquiry)
+                * "CALL" → Short form for quick phone call
+        */}
+        <Modal
+          id="contactModal"  // must match all buttons' data-bs-target="#contactModal"
+          title={
+            modalType === "INFO"
+              ? "Tell us how we can best serve you."
+              : "Enter your info for a quick call."
+          }
+        >
+          {/* The form content inside the popup */}
+          <ContactForm type={modalType} />
+        </Modal>
+
+        {/* COACH MODAL 
+            - Triggered by clicking "Learn More" on a specific coach profile
+            - Dynamically updates title with the coach’s name using state
+            - Includes coach profile preview inside form
+        */}
+
+        {/* COACH MODAL — compact form in a modal */}
+        <Modal id="coachModal" title={`Schedule your intro call with  ${coach?.split(" ")[0] || ""}`}>
+          <ContactForm type="INFO" showProfile={true} coachName={coach} />
+        </Modal>
+
+        {/* 
+          ⛔️ IMPORTANT:
+          Do not delete these two <Modal> blocks.
+          Bootstrap uses their `id` attributes (e.g., #contactModal, #coachModal)
+          to link clickable buttons to their respective pop-ups.
+          If removed, buttons will stop opening modals.
+        */}
 
       {/* Hero Section */}
       <div className="heroFrame bg-hero " >
@@ -113,8 +145,8 @@ export default function Home() {
       <span className="" id="testimonials-section"></span>
       <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
 
-      <p className="pCentered ">
-        Families trust Ivy Ready for personalized coaching and peace of mind. Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
+        <p className="pCentered ">
+          Families trust Ivy Ready for personalized coaching and peace of mind. Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
         </p>
 
         <div
@@ -225,9 +257,9 @@ export default function Home() {
 
       </Section>
 
-      <Section title="Compare Our Support Options">
-        <p className="pCentered max-w-2xl mx-auto">
-          From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family.
+      <Section title="Compare Our Support Options" centerContent>
+        <p className="pCentered text-center">
+          From hourly consultation, essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family.
         </p>
         <div className="flex justify-center mt-6">
           <Button onClick={() => window.open("/support-packages", "_self")}>
