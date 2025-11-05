@@ -7,10 +7,13 @@ import Link from "next/link";
 
 const Goal = ({ title, content }) => (
   <div className="text-center">
-    <h2 className="text-2xl text-ivy-blue">{title}</h2>
-    <p className="text-lg text-center my-3 text-gray-700">{content}</p>
+    <h2 className="pCentered">{title}</h2>
+    <p className="pCentered">{content}</p>
+
+    {/* <p className="text-lg text-center my-3 text-gray-700">{content}</p> */}
   </div>
 );
+
 
 export default function Evaluation() {
   return (
@@ -39,7 +42,7 @@ export default function Evaluation() {
           height={500}
           alt="Record"
         />
-        <p className=" text-xl text-center my-3 text-gray-700">
+        <p className="pCentered">
           Ivy Ready Evaluation makes it easy to identify key areas of
           improvement. While supplemental essays are unique to each school, a
           large percentage of the application is sent to many schools. Thus,
@@ -68,8 +71,8 @@ export default function Evaluation() {
       </Section>
 
       <Section centerContent darkBg>
-        <h2 className="font-semibold text-2xl text-center">Overview</h2>
-        <p className="text-xl text-center my-2 text-gray-700">
+        <h2 className="">Overview</h2>
+        <p className="pCentered">
           Ivy Ready Evaluation is a unique opportunity for prospective
           applicants to enhance their college applications with the feedback of
           former admissions officers. While Ivy Ready does offer comprehensive
@@ -79,7 +82,7 @@ export default function Evaluation() {
         </p>
 
         <h2 className="font-semibold text-2xl text-center">How it Works</h2>
-        <p className="text-xl text-center my-2 text-gray-700">
+        <p className="pCentered">
           An evaluation report is included. It gives you an unbiased assessment
           for each key area utilizing a rating scale (more on this is below.) In
           addition, a phone discussion session is included to review the
@@ -89,7 +92,7 @@ export default function Evaluation() {
         <h2 className="font-semibold text-2xl text-center">
           Evaluation Package Components:
         </h2>
-        <p className="text-xl text-center my-2 text-gray-700">
+        <p className="pCentered">
           Ivy Ready Evaluation is a unique opportunity for prospective
           applicants to enhance their college applications with the feedback of
           former admissions officers. While Ivy Ready does offer comprehensive
@@ -100,7 +103,7 @@ export default function Evaluation() {
       </Section>
 
       <Section centerContent title="Understanding the Evaluation">
-        <p className="text-xl text-center my-2 text-gray-700">
+        <p className="pCentered mb-4">
           In addition to highlighting the primary strength, setback, and
           potential area of improvement of the applicant, the evaluation
           determines the competitiveness of high key areas using a rating scale.
@@ -111,7 +114,7 @@ export default function Evaluation() {
           height={500}
           alt="Scale"
         />
-        <p className="text-xl text-center my-2 text-gray-700">
+        <p className="pCentered m-4">
           Understanding the scale: if a key area meets the{" "}
           <strong>highest</strong> Ivy Ready Standards, a rating of Ivy Ready is
           assigned next to that key area on the evaluation report. Otherwise,
@@ -119,7 +122,7 @@ export default function Evaluation() {
           (average), or Developing (below average) as appropriate.
         </p>
       </Section>
-      <Section darkBg>
+      <Section darkBg >
         <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
           <Goal
             title="Get Actionable Insights"

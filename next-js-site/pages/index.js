@@ -125,10 +125,9 @@ export default function Home() {
       </div>
 
       <Section title="Our Track Record in Numbers"  centerContent>
-
-        <h2 className="pCentered">
+        <p className="pCentered ">
           Ivy Ready empowers students to craft exceptional applications that get results. From essays to strategy, our support drives real outcomes—top school admissions, major scholarships, and family peace of mind.
-        </h2>
+        </p>
 
         <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
