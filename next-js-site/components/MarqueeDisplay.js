@@ -1,62 +1,37 @@
-{/* Main Marquee */}
+// MarqueeDisplay.js
+import { Fragment } from "react";
+
+const ITEMS = ["Ivy Ready", "Dream it", "Reach it"];
+
 export default function MarqueeDisplay() {
-  const MarqueeElement = ({ children }) => (
-    <span className="text-2xl mx-2 text-ivy-blue font-light">{...children}</span>
-  );
-    return (
-      <div className="flex justify-center">
-        <div className="overflow-x-hidden w-5/6 md:w-3/3 sm:mt-14 lg:mt-0">
-          <div className="py-3 animate-marquee whitespace-nowrap ">
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Ivy Ready</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Dream it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-            <MarqueeElement>Reach it</MarqueeElement>
-            <MarqueeElement>〰️</MarqueeElement>
-          </div>
+  return (
+    <div className="marquee-outer">
+      <div className="marquee-track marquee-track--a p-2">
+        {ITEMS.map((t, i) => (
+          <Fragment key={`a-${i}`}>
+            <span className="marquee-item pCentered">{t}</span>
+            <span className="marquee-sep" aria-hidden>🎓</span>
+          </Fragment>
+        ))}
       </div>
-    </div>  
-    )
-  }
+
+      <div className="marquee-track marquee-track--b p-2" aria-hidden="true">
+        {ITEMS.map((t, i) => (
+          <Fragment key={`b-${i}`}>
+            <span className="marquee-item pCentered">{t}</span>
+            <span className="marquee-sep" aria-hidden>🎓</span>
+          </Fragment>
+        ))}
+      </div>
+
+      <div className="marquee-track marquee-track--c p-2" aria-hidden="true">
+        {ITEMS.map((t, i) => (
+          <Fragment key={`c-${i}`}>
+            <span className="marquee-item pCentered">{t}</span>
+            <span className="marquee-sep" aria-hidden>🎓</span>
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}

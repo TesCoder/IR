@@ -32,6 +32,10 @@ module.exports = {
         'hero': "url('/images/banner/uDaptSSjK1.webp')",
         'about-hero': "url('/images/about-banner.jpg')",
         'hourly-hero': "url('/images/hourly/hourlyconsultation.jpg')",
+
+        '5ezZg4xRm1': "url('/images/home_section_images/5ezZg4xRm1.jpg')",
+
+
       },
       listStyleType: {
         none: 'none',

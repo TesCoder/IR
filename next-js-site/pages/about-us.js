@@ -1,4 +1,5 @@
 import { Button, ButtonRow } from "@/components/Button";
+import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import ContactForm from "@/components/ContactForm";
 import Modal from "@/components/Modal";
 import Section from "@/components/Section";
@@ -28,14 +29,14 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
         {past.map((p, i) => ( <p className="pCentered text-start" key={i}> {p} </p> ))}
         <p className="pCentered text-start !leading-[1.6] mt-4">{description}</p>
 
-        <div className="flex items-start">
-          <Button
+        <div className="flex items-start mt-4">
+          <OrbitGlowButton
             onClick={() => { setCoach(fname); }}
             data-bs-toggle="modal"
             data-bs-target="#coachModal"
           >
             Request an introductory session with {fname}
-          </Button>
+          </OrbitGlowButton>
         </div>
 
       </div>
@@ -108,8 +109,18 @@ export default function About() {
           At Ivy Ready, we celebrate the diversity of the communities we serve and recognize that every story holds the potential to inspire. Through thoughtful guidance and tailored support, we strive to ensure that every student has the opportunity to share their most compelling narrative and reach their fullest academic and personal potential.
         </p>
 
-        <ButtonRow setModalType={setModalType}  />
+        {/* <ButtonRow setModalType={setModalType}  /> */}
+
+         <OrbitGlowButton
+            onClick={() => setModalType("CALL")}
+            data-bs-toggle="modal"
+            data-bs-target="#contactModal"
+          >
+            Request Free Intro Call
+        </OrbitGlowButton>
+      
       </Section>
+      
       <Section
           title=""
           darkBg

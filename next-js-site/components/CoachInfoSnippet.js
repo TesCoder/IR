@@ -19,18 +19,6 @@ export default function CoachInfoSnippet({ setCoach, imgSrc, name, admCollege })
             <h2 className="text-center font-bold text-2xl text-ivy-blue mb-2">{name}</h2>
             <p className="text-ivy-blue text-center font-semibold">{admCollege}</p>
         </div>
-          {/* <div className="flex items-start">
-            <Button
-              onClick={() => {
-                setCoach(name);
-              }}
-              data-bs-toggle="modal"
-              data-bs-target="#coachModal"
-            >
-              Request an introductory Session with {name}
-            </Button>
-        </div> */}
-        
         <div className="w-full md:w-4/5">
           
           </div>

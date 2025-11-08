@@ -4,6 +4,7 @@ import LogoProjector from "./logoMaker";
 import { useState } from "react";
 import Script from 'next/script'; // necessary for ads manager
 import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
+import { OrbitGlowButton } from "./OrbitGlowButton";
 
 export default function Navbar() {
   // hides logo in mobile when navbar-toggle is clicked
@@ -16,11 +17,7 @@ export default function Navbar() {
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
       {!logoVisibility && (
         <div
-          id="logoModifier1"
-          className="container 
-        sm:visible md:visible lg:hidden
-        z-40 w-3/12 justify-center -mb-12 md:-mb-4 bg-ivy-red 
-        "
+          id="logoModifier1" className="container sm:visible md:visible lg:hidden z-40 w-3/12 justify-center -mb-12 md:-mb-4 bg-ivy-red "
         >
           <LogoProjector />
         </div>
@@ -28,7 +25,7 @@ export default function Navbar() {
 
       <nav
         className="z-0 navbar pb-3 navbar-expand-md  text-white 
-        font-raleway font-medium p-0 navbar-dark uppercase"
+        font-raleway font-medium navbar-dark "
         data-bs-theme="dark"
       >
         <div className="container-fluid bg-ivy-red mt-4">
@@ -111,16 +108,15 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Button
-                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full my-0"
+                <OrbitGlowButton
+                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full my-0.5"
                       onClick={() => setModalType("INFO")}
                       data-bs-toggle="modal"
                       data-bs-target="#contactModal"
                     >
                       FREE Consultation
-                    </Button>
+                </OrbitGlowButton>
                 </li>
-              
             </ul>
           </div>
         </div>

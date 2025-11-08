@@ -65,7 +65,7 @@ export default function SupportPackages() {
       <ButtonRow darkBg setModalType={setModalType} />
 
       <Section title="Process Overview">
-        <p>
+        <p className="pCentered text-start">
           Our admission support begins by first matching prospective applicants
           with a coach who is best fit to work with them. Once the family has
           identified their coach, they can begin by creating a timeline for
@@ -74,10 +74,8 @@ export default function SupportPackages() {
           students assigned to each coach. Ivy Ready coaches are fully dedicated
           to every applicant.
         </p>
-        <h2 className="font-medium text-2xl text-ivy-blue my-3">
-          Summary of Packages
-        </h2>
-        <ul className="list-disc font-medium text-gray-600 space-y-3">
+        <h2 className=""> Summary of Packages </h2>
+        <ul className="list-disc font-medium text-gray-600 space-y-1">
           <li>
             <strong>Essays-only Support</strong> is available for applicants
             looking to self-manage the application process with guidance on
@@ -100,7 +98,7 @@ export default function SupportPackages() {
       <ButtonRow darkBg setModalType={setModalType} />
 
      <Section title="Summary of the Writing Process">
-        <p>
+        <p className="pCentered text-start">
           The writing portion consumes most of the timeline. Below is an estimate by
           school count:
         </p>
@@ -108,7 +106,7 @@ export default function SupportPackages() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
           {/* 10 schools */}
           <div className="space-y-3">
-            <p>
+            <p className="pCentered text-start">
               <strong>10 schools</strong>: 78 pieces
             </p>
             <ul>
@@ -121,7 +119,7 @@ export default function SupportPackages() {
 
           {/* 15 schools */}
           <div className="space-y-3">
-            <p>
+            <p className="pCentered text-start">
               <strong>15 schools</strong>: 121 pieces
             </p>
             <ul>
@@ -134,7 +132,7 @@ export default function SupportPackages() {
 
           {/* 20 schools */}
           <div className="space-y-3">
-            <p>
+            <p className="pCentered text-start">
               <strong>20 schools</strong>: 164 pieces
             </p>
             <ul>
@@ -151,7 +149,7 @@ export default function SupportPackages() {
       <ButtonRow darkBg setModalType={setModalType} />
 
       <Section title="Detailed Comparison of Packages">
-        <div className="max-h-[500px] overflow-y-auto pr-4 scroll-smooth space-y-6">
+        <div className="max-h-[500px] overflow-y-auto pr-4 mt-4 scroll-smooth space-y-6">
             <p className>
               Essays-only Support is an excellent option for applicants who have
               personalized admission support at their high school, but are looking
@@ -169,13 +167,13 @@ export default function SupportPackages() {
               extensive planning, preparation, and oversight—included as a part of
               Comprehensive Support and Comprehensive Support with Logistics.
             </p>
-            <p>
+            <p className="pCentered text-start">
               Comprehensive Support with Logistics is best for applicants looking
               for complete support from the planning stage through application
               submission. On the other hand, Comprehensive Support is the most
               common option and covers support outside of the Essays-only package.
             </p>
-            <p>
+            <p className="pCentered text-start">
               The writing portion of the application will be the most time-intensive
               component of this process. The bulk of our coaching will revolve
               around crafting and honing a compelling narrative and developing the
@@ -189,7 +187,7 @@ export default function SupportPackages() {
               require extensive planning and follow-through from early summer
               through submission.
             </p>
-            <p>
+            <p className="pCentered text-start">
               In addition, supplemental essays represent each school&apos;s unique
               evaluation criteria. Schools will be looking closely at these essays
               to further gauge the applicant&apos;s interest and commitment to their
@@ -202,7 +200,7 @@ export default function SupportPackages() {
               school because key elements are missing, or is simply not committed to
               entry into their institution.
             </p>
-            <p>
+            <p className="pCentered text-start">
               If the applicant is able to manage the logistical aspects of this
               process, Essays-only Support and Comprehensive Support will be the
               right option. Otherwise, we recommend Comprehensive Support with
@@ -220,7 +218,7 @@ export default function SupportPackages() {
               documents are submitted on time, and by being there when anything
               comes up at the last minute, etc.
             </p>
-            <p>
+            <p className="pCentered text-start">
               When it comes to personal statements, while the same essay may be used
               as a template for multiple submission, we recommend writing an essay
               tailored to each school and program. In instances where admission is

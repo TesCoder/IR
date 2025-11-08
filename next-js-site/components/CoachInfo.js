@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button, ButtonRow } from "@/components/Button";
+import { OrbitGlowButton } from "./OrbitGlowButton";
 
 // oriiginal const
 //   const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
@@ -27,7 +28,7 @@ export default function CoachInfo({ setCoach, imgSrc, name, past, description })
             ))}
             <p className="my-3">{description}</p>
             <div className="flex items-start">
-              <Button
+              <OrbitGlowButton
                 onClick={() => {
                   setCoach(name);
                 }}
@@ -35,7 +36,7 @@ export default function CoachInfo({ setCoach, imgSrc, name, past, description })
                 data-bs-target="#coachModal"
               >
                 Request an introductory Session with {name}
-              </Button>
+              </OrbitGlowButton>
             </div>
           </div>
         </div>

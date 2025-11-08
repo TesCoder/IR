@@ -9,6 +9,7 @@ import sendEmail from "../lib/sendEmail";
 import Alert from "@/components/Alert";
 import { Button } from "@/components/Button";
 import { members } from "../components/membersList";
+import { OrbitGlowButton } from "./OrbitGlowButton";
 
 // Optional: exported enum-style map (if you need elsewhere)
 export const FORM_TYPES = { INFO: "INFO", CALL: "CALL", FULL: "FULL", EVAL: "EVAL" };
@@ -30,15 +31,15 @@ const Profile = ({ fname, name, imgSrc, admCollege }) => (
         <span className="text-ivy-blue text-center ">
           Admission Experience: {admCollege}
         </span>
-        <a
-          className="underline hover:cursor-pointer"
+        <span
+          className="underline hover:cursor-pointer text-ivy-blue text-center"
           onClick={() => {
             const hash = (fname || "").toLowerCase();
             window.location.href = `/about-us#${hash}`;
           }}
         >
           Learn More About {fname}
-        </a>
+        </span>
     </div>
   </div>
 );
@@ -347,7 +348,7 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
 
       {/* Submit */}
       <div className="col-12">
-        <Button
+        <OrbitGlowButton
           type="submit"
           className="bg-ivy-red text-white hover:bg-red-700 hover:shadow-lg flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
           disabled={isSubmitting}
@@ -359,7 +360,8 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
           ) : (
             "Submit"
           )}
-        </Button>
+        </OrbitGlowButton>
+
         <Alert message={responseMessage.message} success={responseMessage.success} />
       </div>
     </form>

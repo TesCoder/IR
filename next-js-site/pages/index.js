@@ -7,6 +7,9 @@ import Modal from "@/components/Modal";
 import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
 import { useState } from "react";
 import { members } from "../components/membersList";
+import CountUp from "../components/CountUp";
+import { OrbitGlowButton } from "@/components/OrbitGlowButton";
+
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -20,7 +23,7 @@ export default function Home() {
   const [coach, setCoach] = useState();
 
   const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
-    <div className="w-1/3 md:w-1/6 flex flex-col items-center mx-2">
+    <div className="w-1/3 md:w-1/6 flex flex-col items-center mt-4">
       <Image
         className="coachProfilePic"
         src={imgSrc}
@@ -31,9 +34,9 @@ export default function Home() {
       />
       <span className="pCentered mt-2">{fname} </span>
       <span className="pCentered !text-[110%] truncate w-20 text-centert">{admCollege}</span>
-      {/* <ButtonRow2 setModalType={setModalType} /> */}
-      <button
-        className="mb-4"
+
+      <OrbitGlowButton
+        className=""
         onClick={() => {
           setCoach(name);
         }}
@@ -41,14 +44,15 @@ export default function Home() {
         data-bs-target="#coachModal"
       >
         Learn More
-      </button>
+      </OrbitGlowButton>
+      
     </div>
   );
 
   return (
     <>
       <Head>
-        <title> <h1> Ivy Ready College Admission Consulting </h1> </title>
+        <title> Ivy Ready College Admission Consulting </title>
         <meta
           name="description"
           content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
@@ -114,30 +118,61 @@ export default function Home() {
             Personalized admissions coaching by former admissions officers.
           </h2>
 
-          <Button
+          <OrbitGlowButton
             onClick={() => setModalType('INFO')}
             data-bs-toggle="modal" // triggers Bootstrap modal (adds transparent black backdrop) (aka popup)
             data-bs-target="#contactModal"
           >
             Get Your FREE Consultation
-          </Button>
+          </OrbitGlowButton>
         </div>
       </div>
 
-      <Section title="Our Track Record in Numbers"  centerContent>
+      <Section title="Our Track Record in Numbers" >
         <p className="pCentered ">
           Ivy Ready empowers students to craft exceptional applications that get results. From essays to strategy, our support drives real outcomes—top school admissions, major scholarships, and family peace of mind.
         </p>
 
-        <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
+       <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
-              <h2 className="h2StatTitle">92%</h2>
-              <p className="h2StatSubtitle">Accepted to Top 3 Choices</p></div>
-          <div><h2 className="h2StatTitle">$3.4M</h2>
-              <p className="h2StatSubtitle">Total Scholarships Earned</p></div>
-          <div><h2 className="h2StatTitle">4.8★</h2>
-              <p className="h2StatSubtitle" >Avg Rating from Families</p></div>
+              <h2 className="h2StatTitle"><CountUp end={92} suffix="%" /></h2>
+              <p className="h2StatSubtitle">Accepted to Top 3 Choices</p>
+          </div>
+
+          <div>
+            <h2 className="h2StatTitle"> <CountUp end={30} prefix="$" suffix="M" /> </h2>
+            <p className="h2StatSubtitle">Total Scholarships Earned</p>
+          </div>
+          
+          <div>
+            <div>
+              <h2 className="h2StatTitle flex items-center justify-center gap-1">
+                <CountUp end={4.8} />
+                
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-[#B91C1C]">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-10 h-10"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </span>
+
+
+              </h2>
+            </div>
+            <div>
+            <p className="h2StatSubtitle">Avg Rating from Families</p>
+            </div>
+          </div>
+          
         </div>
+
       </Section>
 
       {/* Testimonials new */}
@@ -176,21 +211,23 @@ export default function Home() {
                   alt={item.alt}
                   loading="lazy"
                 />
-                <p className="mt-4 text-base text-gray-600 text-center italic opacity-90 max-w-xl mx-auto">
+                {/* ✅ Keep your pCentered style but use <div> or <span> */}
+                <div className="pCentered mt-4 text-base text-gray-600 text-center italic opacity-90 max-w-xl mx-auto">
                   {item.alt}
-                </p>
+                </div>
               </div>
             ))}
+
           </div>
         </div>
 
-          <Button
+        <OrbitGlowButton
             onClick={() => setModalType("CALL")}
             data-bs-toggle="modal"
             data-bs-target="#contactModal"
           >
             Request Free Intro Call
-        </Button>
+        </OrbitGlowButton>
       </Section>
 
       <Section title="Our stellar record speaks for itself!" centerContent>
@@ -212,13 +249,13 @@ export default function Home() {
           loading="lazy"
         />
         
-      <Button
+      <OrbitGlowButton
         onClick={() => setModalType("INFO")}
         data-bs-toggle="modal"
         data-bs-target="#contactModal"
       >
         Schedule Free Strategy Call
-      </Button>
+      </OrbitGlowButton>
 
        </Section>
 
@@ -250,46 +287,40 @@ export default function Home() {
           We are dedicated to finding the perfect coach for you.
         </p>
 
-        <Button className="text-center" onClick={() => window.open("/about-us#top", "_self")}>
+        <OrbitGlowButton className="text-center" onClick={() => window.open("/about-us#top", "_self")}>
           Meet Your Admissions Coaches
-        </Button> 
+        </OrbitGlowButton> 
 
       </Section>
 
 
 
-      <Section>
-        <div className="md:grid md:grid-cols-3 gap-8 items-center">
+      <section>
+        {/* Hero Section */}
+        <div className="heroFrame bg-5ezZg4xRm1 my-1 relative overflow-hidden">
+          {/* Tint layer (between image and overlay) */}
+          <div className="absolute inset-0 bg-[rgba(45,87,128,0.35)] mix-blend-multiply z-0"></div>
 
-          {/* LEFT PANEL */}
-          <div className="">
-            <h1 className=" font-bold text-ivy-blue mb-4">
-              Compare Support Options
-            </h1>
-            <p className="pCentered text-start leading-relaxed mb-6">
+          {/* Overlay layer (light black veil) */}
+          <div className="absolute inset-0 bg-black/10 z-10"></div>
+
+          {/* Content layer */}
+          <div className="relative z-20 m-auto text-center flex flex-col items-center justify-center h-full px-6">
+            <h1 className="bannerTitle">Compare Support Options</h1>
+            <h2 className="bannerSubtitle mx-20 pb-10">
               From hourly consultation, essays-only guidance to fully managed application logistics,
               Ivy Ready offers tailored support for every applicant and family.
-            </p>
-            <Button className="mb-10" onClick={() => window.open("/support-packages", "_self")}>
+            </h2>
+
+            <OrbitGlowButton
+              className=""
+              onClick={() => window.open("/support-packages", "_self")}
+            >
               Compare Packages
-            </Button>
+            </OrbitGlowButton>
           </div>
-
-          {/* RIGHT PANEL (IMAGE) */}
-          <div className="md:col-span-2 flex justify-center">
-            <Image
-              src="/images/home_section_images/5ezZg4xRm1.jpg" // replace with your chosen image path
-              width={1000}
-              height={400}
-              alt="Ivy Ready Support Packages comparison"
-              className="rounded-xl shadow-lg"
-              loading="lazy"
-            />
-          </div>
-
         </div>
-      </Section>
- 
+      </section>
 
       <Section darkBg>
           <ContactForm type="FULL" />

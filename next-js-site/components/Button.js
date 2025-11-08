@@ -1,4 +1,5 @@
 // Button.js
+import { OrbitGlowButton } from "./OrbitGlowButton";
 
 // Button component with lightweight structure — styling controlled at call site
 export function Button({ className = "", children, ...others }) {
@@ -12,37 +13,59 @@ export function Button({ className = "", children, ...others }) {
   );
 }
 
-// className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
-
 // ButtonRow: three action-oriented CTAs
 export const ButtonRow = ({ setModalType, darkBg }) => (
   <div className={`flex justify-center ${darkBg ? "bg-[#2D5780]" : "bg-gray-100"}`}>
     <div className="my-5 flex flex-col gap-x-10 gap-y-4 items-center md:flex-row">
-
-      <Button
+      <OrbitGlowButton
+        label="Start Your Application Plan"
         onClick={() => setModalType("INFO")}
         data-bs-toggle="modal"
         data-bs-target="#contactModal"
-      >
-        Start Your Application Plan
-      </Button>
-
-      <Button
+      />
+      <OrbitGlowButton
+        label="Request Free Intro Call"
         onClick={() => setModalType("CALL")}
         data-bs-toggle="modal"
         data-bs-target="#contactModal"
-      >
-        Request Free Intro Call
-      </Button>
-
-
-      {/* <Button href="tel:650-383-0352">
-        Talk to an Admissions Expert
-      </Button> */}
-      
+      />
     </div>
   </div>
 );
+
+
+
+// className="mt-6 mb-6 bg-ivy-red text-white hover:bg-red-700 transition px-6 py-3 rounded-full font-semibold text-lg shadow-lg"
+
+// ButtonRow: three action-oriented CTAs
+// export const ButtonRow = ({ setModalType, darkBg }) => (
+//   <div className={`flex justify-center ${darkBg ? "bg-[#2D5780]" : "bg-gray-100"}`}>
+//     <div className="my-5 flex flex-col gap-x-10 gap-y-4 items-center md:flex-row">
+
+//       <Button
+//         onClick={() => setModalType("INFO")}
+//         data-bs-toggle="modal"
+//         data-bs-target="#contactModal"
+//       >
+//         Start Your Application Plan
+//       </Button>
+
+//       <Button
+//         onClick={() => setModalType("CALL")}
+//         data-bs-toggle="modal"
+//         data-bs-target="#contactModal"
+//       >
+//         Request Free Intro Call
+//       </Button>
+
+
+//       {/* <Button href="tel:650-383-0352">
+//         Talk to an Admissions Expert
+//       </Button> */}
+      
+//     </div>
+//   </div>
+// );
 
 // Button function below corresponds to Get in Touch, Get a Quick, Call now
 // export function Button({ className, children, ...others }) {

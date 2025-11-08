@@ -1,5 +1,5 @@
 /* =======================================
-   Ivy Ready — Global Styles (FULL FILE)
+   Ivy Ready — Global Styles (CLEANED)
    Palette locked to #990000 and #2D5780
    ======================================= */
 
@@ -21,6 +21,9 @@
   --ivy-blue: #2D5780;        /* hsl(209, 49%, 34%) */
   --ivy-blue-dark: #244568;   /* ~15% darker for hover */
 
+  /* Headings default to brand blue in light mode */
+  --heading: var(--ivy-blue);
+
   /* Neutrals */
   --surface: #ffffff;
   --ink: #0b1220;
@@ -33,13 +36,14 @@
   --leading-relaxed: 1.7;
 }
 
-/* Dark mode neutrals only (brand stays the same) */
+/* Dark mode neutrals + heading (brand stays same) */
 @media (prefers-color-scheme: dark) {
   :root {
     --surface: #0b1220;
     --ink: #e8edf5;
     --muted: #a9b4c8;
     --border: #2a3b52;
+    --heading: #f3f4f6; /* light heading in dark mode */
   }
 }
 
@@ -82,14 +86,15 @@ li {
   color: var(--muted);
   line-height: var(--leading-relaxed);
 }
+
 /* Content container helper */
 .container-prose { max-width: 72ch; margin-inline: auto; padding-inline: 1rem; }
 
 /* ---------------------------
    Typography
 ---------------------------- */
-h1, h2, h3, h4 {
-  color: var(--ivy-blue); /* brand blue for headings */
+h1, h2, h3, h4, .h2StatSubtitle, .h2StatTitle {
+  color: var(--heading);
   letter-spacing: 0.2px;
 }
 
@@ -109,6 +114,56 @@ h2 {
 
 h3 { font-weight: 700; font-size: 1.25rem; }
 
+/* ---------------------------
+   Section Layout
+---------------------------- */
+/* Title: brand blue in light mode via --heading; centered by default */
+.section_title {
+  @apply text-center;
+}
+
+/* Inner wrapper */
+.section_content {
+  @apply w-4/5 flex flex-col;
+}
+
+/* Base outer container for all sections */
+.section {
+  @apply flex flex-col items-center py-14 transition-transform duration-300 hover:scale-[1.02];
+}
+
+/* Dark background section + heading/body overrides */
+.section--dark {
+  @apply bg-[#2D5780];
+  --heading: #ffffff; /* headings inside become white */
+}
+
+.section--dark .pCentered, 
+.section--dark .lead,
+.section--dark li {
+  color: #ffffff;
+}
+
+.section--dark .coachProfilePic {
+  @apply shadow-[0_0_20px_#fff];
+}
+
+/* -----------------------
+   Stats Section Headings
+------------------------ */
+.h2StatTitle {
+  @apply text-8xl text-center;
+}
+
+.h2StatSubtitle {
+  @apply text-lg text-center my-4  leading-relaxed;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
+  color: var(--muted);
+}
+
+/* ---------------------------
+   Text Helpers
+---------------------------- */
 .lead {
   font-size: clamp(1.05rem, .95rem + .5vw, 1.25rem);
   color: var(--muted);
@@ -120,10 +175,16 @@ h3 { font-weight: 700; font-size: 1.25rem; }
   font-size: clamp(1.05rem, .95rem + .5vw, 1.25rem);
   color: var(--muted);
   line-height: var(--leading-relaxed);
-  text-align: center; /* sharper reading alignment */
+  text-align: center;
 }
 
-/* On dark panels, brighten body text */
+/* Dark panels (legacy) */
+.panel-dark {
+  background: var(--ivy-blue);
+  color: #fff;
+  border-radius: 1rem;
+}
+
 .panel-dark p,
 .panel-dark .lead,
 .panel-dark .pCentered,
@@ -132,14 +193,8 @@ h3 { font-weight: 700; font-size: 1.25rem; }
 }
 
 /* ---------------------------
-   Panels & Cards
+   Cards
 ---------------------------- */
-.panel-dark {
-  background: var(--ivy-blue);
-  color: #fff;
-  border-radius: 1rem;
-}
-
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -339,21 +394,71 @@ input[type="tel"]:focus {
   box-shadow: 0 6px 18px rgba(45, 87, 128, 0.25);
 }
 
-/* -----------------------
-   Stats Section Headings
------------------------- */
 
-/* Large numeric/stat headline */
-.h2StatTitle {
-  @apply text-6xl font-extrabold text-ivy-blue text-center;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
+/* ---------------------------
+   Marquee Utilities
+---------------------------- */
+.marquee-outer {
+  position: relative;
+  overflow: hidden;
+  width: 83.333%; /* w-5/6 */
+  margin-inline: auto;
+  padding-block: 2rem;  
+  padding-top: 1rem;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Subtitle or descriptor under the stat number */
-.h2StatSubtitle {
-  @apply text-lg text-center my-4 text-gray-700 leading-relaxed;
-  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
-  color: var(--muted);
+/* Each track is a single long line that scrolls */
+.marquee-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: max-content;        /* stretch to content width */
+  white-space: nowrap;       /* never wrap to a second line */
+  align-items: center;
+  gap: var(--marquee-gap, 1rem);
+  will-change: transform;
 }
 
+/* First pass: 0% → -100% (slides out left) */
+.marquee-track--a {
+  animation: marquee-a 18s linear infinite;
+}
+
+/* Second pass: 100% → 0% (follows right behind) */
+.marquee-track--b {
+  animation: marquee-b 18s linear infinite;
+}
+
+/* Second pass: 100% → 0% (follows right behind) */
+.marquee-track--c {
+  animation: marquee-c 18s linear infinite;
+}
+
+/* Elements inside the track */
+.marquee-item { margin-inline: var(--item-gap, 0); }
+.marquee-sep  { margin-inline: var(--sep-gap, 1.75rem); opacity: 1; }
+
+/* Keep height stable (choose one) */
+@supports (height: 1lh) {
+  .marquee-outer { height: 1.4lh; }             /* modern: ~1 line-height tall */
+}
+
+/* Pause on hover (optional) */
+/* .marquee-outer:hover .marquee-track { animation-play-state: paused; } */
+
+/* Keyframes for three tracks */
+@keyframes marquee-a { from { transform: translateX(0%); } to   { transform: translateX(-100%); } }
+@keyframes marquee-b { from { transform: translateX(100%); } to   { transform: translateX(0%); } }
+@keyframes marquee-c { from { transform: translateX(200%); } to   { transform: translateX(100%); } }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+.marquee-sep {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
