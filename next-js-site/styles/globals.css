@@ -117,14 +117,15 @@ h3 { font-weight: 700; font-size: 1.25rem; }
 /* ---------------------------
    Section Layout
 ---------------------------- */
+
+/* MAIN Inner wrapper, controls how each section is distributed across screen */
+.section_content {
+  @apply w-11/12 flex flex-col;
+}
+
 /* Title: brand blue in light mode via --heading; centered by default */
 .section_title {
   @apply text-center;
-}
-
-/* Inner wrapper */
-.section_content {
-  @apply w-4/5 flex flex-col;
 }
 
 /* Base outer container for all sections */

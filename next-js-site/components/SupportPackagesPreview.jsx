@@ -209,62 +209,68 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
 
   return (
     <section aria-labelledby="packages-preview-heading" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div className="mb-6 flex items-baseline justify-between gap-4">
+                {/* Badge, pace section */}
 
-        {/* <h2 id="packages-preview-heading" className="text-white text-2xl font-semibold tracking-tight sm:text-3xl">
-          Compare Support Options at a Glance
-        </h2> */}
-        <Link href="/support-packages" className="text-white text-sm font-medium underline underline-offset-4 hover:opacity-80">
+      <div className="mb-2 items-baseline">
+        <h1 className="bannerTitle text-start sm:text-3xl">Compare Support Options at a Glance</h1>
+        <h2 className="pCentered text-start text-white ">
+            From hourly consultation, essays-only guidance to fully managed application logistics,
+            Ivy Ready offers tailored support for every applicant and family.
+        </h2>
+        {/* <Link href="/support-packages" className="text-white text-sm font-medium underline underline-offset-4 hover:opacity-80">
           See full comparison
-        </Link>
+        </Link> */}
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {packages.map(({ title, pace, highlight, perks, icon: Icon, color, href, badge, slug }) => {
           const theme = colorThemes[color];
           return (
-            <div
-              key={slug}
-              className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg "
-            >
-              <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div key={slug} className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg " >
+            {/* Above div controls outer box containing packages like backg white, padding, etc. */}
+
+            <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full blur-2xl ${theme.bgAccent} ${theme.textAccent}`} />
-              </div>
-
-              <div className="mb-4 flex items-center justify-between">
-                <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${theme.bgAccent} ${theme.textAccent}`}>
-                  <Icon className="h-5 w-5" aria-hidden />
                 </div>
-                <div className="flex items-center gap-2">
-                  {badge ? <Badge>{badge}</Badge> : null}
-                  <PacePill pace={pace} />
-                </div>
-              </div>
 
-              <h3 className="text-ivy-blue text-lg font-semibold leading-tight">{title}</h3>
-              <p className="mt-1 text-sm text-black/70 ">{highlight}</p>
-
-              <ul className="mt-4 space-y-2 text-start">
-                {perks.map((p, i) => (
-                  <Perk key={i}>{p}</Perk>
-                ))}
-              </ul>
-
-              <div className="mt-5 flex items-center justify-between">
-                <div className="flex items-center gap-1 text-sm text-black/60 ">
-                  <Star className="h-4 w-4" aria-hidden /> Unlimited essay editing & support
+                {/* Badge, pace section */}
+                <div className="mb-4 flex items-center justify-between">
+                    <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${theme.bgAccent} ${theme.textAccent}`}>
+                    <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <div className="flex items-center gap-2">
+                    {badge ? <Badge>{badge}</Badge> : null}
+                    <PacePill pace={pace} />
+                    </div>
                 </div>
-                <div className="flex gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setOpenKey(keyMap[slug])}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 focus:outline-none focus:ring-2 ${theme.button}`}
-                    aria-label={`Quick glance: ${title}`}
-                  >
-                    Quick glance
-                  </button>
+
+                {/* Title and highlight */}
+                <h3 className="text-ivy-blue text-lg font-semibold leading-tight">{title}</h3>
+                <p className="mt-1 text-sm text-black/70 ">{highlight}</p>
+
+                {/* Perks checkmarks  */}
+                <ul className="mt-4 space-y-2 text-start">
+                    {perks.map((p, i) => (
+                    <Perk key={i}>{p}</Perk>
+                    ))}
+                </ul>
+
+                <div className="mt-5 flex items-center justify-between">
+                    <div className="flex items-center gap-1 text-sm text-black/60 ">
+                    <Star className="h-4 w-4" aria-hidden /> Unlimited essay editing & support
+                    </div>
+                    
+                    <div className="flex gap-2">
+                        <button
+                            type="button"
+                            onClick={() => setOpenKey(keyMap[slug])}
+                            className={`rounded-full mx-1 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 focus:outline-none focus:ring-2 ${theme.button}`}
+                            aria-label={`Quick glance: ${title}`}
+                        >
+                            Quick glance
+                        </button>
+                    </div>
                 </div>
-              </div>
             </div>
           );
         })}

@@ -13,7 +13,6 @@ export default function Navbar() {
 
 
   return (
-    // "fixed w-full z-20 top-0 left-0" persist navabar on scrolling
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
       {!logoVisibility && (
         <div
@@ -24,7 +23,7 @@ export default function Navbar() {
       )}
 
       <nav
-        className="z-0 navbar pb-3 navbar-expand-md  text-white 
+        className="z-0 navbar navbar-expand-md  text-white 
         font-raleway font-medium navbar-dark "
         data-bs-theme="dark"
       >
@@ -109,14 +108,14 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <OrbitGlowButton
-                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full my-0.5"
+                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full m-0.5"
                       onClick={() => setModalType("INFO")}
                       data-bs-toggle="modal"
                       data-bs-target="#contactModal"
                     >
                       FREE Consultation
                 </OrbitGlowButton>
-                </li>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,28 +1,35 @@
 import Image from "next/image";
 import { Button, ButtonRow } from "@/components/Button";
+import { OrbitGlowButton } from "./OrbitGlowButton";
 
-// oriiginal const
-//   const CoachInfo = ({ setCoach, imgSrc, name, past, description }) => (
-
-export default function CoachInfoSnippet({ setCoach, imgSrc, name, admCollege }) {
+{/* Displays CoachInfoSnippet inside Index */}
+export default function CoachInfoSnippet({ fname, name, imgSrc, admCollege, description }) {
     return (
       
-        <div className="w-full flex flex-row items-center">
-        <Image
-              className="rounded-full shadow-md m-6"
-              src={imgSrc}
-              width={128}
-              height={128}
-              alt=" profile picture"
-            />
-        <div className="flex flex-col">
-            <h2 className="text-center font-bold text-2xl text-ivy-blue mb-2">{name}</h2>
-            <p className="text-ivy-blue text-center font-semibold">{admCollege}</p>
-        </div>
-        <div className="w-full md:w-4/5">
-          
-          </div>
-        </div>
+        <div className="w-1/3 md:w-1/6 flex flex-col items-center mt-4">
+              <Image
+                className="coachProfilePic"
+                src={imgSrc}
+                width={400}
+                height={400}
+                alt="profile picture"
+                loading="lazy"
+              />
+              <span className="pCentered mt-2">{fname} </span>
+              <span className="pCentered !text-[110%] truncate w-20 text-centert">{admCollege}</span>
+        
+              <OrbitGlowButton
+                className="px-1"
+                onClick={() => {
+                  setCoach(name);
+                }}
+                data-bs-toggle="modal"
+                data-bs-target="#coachModal"
+              >
+                Learn More
+              </OrbitGlowButton>
+            </div>
+
       );
     }
 

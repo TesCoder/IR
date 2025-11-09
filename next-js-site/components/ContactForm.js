@@ -344,8 +344,6 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
         </div>
       )}
 
-    
-
       {/* Submit */}
       <div className="col-12">
         <OrbitGlowButton
@@ -370,9 +368,9 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
   // ======= LAYOUT SWITCH =======
   if (type === "FULL") {
     return (
-      <div className="md:grid md:grid-cols-2 gap-8">
+      <div className="md:grid md:grid-cols-2 gap-2">
         {/* Left content panel */}
-        <div className="bg-[#2D5780] text-white rounded-2xl md:rounded-r-none px-8 md:px-12 flex items-center">
+        <div className="bg-[#2D5780] text-white rounded-2xl items-center">
           <div>
 
               {/* short headline always visible */}

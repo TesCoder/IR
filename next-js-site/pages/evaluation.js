@@ -10,7 +10,6 @@ const Goal = ({ title, content }) => (
     <h2 className="pCentered">{title}</h2>
     <p className="pCentered">{content}</p>
 
-    {/* <p className="text-lg text-center my-3 text-gray-700">{content}</p> */}
   </div>
 );
 
@@ -19,9 +18,7 @@ export default function Evaluation() {
   return (
     <>
       <Head>
-        <title>
-          Application Evalutation - Ivy Ready College Admission Consulting
-        </title>
+        <title> Application Evalutation - Ivy Ready College Admission Consulting </title>
         <meta
           name="description"
           content="Ivy Ready offers expert application evaluation services to provide students with personalized feedback and recommendations to enhance their application and increase their chances of success."
@@ -34,7 +31,7 @@ export default function Evaluation() {
         title="Get a one-of-a-kind evaluation!"
       >
          <h1 className="pCentered">
-          Ivy Ready Evaluation is an affordable option for students who would like feedback before official submission. 
+          Ivy Ready Evaluation is an affordable option for students looking for feedback on their appplication before official submission. 
         </h1>
         <Image
           src="/images/sample-evaluation.png"
@@ -52,7 +49,7 @@ export default function Evaluation() {
       </Section>
 
       <Section>
-        <h1 className="text-3xl font-medium border-l-4 pl-5 mb-2">
+        <h1 className="text-3xl font-medium border-l-4 pl-5 mb-2 ">
           Ivy Ready Evaluation should be every applicant’s companion.
         </h1>
         <h2 className="text-right">

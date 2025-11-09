@@ -11,7 +11,7 @@ import CountUp from "../components/CountUp";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import SupportPackagesPreview from "@/components/SupportPackagesPreview";
 import dataset from "@/data/packages-comparison.json";
-
+import CoachInfoSnippet from "@/components/CoachInfoSnippet";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -24,32 +24,6 @@ export default function Home() {
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
 
-  const Profile = ({ fname, name, imgSrc, admCollege, description }) => (
-    <div className="w-1/3 md:w-1/6 flex flex-col items-center mt-4">
-      <Image
-        className="coachProfilePic"
-        src={imgSrc}
-        width={400}
-        height={400}
-        alt="profile picture"
-        loading="lazy"
-      />
-      <span className="pCentered mt-2">{fname} </span>
-      <span className="pCentered !text-[110%] truncate w-20 text-centert">{admCollege}</span>
-
-      <OrbitGlowButton
-        className=""
-        onClick={() => {
-          setCoach(name);
-        }}
-        data-bs-toggle="modal"
-        data-bs-target="#coachModal"
-      >
-        Learn More
-      </OrbitGlowButton>
-      
-    </div>
-  );
 
   return (
     <>
@@ -271,7 +245,7 @@ export default function Home() {
         <div className="flex justify-center my-4 flex-wrap md:flex-nowrap overflow-visible">
           {members.map(
             ({ fname, name, imgSrc, admCollege, description }, i) => (
-              <Profile
+              <CoachInfoSnippet
                 key={i}
                 fname={fname}
                 name={name}
@@ -283,13 +257,13 @@ export default function Home() {
           )}
         </div>
 
-        <p className="pCentered">
+        <p className="pCentered m-2">
           Our college counselors are located in cities across the U.S. Contact
           us if a coach with the particular background you seek is not listed.
           We are dedicated to finding the perfect coach for you.
         </p>
 
-        <OrbitGlowButton className="text-center" onClick={() => window.open("/about-us#top", "_self")}>
+        <OrbitGlowButton className="" onClick={() => window.open("/about-us#top", "_self")}>
           Meet Your Admissions Coaches
         </OrbitGlowButton> 
 
@@ -307,14 +281,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/10 "></div>
 
           {/* Content layer */}
-          <div className="relative m-auto text-center flex flex-col items-center justify-center h-full px-6">
-            {/* <h1 className="bannerTitle">Compare Support Options at a Glance</h1> */}
-            <h1 className="text-white text-2xl font-semibold tracking-tight sm:text-3xl">Compare Support Options at a Glance</h1>
-
-            <h2 className="bannerSubtitle mx-20 pb-10">
-              From hourly consultation, essays-only guidance to fully managed application logistics,
-              Ivy Ready offers tailored support for every applicant and family.
-            </h2>
+          <div className="relative m-auto text-center">
 
             <SupportPackagesPreview data={dataset} />
 
