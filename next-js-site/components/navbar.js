@@ -49,8 +49,13 @@ export default function Navbar() {
           >
             <ul className="navbar-nav text-white md:space-x-5 -mt-20 md:-mb-6">
               <li className="nav-item">
+                <Link className="nav-link text-white hover:opacity-75" href="/#">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/support-packages">
-                  Admission Support
+                  Packages
                 </Link>
               </li>
               <li className="nav-item dropdown">
