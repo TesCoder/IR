@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Ivy Ready Application Support Packages",
+    "columns": [
+      { "key": "essays",  "label": "Essays-only Support", "pace": "Student-paced" },
+      { "key": "comp",    "label": "Comprehensive Support", "pace": "Student-paced" },
+      { "key": "compLog", "label": "Comprehensive Support with Logistics", "pace": "Consultant-paced" }
+    ]
+  },
+  "rows": [
+    { "id": "former-ao", "label": "Work Directly with a Former Admission Officer", "essays": true, "comp": true, "compLog": true },
+    { "id": "polished-essays", "label": "Polished, Compelling Essays", "essays": true, "comp": true, "compLog": true },
+    { "id": "unlimited-support", "label": "Unlimited Admission Support", "essays": true, "comp": true, "compLog": true },
+    { "id": "school-selection", "label": "Counseling with School Selection", "essays": false, "comp": true, "compLog": true },
+    { "id": "rec-letters", "label": "Guidance with Teacher Selection for Recommendation Letters", "essays": false, "comp": true, "compLog": true },
+    { "id": "profile-packaging", "label": "Profile", "note": "Packaging", "essays": false, "comp": true, "compLog": true },
+    { "id": "resume-review", "label": "Review and Markup of Resume/Extracurricular Activities List", "essays": false, "comp": true, "compLog": true },
+    { "id": "family-background", "label": "Enhancement of Family Background Presentation", "essays": false, "comp": false, "compLog": true },
+    { "id": "institutional-ties", "label": "Capitalize on Institutional Ties", "essays": false, "comp": true, "compLog": true },
+    { "id": "unique-narrative", "label": "Insights for Crafting a Unique, Compelling Narrative", "essays": false, "comp": true, "compLog": true },
+    { "id": "overarching-story", "label": "Advice on Designing the Overarching Story", "essays": false, "comp": true, "compLog": true },
+    { "id": "special-circumstances", "label": "Instructions on Addressing Special Circumstances", "essays": false, "comp": true, "compLog": true },
+    { "id": "disclosure-consult", "label": "Consultation on Information to Disclose (or suppress)", "essays": false, "comp": true, "compLog": true },
+    { "id": "interview-coaching", "label": "Admission Interview Coaching", "note": "(by request)", "essays": false, "comp": true, "compLog": true },
+    { "id": "outside-essays", "label": "Support with Inquiry Outside of Essays", "essays": false, "comp": true, "compLog": true },
+    { "id": "early-college", "label": "Early College Counseling", "essays": false, "comp": true, "compLog": true, "highlight": true },
+    { "id": "coach-unexpected", "label": "Coach Available for the Unexpected", "essays": false, "comp": false, "compLog": true },
+    { "id": "timeline", "label": "Coach Prepares Personalized Application Timeline for Applicant", "essays": false, "comp": false, "compLog": true },
+    { "id": "followups", "label": "Coach Conducts Follow-ups and Reminders", "essays": false, "comp": false, "compLog": true }
+  ]
+}

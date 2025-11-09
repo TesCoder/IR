@@ -122,7 +122,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div id="logoModifier" className="z-40 md:hidden ml-20 bg-ivy-red">
+      <div id="logoModifier" className="z-50 md:hidden ml-20 bg-ivy-red">
         <LogoProjector />
       </div>
 

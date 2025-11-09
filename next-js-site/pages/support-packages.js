@@ -8,6 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Modal from "@/components/Modal";
 import { useState } from "react";
+import data from "@/data/packages-comparison.json";
+import PackagesComparison from "@/components/PackagesComparison";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -61,6 +63,10 @@ export default function SupportPackages() {
         />
          
       </Section>
+
+      {/* <section id="comparison" className="mx-auto max-w-6xl px-4 py-8">
+        <PackagesComparison data={data} />
+      </section> */}
 
       <ButtonRow darkBg setModalType={setModalType} />
 

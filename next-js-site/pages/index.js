@@ -9,6 +9,8 @@ import { useState } from "react";
 import { members } from "../components/membersList";
 import CountUp from "../components/CountUp";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
+import SupportPackagesPreview from "@/components/SupportPackagesPreview";
+import dataset from "@/data/packages-comparison.json";
 
 
 const HyperLink = ({ href, children }) => (
@@ -295,32 +297,39 @@ export default function Home() {
 
 
 
-      <section>
+      <section >
         {/* Hero Section */}
-        <div className="heroFrame bg-5ezZg4xRm1 my-1 relative overflow-hidden">
+        <div className="heroFrame bg-5ezZg4xRm1 my-1 relative overflow-hidden ">
           {/* Tint layer (between image and overlay) */}
           <div className="absolute inset-0 bg-[rgba(45,87,128,0.35)] mix-blend-multiply z-0"></div>
 
           {/* Overlay layer (light black veil) */}
-          <div className="absolute inset-0 bg-black/10 z-10"></div>
+          <div className="absolute inset-0 bg-black/10 "></div>
 
           {/* Content layer */}
-          <div className="relative z-20 m-auto text-center flex flex-col items-center justify-center h-full px-6">
-            <h1 className="bannerTitle">Compare Support Options</h1>
+          <div className="relative m-auto text-center flex flex-col items-center justify-center h-full px-6">
+            {/* <h1 className="bannerTitle">Compare Support Options at a Glance</h1> */}
+            <h1 className="text-white text-2xl font-semibold tracking-tight sm:text-3xl">Compare Support Options at a Glance</h1>
+
             <h2 className="bannerSubtitle mx-20 pb-10">
               From hourly consultation, essays-only guidance to fully managed application logistics,
               Ivy Ready offers tailored support for every applicant and family.
             </h2>
 
+            <SupportPackagesPreview data={dataset} />
+
             <OrbitGlowButton
-              className=""
               onClick={() => window.open("/support-packages", "_self")}
             >
               Compare Packages
             </OrbitGlowButton>
+
+
+            <div className="mb-10"></div>
           </div>
         </div>
       </section>
+
 
       <Section darkBg>
           <ContactForm type="FULL" />
