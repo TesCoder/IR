@@ -13,6 +13,12 @@ import SupportPackagesPreview from "@/components/SupportPackagesPreview";
 import dataset from "@/data/packages-comparison.json";
 import CoachInfoSnippet from "@/components/CoachInfoSnippet";
 
+import Testimonials_Prev from "@/components/testimonials_current";
+
+import Testimonials from "@/components/Testimonials_Snippets";  // ✅ not the page
+import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // local file
+
+
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
     {...children}
@@ -126,77 +132,48 @@ export default function Home() {
                 <CountUp end={4.8} />
                 
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-[#B91C1C]">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-10 h-10"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
-                    fill="#ffffff"
-                  />
-                </svg>
-              </span>
-
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-10 h-10"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                      fill="#ffffff"
+                    />
+                  </svg>
+                </span>
 
               </h2>
             </div>
+            
             <div>
             <p className="h2StatSubtitle">Avg Rating from Families</p>
             </div>
           </div>
-          
         </div>
-
       </Section>
+
 
       {/* Testimonials new */}
       <span className="" id="testimonials-section"></span>
-      <Section title="Why Families Trust Ivy Ready" darkBg centerContent>
+      
+      <Section  darkBg centerContent>
+        <h2 className=""> {/* text-3xl md:text-4xl font-extrabold leading-tights*/}
+          Families love how Ivy Ready delivers clarity, structure, and results.
+        </h2>
 
-        <p className="pCentered ">
+        {/* title="Families love how Ivy Ready delivers clarity, structure, and results" */}
+        <Testimonials testimonials={testimonialsData} />
+        
+        {/* <p className="pCentered m-2 px-14">
           Families trust Ivy Ready for personalized coaching and peace of mind. Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
-        </p>
+        </p> */}
 
-        <div
-          id="testimonials-carousel"
-          className="carousel carousel-fade"
-          data-bs-ride="carousel"
-          data-bs-interval="5000"
-          data-bs-pause="hover"
-        >
-          <div className="carousel-inner">
-            {[
-              { src: "/images/testimonials/A.png", alt: "Amazing evaluation feedback" },
-              { src: "/images/testimonials/B.png", alt: "Great firm recognition" },
-              { src: "/images/testimonials/C.png", alt: "Spoke with former Ivy League counselor" },
-              { src: "/images/testimonials/D.png", alt: "Inspired to apply to Harvard" },
-              { src: "/images/testimonials/E.png", alt: "Thankful for Ivy Ready and Princeton" },
-              { src: "/images/testimonials/F.png", alt: "Admitted to UPenn, class of 2020" },
-              { src: "/images/testimonials/H.png", alt: "Tutor recommends Ivy Ready to students" },
-              { src: "/images/testimonials/I.png", alt: "Guidance office support for applicants" },
-              { src: "/images/testimonials/J.png", alt: "Regret not finding Ivy Ready sooner" },
-            ].map((item, index) => (
-              <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
-                <Image
-                  src={item.src}
-                  width={600}
-                  height={420}
-                  className="d-block mx-auto rounded-md shadow-lg"
-                  alt={item.alt}
-                  loading="lazy"
-                />
-                {/* ✅ Keep your pCentered style but use <div> or <span> */}
-                <div className="pCentered mt-4 text-base text-gray-600 text-center italic opacity-90 max-w-xl mx-auto">
-                  {item.alt}
-                </div>
-              </div>
-            ))}
+        <div className="mt-4"></div>
 
-          </div>
-        </div>
-
+        {/* <Testimonials_Prev/> */}
         <OrbitGlowButton
             onClick={() => setModalType("CALL")}
             data-bs-toggle="modal"
@@ -269,11 +246,9 @@ export default function Home() {
 
       </Section>
 
-
-
       <section >
         {/* Hero Section */}
-        <div className="heroFrame bg-5ezZg4xRm1 my-1 relative overflow-hidden ">
+        <div className="heroFrame bg-5ezZg4xRm1-hero my-1 relative overflow-hidden ">
           {/* Tint layer (between image and overlay) */}
           <div className="absolute inset-0 bg-[rgba(45,87,128,0.35)] mix-blend-multiply z-0"></div>
 
@@ -296,8 +271,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
+ 
       <Section darkBg>
           <ContactForm type="FULL" />
       </Section>

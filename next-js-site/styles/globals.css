@@ -351,9 +351,9 @@ input[type="tel"]:focus {
   position: relative;
   display: flex;
   background-size: cover;
-  background-position: center top 20%;
+  background-position: center top 50%;
   padding-top: 5rem;
-  min-height: 600px;
+  min-height: 420px;
 }
 
 .bannerTitle {

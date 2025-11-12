@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Button, ButtonRow } from "@/components/Button";
 import { OrbitGlowButton } from "./OrbitGlowButton";
 
-
 {/* Displays CoachInfo inside AboutUs */}
 export default function CoachInfo({ setCoach, imgSrc, fname, past, description }) {
     return (

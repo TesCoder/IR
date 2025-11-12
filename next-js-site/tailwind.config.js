@@ -33,8 +33,9 @@ module.exports = {
         'about-hero': "url('/images/about-banner.jpg')",
         'hourly-hero': "url('/images/hourly/hourlyconsultation.jpg')",
 
-        '5ezZg4xRm1': "url('/images/home_section_images/5ezZg4xRm1.jpg')",
+        '5ezZg4xRm1-hero': "url('/images/home_section_images/5ezZg4xRm1.jpg')",
 
+        'testimonial-hero': "url('/images/testimonials_images/bkc_2f16iqi923ybhl1anjs.jpg')",
 
       },
       listStyleType: {

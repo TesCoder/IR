@@ -16,10 +16,13 @@ export default function HourlyConsultation() {
       {/* "banner" */}
 
        {/* Hero Section */}
-      <div className="heroFrame bg-hourly-hero">
+      <div className="heroFrame bg-hourly-hero" style={{ backgroundPosition: 'center 35%' }}
+>
 
         {/* Content layer */}
-        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
+        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full"
+
+        >
           <h1 className="bannerTitle" > Hourly Consultation </h1>
           <h2 className="bannerSubtitle" > An excellent alterntive to long-term packages.</h2>
         </div>
