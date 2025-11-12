@@ -111,7 +111,7 @@ export default function Home() {
 
        <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
-              <h2 className="h2StatTitle"><CountUp end={92} suffix="%" /></h2>
+              <h2 className="h2StatTitle"><CountUp end={98} suffix="%" /></h2>
               <p className="h2StatSubtitle">Accepted to Top 3 Choices</p>
           </div>
 

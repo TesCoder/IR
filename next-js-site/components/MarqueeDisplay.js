@@ -6,7 +6,7 @@ const ITEMS = ["Ivy Ready", "Dream it", "Reach it"];
 export default function MarqueeDisplay() {
   return (
     <div className="marquee-outer m-1">
-      <div className="marquee-track marquee-track--a m-3">
+      <div className="marquee-track marquee-track--a my-3">
         {ITEMS.map((t, i) => (
           <Fragment key={`a-${i}`}>
             <span className="marquee-item pCentered">{t}</span>
@@ -15,7 +15,7 @@ export default function MarqueeDisplay() {
         ))}
       </div>
 
-      <div className="marquee-track marquee-track--b m-3" aria-hidden="true">
+      <div className="marquee-track marquee-track--b my-3" aria-hidden="true">
         {ITEMS.map((t, i) => (
           <Fragment key={`b-${i}`}>
             <span className="marquee-item pCentered">{t}</span>
@@ -24,7 +24,7 @@ export default function MarqueeDisplay() {
         ))}
       </div>
 
-      <div className="marquee-track marquee-track--c m-3" aria-hidden="true">
+      <div className="marquee-track marquee-track--c my-3" aria-hidden="true">
         {ITEMS.map((t, i) => (
           <Fragment key={`c-${i}`}>
             <span className="marquee-item pCentered">{t}</span>
