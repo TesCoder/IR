@@ -136,7 +136,7 @@ function TestimonialCard({ item }) {
 
           <div className="ml-10 mt-6 text-sm md:text-base">
             <div className="font-semibold">
-              {item.fname} {item.lname}
+              {item.fname} {item.lname.charAt(0)}.
               {item.type ? `, ${capitalize(item.type)}` : ""}
             </div>
             <div className="text-white/80">
