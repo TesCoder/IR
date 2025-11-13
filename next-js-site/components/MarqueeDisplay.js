@@ -5,7 +5,7 @@ const ITEMS = ["Ivy Ready", "Dream it", "Reach it"];
 
 export default function MarqueeDisplay() {
   return (
-    <div className="marquee-outer m-1">
+    <div className="marquee-outer m-2">
       <div className="marquee-track marquee-track--a my-3">
         {ITEMS.map((t, i) => (
           <Fragment key={`a-${i}`}>

@@ -12,11 +12,12 @@ import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import SupportPackagesPreview from "@/components/SupportPackagesPreview";
 import dataset from "@/data/packages-comparison.json";
 import CoachInfoSnippet from "@/components/CoachInfoSnippet";
+import { motion } from "framer-motion";
 
-import Testimonials_Prev from "@/components/testimonials_current";
+// import Testimonials_Prev from "@/components/testimonials_current";
 
-import Testimonials from "@/components/Testimonials_Snippets";  // ✅ not the page
-import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // local file
+import Testimonials from "@/components/Testimonials_Snippets";  // new testimonial snippet
+import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data
 
 
 const HyperLink = ({ href, children }) => (
@@ -95,8 +96,17 @@ export default function Home() {
 
         {/* Content layer */}
         <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
-          <h1 className="bannerTitle">Ivy Ready College Consulting</h1>
-          <h2 className="bannerSubtitle">
+          {/* <h1 className="bannerTitle">Ivy Ready College Consulting</h1> */}
+          <motion.h1
+            className="bannerTitle"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
+            Ivy Ready College Consulting
+          </motion.h1>
+
+          <h2 className="bannerSubtitle mb-10">
             Personalized admissions coaching by former admissions officers.
           </h2>
 
