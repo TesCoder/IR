@@ -130,15 +130,15 @@ function QuickGlanceModal({ pkgKey, dataset, onClose }) {
       >
         {/* Header */}
         <div className="border-b border-zinc-200 p-4 ">
-          <h3 id="quickglance-title" className="text-lg font-semibold">
+          <h3 id="quickglance-title" className="text-lg font-semibold text-ivy-blue">
             {col?.label || "Package"} — Quick glance
           </h3>
           {col?.pace ? (
-            <p className="mt-1 text-sm text-zinc-600 ">
+            <p className="mt-1 text-sm text-black ">
               Pace: {col.pace}
             </p>
           ) : null}
-          <p className="mt-1 text-xs text-zinc-500 ">
+          <p className="mt-1 text-xs text-black ">
             {includedCount} included features from the full comparison.
           </p>
         </div>
@@ -151,7 +151,7 @@ function QuickGlanceModal({ pkgKey, dataset, onClose }) {
                 ✓
               </span>
               <div>
-                <span className="font-medium">{r.label}</span>
+                <span className="font-medium text-ivy-blue">{r.label}</span>
                 {r.note ? <em className="ml-1 opacity-80">{r.note}</em> : null}
               </div>
             </li>
@@ -217,11 +217,11 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
         <h2 className="pCentered text-start text-white">
           From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family. 
           We also offer{" "}
-          <Link href="/hourly-consultation" className="underline text-ivy-gold hover:text-white transition-colors">
+          <Link href="/hourly-consultation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Hourly Consultation
           </Link>{" "}
           and{" "}
-          <Link href="/application-evaluation" className="underline text-ivy-gold hover:text-white transition-colors">
+          <Link href="/application-evaluation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Application Evaluation
           </Link>.
         </h2>
