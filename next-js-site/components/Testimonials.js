@@ -1,5 +1,7 @@
 // components/Testimonials.js
 // component to control testimonials display. Builds each component and sends it as Props to // pages/testimonials.js
+// note testimonials is encoded/protected for rendering
+
 import Image from "next/image";
 import { Button, ButtonRow } from "@/components/Button";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
@@ -15,17 +17,13 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
 
     <>
       <Head>
-        <title>About Us - Ivy Ready College Admission Consulting</title>
+        <title>Testimonials</title>
         <meta
           name="description"
-          content="Ivy Ready's team is made up of former admission officers and 
-          graduates from top schools who have extensive experience in supporting students 
-          with college planning and admission. Our mission is to provide a personalized admission 
-          strategy for each student."
+          content="Families love how Ivy Ready delivers clarity, structure, and results."
         />
       </Head>
       
-
       {/* Hero Section */}
       <div className="heroFrame bg-testimonial-hero relative overflow-hidden" style={{ backgroundPosition: 'center 5%' }}  >
         {/* Tint layer (between image and overlay) */}
@@ -70,7 +68,7 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
                   <div className="relative size-48 rounded-full overflow-hidden shrink-0">
                     <Image
                       src={t.imgSrc}
-                      alt={`${t.fname} ${t.lname}`}
+                      alt={`${t.fname} ${t.lname.charAt(0)}.`}
                       width={384}           // ≥ 2× of 192 (or 576 for extra cushion)
                       height={384}
                       sizes="192px"
@@ -80,38 +78,10 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
                     />
                   </div>
 
-                
-{/* 
-                  <div className="relative size-40 md:size-48 rounded-full overflow-hidden">
-                    <Image
-                      src={t.imgSrc}            // or item.imgSrc
-                      alt={`${t.fname} ${t.lname}`}
-                      width={512}               // hi-res intrinsic (gives 1024px @2x)
-                      height={512}
-                      quality={92}
-                      className="h-full w-full object-cover"  // fill the wrapper
-                      priority
-                    />
-                  </div>
-
-                  <div className="relative size-40 md:size-48 rounded-full overflow-hidden">
-                    <Image
-                      src={t.imgSrc}
-                      alt={`${t.fname} ${t.lname}`}
-                      width={576}           // 3× of 192 (nice cushion); at least 384 (2×) also OK
-                      height={576}
-                      sizes="(min-width: 768px) 192px, 160px" // real on-screen size per breakpoint
-                      quality={92}
-                      className="h-full w-full object-cover"  // fill the circle, no stretch
-                      priority
-                    />
-                  </div> */}
-
-
-
+                  {/* Controls testimonial_text and stars*/}
                   <div className="w-full md:w-3/4 md:pl-6">
                     {/* Stars (5 total) */}
-                    <div className="flex space-x-5">
+                    <div className="flex space-x-5 pb-2">
                       {[...Array(5)].map((_, i) => (
                         <span
                           key={i}
@@ -132,10 +102,9 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
                       ))}
                     </div>
 
-
                     <p className="italic text-gray-700 mb-3">“{t.testimonial_text}”</p>
                     <h3 className="font-bold text-xl text-ivy-blue">
-                      {t.fname} {t.lname}
+                      {t.fname} {t.lname.charAt(0)}.
                     </h3>
                     <p className="text-gray-600 text-sm">
                       {t.high_school && `${t.high_school} → `}
@@ -151,7 +120,6 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
       </Section>
 
       
-
        <Section darkBg>
           <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6 text-center hover:scale-[1.02]">
             <h2 className="text-white text-3xl mb-4 ">
@@ -170,13 +138,6 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
           </div>
       </Section>
 
-
-
-   
-
-
     </>
-
-    
   );
 }

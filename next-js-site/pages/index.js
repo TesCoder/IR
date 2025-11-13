@@ -13,11 +13,9 @@ import SupportPackagesPreview from "@/components/SupportPackagesPreview";
 import dataset from "@/data/packages-comparison.json";
 import CoachInfoSnippet from "@/components/CoachInfoSnippet";
 import { motion } from "framer-motion";
-
-// import Testimonials_Prev from "@/components/testimonials_current";
-
 import Testimonials from "@/components/Testimonials_Snippets";  // new testimonial snippet
 import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data
+import SteppedRoadmap from "@/components/SteppedRoadmap";
 
 
 const HyperLink = ({ href, children }) => (
@@ -164,7 +162,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
+ 
 
       {/* Testimonials new */}
       <span className="" id="testimonials-section"></span>
@@ -173,16 +171,9 @@ export default function Home() {
         <h2 className=""> {/* text-3xl md:text-4xl font-extrabold leading-tights*/}
           Families love how Ivy Ready delivers clarity, structure, and results.
         </h2>
-
         {/* title="Families love how Ivy Ready delivers clarity, structure, and results" */}
         <Testimonials testimonials={testimonialsData} />
-        
-        {/* <p className="pCentered m-2 px-14">
-          Families trust Ivy Ready for personalized coaching and peace of mind. Hear directly from families, students, and professionals who’ve worked with Ivy Ready.
-        </p> */}
-
         <div className="mt-4"></div>
-
         {/* <Testimonials_Prev/> */}
         <OrbitGlowButton
             onClick={() => setModalType("CALL")}
@@ -227,7 +218,7 @@ export default function Home() {
         <p className="pCentered">
           Our team is comprised of former admission officers with official
           admission experience and expertise supporting students with the
-          college admission process.{" "}
+          college admission process. Team averages 100 years on admissions committees.{" "}
         </p>
         <div className="flex justify-center my-4 flex-wrap md:flex-nowrap overflow-visible">
           {members.map(
@@ -253,8 +244,14 @@ export default function Home() {
         <OrbitGlowButton className="" onClick={() => window.open("/about-us#top", "_self")}>
           Meet Your Admissions Coaches
         </OrbitGlowButton> 
-
       </Section>
+      
+
+      <Section >
+        <SteppedRoadmap onCtaClick={() => setIntroModalOpen(true)} /> 
+      </Section>
+
+      {/* Compare Support Options at a Glance */}
 
       <section >
         {/* Hero Section */}

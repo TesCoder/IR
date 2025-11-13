@@ -1,5 +1,6 @@
 // pages/testimonials.js
 // actual page called, runs getServerSideProps to gather props, then renders each testimonial on page
+// note testimonials is encoded/protected for rendering, must have key to work: http://localhost:3000/testimonials?w=
 
 import fs from "node:fs/promises";
 import path from "node:path";

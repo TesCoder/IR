@@ -391,7 +391,6 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
                   <li><p className="pCentered text-start">✓ Building a balanced college list</p></li>
                   <li><p className="pCentered text-start">✓ Crafting authentic and persuasive essays</p></li>
                   <li><p className="pCentered text-start">✓ Completing strong, on-time applications</p></li>
-                  <li><p className="pCentered text-start">✓ Applying strategically for scholarships and aid</p></li>
                 </ul>
                 <p className="pCentered text-start mt-6 opacity-95 leading-relaxed">
                   Ivy Ready offers personalized, expert guidance from former admissions officers.

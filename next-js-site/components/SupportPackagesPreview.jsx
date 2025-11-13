@@ -217,11 +217,11 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
         <h2 className="pCentered text-start text-white">
           From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family. 
           We also offer{" "}
-          <Link href="/hourly-consultation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
+          <Link href="services/hourly-consultation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Hourly Consultation
           </Link>{" "}
           and{" "}
-          <Link href="/application-evaluation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
+          <Link href="services/application-evaluation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Application Evaluation
           </Link>.
         </h2>

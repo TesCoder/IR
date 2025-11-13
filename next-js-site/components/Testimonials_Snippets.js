@@ -1,5 +1,6 @@
 // components/Testimonials_Snippets.js
 // displayed on home page
+// note testimonials is encoded/protected for rendering
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
@@ -127,13 +128,42 @@ function TestimonialCard({ item }) {
   return (
     <article className="relative mx-auto w-full rounded-2xl bg-gradient-to-br from-[#167391] to-[#0b6b8e] shadow-2xl ring-1 ring-black/5 text-white">
       <div className="flex flex-col md:flex-row gap-8 p-8 md:p-10 ">
-        {/* left: quote */}
+        
+        {/* left side of card */}
         <div className="md:w-3/4">
+          {/* large quotation */}
           <QuoteMark />
-          <p className="text-white ml-10 m-4 text-lg md:text-xl leading-relaxed">
+
+          {/* Stars (5 total) */}
+          <div className="flex space-x-5 ml-40">
+            {[...Array(5)].map((_, i) => (
+              <span
+                key={i}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-[#B91C1C]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-10 h-10"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </span>
+            ))}
+            </div>
+
+
+          {/*  testimonial_text */}
+          <p className="text-white my-4 ml-10 text-lg md:text-xl leading-relaxed">
             “{item.testimonial_text}”
           </p>
 
+
+          {/*  name and school */}
           <div className="ml-10 mt-6 text-sm md:text-base">
             <div className="font-semibold">
               {item.fname} {item.lname.charAt(0)}.
@@ -156,14 +186,14 @@ function TestimonialCard({ item }) {
           </div> */}
         </div>
 
-        {/* right: portrait */}
+        {/* right side of card: portrait */}
         <div className="md:w-1/4 mx-auto md:mx-0 flex items-center justify-center">
           <div className="relative h-40 w-40 md:h-48 md:w-48">
             <div className="absolute -inset-1 rounded-full bg-white/10 blur-xl" />
               <div className="relative size-48 rounded-full overflow-hidden shrink-0">
                 <Image
                 src={item.imgSrc}
-                alt={`${item.fname} ${item.lname}`}
+                alt={`${item.fname} ${item.lname}.`}
                 width={384}           // ≥ 2× of 192 (or 576 for extra cushion)
                 height={384}
                 sizes="192px"

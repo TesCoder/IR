@@ -54,7 +54,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-white hover:opacity-75" href="/support-packages">
+                <Link className="nav-link text-white hover:opacity-75" href="services/support-packages">
                   Packages
                 </Link>
               </li>
@@ -72,7 +72,15 @@ export default function Navbar() {
                   <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="/hourly-consultation"
+                      href="services/early-planning"
+                    >
+                      Early Planning
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="services/hourly-consultation"
                     >
                       Hourly Consultation
                     </Link>
@@ -80,7 +88,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="/application-evaluation"
+                      href="services/application-evaluation"
                     >
                       Application Evaluation
                     </Link>
@@ -98,7 +106,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
-                  href="/#testimonials-section"
+                  href="/testimonials?w=jmd1720ly0rpo2xf20pz-x2f16iqi923ybhl1anjs"
                 >
                   Testimonials
                 </Link>
