@@ -214,10 +214,18 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
 
       <div className="mb-2 items-baseline">
         <h1 className="bannerTitle text-start sm:text-3xl">Compare Support Options at a Glance</h1>
-        <h2 className="pCentered text-start text-white ">
-            From hourly consultation, essays-only guidance to fully managed application logistics,
-            Ivy Ready offers tailored support for every applicant and family.
+        <h2 className="pCentered text-start text-white">
+          From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family. 
+          We also offer{" "}
+          <Link href="/hourly-consultation" className="underline text-ivy-gold hover:text-white transition-colors">
+            Hourly Consultation
+          </Link>{" "}
+          and{" "}
+          <Link href="/application-evaluation" className="underline text-ivy-gold hover:text-white transition-colors">
+            Application Evaluation
+          </Link>.
         </h2>
+
         {/* <Link href="/support-packages" className="text-white text-sm font-medium underline underline-offset-4 hover:opacity-80">
           See full comparison
         </Link> */}

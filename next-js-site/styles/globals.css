@@ -130,7 +130,7 @@ h3 { font-weight: 700; font-size: 1.25rem; }
 
 /* Base outer container for all sections */
 .section {
-  @apply flex flex-col items-center py-14 transition-transform duration-300 hover:scale-[1.02];
+  @apply flex flex-col items-center py-14 transition-transform duration-300 ; /* hover:scale-[1.02] */
 }
 
 /* Dark background section + heading/body overrides */

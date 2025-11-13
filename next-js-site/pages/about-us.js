@@ -118,22 +118,22 @@ export default function About() {
       {/* <ButtonRow setModalType={setModalType}  /> */}
 
        <Section darkBg>
-  <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6 text-center hover:scale-[1.02]">
-    <h2 className="text-white text-3xl mb-4 ">
-      Ready to Begin?
-    </h2>
-    <p className="pCentered text-white mb-6 ">
-      Take the first step toward your college success story with a free consultation from our expert admissions team.
-    </p>
-   <Button
-      onClick={() => setModalType("INFO")}
-      data-bs-toggle="modal"
-      data-bs-target="#contactModal"
-    >
-      Start Your Application Plan
-    </Button>
-  </div>
-</Section>
+        <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6 text-center hover:scale-[1.02]">
+          <h2 className="text-white text-3xl mb-4 ">
+            Ready to Begin?
+          </h2>
+          <p className="pCentered text-white mb-6 ">
+            Take the first step toward your college success story with a free consultation from our expert admissions team.
+          </p>
+        <Button
+            onClick={() => setModalType("INFO")}
+            data-bs-toggle="modal"
+            data-bs-target="#contactModal"
+          >
+            Start Your Application Plan
+          </Button>
+        </div>
+      </Section>
 
     </>
      

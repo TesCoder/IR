@@ -41,9 +41,7 @@ export default function Evaluation() {
         />
         <p className="pCentered">
           Ivy Ready Evaluation makes it easy to identify key areas of
-          improvement. While supplemental essays are unique to each school, a
-          large percentage of the application is sent to many schools. Thus,
-          insights gained from a single evaluation can help students find ways
+          improvement before official submission. Insights gained from a single evaluation can help students find ways
           to improve their likelihood of admission to multiple schools.
         </p>
       </Section>
@@ -70,9 +68,7 @@ export default function Evaluation() {
       <Section centerContent darkBg>
         <h2 className="">Overview</h2>
         <p className="pCentered">
-          Ivy Ready Evaluation is a unique opportunity for prospective
-          applicants to enhance their college applications with the feedback of
-          former admissions officers. While Ivy Ready does offer comprehensive
+          While Ivy Ready does offer comprehensive
           Application Support Packages, this evaluation is available for
           students who prefer to work on their application independently but
           receive feedback before official submission.
@@ -80,30 +76,27 @@ export default function Evaluation() {
 
         <h2 className="font-semibold text-2xl text-center">How it Works</h2>
         <p className="pCentered">
-          An evaluation report is included. It gives you an unbiased assessment
-          for each key area utilizing a rating scale (more on this is below.) In
-          addition, a phone discussion session is included to review the
-          assessment and answer any questions you may have.
+          After submitting your colleage application, a former admission officer will review and provide you an assessment for each key area and answer any questions you may have.
         </p>
 
-        <h2 className="font-semibold text-2xl text-center">
+        {/* <h2 className="font-semibold text-2xl text-center">
           Evaluation Package Components:
-        </h2>
-        <p className="pCentered">
+        </h2> */}
+        {/* <p className="pCentered">
           Ivy Ready Evaluation is a unique opportunity for prospective
           applicants to enhance their college applications with the feedback of
           former admissions officers. While Ivy Ready does offer comprehensive
           Application Support Packages, this evaluation is available for
           students who prefer to work on their application independently but
           receive feedback before official submission.
-        </p>
+        </p> */}
       </Section>
 
       <Section centerContent title="Understanding the Evaluation">
         <p className="pCentered mb-4">
           In addition to highlighting the primary strength, setback, and
           potential area of improvement of the applicant, the evaluation
-          determines the competitiveness of high key areas using a rating scale.
+          indicates the competitiveness of high key areas using a rating scale.
         </p>
         <Image
           src="/images/rating-scale.png"
@@ -168,22 +161,22 @@ export default function Evaluation() {
           alt="Scale"
         /> */}
         <h1 className="font-medium md:font-light text-2xl md:text-4xl text-ivy-blue mb-3">
-          Choose from Single-School Evaluation or Multiple-School Package
+          Learn More
         </h1>
 
         <p className="mb-2 text-lg text-gray-700">
           <strong>Single-School Evaluation</strong> includes a holistic review
-          of the core application and supplemental essays to one school. The
-          evaluation report will highlight key areas of improvement and a
-          30-minute phone discussion is included.
+          of the core application and supplemental essays to one school. 
         </p>
         <p className="mb-2 text-lg text-gray-700">
           <strong>Multiple-School Evaluation</strong> includes a holistic review
           of the core application and supplemental essays up to five schools.
-          (Discounted rate is offered for this option.)
         </p>
         <ContactForm type="EVAL" />
       </Section>
+
+
+      
       <div> 
        <a href="#" className="" onClick={()=>gaEventTracker('call')}>-</a>
       </div>

@@ -42,9 +42,9 @@ export default function Testimonials({ testimonials = [] }) {
   const STACK_SIZE = Math.min(3, count - 1);
 
   return (
-    <section className="relative isolate overflow-hidden bg-ivy-blue">
+    <section className="relative isolate overflow-hidden bg-ivy-blue flex flex-col w-11/12 ">
       {/* page header */}
-      <div className=" max-w-6xl px-2 pt-8 sm:mx-8 text-center text-white"> {/* max-w-6xl px-4 pt-16 text-center text-white */}
+      <div className="max-w-6xl px-2 pt-8 sm:mx-8 text-center text-white"> {/* max-w-6xl px-4 pt-16 text-center text-white */}
         
         {/* <button
           className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/20 hover:bg-white/20 transition"
@@ -56,10 +56,10 @@ export default function Testimonials({ testimonials = [] }) {
       </div>
 
       {/* carousel region */}
-      <div className="sm:mx-8"> {/* max-w-6xl px-4 pb-16 pt-8 */}
+      <div className=""> {/* max-w-6xl px-4 pb-16 pt-8 */}
         <div className="relative min-h-[420px] md:min-h-[460px]">
-          {/* stacked background cards */}
-          {Array.from({ length: STACK_SIZE }).map((_, k) => {
+          {/* stacked background cards, disabled makes it hard to see/click dots */}
+          {/* {Array.from({ length: STACK_SIZE }).map((_, k) => {
             // k=0 is the closest behind layer
             const depth = k + 1;
             const scale = 1 - depth * 0.04;
@@ -79,13 +79,13 @@ export default function Testimonials({ testimonials = [] }) {
                 <div className="h-full rounded-2xl bg-gradient-to-br from-[#155e75] to-[#0b5a7a] shadow-xl ring-1 ring-black/5" />
               </div>
             );
-          })}
+          })} */}
 
           {/* active card */}
           <TestimonialCard item={items[index]} />
 
           {/* arrows */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 md:px-4">
+          <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between x-2 md:px-4">
             <button
               className="pointer-events-auto grid h-12 w-12 place-items-center rounded-full bg-white/10 text-white ring-1 ring-white/20 backdrop-blur hover:bg-white/20 transition"
               onClick={prev}
@@ -103,7 +103,7 @@ export default function Testimonials({ testimonials = [] }) {
           </div>
 
           {/* below slideshow, dots indicating which it's on */}
-          <div className="mt-6 flex justify-center gap-2">
+          <div className="flex justify-center gap-2 mt-2">
             {items.map((_, i) => (
               <button
                 key={i}
@@ -130,7 +130,7 @@ function TestimonialCard({ item }) {
         {/* left: quote */}
         <div className="md:w-3/4">
           <QuoteMark />
-          <p className="text-white ml-10 mt-4 text-lg md:text-xl leading-relaxed">
+          <p className="text-white ml-10 m-4 text-lg md:text-xl leading-relaxed">
             “{item.testimonial_text}”
           </p>
 
@@ -159,7 +159,6 @@ function TestimonialCard({ item }) {
         {/* right: portrait */}
         <div className="md:w-1/4 mx-auto md:mx-0 flex items-center justify-center">
           <div className="relative h-40 w-40 md:h-48 md:w-48">
-
             <div className="absolute -inset-1 rounded-full bg-white/10 blur-xl" />
               <div className="relative size-48 rounded-full overflow-hidden shrink-0">
                 <Image

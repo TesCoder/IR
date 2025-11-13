@@ -80,7 +80,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="/evaluation"
+                      href="/application-evaluation"
                     >
                       Application Evaluation
                     </Link>

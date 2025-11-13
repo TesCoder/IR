@@ -159,7 +159,7 @@ export default function Home() {
       {/* Testimonials new */}
       <span className="" id="testimonials-section"></span>
       
-      <Section  darkBg centerContent>
+      <Section  title="Testimonials" darkBg centerContent>
         <h2 className=""> {/* text-3xl md:text-4xl font-extrabold leading-tights*/}
           Families love how Ivy Ready delivers clarity, structure, and results.
         </h2>
