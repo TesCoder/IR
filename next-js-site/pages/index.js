@@ -14,9 +14,9 @@ import dataset from "@/data/packages-comparison.json";
 import CoachInfoSnippet from "@/components/CoachInfoSnippet";
 import { motion } from "framer-motion";
 import Testimonials from "@/components/Testimonials_Snippets";  // new testimonial snippet
-import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data
+import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data used for testimonials and outcomes
 import SteppedRoadmap from "@/components/SteppedRoadmap";
-
+import OutcomesGallery from "@/components/OutcomesGallery";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -162,7 +162,13 @@ export default function Home() {
           </div>
         </div>
       </Section>
- 
+
+      {/* Outcomes */}
+      {/* <OutcomesGallery items={testimonialsData} types={["student"]} /> */}
+
+         <Section redBg >
+          <OutcomesGallery items={testimonialsData} types={["student", "parent"]} />
+          </Section>
 
       {/* Testimonials new */}
       <span className="" id="testimonials-section"></span>
@@ -172,15 +178,16 @@ export default function Home() {
           Families love how Ivy Ready delivers clarity, structure, and results.
         </h2>
         {/* title="Families love how Ivy Ready delivers clarity, structure, and results" */}
-        <Testimonials testimonials={testimonialsData} />
+        {/* add includeHidden to view all" */}
+        <Testimonials testimonials={testimonialsData } />
+
         <div className="mt-4"></div>
-        {/* <Testimonials_Prev/> */}
         <OrbitGlowButton
-            onClick={() => setModalType("CALL")}
+            onClick={() => setModalType("INFO")}
             data-bs-toggle="modal"
             data-bs-target="#contactModal"
           >
-            Request Free Intro Call
+            Get Your FREE Consultation
         </OrbitGlowButton>
       </Section>
 

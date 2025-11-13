@@ -9,21 +9,27 @@ import Section from "@/components/Section";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
-export default function Testimonials({ typeFilter, testimonials = [] }) {
-  // const filteredTestimonials = typeFilter
-  //   ? testimonials.filter((t) => t.type === typeFilter)
-  //   : testimonials;
+  export default function Testimonials({ typeFilter, testimonials = [], includeHidden = false }) { // admin toggle hidden to True to see all
+  // STEP 1: Filter by type and visibility
+  const filtered = useMemo(() => {
+    let result = typeFilter
+      ? testimonials.filter((t) => t.type === typeFilter)
+      : testimonials;
 
-    // keep SSR deterministic, then randomize on the client (same pattern as Snippets)
-    const filtered = useMemo(
-      () => (typeFilter ? testimonials.filter((t) => t.type === typeFilter) : testimonials),
-      [typeFilter, testimonials]
-    );
-    const [items, setItems] = useState(() => filtered.slice());
-    useEffect(() => {
-      const shuffled = filtered.slice().sort(() => Math.random() - 0.5);
-      setItems(shuffled);
-    }, [filtered]);
+    // Hide items with testimonial_visible === false unless includeHidden is true
+    if (!includeHidden) {
+      result = result.filter((t) => t?.testimonial_visible !== false);
+    }
+
+    return result;
+  }, [typeFilter, testimonials, includeHidden]);
+
+  // STEP 2: Maintain same randomization logic
+  const [items, setItems] = useState(() => filtered.slice());
+  useEffect(() => {
+    const shuffled = filtered.slice().sort(() => Math.random() - 0.5);
+    setItems(shuffled);
+  }, [filtered]);
 
 
   return (
@@ -117,7 +123,7 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
 
                     <p className="italic text-gray-700 mb-3">“{t.testimonial_text}”</p>
                     <h3 className="font-bold text-xl text-ivy-blue">
-                      {t.fname} {t.lname.charAt(0)}.
+                      {t.fname} {t.lname ? t.lname.charAt(0) : ""}
                     </h3>
                     <p className="text-gray-600 text-sm">
                       {t.high_school && `${t.high_school} → `}

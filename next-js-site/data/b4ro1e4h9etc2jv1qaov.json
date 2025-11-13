@@ -7,7 +7,11 @@
     "lname": "Chen",
     "high_school": "Harvard-Westlake School",
     "college": "University of Southern California",
-    "imgSrc": "/images/testimonials_images/1_jxmp3yx19xbgt27p928n.png"
+    "imgSrc": "/images/testimonials_images/1_jxmp3yx19xbgt27p928n.png",
+    "id": "t_001",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/1_jxmp3yx19xbgt27p928n_outcome.png"
   },
   {
     "testimonial_text": "Our daughter lives for choir, but her first essay read like a resume. The counselor asked her, ‘What happened the night two soloists dropped out?’ That became the story—how she rearranged parts backstage and kept 30 voices in tune under pressure. The drafts went from 850 words to 620 with concrete details about leadership and harmony. She was admitted to Harvard and the acceptance email felt earned because the application finally sounded like her.",
@@ -16,8 +20,12 @@
     "fname": "Yan",
     "lname": "Li",
     "high_school": "Lynbrook High School",
-    "college": "Harvard",
-    "imgSrc": "/images/testimonials_images/2_k2n2408xll1wla3di4h5.png"
+    "college": "Harvard University",
+    "imgSrc": "/images/testimonials_images/2_k2n2408xll1wla3di4h5.png",
+    "id": "t_002",
+    "testimonial_visible": true,
+    "outcomes_visible": true,
+    "imgSrc_outcome": "/images/testimonials_images/2_k2n2408xll1wla3di4h5_outcome.png"
   },
   {
     "testimonial_text": "I used to think admissions essays were just another assignment to check off. My counselor flipped that completely. She told me, ‘You’re not writing at them—you’re letting them into your world.’ I rewrote my essay as a conversation about designing a community garden irrigation system during California’s drought. It wasn’t about saving the planet—it was about problem-solving with my neighbors. That shift made my application feel human, not scripted. When I got my UC Berkeley acceptance, it felt like they saw the real me, not just my GPA.",
@@ -27,7 +35,11 @@
     "lname": "Tanaka",
     "high_school": "Mission San Jose High School",
     "college": "UC Berkeley",
-    "imgSrc": "/images/testimonials_images/3_dszly3naf62j5gpfgw89.png"
+    "imgSrc": "/images/testimonials_images/3_dszly3naf62j5gpfgw89.png",
+    "id": "t_003",
+    "testimonial_visible": true,
+    "outcomes_visible": true,
+    "imgSrc_outcome": "/images/testimonials_images/3_dszly3naf62j5gpfgw89_outcome.png"
   },
   {
     "testimonial_text": "Managing college applications for our twin boys—one passionate about bio, the other obsessed with robotics—was daunting. Ivy Ready built separate, color-coded timelines for each of them and even helped us navigate their playful sibling rivalry over attention. It brought calm and structure to what could have been chaos. Both boys found their perfect-fit schools, and for the first time that year, our family could finally breathe easy.",
@@ -36,8 +48,12 @@
     "fname": "Oleg",
     "lname": "Ivanov",
     "high_school": "Saratoga High School",
-    "college": "Harvard University",
-    "imgSrc": "/images/testimonials_images/4_rllbq6uiewuxqyq4egcg.png"
+    "college": "Yale University",
+    "imgSrc": "/images/testimonials_images/4_rllbq6uiewuxqyq4egcg.png",
+    "id": "t_004",
+    "testimonial_visible": true,
+    "outcomes_visible": true,
+    "imgSrc_outcome": "/images/testimonials_images/4_rllbq6uiewuxqyq4egcg_outcome.png"
   },
   {
     "testimonial_text": "I come from a family of scientists, and I felt pressured to write a 'STEM' essay. My mentor pushed me to write about the summer I spent teaching my grandmother to use a smartphone instead, highlighting the patience and communication it required. That essay became a central part of my Columbia interview; my interviewer said it gave her a clear sense of my character beyond my grades. I'm convinced that unique perspective is what made the difference.",
@@ -47,7 +63,11 @@
     "lname": "Petrova",
     "high_school": "Bellarmine College Prep",
     "college": "Columbia University",
-    "imgSrc": "/images/testimonials_images/5_h84bw69qyndbstz9hk7g.png"
+    "imgSrc": "/images/testimonials_images/5_h84bw69qyndbstz9hk7g.png",
+    "id": "t_005",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/5_h84bw69qyndbstz9hk7g_outcome.png"
   },
   {
     "testimonial_text": "Our daughter was juggling AP classes, rehearsals, and college essays—it was a lot. The Ivy Ready team set up Sunday check-ins and a shared Google Doc with small, achievable goals like drafting intros or polishing activity bullets. The mock interview training was transformative; she learned to pause, breathe, and express her ideas confidently. When her Northwestern acceptance came in, she said she felt prepared, not lucky—and that’s what made us proud.",
@@ -57,7 +77,11 @@
     "lname": "Garcia",
     "high_school": "Mission San Jose High School",
     "college": "Northwestern University",
-    "imgSrc": "/images/testimonials_images/6_6chki80beaet665v1cwc.png"
+    "imgSrc": "/images/testimonials_images/6_6chki80beaet665v1cwc.png",
+    "id": "t_006",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/6_6chki80beaet665v1cwc_outcome.png"
   },
   {
     "testimonial_text": "I was determined to write about my international background, but my first draft was just a timeline of my life. My essay mentor told me, 'Show me one suitcase. Tell me what's in it and why.' That single piece of advice transformed my essay into a story about the books and recipes I carry to stay connected to home, which felt truly unique to me.",
@@ -67,7 +91,11 @@
     "lname": "Al-Mansoori",
     "high_school": "The Harker School",
     "college": "Princeton University",
-    "imgSrc": "/images/testimonials_images/7_r9px395p6qblj5488tzu.png"
+    "imgSrc": "/images/testimonials_images/7_r9px395p6qblj5488tzu.png",
+    "id": "t_007",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/7_r9px395p6qblj5488tzu_outcome.png"
   },
   {
     "testimonial_text": "Our son’s early application didn’t go the way he hoped—he was deferred and discouraged. His counselor stepped in immediately, helping him refocus with a clear action plan: write an update letter, strengthen his engineering portfolio, and add two well-matched target schools. That structure restored his confidence. When Cornell Engineering came through, the victory felt not just earned but deserved.",
@@ -77,7 +105,11 @@
     "lname": "Yilmaz",
     "high_school": "Archbishop Mitty High School",
     "college": "Cornell University",
-    "imgSrc": "/images/testimonials_images/8_5a26pcycs6nfkb2cxp49.png"
+    "imgSrc": "/images/testimonials_images/8_5a26pcycs6nfkb2cxp49.png",
+    "id": "t_008",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/8_5a26pcycs6nfkb2cxp49_outcome.png"
   },
   {
     "testimonial_text": "My mentor told me to stop trying to sound like a Nobel laureate and just be a curious 18-year-old. I scrapped my draft and wrote my Stanford essay about the janky, smoking 3D printer I built from old parts. It was honest, specific, and about my real desire to join their maker culture. When I got in, I knew that essay was why—they weren't accepting a perfect application, they were accepting me.",
@@ -87,7 +119,11 @@
     "lname": "Patel",
     "high_school": "Palo Alto High School",
     "college": "Stanford",
-    "imgSrc": "/images/testimonials_images/9_jxmp3yx19xbgt27p928n.png"
+    "imgSrc": "/images/testimonials_images/9_jxmp3yx19xbgt27p928n.png",
+    "id": "t_009",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/9_jxmp3yx19xbgt27p928n_outcome.png"
   },
   {
     "testimonial_text": "We were battling senior-year procrastination, and it was starting to wear everyone down. Our counselor introduced 'Saturday sprints'—short, focused writing sessions that turned dread into progress. It created momentum and accountability without pressure. When USC and another strong offer came in, we compared programs calmly and made a confident, happy choice as a family.",
@@ -97,7 +133,11 @@
     "lname": "Sharma",
     "high_school": "Harvard-Westlake School",
     "college": "University of Southern California",
-    "imgSrc": "/images/testimonials_images/10_ga75sqqyx0z2rz4e4vmk.png"
+    "imgSrc": "/images/testimonials_images/10_ga75sqqyx0z2rz4e4vmk.png",
+    "id": "t_010",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/10_ga75sqqyx0z2rz4e4vmk_outcome.png"
   },
   {
     "testimonial_text": "I thought I had to write about a huge, life-changing event. My counselor helped me see the value in a smaller story. I ended up writing about working in my parents' pho restaurant and how I learned to 'taste' balance in the broth. It was a metaphor for finding my own balance between Vietnamese and American culture, and it felt so much more true to who I am.",
@@ -106,7 +146,24 @@
     "fname": "Linh",
     "lname": "Pham",
     "high_school": "Los Altos High School",
+    "college": "Brown University",
+    "imgSrc": "/images/testimonials_images/11_1l27tp2vhs24n5joxldr.png",
+    "id": "t_011",
+    "testimonial_visible": true,
+    "outcomes_visible": false,
+    "imgSrc_outcome": "/images/testimonials_images/11_1l27tp2vhs24n5joxldr_outcome.png"
+  },
+  {
+    "testimonial_text": "I used to think college essays were about achievements, but my counselor asked a question that changed everything: ‘When did you feel most curious?’ I ended up writing about the night my friends and I stayed up debugging code for our school’s weather balloon launch — not because it was impressive, but because I couldn’t stop until I understood why it failed. That story wasn’t about success; it was about persistence and genuine curiosity. When I read my Duke acceptance, it felt like they’d met the real me — not the resume version.",
+    "type": "student",
+    "fname": "Adam",
+    "lname": "G",
+    "high_school": "Palos Verdes High School",
     "college": "Duke University",
-    "imgSrc": "/images/testimonials_images/11_1l27tp2vhs24n5joxldr.png"
+    "imgSrc": "/images/testimonials_images/12_0jkybgtwvvgsflths47x.png",
+    "id": "t_011",
+    "testimonial_visible": false,
+    "outcomes_visible": true,
+    "imgSrc_outcome": "/images/testimonials_images/12_0jkybgtwvvgsflths47x_outcome.png"
   }
 ]

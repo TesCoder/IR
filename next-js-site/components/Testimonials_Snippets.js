@@ -6,37 +6,44 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Image from "next/image";
 import Section from "@/components/Section";
+import OrbitGlowButton from "@/components/OrbitGlowButton";
 
-export default function Testimonials({ testimonials = [] }) {
-    // now shuffles testimonials
-    // start deterministic (so SSR and client match)
-    const [items, setItems] = useState(() => testimonials.slice());
-    const [index, setIndex] = useState(0);
+export default function Testimonials({ testimonials = [], includeHidden = false }) { // admin toggle hidden to True to see all
+  // Only keep items that are visible unless includeHidden is true (handy for admin previews)
+  const visibleTestimonials = useMemo(
+    () => (includeHidden ? testimonials : testimonials.filter(t => t?.testimonial_visible !== false)),
+    [testimonials, includeHidden]
+  );
+  
+  // now shuffles testimonials
+  // start deterministic (so SSR and client match)
+  const [items, setItems] = useState(() => visibleTestimonials.slice());
+  const [index, setIndex] = useState(0);
 
-    // after mount: shuffle + pick random starting slide
-    useEffect(() => {
-    const shuffled = testimonials.slice().sort(() => Math.random() - 0.5);
-    setItems(shuffled);
-    setIndex(Math.floor(Math.random() * shuffled.length));
-    }, [testimonials]);
+  // after mount: shuffle + pick random starting slide
+  useEffect(() => {
+  const shuffled = visibleTestimonials.slice().sort(() => Math.random() - 0.5);
+  setItems(shuffled);
+  setIndex(Math.floor(Math.random() * shuffled.length));
+  }, [visibleTestimonials]);
 
-    const count = items.length || 1;
+  const count = items.length || 1;
 
-    // carousel controls
-    const prev = useCallback(() => setIndex((i) => (i - 1 + count) % count), [count]);
-    const next = useCallback(() => setIndex((i) => (i + 1) % count), [count]);
+  // carousel controls
+  const prev = useCallback(() => setIndex((i) => (i - 1 + count) % count), [count]);
+  const next = useCallback(() => setIndex((i) => (i + 1) % count), [count]);
 
-    // keyboard navigation
-    useEffect(() => {
-    const onKey = (e) => {
-        if (e.key === "ArrowLeft") prev();
-        if (e.key === "ArrowRight") next();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    }, [prev, next]);
+  // keyboard navigation
+  useEffect(() => {
+  const onKey = (e) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+  };
+  window.addEventListener("keydown", onKey);
+  return () => window.removeEventListener("keydown", onKey);
+  }, [prev, next]);
 
-    if (!count) return null;
+  if (!count) return null;
 
 
   // how many “ghost” cards we’ll stack behind the active one
@@ -116,8 +123,11 @@ export default function Testimonials({ testimonials = [] }) {
               />
             ))}
           </div>
+          
+          
         </div>
       </div>
+      
     </section>
   );
 }
@@ -166,7 +176,7 @@ function TestimonialCard({ item }) {
           {/*  name and school */}
           <div className="ml-10 mt-6 text-sm md:text-base">
             <div className="font-semibold">
-              {item.fname} {item.lname.charAt(0)}.
+              {item.fname} {item.lname ? item.lname.charAt(0) : ""}.
               {item.type ? `, ${capitalize(item.type)}` : ""}
             </div>
             <div className="text-white/80">
@@ -205,8 +215,11 @@ function TestimonialCard({ item }) {
           </div>
 
         </div>
+        
       </div>
+      
     </article>
+    
   );
 }
 

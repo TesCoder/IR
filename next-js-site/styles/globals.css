@@ -139,6 +139,7 @@ h3 { font-weight: 700; font-size: 1.25rem; }
   --heading: #ffffff; /* headings inside become white */
 }
 
+
 .section--dark .pCentered, 
 .section--dark .lead,
 .section--dark li {
@@ -147,6 +148,19 @@ h3 { font-weight: 700; font-size: 1.25rem; }
 
 .section--dark .coachProfilePic {
   @apply shadow-[0_0_20px_#fff];
+}
+
+/* Red background section + heading/body overrides */
+.section--red {
+  @apply bg-ivy-red;
+  --heading: #ffffff; /* headings inside become white */
+
+}
+
+.section--red .pCentered, 
+.section--red .lead,
+.section--red li {
+  color: #ffffff;
 }
 
 /* -----------------------
