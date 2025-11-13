@@ -128,7 +128,7 @@ export default function SteppedRoadmapCarousel({
 
   // Utility: high-contrast content block
   const ContentBlock = ({ icon, title, role, bullets }) => (
-    <div className="px-5 py-4">
+    <div className="ml-10 px-5 py-4">
       <div className="flex items-start gap-3">
         <div className="shrink-0 text-slate-900">{icon}</div>
         <div>
@@ -136,7 +136,7 @@ export default function SteppedRoadmapCarousel({
           <div className="text-xs text-slate-900">{role}</div>
         </div>
       </div>
-      <ul className="mt-3 list-disc list-inside text-[15px] leading-6 text-slate-800 dark:text-slate-200">
+      <ul className="mt-3 ml-8 list-disc list-inside text-[15px] leading-6 text-slate-800 dark:text-slate-200">
         {bullets.map((b, i) => (
           <li key={i}>{b}</li>
         ))}
@@ -210,26 +210,47 @@ export default function SteppedRoadmapCarousel({
             </AnimatePresence>
 
             {/* Controls */}
+            {/* Left Control */}
             <div className="absolute inset-y-0 -left-3 flex items-center">
               <OrbitGlowButton
                 type="button"
                 aria-label="Previous step"
                 onClick={() => go(-1)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-white text-slate-900 shadow-sm border border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="inline-flex items-center justify-center rounded-md bg-white text-black shadow-sm border border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <ChevronLeft className="h-5 w-5" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5 text-black"
+                  aria-hidden="true"
+                >
+                  <path d="M10.5 19.5a.75.75 0 0 1 1.06-1.06L4.84 11.72h15.41a.75.75 0 0 1 0-1.5H4.84l6.72-6.72a.75.75 0 1 1-1.06-1.06l-8 8a.75.75 0 0 1 0 1.06l8 8Z" />
+                </svg>
               </OrbitGlowButton>
             </div>
+
+
+            {/* Right Control */}
             <div className="absolute inset-y-0 -right-3 flex items-center">
               <OrbitGlowButton
                 type="button"
                 aria-label="Next step"
                 onClick={() => go(1)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-white text-slate-900 shadow-sm border border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="inline-flex items-center justify-center rounded-md bg-white text-black shadow-sm border border-slate-300 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <ChevronRight className="h-5 w-5" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5 text-black"
+                  aria-hidden="true"
+                >
+                  <path d="M13.5 4.5a.75.75 0 0 0-1.06 1.06l6.72 6.72H3.75a.75.75 0 0 0 0 1.5h15.41l-6.72 6.72a.75.75 0 1 0 1.06 1.06l8-8a.75.75 0 0 0 0-1.06l-8-8Z" />
+                </svg>
               </OrbitGlowButton>
             </div>
+
           </div>
         </div>
 
@@ -250,6 +271,7 @@ export default function SteppedRoadmapCarousel({
 
       {/* CTA */}
       <div className="mt-8 flex justify-center">
+
         <OrbitGlowButton
           onClick={() => setModalType('INFO')}
           data-bs-toggle="modal" // triggers Bootstrap modal (adds transparent black backdrop) (aka popup)
