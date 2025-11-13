@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { Check, Clock, Star, Users, ClipboardList, Truck } from "lucide-react";
 import Link from "next/link";
+import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 
 // Extract color management into utility classes for clarity and maintainability
 const colorThemes = {
@@ -160,19 +161,19 @@ function QuickGlanceModal({ pkgKey, dataset, onClose }) {
 
         {/* Footer */}
         <div className="flex items-center justify-between gap-3 border-t border-zinc-200 p-3 00">
-          <button
+          <OrbitGlowButton
             autoFocus
             onClick={onClose}
             className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium hover:bg-zinc-50 "
           >
             Close
-          </button>
-          <Link
-            href="/support-packages"
+          </OrbitGlowButton>
+          <OrbitGlowButton
+            href="services/support-packages"
             className="rounded-full bg-[#B91C1C] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#B91C1C]/40"
           >
             Full comparison
-          </Link>
+          </OrbitGlowButton>
         </div>
       </div>
     </div>
@@ -266,18 +267,18 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
 
                 <div className="mt-5 flex items-center justify-between">
                     <div className="flex items-center gap-1 text-sm text-black/60 ">
-                    <Star className="h-4 w-4" aria-hidden /> Unlimited essay editing & support
+                    <Star className="h-4 w-4 mx-1" aria-hidden /> Unlimited essay editing & support
                     </div>
                     
                     <div className="flex gap-2">
-                        <button
+                        <OrbitGlowButton
                             type="button"
                             onClick={() => setOpenKey(keyMap[slug])}
-                            className={`rounded-full mx-1 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 focus:outline-none focus:ring-2 ${theme.button}`}
+                            className={`rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 focus:outline-none focus:ring-2 ${theme.button}`}
                             aria-label={`Quick glance: ${title}`}
                         >
                             Quick glance
-                        </button>
+                        </OrbitGlowButton>
                     </div>
                 </div>
             </div>
