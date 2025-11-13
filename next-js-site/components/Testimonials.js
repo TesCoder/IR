@@ -2,16 +2,29 @@
 // component to control testimonials display. Builds each component and sends it as Props to // pages/testimonials.js
 // note testimonials is encoded/protected for rendering
 
-import Image from "next/image";
 import { Button, ButtonRow } from "@/components/Button";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import Head from "next/head";
 import Section from "@/components/Section";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 
 export default function Testimonials({ typeFilter, testimonials = [] }) {
-  const filteredTestimonials = typeFilter
-    ? testimonials.filter((t) => t.type === typeFilter)
-    : testimonials;
+  // const filteredTestimonials = typeFilter
+  //   ? testimonials.filter((t) => t.type === typeFilter)
+  //   : testimonials;
+
+    // keep SSR deterministic, then randomize on the client (same pattern as Snippets)
+    const filtered = useMemo(
+      () => (typeFilter ? testimonials.filter((t) => t.type === typeFilter) : testimonials),
+      [typeFilter, testimonials]
+    );
+    const [items, setItems] = useState(() => filtered.slice());
+    useEffect(() => {
+      const shuffled = filtered.slice().sort(() => Math.random() - 0.5);
+      setItems(shuffled);
+    }, [filtered]);
+
 
   return (
 
@@ -45,7 +58,7 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
           >
           {/* <h1 className="">Meet Our Team and Admission Backgrounds</h1> */}
            <div className="space-y-12">
-              {filteredTestimonials.map((t, index) => (
+               {items.map((t, index) => (
                 <div
                   key={index}
                   className="flex flex-col md:flex-row text-lg border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-200 bg-white opacity-90"
@@ -119,7 +132,6 @@ export default function Testimonials({ typeFilter, testimonials = [] }) {
             </div>
       </Section>
 
-      
        <Section darkBg>
           <div className="rounded-3xl shadow-[0_0_5px_#ffffff80] border border-white/40 py-10 px-6 text-center hover:scale-[1.02]">
             <h2 className="text-white text-3xl mb-4 ">
