@@ -166,9 +166,16 @@ export default function Home() {
       {/* Outcomes */}
       {/* <OutcomesGallery items={testimonialsData} types={["student"]} /> */}
 
-         <Section redBg >
-          <OutcomesGallery items={testimonialsData} types={["student", "parent"]} />
-          </Section>
+      <Section redBg >
+      <OutcomesGallery items={testimonialsData} types={["student", "parent"]} />
+
+      {/* <div className="flex justify-center mt-8">
+        <OrbitGlowButton onClick={() => window.open("/success", "_self")}>
+          View More Success Stories
+        </OrbitGlowButton>
+      </div> */}
+
+      </Section>
 
       {/* Testimonials new */}
       <span className="" id="testimonials-section"></span>
