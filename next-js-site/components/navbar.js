@@ -69,14 +69,14 @@ export default function Navbar() {
                   Other Services
                 </a>
                 <ul className="dropdown-menu bg-ivy-red">
-                  <li>
+                  {/* <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
                       href="services/early-planning"
                     >
                       Early Planning
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"

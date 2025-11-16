@@ -145,7 +145,7 @@ function TestimonialCard({ item }) {
           <QuoteMark />
 
           {/* Stars (5 total) */}
-          <div className="flex space-x-5 ml-40">
+          <div className="flex space-x-5 justify-center">
             {[...Array(5)].map((_, i) => (
               <span
                 key={i}
