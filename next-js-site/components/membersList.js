@@ -2,7 +2,7 @@ export const members = [
     {
       fname: "James",
       name: "James Dean",
-      imgSrc: "/images/members/james.png",
+      imgSrc: "/images/members/james.webp",
       admCollege: "Stanford",
       past: [
         "B.S., Stanford University",
@@ -14,7 +14,7 @@ export const members = [
     {
       fname: "Ariel",
       name: "Ariel Englesby",
-      imgSrc: "/images/members/ariel.png",
+      imgSrc: "/images/members/ariel.webp",
       admCollege: "Stanford",
       past: [
         "B.A., Stanford University",
@@ -27,7 +27,7 @@ export const members = [
     {
       fname: "Erika",
       name: "Erika Robinson",
-      imgSrc: "/images/members/erika.png",
+      imgSrc: "/images/members/erika.webp",
       admCollege: "Princeton, Columbia, Harvard",
       past: [
         "B.A., Harvard University (English)",
@@ -42,7 +42,7 @@ export const members = [
     {
       fname: "David",
       name: "David Emerson",
-      imgSrc: "/images/members/david.png",
+      imgSrc: "/images/members/david.webp",
       admCollege: "Brown",
       past: [
         "B.A., Brown University",
@@ -55,7 +55,7 @@ export const members = [
     {
       fname: "Alicia",
       name: "Alicia Stewart",
-      imgSrc: "/images/members/alicia.png",
+      imgSrc: "/images/members/alicia.webp",
       admCollege: "Columbia",
       past: [
         "B.A., George Washington University",
@@ -68,7 +68,7 @@ export const members = [
     {
       fname: "Marie",
       name: "Marie Arlen",
-      imgSrc: "/images/members/marie.png",
+      imgSrc: "/images/members/marie.webp",
       admCollege: "Columbia",
       past: [
         "B.A., University of Pennsylvania",
@@ -80,7 +80,7 @@ export const members = [
     {
       fname: "Anna",
       name: "Anna Cross",
-      imgSrc: "/images/members/anna.png",
+      imgSrc: "/images/members/anna.webp",
       admCollege: "UCBerkeley",
       past: [
         "B.A., University of San Francisco",
@@ -96,7 +96,7 @@ export const members = [
       hideOnHome: true,
       fname: "Dr. Workneh",
       name: "Meklit Workneh, M.D.",
-      imgSrc: "/images/members/meklit.png",
+      imgSrc: "/images/members/meklit.webp",
       admCollege: "UCSF",
       past: [
         "B.A., Stanford university",
@@ -110,7 +110,7 @@ export const members = [
       hideOnHome: true,
       fname: "Gregg",
       name: "Gregg Prigerson",
-      imgSrc: "/images/members/gregg.png",
+      imgSrc: "/images/members/gregg.webp",
       admCollege: "Stanford",
       past: ["Former Admission Officer, Stanford University"],
       description:
@@ -120,7 +120,7 @@ export const members = [
       hideOnHome: true,
       fname: "Deborah",
       name: "Deborah Foel",
-      imgSrc: "/images/members/deborah.png",
+      imgSrc: "/images/members/deborah.webp",
       admCollege: "Carnegie Mellon",
       past: [
         "B.A., The George Washington University",

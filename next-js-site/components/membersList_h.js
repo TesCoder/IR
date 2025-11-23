@@ -3,7 +3,7 @@ export const members_h = [
       id: "4937974",
       fname: "Beata",
       name: "Beata W. Duda",
-      imgSrc: "/images/members_h/4937974.png",
+      imgSrc: "/images/members_h/4937974.webp",
       admCollege: "Columbia, NYU",
       past: [
         "BS Business Administration, University of Illinois at Chicago",
@@ -16,7 +16,7 @@ export const members_h = [
       id: "38473084",
       fname: "Heather",
       name: "Heather Kannam",
-      imgSrc: "/images/members_h/38473084.png",
+      imgSrc: "/images/members_h/38473084.webp",
       admCollege: "Stanford",
       past: [
         "B.A., Dartmouth",
@@ -29,7 +29,7 @@ export const members_h = [
       id: "52547552",
       fname: "James",
       name: "James Dean",
-      imgSrc: "/images/members/james.png",
+      imgSrc: "/images/members/james.webp",
       admCollege: "Stanford",
       past: [
         "B.S., Stanford University",
