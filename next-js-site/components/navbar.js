@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
       {!logoVisibility && (
         <div
-          id="logoModifier1" className="container sm:visible md:visible lg:hidden z-40 w-3/12 justify-center -mb-12 md:-mb-4 bg-ivy-red "
+          id="logoModifier1" className="mt-2 container sm:visible md:visible lg:hidden z-40 w-3/12 justify-center -mb-20 md:-mb-4 bg-ivy-red "
         >
           <LogoProjector />
         </div>
@@ -53,11 +53,7 @@ export default function Navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white hover:opacity-75" href="services/support-packages">
-                  Packages
-                </Link>
-              </li>
+              
               <li className="nav-item dropdown">
                 <a
                   className="nav-link text-white dropdown-toggle"
@@ -66,7 +62,7 @@ export default function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Other Services
+                  Services
                 </a>
                 <ul className="dropdown-menu bg-ivy-red">
                   {/* <li>
@@ -77,6 +73,11 @@ export default function Navbar() {
                       Early Planning
                     </Link>
                   </li> */}
+                  <li className="nav-item">
+                    <Link className="nav-link text-white hover:opacity-75" href="services/support-packages">
+                      Packages
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
