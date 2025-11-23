@@ -117,7 +117,7 @@ function OutcomeCard({ item }) {
             alt={`${fname} ${lname ? lname.charAt(0) + "." : ""} accepted to ${college}`}
             width={900}
             height={675}
-            className="h-full w-full object-cover"
+            className="object-cover" // object-cover critical to ensure crispness
             priority={false}
             loading="lazy"
           />

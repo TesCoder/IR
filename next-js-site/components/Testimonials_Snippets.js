@@ -208,7 +208,7 @@ function TestimonialCard({ item }) {
                 height={384}
                 sizes="192px"
                 quality={92}
-                className="rounded-full object-cover" // critical to ensure crispness
+                className="rounded-full object-cover" // object-cover critical to ensure crispness
                 priority
                 />
             </div>
