@@ -28,15 +28,15 @@ module.exports = {
         'ivy-blue': "#2D5780",
         'ivy-red': "#990001"
       },
-      backgroundImage: {
-        'hero': "url('/images/banner/uDaptSSjK1.webp')",
-        'about-hero': "url('/images/about-banner.webp')",
-        'hourly-hero': "url('/images/hourly/hourlyconsultation.webp')",
-        '5ezZg4xRm1-hero': "url('/images/home_section_images/5ezZg4xRm1.webp')",
-        'testimonial-hero': "url('/images/testimonials_images/bkc_2f16iqi923ybhl1anjs.webp')",
-        'success-hero': "url('/images/banner/success_aj39eiueorue.webp')",
+      // backgroundImage: {
+      //   'hero': "url('/images/banner/uDaptSSjK1.webp')",
+      //   'about-hero': "url('/images/about-banner.webp')",
+      //   'hourly-hero': "url('/images/hourly/hourlyconsultation.webp')",
+      //   '5ezZg4xRm1-hero': "url('/images/home_section_images/5ezZg4xRm1.webp')",
+      //   'testimonial-hero': "url('/images/testimonials_images/2f16iqi923ybhl1anjs.webp')",
+      //   'success-hero': "url('/images/banner/success_aj39eiueorue.webp')",
+      // },
 
-      },
       listStyleType: {
         none: 'none',
         disc: 'disc',

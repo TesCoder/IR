@@ -78,7 +78,7 @@ export default function page() {
 
         <Image
           className="shadow-md"
-          src="/images/table.png"
+          src="/images/services/table-2000w.webp"
           width={1000}
           height={717}
           alt="Services Table"

@@ -244,6 +244,8 @@ export default function Home() {
                 imgSrc={imgSrc}
                 admCollege={admCollege}
                 description={description}
+                setCoach={setCoach}
+                setModalType={setModalType}
               />
             )
           )}

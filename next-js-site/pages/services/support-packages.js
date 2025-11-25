@@ -56,7 +56,7 @@ export default function SupportPackages() {
         </p>
         <Image
           className="shadow-md"
-          src="/images/table.png"
+          src="/images/services/table-2000w.webp"
           width={2000}
           height={2792}
           alt="Services Table"
