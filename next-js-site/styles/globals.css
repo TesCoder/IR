@@ -487,8 +487,8 @@ input[type="tel"]:focus {
 /* Main Hero */
 .bg-hero {
   background-image: image-set(
-    url('/images/banner/uDaptSSjK1-1600w.webp') 1x,
-    url('/images/banner/uDaptSSjK1-2400w.webp') 2x
+    url('/images/banner/banner_uDaptSSjK1-1600w.webp') 1x,
+    url('/images/banner/banner_uDaptSSjK1-2400w.webp') 2x
   );
 }
 
@@ -503,24 +503,24 @@ input[type="tel"]:focus {
 /* Hourly Hero */
 .bg-hourly-hero {
   background-image: image-set(
-    url('/images/hourly/hourlyconsultation-1600w.webp') 1x,
-    url('/images/hourly/hourlyconsultation-2400w.webp') 2x
+    url('/images/hourly/banner_hourlyconsultation-1600w.webp') 1x,
+    url('/images/hourly/banner_hourlyconsultation-2400w.webp') 2x
   );
 }
 
 /* Home Section Hero */
 .bg-5ezZg4xRm1-hero {
   background-image: image-set(
-    url('/images/home_section_images/5ezZg4xRm1-1600w.webp') 1x,
-    url('/images/home_section_images/5ezZg4xRm1-2400w.webp') 2x
+    url('/images/home_section_images/banner_5ezZg4xRm1-1600w.webp') 1x,
+    url('/images/home_section_images/banner_5ezZg4xRm1-2400w.webp') 2x
   );
 }
 
 /* Testimonial Hero */
 .bg-testimonial-hero {
   background-image: image-set(
-    url('/images/testimonials_images/2f16iqi923ybhl1anjs-1600w.webp') 1x,
-    url('/images/testimonials_images/2f16iqi923ybhl1anjs-2400w.webp') 2x
+    url('/images/testimonials_images/banner_2f16iqi923ybhl1anjs-1600w.webp') 1x,
+    url('/images/testimonials_images/banner_2f16iqi923ybhl1anjs-2400w.webp') 2x
   );
 }
 
