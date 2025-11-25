@@ -37,7 +37,7 @@ export default function page() {
       <Section className="flex justify-center"> 
         <Image
           className="shadow-md"
-          src="/images/agreement/agreement_exit.png"
+          src="/images/agreement/agreement_exit.webp"
           width={810}
           height={645}
           alt="agreement_exit"

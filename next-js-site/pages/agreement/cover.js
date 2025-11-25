@@ -36,7 +36,7 @@ export default function page() {
         <Link href="/agreement/main?w=AxXdi1VS4pzmXTevH49A-qQe6kfrY0dvtzczO7cbj">
           <Image
             className="shadow-md cursor-pointer"
-            src="/images/agreement/agreement_cover.png"
+            src="/images/agreement/agreement_cover.webp"
             width={810}
             height={645}
             alt="agreement_cover"
