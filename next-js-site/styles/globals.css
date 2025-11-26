@@ -487,47 +487,47 @@ input[type="tel"]:focus {
 /* Main Hero */
 .bg-hero {
   background-image: image-set(
-    url('/images/banner/banner_uDaptSSjK1-1600w.webp') 1x,
-    url('/images/banner/banner_uDaptSSjK1-2400w.webp') 2x
+    url('/images/banners/banner_uDaptSSjK1-1600w.webp') 1x,
+    url('/images/banners/banner_uDaptSSjK1-2400w.webp') 2x
   );
 }
 
 /* About Hero */
 .bg-about-hero {
   background-image: image-set(
-    url('/images/about-banner-1600w.webp') 1x,
-    url('/images/about-banner-2400w.webp') 2x
+    url('/images/banners/about-banner-1600w.webp') 1x,
+    url('/images/banners/about-banner-2400w.webp') 2x
   );
 }
 
 /* Hourly Hero */
 .bg-hourly-hero {
   background-image: image-set(
-    url('/images/hourly/banner_hourlyconsultation-1600w.webp') 1x,
-    url('/images/hourly/banner_hourlyconsultation-2400w.webp') 2x
+    url('/images/banners/banner_hourlyconsultation-1600w.webp') 1x,
+    url('/images/banners/banner_hourlyconsultation-2400w.webp') 2x
   );
 }
 
 /* Home Section Hero */
 .bg-5ezZg4xRm1-hero {
   background-image: image-set(
-    url('/images/home_section_images/banner_5ezZg4xRm1-1600w.webp') 1x,
-    url('/images/home_section_images/banner_5ezZg4xRm1-2400w.webp') 2x
+    url('/images/banners/banner_5ezZg4xRm1-1600w.webp') 1x,
+    url('/images/banners/banner_5ezZg4xRm1-2400w.webp') 2x
   );
 }
 
 /* Testimonial Hero */
 .bg-testimonial-hero {
   background-image: image-set(
-    url('/images/testimonials_images/banner_2f16iqi923ybhl1anjs-1600w.webp') 1x,
-    url('/images/testimonials_images/banner_2f16iqi923ybhl1anjs-2400w.webp') 2x
+    url('/images/banners/banner_2f16iqi923ybhl1anjs-1600w.webp') 1x,
+    url('/images/banners/banner_2f16iqi923ybhl1anjs-2400w.webp') 2x
   );
 }
 
 /* Success Hero */
 .bg-success-hero {
   background-image: image-set(
-    url('/images/banner/success_aj39eiueorue-1600w.webp') 1x,
-    url('/images/banner/success_aj39eiueorue-2400w.webp') 2x
+    url('/images/banners/success_aj39eiueorue-1600w.webp') 1x,
+    url('/images/banners/success_aj39eiueorue-2400w.webp') 2x
   );
 }

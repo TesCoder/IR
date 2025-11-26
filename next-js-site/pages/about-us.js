@@ -61,16 +61,10 @@ export default function About() {
       <Section title="Our Mission" centerContent>
           <h2 className="my-2">Empowering Every Student’s Unique Journey</h2>
 
-        <p className="pCentered text-start">
+        <p className="pCentered text-start my-2 mb-4">
           Ivy Ready&apos;s mission is to empower every student with a personalized admissions strategy that highlights their unique strengths, background, interests, and aspirations.
-        </p>
-
-         <p className="pCentered text-start">
 
           We believe that no two students are alike — and that their individuality should be the foundation of their success. Our team works closely with families to uncover each student’s authentic voice and present it with confidence and clarity.
-        </p>
-
-         <p className="pCentered text-start">
           At Ivy Ready, we celebrate the diversity of the communities we serve and recognize that every story holds the potential to inspire. Through thoughtful guidance and tailored support, we strive to ensure that every student has the opportunity to share their most compelling narrative and reach their fullest academic and personal potential.
         </p>
 
