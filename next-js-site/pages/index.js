@@ -200,20 +200,23 @@ export default function Home() {
 
       <Section title="Our stellar record speaks for itself!" centerContent>
         <Image
-          src="/images/scans.jpeg"
+          src="/images/scans-1600w.webp"
+          alt="admission results"
           width={1080}
           height={500}
-          alt="Top college acceptances including Stanford, Harvard, Yale, and more — Ivy Ready success record"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1080px"
           loading="lazy"
         />
+
         
           <br></br>
         <h2>Trusted by Families in Silicon Valley and Elsewhere!</h2>
         <Image
-          src="/images/recognized.jpeg"
+          src="/images/recognized-1600w.webp" 
+          alt="recognized"
           width={1080}
           height={500}
-          alt="recognized"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1080px"
           loading="lazy"
         />
         

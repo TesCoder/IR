@@ -9,7 +9,7 @@ export default function GraduationAnimation() {
       
       {/* Background layer */}
       <motion.img
-        src="images/success/background.webp"
+        src="images/success/background-1600w.webp"
         alt="Graduation Background"
         className="absolute top-0 left-0 w-full h-full object-cover"
         initial={{ scale: 1 }}
@@ -19,7 +19,7 @@ export default function GraduationAnimation() {
 
       {/* Graduates layer */}
       <motion.img
-        src="images/success/graduates.webp"
+        src="images/success/graduates-1600w.webp"
         alt="Graduates"
         className="absolute bottom-0 left-0 w-full object-cover"
         initial={{ y: 0 }}
@@ -29,7 +29,7 @@ export default function GraduationAnimation() {
 
       {/* Caps layer */}
       <motion.img
-        src="images/success/caps.webp"
+        src="images/success/caps-1600w.webp"
         alt="Caps Flying"
         className="absolute top-0 left-0 w-full object-cover"
         initial={{ y: -10 }}

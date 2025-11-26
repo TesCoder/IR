@@ -34,10 +34,12 @@ export default function Evaluation() {
           Ivy Ready Evaluation is an affordable option for students looking for feedback on their appplication before official submission. 
         </h1>
         <Image
-          src="/images/sample-evaluation.png"
+          src="/images/evaluation/sample-evaluation-1600w.webp"
+          alt="sample-evaluation"
           width={1080}
           height={500}
-          alt="Record"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1080px"
+          loading="lazy"
         />
         <p className="pCentered">
           Ivy Ready Evaluation makes it easy to identify key areas of
@@ -99,7 +101,7 @@ export default function Evaluation() {
           indicates the competitiveness of high key areas using a rating scale.
         </p>
         <Image
-          src="/images/rating-scale.png"
+          src="/images/evaluation/rating-scale.png"
           width={600}
           height={500}
           alt="Scale"

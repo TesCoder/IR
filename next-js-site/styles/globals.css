@@ -527,7 +527,7 @@ input[type="tel"]:focus {
 /* Success Hero */
 .bg-success-hero {
   background-image: image-set(
-    url('/images/banners/success_aj39eiueorue-1600w.webp') 1x,
-    url('/images/banners/success_aj39eiueorue-2400w.webp') 2x
+    url('/images/banners/banner_success_aj39eiueorue-1600w.webp') 1x,
+    url('/images/banners/banner_success_aj39eiueorue-2400w.webp') 2x
   );
 }
