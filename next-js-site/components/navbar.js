@@ -127,7 +127,7 @@ export default function Navbar() {
                       data-bs-toggle="modal"
                       data-bs-target="#contactModal"
                     >
-                      FREE Consultation
+                      Get Started
                 </OrbitGlowButton>
               </li>
             </ul>
