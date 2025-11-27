@@ -14,6 +14,12 @@ export default function Testimonials({ testimonials = [], includeHidden = false 
     () => (includeHidden ? testimonials : testimonials.filter(t => t?.testimonial_visible !== false)),
     [testimonials, includeHidden]
   );
+
+  // limit # of testimonials (set 100 for high cap)
+  const limitedTestimonials = useMemo(
+    () => visibleTestimonials.slice(0, 100),
+    [visibleTestimonials]
+  );
   
   // now shuffles testimonials
   // start deterministic (so SSR and client match)

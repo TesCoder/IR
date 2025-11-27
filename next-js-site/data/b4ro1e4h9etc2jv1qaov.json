@@ -39,7 +39,7 @@
     "id": "t_003",
     "testimonial_visible": true,
     "outcomes_visible": true,
-    "imgSrc_outcome": "/images/testimonials_images/3_dszly3naf62j5gpfgw89_outcome-400x400.webp"
+    "imgSrc_outcome": "/images/testimonials_images/3_dszly3naf62j5gpfgw89_outcome-500x500.webp"
   },
   {
     "testimonial_text": "Managing college applications for our twin boys—one passionate about bio, the other obsessed with robotics—was daunting. Ivy Ready built separate, color-coded timelines for each of them and even helped us navigate their playful sibling rivalry over attention. It brought calm and structure to what could have been chaos. Both boys found their perfect-fit schools, and for the first time that year, our family could finally breathe easy.",
@@ -160,11 +160,11 @@
     "lname": "G",
     "high_school": "Palos Verdes High School",
     "college": "Duke University",
-    "imgSrc": "/images/testimonials_images/12_0jkybgtwvvgsflths47x-400x400.webp",
+    "imgSrc": "/images/testimonials_images/12_0jkybgtwvvgsflths47x_outcome-500x500.webp",
     "id": "t_012",
-    "testimonial_visible": false,
-    "outcomes_visible": false,
-    "imgSrc_outcome": "/images/testimonials_images/12_0jkybgtwvvgsflths47x_outcome-400x400.webp"
+    "testimonial_visible": true,
+    "outcomes_visible": true,
+    "imgSrc_outcome": "/images/testimonials_images/12_0jkybgtwvvgsflths47x_outcome-500x500.webp"
   },
   {
   "testimonial_text": "English has always been my weakest subject, so writing college essays felt terrifying. My Ivy Ready mentor didn’t try to change my voice—instead, she asked why I kept a sketchbook full of subway passengers. That became my essay: a story about observing people during daily commutes and how it shaped my interest in human-centered design. For the first time, writing felt natural, not forced. When I got my acceptance to Carnegie Mellon, I realized they admitted the version of me that finally felt genuine.",
@@ -174,7 +174,7 @@
   "lname": "Park",
   "high_school": "Palisades Charter High Sc",
   "college": "UC Berkeley",
-  "imgSrc": "/images/testimonials_images/13_new_hiroshi-400x400.webp",
+  "imgSrc": "/images/testimonials_images/13_SvMDcWEJuNraiJCCYqEm-400x400.webp",
   "id": "t_013",
   "testimonial_visible": true,
   "outcomes_visible": true,

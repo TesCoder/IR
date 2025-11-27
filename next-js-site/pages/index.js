@@ -163,9 +163,6 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Outcomes */}
-      {/* <OutcomesGallery items={testimonialsData} types={["student"]} /> */}
-
       <Section redBg >
       <OutcomesGallery items={testimonialsData} types={["student", "parent"]} />
 
