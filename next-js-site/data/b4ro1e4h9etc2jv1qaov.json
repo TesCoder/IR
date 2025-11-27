@@ -28,13 +28,13 @@
     "imgSrc_outcome": "/images/testimonials_images/2_k2n2408xll1wla3di4h5_outcome-400x400.webp"
   },
   {
-    "testimonial_text": "I used to think essays were just another assignment. My counselor changed that, telling me, “You’re not writing at them—you’re inviting them in.” I rewrote my essay as a story about designing a garden irrigation system during California’s drought—less about saving the planet, more about problem-solving with my neighbors. When UC Berkeley accepted me, it felt like they saw the real me, not just my GPA",
+    "testimonial_text": "I used to think essays were just another assignment. My counselor changed that, telling me, “You’re not writing at them—you’re inviting them in.” I rewrote my essay as a story about designing a garden irrigation system during California’s drought—less about saving the planet, more about problem-solving with my neighbors. When MIT accepted me, it felt like they saw the real me, not just my GPA",
     "source": "Kenji Tanaka",
     "type": "student",
     "fname": "Kenji",
     "lname": "Tanaka",
-    "high_school": "Mission San Jose High School",
-    "college": "UC Berkeley",
+    "high_school": "Sturgis Charter Public School",
+    "college": "MIT",
     "imgSrc": "/images/testimonials_images/3_dszly3naf62j5gpfgw89-400x400.webp",
     "id": "t_003",
     "testimonial_visible": true,
@@ -163,7 +163,22 @@
     "imgSrc": "/images/testimonials_images/12_0jkybgtwvvgsflths47x-400x400.webp",
     "id": "t_012",
     "testimonial_visible": false,
-    "outcomes_visible": true,
+    "outcomes_visible": false,
     "imgSrc_outcome": "/images/testimonials_images/12_0jkybgtwvvgsflths47x_outcome-400x400.webp"
-  }
+  },
+  {
+  "testimonial_text": "English has always been my weakest subject, so writing college essays felt terrifying. My Ivy Ready mentor didn’t try to change my voice—instead, she asked why I kept a sketchbook full of subway passengers. That became my essay: a story about observing people during daily commutes and how it shaped my interest in human-centered design. For the first time, writing felt natural, not forced. When I got my acceptance to Carnegie Mellon, I realized they admitted the version of me that finally felt genuine.",
+  "source": "Hiroshi Park",
+  "type": "student",
+  "fname": "Hiroshi",
+  "lname": "Park",
+  "high_school": "Palisades Charter High Sc",
+  "college": "UC Berkeley",
+  "imgSrc": "/images/testimonials_images/13_new_hiroshi-400x400.webp",
+  "id": "t_013",
+  "testimonial_visible": true,
+  "outcomes_visible": true,
+  "imgSrc_outcome": "/images/testimonials_images/13_SvMDcWEJuNraiJCCYqEm-400x400.webp"
+}
+
 ]
