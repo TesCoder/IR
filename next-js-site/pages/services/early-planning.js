@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import SEOHead from '@/components/SEOHead';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import FAQ from '@/components/FAQ';
+import { ServiceSchema, SchemaScript } from '@/components/Schema';
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Section from "@/components/Section";
@@ -98,13 +102,16 @@ export default function EarlyPlanning() {
 
   return (
     <>
-      <Head>
-        <title>Early Planning (Grades 9–10) — Ivy Ready</title>
-        <meta
-          name="description"
-          content="Structured 9th–10th grade planning: four-year academic map, extracurricular spike, testing timeline, and summer strategy. Built for balance, rigor, and real growth."
-        />
-      </Head>
+      <SEOHead
+        title="Early Planning (Grades 9–10) — Ivy Ready"
+        description="Structured 9th–10th grade planning: four-year academic map, extracurricular spike, testing timeline, and summer strategy. Built for balance, rigor, and real growth."
+        url="/services/early-planning"
+      />
+
+      <SchemaScript schema={ServiceSchema({ serviceName: 'Early Planning', description: 'Four-year planning and extracurricular strategy for 9th–10th graders.' })} />
+      <div className="max-w-6xl mx-auto px-6 pt-6">
+        <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Early Planning', url: '/services/early-planning' }]} />
+      </div>
 
       {/* HERO */}
       <section className="relative overflow-hidden">
@@ -227,17 +234,7 @@ export default function EarlyPlanning() {
         </div>
       </Section>
 
-      {/* FAQ */}
-      <Section title="FAQs" centerContent>
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 px-6 md:grid-cols-2">
-          {faqs.map((f, i) => (
-            <div key={i} className="rounded-2xl border p-5 shadow-sm">
-              <p className="font-medium">{f.q}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{f.a}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <FAQ faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
 
        
     </>

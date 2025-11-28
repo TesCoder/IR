@@ -1,6 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import { OrganizationSchema } from '../components/Schema';
 
 export default function Document() {
+  const orgSchema = OrganizationSchema();
+
   return (
     <Html lang="en">
       <Head>
@@ -9,6 +12,11 @@ export default function Document() {
           rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
           crossOrigin="anonymous"
+        />
+        {/* Global Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </Head>
       <body>

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
@@ -32,13 +32,12 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title> Ivy Ready College Admission Consulting </title>
-        <meta
-          name="description"
-          content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
-        />
-      </Head>
+      <SEOHead
+        title="Ivy Ready College Admission Consulting"
+        description="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
+        url="/"
+        image="/images/logo-circle.png"
+      />
 
      {/* ===============================
             MODALS — DO NOT REMOVE

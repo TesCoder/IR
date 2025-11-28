@@ -1,6 +1,9 @@
 // pages/support-packages.js
 
-import Head from "next/head";
+import SEOHead from '@/components/SEOHead';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import FAQ from '@/components/FAQ';
+import { ServiceSchema, SchemaScript } from '@/components/Schema';
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import { Button, ButtonRow } from "@/components/Button";
@@ -23,13 +26,16 @@ export default function SupportPackages() {
 
   return (
     <>
-      <Head>
-        <title>Ivy Ready Support Packages</title>
-        <meta
-          name="description"
-          content="Explore Ivy Ready's college application support services, including essays-only, comprehensive guidance, and full logistics support."
-        />
-      </Head>
+      <SEOHead
+        title="Ivy Ready Support Packages"
+        description="Explore Ivy Ready's college application support services, including essays-only, comprehensive guidance, and full logistics support."
+        url="/services/support-packages"
+      />
+
+      <SchemaScript schema={ServiceSchema({ serviceName: 'Application Support Packages', description: "Essays-only, Comprehensive Support, and Comprehensive Support with Logistics offered by Ivy Ready.", priceRange: '$$$' })} />
+      <div className="max-w-6xl mx-auto px-6 pt-6">
+        <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Support Packages', url: '/services/support-packages' }]} />
+      </div>
 
       <Modal
         id="contactModal"
@@ -251,6 +257,14 @@ export default function SupportPackages() {
       </Section>
       
       {/* <ButtonRow darkBg setModalType={setModalType} /> */}
+
+      <FAQ
+        faqs={[
+          { question: 'What is included in Comprehensive Support?', answer: 'Comprehensive Support includes brainstorming, essay guidance, school selection, and timeline management to help you submit strong applications.' },
+          { question: 'Can I purchase Essays-only Support?', answer: 'Yes — Essays-only Support is available for applicants who want focused essay feedback while managing other parts themselves.' },
+          { question: 'Do you offer payment plans?', answer: 'We offer flexible payment options; please contact us for details and eligibility.' }
+        ]}
+      />
 
       <Section darkBg>
         <ContactForm type="FULL" />

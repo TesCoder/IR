@@ -1,7 +1,10 @@
 import { Button } from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
 import Section from "@/components/Section";
-import Head from "next/head";
+import SEOHead from '@/components/SEOHead';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import FAQ from '@/components/FAQ';
+import { ServiceSchema, SchemaScript } from '@/components/Schema';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,13 +20,16 @@ const Goal = ({ title, content }) => (
 export default function Evaluation() {
   return (
     <>
-      <Head>
-        <title> Application Evalutation - Ivy Ready College Admission Consulting </title>
-        <meta
-          name="description"
-          content="Ivy Ready offers expert application evaluation services to provide students with personalized feedback and recommendations to enhance their application and increase their chances of success."
-        />
-      </Head>
+      <SEOHead
+        title="Application Evaluation - Ivy Ready"
+        description="Ivy Ready offers expert application evaluation services to provide students with personalized feedback and recommendations to enhance their application and increase their chances of success."
+        url="/services/application-evaluation"
+      />
+
+      <SchemaScript schema={ServiceSchema({ serviceName: 'Application Evaluation', description: 'One-off and multi-school application review by former admissions officers.' })} />
+      <div className="max-w-6xl mx-auto px-6 pt-6">
+        <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Application Evaluation', url: '/services/application-evaluation' }]} />
+      </div>
 
       <Section
         centerContent
@@ -179,7 +185,15 @@ export default function Evaluation() {
 
 
       
-      <div> 
+      <FAQ
+        faqs={[
+          { question: 'What does a single-school evaluation include?', answer: 'A holistic review of the core application and supplemental essays for one school with actionable feedback.' },
+          { question: 'How long does the evaluation take?', answer: 'Turnaround times vary; typical evaluations are returned within 5–7 business days.' },
+          { question: 'Can I request additional feedback?', answer: 'Yes — follow-up consultations and edits are available as needed.' }
+        ]}
+      />
+
+      <div>
        <a href="#" className="" onClick={()=>gaEventTracker('call')}>-</a>
       </div>
     </>

@@ -88,6 +88,22 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
       }
 
       await sendEmail({ type, coach: coachName, ...values });
+
+      // Conversion tracking: push form submission to dataLayer if available
+      try {
+        if (typeof window !== 'undefined' && window.dataLayer) {
+          window.dataLayer.push({
+            event: 'form_submission',
+            form_name: type || 'contact_form',
+            form_location: window.location.pathname,
+            form_type: type,
+          });
+        }
+      } catch (pushErr) {
+        // Do not block submission flow on tracking errors
+        console.warn('dataLayer push failed', pushErr);
+      }
+
       router.replace("/form-submitted#top");
     } catch (err) {
       console.error(err);
