@@ -120,7 +120,7 @@ export default function PackagesComparison({ dataUrl, data }) {
                 <FeatureCell label={r.label} note={r.note} highlight={r.highlight} />
                 <BoolCell value={!!r.essays} />
                 <BoolCell value={!!r.comp} />
-                <BoolCell value={!!r.compLog} />
+                <BoolCell value={!!r.full} />
               </tr>
             ))}
           </tbody>
