@@ -58,8 +58,8 @@ const packages = [
 
   },
   {
-    slug: "comprehensive-logistics",
-    title: "Comprehensive w/ Logistics",
+    slug: "full-application-support",
+    title: "Full Application Support",
     pace: "Consultant-paced",
     highlight: "We drive the process for you",
     perks: [
@@ -69,7 +69,7 @@ const packages = [
     ],
     icon: Truck,
     color: "emerald",
-    href: "/support-packages#comprehensive-with-logistics",
+    href: "/support-packages#full-application-support",
     badge: "Most Guided",
   },
 ];
@@ -183,7 +183,7 @@ function QuickGlanceModal({ pkgKey, dataset, onClose }) {
 // Accept optional dataUrl / data so the modal can show features from the same JSON as the table
 export default function SupportPackagesPreview({ data, dataUrl }) {
   const [dataset, setDataset] = useState(data || null);
-  const [openKey, setOpenKey] = useState(null); // 'essays' | 'comp' | 'compLog' | null
+  const [openKey, setOpenKey] = useState(null); // 'essays' | 'comp' | 'full' | null
 
   useEffect(() => {
     if (dataset || !dataUrl) return;
@@ -206,7 +206,7 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
   const keyMap = {
     "essays-only": "essays",
     "comprehensive": "comp",
-    "comprehensive-logistics": "compLog",
+    "full-application-support": "full",
   };
 
   return (
@@ -216,7 +216,7 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
       <div className="mb-2 items-baseline">
         <h1 className="bannerTitle text-start sm:text-3xl">Compare Support Options at a Glance</h1>
         <h2 className="pCentered text-start text-white">
-          From essays-only guidance to fully managed application logistics, Ivy Ready offers tailored support for every applicant and family. 
+          From essays-only guidance to fully managed application support, Ivy Ready offers tailored support for every applicant and family. 
           We also offer{" "}
           <Link href="services/hourly-consultation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Hourly Consultation
