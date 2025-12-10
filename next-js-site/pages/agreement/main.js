@@ -274,7 +274,7 @@ export default function AgreementForm() {
               >
                 <option value="">Package Selection</option>
                 <option value="cs10">Comprehensive Support up to 10 Schools Schools $5,000</option>
-                <option value="cswl10">Comprehensive Support with Logistics up to 10 Schools $6,000</option>
+                <option value="cswl10">Full Application Support up to 10 Schools $6,000</option>
               </select>
             </div>
 

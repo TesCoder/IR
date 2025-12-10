@@ -61,7 +61,7 @@ export default function TermsOfService() {
           review and submission timeline.
         </li>
         <li>
-          You acknowledge that in Comprehensive Support with Logistics package
+          You acknowledge that in Full Application Support package
           the Coach will be responsible for creating the timeline (by working
           with the Applicant), and conducting check ins and reminders. In
           addition, the coach will take care of administrative components tied

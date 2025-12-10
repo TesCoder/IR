@@ -4,7 +4,7 @@
     "columns": [
       { "key": "essays",  "label": "Essays-only Support", "pace": "Student-paced" },
       { "key": "comp",    "label": "Comprehensive Support", "pace": "Student-paced" },
-      { "key": "compLog", "label": "Comprehensive Support with Logistics", "pace": "Consultant-paced" }
+      { "key": "compLog", "label": "Full Application Support", "pace": "Consultant-paced" }
     ]
   },
   "rows": [

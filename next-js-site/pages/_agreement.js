@@ -455,7 +455,7 @@ export default function DisabledPage() {
 //                 You acknowledge that in Essays-Only Support and Comprehensive Support packages the Applicant is responsible for staying on track with the review and submission timeline.
 //               </li>
 //               <li>
-//                 You acknowledge that in Comprehensive Support with Logistics package the Coach will be responsible for creating the timeline (by working with the Applicant), and conducting check ins and reminders. In addition, the coach will take care of administrative components tied to the application process (e.g. assemble a document with requirements and deadlines for the list of colleges selected.)
+//                 You acknowledge that in Full Application Support package the Coach will be responsible for creating the timeline (by working with the Applicant), and conducting check ins and reminders. In addition, the coach will take care of administrative components tied to the application process (e.g. assemble a document with requirements and deadlines for the list of colleges selected.)
 //               </li>
 //               <li>
 //                 You acknowledge that the Applicant will submit documents for edit/review and schedule meetings in a timely manner. If the applicant falls behind schedule, the Application Coach will do their best to get the Applicant back on track. However, you acknowledge, regardless of the package selected, the Applicant is ultimately responsible for staying on track to meet official college application deadlines and Ivy Ready is not liable for missed application deadlines.

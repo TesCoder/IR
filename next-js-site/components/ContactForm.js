@@ -63,6 +63,19 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
   const [isSubmitting, setSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState({ success: false, message: "" });
 
+  // Ensure any Bootstrap modal/backdrop is cleared before navigating away
+  const closeOpenModals = () => {
+    if (typeof document === "undefined") return;
+    document.querySelectorAll(".modal.show").forEach((modalEl) => {
+      modalEl.classList.remove("show");
+      modalEl.setAttribute("aria-hidden", "true");
+      modalEl.style.display = "none";
+    });
+    document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
+    document.body.classList.remove("modal-open");
+    document.body.style.removeProperty("padding-right");
+  };
+
   const heardOptions = [
     { id: "google", label: "Google Search", value: "Google Search" },
     { id: "mail", label: "Mail", value: "Mail" },
@@ -104,6 +117,7 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
         console.warn('dataLayer push failed', pushErr);
       }
 
+      closeOpenModals();
       router.replace("/form-submitted#top");
     } catch (err) {
       console.error(err);
@@ -268,7 +282,7 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
                 <option value="">Select an option</option>
                 <option value="Essays-Only Support">Essay Support Only</option>
                 <option value="Comprehensive Support">Comprehensive Support</option>
-                <option value="Comprehensive Support with Logistics">Comprehensive + Logistics</option>
+                <option value="Full Application Support">Full Application Support</option>
                 <option value="Hourly Consultation">Hourly Consultation</option>
                 <option value="Application Evaluation">Application Evaluation</option>
                 <option value="Other">Other</option>

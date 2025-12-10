@@ -32,7 +32,7 @@ export default function SupportPackages() {
         url="/services/support-packages"
       />
 
-      <SchemaScript schema={ServiceSchema({ serviceName: 'Application Support Packages', description: "Essays-only, Comprehensive Support, and Comprehensive Support with Logistics offered by Ivy Ready.", priceRange: '$$$' })} />
+      <SchemaScript schema={ServiceSchema({ serviceName: 'Application Support Packages', description: "Essays-only, Comprehensive Support, and Full Application Support offered by Ivy Ready.", priceRange: '$$$' })} />
       <div className="max-w-6xl mx-auto px-6 pt-6">
         <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Support Packages', url: '/services/support-packages' }]} />
       </div>
@@ -54,8 +54,8 @@ export default function SupportPackages() {
 
       <Section centerContent title="Ivy Ready Application Support Packages">
         <p className="pCentered">
-          We offer <b>Essays-only Support, Comprehensive Support, and Comprehensive
-          Support with Logistics</b>. All packages come with unlimited hours
+          We offer <b>Essays-only Support, Comprehensive Support, and Full
+          Application Support</b>. All packages come with unlimited hours
           of essay editing and admission support. (In addition, we offer
           <HyperLink href="services/hourly-consultation"> hourly consultation</HyperLink>
           and <HyperLink href="services/application-evaluation">Application Evaluation</HyperLink>.)
@@ -99,7 +99,7 @@ export default function SupportPackages() {
             packaging.
           </li>
           <li>
-            <strong>Comprehensive Support with Logistics</strong> hands off the
+            <strong>Full Application Support</strong> hands off the
             logistical burden to the consultant — including timelines,
             submission portals, and reminders.
           </li>
@@ -177,10 +177,10 @@ export default function SupportPackages() {
               Ensuring the applicant is able to submit not only their best work but
               also the most compelling application to each school will require
               extensive planning, preparation, and oversight—included as a part of
-              Comprehensive Support and Comprehensive Support with Logistics.
+              Comprehensive Support and Full Application Support.
             </p>
             <p className="pCentered text-start">
-              Comprehensive Support with Logistics is best for applicants looking
+              Full Application Support is best for applicants looking
               for complete support from the planning stage through application
               submission. On the other hand, Comprehensive Support is the most
               common option and covers support outside of the Essays-only package.
@@ -215,20 +215,19 @@ export default function SupportPackages() {
             <p className="pCentered text-start">
               If the applicant is able to manage the logistical aspects of this
               process, Essays-only Support and Comprehensive Support will be the
-              right option. Otherwise, we recommend Comprehensive Support with
-              Logistics in which we take the leading role in the whole process.
-              Comprehensive Support with Logistics, as a more personalized option,
-              will relieve the applicant of the responsibility and stress that
-              accompanies the logistical aspect of the application process. The
-              burden of this on the applicant cannot be underestimated, as our role
-              in alleviating this stress through Comprehensive Support with
-              Logistics cannot be overstated. By ensuring the applicant is on track
-              from the start, we make sure there is enough time to refine every
-              essay and submission. With Comprehensive Support with Logistics, we
-              take charge of the process on our end by notifying the applicant of
-              due dates for drafts, providing the support needed to ensure all
-              documents are submitted on time, and by being there when anything
-              comes up at the last minute, etc.
+              right option. Otherwise, we recommend Full Application Support in
+              which we take the leading role in the whole process. Full
+              Application Support, as a more personalized option, will relieve the
+              applicant of the responsibility and stress that accompanies the
+              logistical aspect of the application process. The burden of this on
+              the applicant cannot be underestimated, as our role in alleviating
+              this stress through Full Application Support cannot be overstated.
+              By ensuring the applicant is on track from the start, we make sure
+              there is enough time to refine every essay and submission. With Full
+              Application Support, we take charge of the process on our end by
+              notifying the applicant of due dates for drafts, providing the
+              support needed to ensure all documents are submitted on time, and by
+              being there when anything comes up at the last minute, etc.
             </p>
             <p className="pCentered text-start">
               When it comes to personal statements, while the same essay may be used

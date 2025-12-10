@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /agreement/
+Disallow: /agreement_project/
+Disallow: /api/
+
+# Host
+Host: https://ivyready.com
+
+# Sitemaps
+Sitemap: https://ivyready.com/sitemap.xml

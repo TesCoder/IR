@@ -38,7 +38,7 @@ export default function page() {
           Once you sign up for a package and a set of schools, there is no limit to the hours of application support within that package. The student will have direct access to the coach to set up meetings and send essays for editing. Parents are also more than welcome to join meetings and be copied on correspondences. (On average, it takes 100-120 hours for a full admissions season.)
         </p>
         <p>
-          Comprehensive Support and Comprehensive Support with Logistics include additional 6 hours of face-to-face college counseling per year as well as unlimited email counseling. These are generally utilized by families to supplement the high school college counselor.
+          Comprehensive Support and Full Application Support include additional 6 hours of face-to-face college counseling per year as well as unlimited email counseling. These are generally utilized by families to supplement the high school college counselor.
         </p>
 
         <p>
@@ -61,10 +61,10 @@ export default function page() {
               <strong>Comprehensive Support up to 10 Schools:</strong> $12,000 <span className="text-gray-500">(Save $1,000 from $13,000)</span> <span className="text-green-600 font-semibold">[Most common]</span>
             </li>
             <li>
-              <strong>Comprehensive Support with Logistics up to 5 Schools:</strong> $12,000 <span className="text-gray-500">(Save $1,000 from $13,000)</span>
+              <strong>Full Application Support up to 5 Schools:</strong> $12,000 <span className="text-gray-500">(Save $1,000 from $13,000)</span>
             </li>
             <li>
-              <strong>Comprehensive Support with Logistics up to 10 Schools:</strong> $14,000 <span className="text-gray-500">(Save $1,000 from $15,000)</span>
+              <strong>Full Application Support up to 10 Schools:</strong> $14,000 <span className="text-gray-500">(Save $1,000 from $15,000)</span>
             </li>
         </ul>
           
