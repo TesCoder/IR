@@ -28,7 +28,7 @@ export default function SupportPackages() {
     <>
       <SEOHead
         title="Ivy Ready Support Packages"
-        description="Explore Ivy Ready's college application support services, including essays-only, comprehensive guidance, and full logistics support."
+        description="Explore Ivy Ready's college application support services, including essays-only, comprehensive guidance, and full application support."
         url="/services/support-packages"
       />
 
