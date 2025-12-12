@@ -1,6 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import Section from "@/components/Section";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { ServiceSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 
 const services = [
@@ -27,6 +28,12 @@ const services = [
 ];
 
 export default function ServicesIndex() {
+  const serviceSchema = ServiceSchema({
+    serviceName: "Admissions Services",
+    description:
+      "Explore Ivy Ready's admissions services including evaluations, early planning, hourly consults, and full support packages.",
+  });
+
   return (
     <>
       <SEOHead
@@ -35,6 +42,7 @@ export default function ServicesIndex() {
         url="/services"
         image="/images/logo-circle.png"
       />
+      <SchemaScript schema={serviceSchema} />
 
       <div className="max-w-6xl mx-auto px-6 pt-8">
         <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services" }]} />
@@ -82,4 +90,5 @@ export default function ServicesIndex() {
     </>
   );
 }
+
 
