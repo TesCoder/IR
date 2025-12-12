@@ -25,7 +25,7 @@ export default function BlogIndex() {
   return (
     <>
       <SEOHead
-        title="Blog & Resources | Ivy Ready"
+        title="Blog & Resources"
         description="Guides and tips from former admissions officers on essays, strategy, testing, and application milestones."
         url="/blog"
         image="/images/logo-circle.png"
@@ -68,4 +68,5 @@ export default function BlogIndex() {
     </>
   );
 }
+
 
