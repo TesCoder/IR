@@ -109,14 +109,6 @@ export default function Navbar() {
                   </li>
                 </ul>
               </li>
-
-              <div
-                className="hidden sm:hidden lg:block
-              "
-              >
-                <LogoProjector />
-              </div>
-
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
@@ -125,6 +117,15 @@ export default function Navbar() {
                   Testimonials
                 </Link>
               </li>
+
+              <div
+                className="hidden sm:hidden lg:block
+              "
+              >
+                <LogoProjector />
+              </div>
+
+            
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
@@ -135,7 +136,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <OrbitGlowButton
-                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full m-0.5"
+                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full"
                   onClick={handleHeaderCtaClick}
                   data-bs-toggle="modal"
                   data-bs-target="#contactModal"
@@ -143,7 +144,7 @@ export default function Navbar() {
                   Get Started
                 </OrbitGlowButton>
               </li>
-              <li className="nav-item d-flex align-items-center mt-2 md:mt-0">
+              <li className="nav-item d-flex md:mt-0">
                 <a
                   className="nav-link text-white font-semibold hover:opacity-75"
                   href="tel:+16503830352"
