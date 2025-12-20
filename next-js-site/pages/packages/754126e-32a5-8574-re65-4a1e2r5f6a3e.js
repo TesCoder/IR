@@ -1,6 +1,8 @@
 import SEOHead from "@/components/SEOHead";
 import Image from "next/image";
 import Section from "@/components/Section";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { SchemaScript, ServiceSchema } from "@/components/Schema";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -27,6 +29,26 @@ export default function page() {
         description="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
         url="/packages/754126e-32a5-8574-re65-4a1e2r5f6a3e"
       />
+
+      <SchemaScript
+        schema={ServiceSchema({
+          serviceName: "Application Support Fee Structure",
+          description:
+            "Comprehensive application support packages with unlimited guidance, essay editing, and admissions coaching.",
+          serviceUrl: "https://ivyready.com/packages/754126e-32a5-8574-re65-4a1e2r5f6a3e",
+          areaServed: "United States",
+        })}
+      />
+
+      <div className="max-w-6xl mx-auto px-4 pt-4">
+        <Breadcrumbs
+          items={[
+            { name: "Home", url: "/" },
+            { name: "Packages", url: "/services/support-packages" },
+            { name: "Application Support Fee Structure", url: "/packages/754126e-32a5-8574-re65-4a1e2r5f6a3e" },
+          ]}
+        />
+      </div>
  
       <Section title="Ivy Ready Application Support Fee Structure">
         <p>

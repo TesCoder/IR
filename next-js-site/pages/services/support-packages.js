@@ -32,9 +32,24 @@ export default function SupportPackages() {
         url="/services/support-packages"
       />
 
-      <SchemaScript schema={ServiceSchema({ serviceName: 'Application Support Packages', description: "Essays-only, Comprehensive Support, and Full Application Support offered by Ivy Ready.", priceRange: '$$$' })} />
+      <SchemaScript
+        schema={ServiceSchema({
+          serviceName: "Application Support Packages",
+          description:
+            "Essays-only, Comprehensive Support, and Full Application Support offered by Ivy Ready.",
+          serviceUrl: "https://ivyready.com/services/support-packages",
+          areaServed: "United States",
+          priceRange: "$$$",
+        })}
+      />
       <div className="max-w-6xl mx-auto px-6 pt-6">
-        <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Support Packages', url: '/services/support-packages' }]} />
+        <Breadcrumbs
+          items={[
+            { name: "Home", url: "/" },
+            { name: "Services", url: "/services" },
+            { name: "Support Packages", url: "/services/support-packages" },
+          ]}
+        />
       </div>
 
       <Modal
