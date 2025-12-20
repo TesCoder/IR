@@ -17,6 +17,7 @@ import Testimonials from "@/components/Testimonials_Snippets";  // new testimoni
 import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data used for testimonials and outcomes
 import SteppedRoadmap from "@/components/SteppedRoadmap";
 import OutcomesGallery from "@/components/OutcomesGallery";
+import { SchemaScript } from "@/components/Schema";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -29,6 +30,19 @@ export default function Home() {
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
 
+  const handleHeroCtaClick = () => {
+    setModalType("INFO");
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: "cta_click",
+        cta_location: "hero",
+        cta_text: "Get Your FREE Consultation",
+        destination: "#contactModal",
+        page_path: window.location.pathname,
+      });
+    }
+  };
+
 
   return (
     <>
@@ -37,6 +51,24 @@ export default function Home() {
         description="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
         url="/"
         image="/images/logo-circle.png"
+      />
+      <SchemaScript
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Ivy Ready",
+          legalName: "Ivy Ready LLC",
+          url: "https://ivyready.com",
+          logo: "https://ivyready.com/images/logo-white.png",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+1-650-383-0352",
+            contactType: "customer service",
+            areaServed: "US",
+            availableLanguage: "English",
+          },
+          sameAs: ["https://facebook.com/ivyready"],
+        }}
       />
 
      {/* ===============================
@@ -108,7 +140,7 @@ export default function Home() {
           </h2>
 
           <OrbitGlowButton
-            onClick={() => setModalType('INFO')}
+            onClick={handleHeroCtaClick}
             data-bs-toggle="modal" // triggers Bootstrap modal (adds transparent black backdrop) (aka popup)
             data-bs-target="#contactModal"
           >

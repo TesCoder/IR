@@ -11,6 +11,19 @@ export default function Navbar() {
   const [logoVisibility, setLogoVisibility] = useState(false);
   const [modalType, setModalType] = useState("INFO");
 
+  const handleHeaderCtaClick = () => {
+    setModalType("INFO");
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: "cta_click",
+        cta_location: "header",
+        cta_text: "Get Started",
+        destination: "#contactModal",
+        page_path: window.location.pathname,
+      });
+    }
+  };
+
 
   return (
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
@@ -123,12 +136,20 @@ export default function Navbar() {
               <li className="nav-item">
                 <OrbitGlowButton
                   className="btn btn-light text-ivy-red uppercase font-semibold rounded-full m-0.5"
-                      onClick={() => setModalType("INFO")}
-                      data-bs-toggle="modal"
-                      data-bs-target="#contactModal"
-                    >
-                      Get Started
+                  onClick={handleHeaderCtaClick}
+                  data-bs-toggle="modal"
+                  data-bs-target="#contactModal"
+                >
+                  Get Started
                 </OrbitGlowButton>
+              </li>
+              <li className="nav-item d-flex align-items-center mt-2 md:mt-0">
+                <a
+                  className="nav-link text-white font-semibold hover:opacity-75"
+                  href="tel:+16503830352"
+                >
+                  (650) 383-0352
+                </a>
               </li>
             </ul>
           </div>

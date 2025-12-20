@@ -4,6 +4,18 @@ import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 
 export default function Footer() {
+  const handleFooterCtaClick = () => {
+    if (typeof window !== "undefined" && window.dataLayer) {
+      window.dataLayer.push({
+        event: "cta_click",
+        cta_location: "footer",
+        cta_text: "CONTACT US",
+        destination: "/#application-support-questions-section",
+        page_path: window.location.pathname,
+      });
+    }
+  };
+
   return (
     <footer className="bg-white text-ivy-blue font-medium py-10 flex flex-col items-center m-0">
 
@@ -12,8 +24,15 @@ export default function Footer() {
       </Section> */}
 
       <div className="flex flex-row gap-4">
-        <Link className="hover:opacity-75" href="/#application-support-questions-section">CONTACT US</Link>
+        <Link
+          className="hover:opacity-75"
+          href="/#application-support-questions-section"
+          onClick={handleFooterCtaClick}
+        >
+          CONTACT US
+        </Link>
         <Link className="hover:opacity-75" href="/#">HOME</Link>
+        <a className="hover:opacity-75" href="tel:+16503830352">(650) 383-0352</a>
       </div>
 
       <div className="my-3">

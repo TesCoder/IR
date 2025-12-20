@@ -1,0 +1,16 @@
+{
+  "url": "http://localhost:3001",
+  "beforeLength": 5,
+  "afterLength": 6,
+  "pushes": [
+    [
+      {
+        "event": "cta_click",
+        "cta_location": "header",
+        "cta_text": "Get Started",
+        "destination": "#contactModal",
+        "page_path": "/"
+      }
+    ]
+  ]
+}

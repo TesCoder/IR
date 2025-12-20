@@ -3,7 +3,7 @@
 // Success Stories page using shared JSON + OutcomesGallery
 // ============================================
 
-import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
 import { useMemo, useState, useEffect } from "react";
 import OutcomesGallery from "@/components/OutcomesGallery";
 import Section from "@/components/Section";
@@ -80,13 +80,11 @@ export default function SuccessPage() {
 
   return (
     <>
-      <Head>
-        <title>Success Stories | Ivy Ready</title>
-        <meta
-          name="description"
-          content="Real outcomes from Ivy Ready — students accepted to top universities and proud parents celebrating the journey."
-        />
-      </Head>
+      <SEOHead
+        title="Success Stories | Ivy Ready"
+        description="Real outcomes from Ivy Ready — students accepted to top universities and proud parents celebrating the journey."
+        url="/success"
+      />
 
       {/* Contact Modal (same wiring as Home) */}
       <Modal

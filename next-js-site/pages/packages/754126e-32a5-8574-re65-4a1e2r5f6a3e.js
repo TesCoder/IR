@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
 import Image from "next/image";
 import Section from "@/components/Section";
 
@@ -22,15 +22,11 @@ export async function getServerSideProps(context) {
 export default function page() {
   return (
     <>
-      <Head>
-        <title>
-          Ivy Ready College Admission Consulting
-        </title>
-        <meta
-          name="description"
-          content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
-        />
-      </Head>
+      <SEOHead
+        title="Ivy Ready College Admission Consulting"
+        description="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
+        url="/packages/754126e-32a5-8574-re65-4a1e2r5f6a3e"
+      />
  
       <Section title="Ivy Ready Application Support Fee Structure">
         <p>

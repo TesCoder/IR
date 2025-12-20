@@ -1,4 +1,6 @@
-import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { SchemaScript, ServiceSchema } from "@/components/Schema";
 import Image from "next/image";
 import Section from "@/components/Section";
 
@@ -23,15 +25,31 @@ export async function getServerSideProps(context) {
 export default function page() {
   return (
     <>
-      <Head>
-        <title>
-          Ivy Ready College Admission Consulting
-        </title>
-        <meta
-          name="description"
-          content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
+      <SEOHead
+        title="Ivy Ready College Admission Consulting"
+        description="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
+        url="/packages/0ea2348c-f91c-4b0e-a2e0-41f72e7c0e3d"
+      />
+
+      <SchemaScript
+        schema={ServiceSchema({
+          serviceName: "Application Support Fee Structure",
+          description:
+            "Comprehensive application support packages with unlimited guidance, essay editing, and admissions coaching.",
+          serviceUrl: "https://ivyready.com/packages/0ea2348c-f91c-4b0e-a2e0-41f72e7c0e3d",
+          areaServed: "United States",
+        })}
+      />
+
+      <div className="max-w-6xl mx-auto px-4 pt-4">
+        <Breadcrumbs
+          items={[
+            { name: "Home", url: "/" },
+            { name: "Packages", url: "/services/support-packages" },
+            { name: "Application Support Fee Structure", url: "/packages/0ea2348c-f91c-4b0e-a2e0-41f72e7c0e3d" },
+          ]}
         />
-      </Head>
+      </div>
  
       <Section title="Ivy Ready Application Support Fee Structure">
         <p>
