@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEOHead from "@/components/SEOHead";
 import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
@@ -92,9 +92,11 @@ export default function AgreementForm() {
        <p> Agreement #IO3748391837</p>
       </div>
 
-      <Head>
-        <title>Application Support Agreement - Ivy Ready</title>
-      </Head>
+      <SEOHead
+        title="Application Support Agreement - Ivy Ready"
+        description="Application Support Agreement form for Ivy Ready packages."
+        url="/agreement/main"
+      />
 
       <section className="max-w-3xl mx-auto p-6">
         <form onSubmit={handleSubmit} className="space-y-8">

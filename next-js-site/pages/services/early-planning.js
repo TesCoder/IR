@@ -3,7 +3,6 @@ import SEOHead from '@/components/SEOHead';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQ from '@/components/FAQ';
 import { ServiceSchema, SchemaScript } from '@/components/Schema';
-import Head from "next/head";
 import { motion } from "framer-motion";
 import Section from "@/components/Section";
 import Link from "next/link";
@@ -232,6 +231,10 @@ export default function EarlyPlanning() {
             <Link href="services/application-evaluation" className="underline">Start with an Evaluation</Link>
           </div>
         </div>
+      </Section>
+
+      <Section title="FAQs" centerContent>
+        <FAQ faqs={faqs} />
       </Section>
 
       <FAQ faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
