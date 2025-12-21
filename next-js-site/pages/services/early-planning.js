@@ -82,20 +82,20 @@ export default function EarlyPlanning() {
 
   const faqs = [
     {
-      q: "Is this only for Ivy-bound students?",
-      a: "No. The framework scales for any selective target. We anchor to each student’s goals, school context, and bandwidth.",
+      question: "Is this only for Ivy-bound students?",
+      answer: "No. The framework scales for any selective target. We anchor to each student’s goals, school context, and bandwidth.",
     },
     {
-      q: "Do we need test prep in 9th/10th?",
-      a: "Usually not heavy prep. We right-size exposure (PSAT awareness, light diagnostics) and revisit a formal plan in 10th–11th depending on targets.",
+      question: "Do we need test prep in 9th/10th?",
+      answer: "Usually not heavy prep. We right-size exposure (PSAT awareness, light diagnostics) and revisit a formal plan in 10th–11th depending on targets.",
     },
     {
-      q: "How often do we meet?",
-      a: "Most families meet monthly during the school year with quick check-ins around exams and deadlines. Quarterly reviews drive bigger plan updates.",
+      question: "How often do we meet?",
+      answer: "Most families meet monthly during the school year with quick check-ins around exams and deadlines. Quarterly reviews drive bigger plan updates.",
     },
     {
-      q: "Can you help launch a project or find research?",
-      a: "Yes. We ideate, scope, and build a realistic roadmap, plus outreach scripts and accountability to move from idea → impact.",
+      question: "Can you help launch a project or find research?",
+      answer: "Yes. We ideate, scope, and build a realistic roadmap, plus outreach scripts and accountability to move from idea → impact.",
     },
   ];
 
@@ -137,7 +137,7 @@ export default function EarlyPlanning() {
                     Schedule an Intro Call
                 </OrbitGlowButton>
 
-                <Link href="services/support-packages" className="underline">
+                <Link href="/services/support-packages" className="underline">
                   Explore Packages
                 </Link>
               </div>
@@ -236,10 +236,6 @@ export default function EarlyPlanning() {
       <Section title="FAQs" centerContent>
         <FAQ faqs={faqs} />
       </Section>
-
-      <FAQ faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
-
-       
     </>
   );
 }
