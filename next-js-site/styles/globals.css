@@ -392,6 +392,18 @@ input[type="tel"]:focus {
 .coachProfilePic { border-radius: 9999px; width: 80%; box-shadow: 0 0 20px #000; }
 @media (max-width: 765px) { #logoModifier { display: none; } }
 
+/* Navbar dropdown hover (desktop) */
+@media (hover: hover) and (pointer: fine) and (min-width: 992px) {
+  .navbar .dropdown:hover .dropdown-menu,
+  .navbar .dropdown:focus-within .dropdown-menu {
+    display: block;
+  }
+
+  .navbar .dropdown .dropdown-menu {
+    margin-top: 0;
+  }
+}
+
 /* --- Navbar / Light Button Fix --- */
 .btn-light {
   background-color: #ffffff !important;
