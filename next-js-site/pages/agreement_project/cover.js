@@ -1,7 +1,7 @@
-import Head from "next/head";
 import Image from "next/image";
 import Section from "@/components/Section";
 import Link from "next/link";
+import SEOHead from "@/components/SEOHead";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -25,12 +25,11 @@ export async function getServerSideProps(context) {
 export default function page() {
   return (
     <>
-      <Head> 
-        <meta
-          name="description"
-          content="Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student."
-        />
-      </Head>
+      <SEOHead
+        title="Agreement Project Cover"
+        description="Ivy Ready's team includes former admission officers with extensive experience guiding students through college planning and admission projects."
+        url="/agreement_project/cover"
+      />
  
       <section className="flex justify-center">
         <Link href="/agreement_project/main?w=27ZRss5XCskcryfXxDCz-AxllzZMa9ra8BoxGoNUc">

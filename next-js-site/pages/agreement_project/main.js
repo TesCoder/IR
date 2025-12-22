@@ -1,10 +1,10 @@
-import Head from "next/head";
 import Image from "next/image";
 import { useState } from 'react';
 import Link from "next/link";
 import TermsOfService from '../tos';
 import sendEmail from "@/lib/sendEmail"; 
 import { useRouter } from "next/navigation"; // needed for redirecting from page
+import SEOHead from "@/components/SEOHead";
 
 
 export async function getServerSideProps(context) {
@@ -92,9 +92,11 @@ export default function AgreementForm() {
        <p> Agreement #IO3748391837</p>
       </div> */}
 
-      <Head>
-        <title>Project-Specific Agreement - Ivy Ready</title>
-      </Head>
+      <SEOHead
+        title="Project-Specific Agreement"
+        description="Complete your Ivy Ready project-specific agreement to finalize your engagement with our admissions consultants."
+        url="/agreement_project/main"
+      />
 
       <section className="max-w-3xl mx-auto p-6">
         <form onSubmit={handleSubmit} className="space-y-8 mb-20">

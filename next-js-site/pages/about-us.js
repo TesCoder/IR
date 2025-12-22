@@ -3,9 +3,9 @@ import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import ContactForm from "@/components/ContactForm";
 import Modal from "@/components/Modal";
 import Section from "@/components/Section";
-import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import SEOHead from "@/components/SEOHead";
 import { members } from "../components/membersList";
 import CoachInfo from "@/components/CoachInfo";
 
@@ -16,16 +16,11 @@ export default function About() {
 
   return (
     <>
-      <Head>
-        <title>About Us - Ivy Ready College Admission Consulting</title>
-        <meta
-          name="description"
-          content="Ivy Ready's team is made up of former admission officers and 
-          graduates from top schools who have extensive experience in supporting students 
-          with college planning and admission. Our mission is to provide a personalized admission 
-          strategy for each student."
-        />
-      </Head>
+      <SEOHead
+        title="About Us"
+        description="Ivy Ready's team of former admission officers provides personalized college planning strategies tailored to each student’s strengths and goals."
+        url="/about-us"
+      />
       
       {/* Contact Modal (pop up) */}
       <Modal

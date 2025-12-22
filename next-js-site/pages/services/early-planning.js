@@ -23,6 +23,7 @@ import {
 // NOTE: Drop this as pages/early-planning.js (or /services/early-planning.js)
 // It follows your project's conventions (Section, Link, Tailwind, shadcn Button, lucide icons).
 // Replace any missing imports with your local equivalents.
+//
 
 export default function EarlyPlanning() {
   const [modalType, setModalType] = useState("INFO");
