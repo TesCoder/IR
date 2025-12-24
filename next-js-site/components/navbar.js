@@ -14,6 +14,7 @@ export default function Navbar() {
   const collapseRef = useRef(null);
   const collapseInstanceRef = useRef(null);
 
+  // Keep for navbar collapse functionality
   useEffect(() => {
     let isMounted = true;
 
