@@ -37,6 +37,7 @@ export default function ServicesIndex() {
   const handleServiceClick = (text) => {
     trackCtaClick({ location: "services", text });
   };
+  const handleServiceLinkClick = (text) => () => handleServiceClick(text);
 
   return (
     <>
@@ -70,7 +71,7 @@ export default function ServicesIndex() {
                 <Link
                   className="text-ivy-blue underline hover:no-underline"
                   href={href}
-                  onClick={() => handleServiceClick(name)}
+                  onClick={handleServiceLinkClick(name)}
                 >
                   {name}
                 </Link>
@@ -79,7 +80,7 @@ export default function ServicesIndex() {
               <Link
                 className="text-ivy-blue font-medium"
                 href={href}
-                onClick={() => handleServiceClick("View details →")}
+                onClick={handleServiceLinkClick("View details →")}
               >
                 View details →
               </Link>
@@ -95,7 +96,7 @@ export default function ServicesIndex() {
         <Link
           className="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-full bg-ivy-blue text-white font-semibold hover:bg-[#23486c] transition"
           href="/free-consultation"
-          onClick={() => handleServiceClick("Schedule a free consultation")}
+          onClick={handleServiceLinkClick("Schedule a free consultation")}
         >
           Schedule a free consultation
         </Link>

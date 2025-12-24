@@ -38,6 +38,10 @@ export default function Navbar() {
     trackCtaClick({ location: "header", text: "Get Started" });
   };
 
+  const handleHeaderPhoneClick = () => {
+    trackCtaClick({ location: "header", text: "(650) 383-0352" });
+  };
+
 
   return (
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
@@ -165,6 +169,7 @@ export default function Navbar() {
                 <a
                   className="nav-link text-white font-semibold hover:opacity-75"
                   href="tel:+16503830352"
+                  onClick={handleHeaderPhoneClick}
                 >
                   (650) 383-0352
                 </a>

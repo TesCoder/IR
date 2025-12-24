@@ -8,6 +8,7 @@ import SEOHead from "@/components/SEOHead";
 import Section from "@/components/Section";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import { trackCtaClick } from "@/lib/trackCta";
 
   export default function Testimonials({ typeFilter, testimonials = [], includeHidden = false }) { // admin toggle hidden to True to see all
   // STEP 1: Filter by type and visibility
@@ -30,6 +31,10 @@ import { useEffect, useMemo, useState } from "react";
     const shuffled = filtered.slice().sort(() => Math.random() - 0.5);
     setItems(shuffled);
   }, [filtered]);
+
+  const handleTestimonialsCtaClick = () => {
+    trackCtaClick({ location: "testimonials", text: "Start Your Application Plan" });
+  };
 
 
   return (
@@ -145,7 +150,7 @@ import { useEffect, useMemo, useState } from "react";
               Take the first step toward your college success story with a free consultation from our expert admissions team.
             </p>
           <Button
-              onClick={() => setModalType("INFO")}
+              onClick={handleTestimonialsCtaClick}
               data-bs-toggle="modal"
               data-bs-target="#contactModal"
             >
