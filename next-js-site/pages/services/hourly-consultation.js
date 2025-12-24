@@ -4,8 +4,13 @@ import SEOHead from '@/components/SEOHead';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQ from '@/components/FAQ';
 import { ServiceSchema, SchemaScript } from '@/components/Schema';
+import { trackCtaClick } from "@/lib/trackCta";
 
 export default function HourlyConsultation() {
+  const handleStartNowClick = () => {
+    trackCtaClick({ location: "services", text: "Start now" });
+  };
+
   return (
     <>
       <SEOHead
@@ -112,7 +117,7 @@ export default function HourlyConsultation() {
           <p className="text-gray-700 mb-4">
             Tell us what you need—essay review, strategy, interview prep, or timeline help—and we’ll match you with a former admission officer.
           </p>
-          <a href="#contact-form" className="btn">
+          <a href="#contact-form" className="btn" onClick={handleStartNowClick}>
             Start now
           </a>
         </div>

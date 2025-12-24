@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: {}, // allow rendering
+    props: {}, // allow rendering; head provided directly in page
   };
 }
 
@@ -29,7 +29,6 @@ export default function page() {
         description="Thank you for submitting your Ivy Ready project-specific agreement. Our team will follow up shortly."
         url="/agreement_project/exit"
       />
- 
       <Section className="flex justify-center"> 
         <Image
           className="shadow-md"

@@ -2,18 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
+import { trackCtaClick } from "@/lib/trackCta";
 
 export default function Footer() {
   const handleFooterCtaClick = () => {
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: "cta_click",
-        cta_location: "footer",
-        cta_text: "CONTACT US",
-        destination: "/#application-support-questions-section",
-        page_path: window.location.pathname,
-      });
-    }
+    trackCtaClick({ location: "footer", text: "CONTACT US" });
   };
 
   return (

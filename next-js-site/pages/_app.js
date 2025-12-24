@@ -4,9 +4,11 @@ import '@/styles/globals.css';
 import Head from "next/head";
 import Script from "next/script";
 import { useRouter } from 'next/router';
+import SEOHead from "@/components/SEOHead";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
+  const seo = pageProps?.seo;
 
   // pages that should NOT use the Layout
   const noLayoutPages = [
@@ -23,10 +25,10 @@ function App({ Component, pageProps }) {
 
   const PageContent = (
     <>
+      {seo && <SEOHead {...seo} />}
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:image" content="https://ivyready.com/images/logo-circle.png"/>
       </Head>
 
       {/* Google Tag Manager */}

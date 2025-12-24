@@ -13,6 +13,7 @@ import SupportPackagesPreview from "@/components/SupportPackagesPreview";
 import dataset from "@/data/packages-comparison.json";
 import CoachInfoSnippet from "@/components/CoachInfoSnippet";
 import { motion } from "framer-motion";
+import { trackCtaClick } from "@/lib/trackCta";
 import Testimonials from "@/components/Testimonials_Snippets";  // new testimonial snippet
 import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data used for testimonials and outcomes
 import SteppedRoadmap from "@/components/SteppedRoadmap";
@@ -32,15 +33,17 @@ export default function Home() {
 
   const handleHeroCtaClick = () => {
     setModalType("INFO");
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: "cta_click",
-        cta_location: "hero",
-        cta_text: "Get Your FREE Consultation",
-        destination: "#contactModal",
-        page_path: window.location.pathname,
-      });
-    }
+    trackCtaClick({ location: "hero", text: "Get Your FREE Consultation" });
+  };
+
+  const handleTestimonialsCtaClick = () => {
+    setModalType("INFO");
+    trackCtaClick({ location: "hero", text: "Get Your FREE Consultation" });
+  };
+
+  const handleStrategyCtaClick = () => {
+    setModalType("INFO");
+    trackCtaClick({ location: "hero", text: "Schedule Free Strategy Call" });
   };
 
 
@@ -218,7 +221,7 @@ export default function Home() {
 
         <div className="mt-4"></div>
         <OrbitGlowButton
-            onClick={() => setModalType("INFO")}
+            onClick={handleTestimonialsCtaClick}
             data-bs-toggle="modal"
             data-bs-target="#contactModal"
           >
@@ -249,7 +252,7 @@ export default function Home() {
         />
         
       <OrbitGlowButton
-        onClick={() => setModalType("INFO")}
+        onClick={handleStrategyCtaClick}
         data-bs-toggle="modal"
         data-bs-target="#contactModal"
       >

@@ -2,7 +2,6 @@ import { Button, ButtonRow } from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
 import Modal from "@/components/Modal";
 import Section from "@/components/Section";
-import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { members_h } from "@/components/membersList_h";
@@ -45,11 +44,9 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   </div>
 );
 
-export default function MemberH({ id }) {
+export default function MemberH({ member }) {
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
-
-  const member = members_h.find((m) => m.id === id);
 
   if (!member) {
     return (
@@ -95,9 +92,22 @@ export async function getStaticPaths() {
 
 // Fetch member data based on ID
 export async function getStaticProps({ params }) {
+  const member = members_h.find((m) => m.id === params.id);
+
+  if (!member) {
+    return { notFound: true };
+  }
+
+  const memberCollege = member.admCollege || "top universities";
+
   return {
     props: {
-      id: params.id,
+      member,
+      seo: {
+        title: `${member.name} | Ivy Ready Counselor`,
+        description: `Meet ${member.name}, with admissions experience at ${memberCollege}. Learn how they support students through Ivy Ready.`,
+        url: `/member_h/${member.id}`,
+      },
     },
   };
 }

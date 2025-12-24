@@ -5,6 +5,7 @@ import { useState } from "react";
 import Script from 'next/script'; // necessary for ads manager
 import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
 import { OrbitGlowButton } from "./OrbitGlowButton";
+import { trackCtaClick } from "@/lib/trackCta";
 
 export default function Navbar() {
   // hides logo in mobile when navbar-toggle is clicked
@@ -13,15 +14,7 @@ export default function Navbar() {
 
   const handleHeaderCtaClick = () => {
     setModalType("INFO");
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: "cta_click",
-        cta_location: "header",
-        cta_text: "Get Started",
-        destination: "#contactModal",
-        page_path: window.location.pathname,
-      });
-    }
+    trackCtaClick({ location: "header", text: "Get Started" });
   };
 
 

@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: {}, // allow rendering
+    props: {}, // allow rendering; head provided directly in page
   };
 }
 
@@ -88,16 +88,11 @@ export default function AgreementForm() {
 
   return (
     <>
-      {/* <div className='flex justify-end pr-20'>
-       <p> Agreement #IO3748391837</p>
-      </div> */}
-
       <SEOHead
         title="Project-Specific Agreement"
         description="Complete your Ivy Ready project-specific agreement to finalize your engagement with our admissions consultants."
         url="/agreement_project/main"
       />
-
       <section className="max-w-3xl mx-auto p-6">
         <form onSubmit={handleSubmit} className="space-y-8 mb-20">
 

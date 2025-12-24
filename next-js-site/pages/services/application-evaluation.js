@@ -7,6 +7,7 @@ import FAQ from '@/components/FAQ';
 import { ServiceSchema, SchemaScript } from '@/components/Schema';
 import Image from "next/image";
 import Link from "next/link";
+import { trackCtaClick } from "@/lib/trackCta";
 
 const Goal = ({ title, content }) => (
   <div className="text-center">
@@ -18,6 +19,11 @@ const Goal = ({ title, content }) => (
 
 
 export default function Evaluation() {
+  const handleEvaluationCta = () => {
+    trackCtaClick({ location: "services", text: "Get Started" });
+    window.open("/#application-support-questions-section", "_self");
+  };
+
   return (
     <>
       <SEOHead
@@ -63,13 +69,7 @@ export default function Evaluation() {
           Academy)
         </h2>
         <div className="flex justify-center mt-5">
-          <Button
-            onClick={() =>
-              window.open("/#application-support-questions-section", "_self")
-            }
-          >
-            Get Started
-          </Button>
+          <Button onClick={handleEvaluationCta}>Get Started</Button>
         </div>
       </Section>
 

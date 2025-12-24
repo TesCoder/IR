@@ -13,6 +13,8 @@ import Modal from "@/components/Modal";
 import { useState } from "react";
 import data from "@/data/packages-comparison.json";
 import PackagesComparison from "@/components/PackagesComparison";
+import { OrbitGlowButton } from "@/components/OrbitGlowButton";
+import { trackCtaClick } from "@/lib/trackCta";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -23,6 +25,16 @@ const HyperLink = ({ href, children }) => (
 export default function SupportPackages() {
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
+
+  const handleSupportPlanClick = () => {
+    setModalType("INFO");
+    trackCtaClick({ location: "services", text: "Start Your Application Plan" });
+  };
+
+  const handleSupportIntroCallClick = () => {
+    setModalType("CALL");
+    trackCtaClick({ location: "services", text: "Request Free Intro Call" });
+  };
 
   return (
     <>
@@ -89,7 +101,24 @@ export default function SupportPackages() {
         <PackagesComparison data={data} />
       </section> */}
 
-      <ButtonRow darkBg setModalType={setModalType} />
+      <div className="flex justify-center bg-[#2D5780]">
+        <div className="my-5 flex flex-col gap-x-10 gap-y-4 items-center md:flex-row">
+          <OrbitGlowButton
+            onClick={handleSupportPlanClick}
+            data-bs-toggle="modal"
+            data-bs-target="#contactModal"
+          >
+            Start Your Application Plan
+          </OrbitGlowButton>
+          <OrbitGlowButton
+            onClick={handleSupportIntroCallClick}
+            data-bs-toggle="modal"
+            data-bs-target="#contactModal"
+          >
+            Request Free Intro Call
+          </OrbitGlowButton>
+        </div>
+      </div>
 
       <Section title="Process Overview">
         <p className="pCentered text-start">

@@ -8,6 +8,7 @@ import Section from "@/components/Section";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
+import { trackCtaClick } from "@/lib/trackCta";
 import {
   CalendarDays,
   GraduationCap,
@@ -27,6 +28,10 @@ import {
 
 export default function EarlyPlanning() {
   const [modalType, setModalType] = useState("INFO");
+  const handleHeroServiceCtaClick = () => {
+    setModalType("INFO");
+    trackCtaClick({ location: "services", text: "Schedule an Intro Call" });
+  };
 
   const deliverables = [
     {
@@ -131,7 +136,7 @@ export default function EarlyPlanning() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <OrbitGlowButton
-                    onClick={() => setModalType('INFO')}
+                    onClick={handleHeroServiceCtaClick}
                     data-bs-toggle="modal" // triggers Bootstrap modal (adds transparent black backdrop) (aka popup)
                     data-bs-target="#contactModal"
                 >

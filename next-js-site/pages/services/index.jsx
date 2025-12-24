@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ServiceSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
+import { trackCtaClick } from "@/lib/trackCta";
 
 const services = [
   {
@@ -33,6 +34,9 @@ export default function ServicesIndex() {
     description:
       "Explore Ivy Ready's admissions services including evaluations, early planning, hourly consults, and full support packages.",
   });
+  const handleServiceClick = (text) => {
+    trackCtaClick({ location: "services", text });
+  };
 
   return (
     <>
@@ -63,12 +67,20 @@ export default function ServicesIndex() {
               className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
             >
               <h3 className="text-xl font-semibold mb-2">
-                <Link className="text-ivy-blue underline hover:no-underline" href={href}>
+                <Link
+                  className="text-ivy-blue underline hover:no-underline"
+                  href={href}
+                  onClick={() => handleServiceClick(name)}
+                >
                   {name}
                 </Link>
               </h3>
               <p className="text-gray-700 mb-3">{summary}</p>
-              <Link className="text-ivy-blue font-medium" href={href}>
+              <Link
+                className="text-ivy-blue font-medium"
+                href={href}
+                onClick={() => handleServiceClick("View details →")}
+              >
                 View details →
               </Link>
             </div>
@@ -83,6 +95,7 @@ export default function ServicesIndex() {
         <Link
           className="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-full bg-ivy-blue text-white font-semibold hover:bg-[#23486c] transition"
           href="/free-consultation"
+          onClick={() => handleServiceClick("Schedule a free consultation")}
         >
           Schedule a free consultation
         </Link>
