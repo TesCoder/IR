@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import LogoProjector from "./logoMaker";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Script from 'next/script'; // necessary for ads manager
 import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
 import { OrbitGlowButton } from "./OrbitGlowButton";
@@ -11,6 +11,26 @@ export default function Navbar() {
   // hides logo in mobile when navbar-toggle is clicked
   const [logoVisibility, setLogoVisibility] = useState(false);
   const [modalType, setModalType] = useState("INFO");
+  const collapseRef = useRef(null);
+  const collapseInstanceRef = useRef(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    import("bootstrap/dist/js/bootstrap.bundle.min.js").then(() => {
+      // bootstrap attaches to window; use getOrCreateInstance for reliability across export shapes
+      const Collapse = window?.bootstrap?.Collapse;
+      if (isMounted && Collapse && collapseRef.current) {
+        collapseInstanceRef.current = Collapse.getOrCreateInstance(collapseRef.current, {
+          toggle: false,
+        });
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleHeaderCtaClick = () => {
     setModalType("INFO");
@@ -35,25 +55,27 @@ export default function Navbar() {
       >
         <div className="container-fluid bg-ivy-red mt-4">
           <button
-            className="navbar-toggler"
+            className="navbar-toggler relative z-50"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
+          onClick={() => {
+            setLogoVisibility(false); // hides logo in mobile when navbar-toggle is clicked
+            collapseInstanceRef.current?.toggle();
+          }}
           >
-            <span
-              className="navbar-toggler-icon"
-              onClick={() => setLogoVisibility(!logoVisibility)} // hides logo in mobile when navbar-toggle is clicked
-            ></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
           <div
-            className="collapse navbar-collapse flex justify-evenly flex-col md:flex-row mt-10"
+            ref={collapseRef}
+            className="collapse navbar-collapse justify-evenly flex-col md:flex md:flex-row mt-10"
             id="navbarNav"
           >
+            {/* <ul className="navbar-nav text-white md:space-x-5 md:mt-2 md:-mb-6"> */}
             <ul className="navbar-nav text-white md:space-x-5 -mt-20 md:-mb-6">
+
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/#">
                   Home
@@ -150,7 +172,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div id="logoModifier" className="z-50 md:hidden ml-20 bg-ivy-red">
+      <div id="logoModifier" className="z-50 md:hidden ml-20 bg-ivy-red pointer-events-none">
         <LogoProjector />
       </div>
 
