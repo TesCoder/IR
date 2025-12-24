@@ -73,8 +73,9 @@ export default function Navbar() {
             className="collapse navbar-collapse justify-evenly flex-col md:flex md:flex-row mt-10"
             id="navbarNav"
           >
-            {/* <ul className="navbar-nav text-white md:space-x-5 md:mt-2 md:-mb-6"> */}
-            <ul className="navbar-nav text-white md:space-x-5 -mt-20 md:-mb-6">
+            <ul className="navbar-nav text-white flex flex-col items-center text-center w-full md:flex-row md:space-x-5 -mt-20 md:-mb-6">
+
+
 
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/#">
