@@ -1,6 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
+import RelatedArticles from "@/components/RelatedArticles";
 
 export default function ArticleRecommenders() {
   const articleSchema = ArticleSchema({
@@ -42,6 +43,15 @@ export default function ArticleRecommenders() {
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get our rec letter prep worksheet →</Link>
         </p>
       </article>
+      <div className="mx-auto max-w-3xl px-6 pb-14">
+        <RelatedArticles
+          articles={[
+            { title: "The Personal Statement Structure", href: "/resources/personal-statement-structure" },
+            { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" },
+            { title: "Timeline by Grade (9th–12th)", href: "/resources/timeline-by-grade" }
+          ]}
+        />
+      </div>
     </>
   );
 }

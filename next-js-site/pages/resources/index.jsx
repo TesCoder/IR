@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { BreadcrumbSchema, SchemaScript } from "@/components/Schema";
 import { motion } from "framer-motion";
 import { BookOpen, FileText, GraduationCap, Users, Compass, Star, Calendar, Sparkles } from "lucide-react";
+import RelatedArticles from "@/components/RelatedArticles";
 
 function ArticleCard({ href, title, excerpt, tag }) {
   return (
@@ -121,6 +122,15 @@ export default function ResourcesIndex() {
             <div className="flex items-center gap-2 text-gray-600"><Users className="size-4"/> Extracurriculars & Impact</div>
             <div className="flex items-center gap-2 text-gray-600"><GraduationCap className="size-4"/> International / Transfer / Graduate</div>
             <div className="flex items-center gap-2 text-gray-600"><Calendar className="size-4"/> Planning & Timelines</div>
+          </div>
+          <div className="mt-12">
+            <RelatedArticles
+              articles={[
+                { title: "How to Build a Balanced College List", href: "/resources/building-a-college-list" },
+                { title: "The Personal Statement Structure", href: "/resources/personal-statement-structure" },
+                { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
+              ]}
+            />
           </div>
         </div>
       </section>

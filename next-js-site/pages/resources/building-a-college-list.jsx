@@ -1,6 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
+import RelatedArticles from "@/components/RelatedArticles";
 
 export default function ArticleCollegeList() {
   const articleSchema = ArticleSchema({
@@ -10,6 +11,11 @@ export default function ArticleCollegeList() {
     datePublished: "2024-01-15",
     dateModified: "2024-01-15"
   });
+  const relatedArticles = [
+    { title: "Personal Statement Structure", href: "/resources/personal-statement-structure" },
+    { title: "Choosing Recommenders", href: "/resources/choosing-recommenders" },
+    { title: "Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
+  ];
 
   return (
     <>
@@ -41,6 +47,7 @@ export default function ArticleCollegeList() {
         <p className="not-prose mt-8">
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get a personalized list review →</Link>
         </p>
+        <RelatedArticles articles={relatedArticles} />
       </article>
     </>
   );

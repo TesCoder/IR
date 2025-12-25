@@ -1,6 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
+import RelatedArticles from "@/components/RelatedArticles";
 
 export default function ArticlePersonalStatement() {
   const articleSchema = ArticleSchema({
@@ -48,6 +49,15 @@ export default function ArticlePersonalStatement() {
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get expert essay feedback →</Link>
         </p>
       </article>
+      <div className="mx-auto max-w-3xl px-6 pb-14">
+        <RelatedArticles
+          articles={[
+            { title: "How to Build a Balanced College List", href: "/resources/building-a-college-list" },
+            { title: "How to Choose and Ask for Letters of Recommendation", href: "/resources/choosing-recommenders" },
+            { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
+          ]}
+        />
+      </div>
     </>
   );
 }
