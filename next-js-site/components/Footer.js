@@ -25,6 +25,7 @@ export default function Footer() {
           CONTACT US
         </Link>
         <Link className="hover:opacity-75" href="/#">HOME</Link>
+        <Link className="hover:opacity-75" href="/resources">RESOURCES</Link>
         <a className="hover:opacity-75" href="tel:+16503830352">(650) 383-0352</a>
       </div>
 
