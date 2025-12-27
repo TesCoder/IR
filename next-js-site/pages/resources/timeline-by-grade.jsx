@@ -50,10 +50,28 @@ export default function ArticleTimeline() {
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
-          articles={[
-            { title: "How to Build a Balanced College List", href: "/resources/building-a-college-list" },
-            { title: "How to Choose and Ask for Letters of Recommendation", href: "/resources/choosing-recommenders" },
-            { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
+          title="Recommended next steps"
+          items={[
+            {
+              title: "How to Build a Balanced College List",
+              href: "/resources/building-a-college-list",
+              description: "Calibrate reach, match, and safety choices with real fit criteria."
+            },
+            {
+              title: "How to Choose and Ask for Letters of Recommendation",
+              href: "/resources/choosing-recommenders",
+              description: "Equip teachers with context, deadlines, and examples for stronger letters."
+            },
+            {
+              title: "Activity Spikes & Extracurricular Strategy",
+              href: "/resources/extracurricular-strategy",
+              description: "Shape a standout impact spike with depth and leadership."
+            },
+            {
+              title: "The Personal Statement Structure",
+              href: "/resources/personal-statement-structure",
+              description: "Draft a clear hook–development–reflection arc that avoids common pitfalls."
+            }
           ]}
         />
       </div>

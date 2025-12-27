@@ -15,6 +15,7 @@
    Brand & System Variables
 ---------------------------- */
 :root {
+  font-size: 14.5px; /* ~9–10% smaller than 16px; use 14px for ~12.5% */
   /* === Primary Brand === */
   --ivy-red: #990000;         /* hsl(0, 100%, 30%) */
   --ivy-red-dark: #800000;    /* ~15% darker for hover */

@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
       {!logoVisibility && (
         <div
-          id="logoModifier1" className="mt-2 container sm:visible md:visible lg:hidden z-40 w-3/12 justify-center -mb-20 md:-mb-4 bg-ivy-red "
+          id="logoModifier1" className="mt-2 container sm:visible md:visible lg:hidden z-40 w-3/12 justify-center -mb-20 md:-mb-4 bg-ivy-red md:hidden lg:block"
         >
           <LogoProjector />
         </div>
@@ -73,7 +73,9 @@ export default function Navbar() {
             className="collapse navbar-collapse justify-evenly flex-col md:flex md:flex-row mt-10"
             id="navbarNav"
           >
-            <ul className="navbar-nav text-white flex flex-col flex-nowrap md:items-center md:justify-center items-center text-center w-full md:flex-row md:space-x-2 -mt-20 md:-mb-6">
+            <ul className="navbar-nav text-white 
+            sm:[&_a]:text-[80%] lg:[&_a]:text-[90%]
+            flex flex-col flex-nowrap md:items-center md:justify-center items-center text-center w-full md:flex-row md:space-x-2 -mt-20 md:-mb-6">
 
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/#">
