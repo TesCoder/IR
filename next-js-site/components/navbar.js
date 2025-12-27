@@ -38,11 +38,6 @@ export default function Navbar() {
     trackCtaClick({ location: "header", text: "Get Started" });
   };
 
-  const handleHeaderPhoneClick = () => {
-    trackCtaClick({ location: "header", text: "(650) 383-0352" });
-  };
-
-
   return (
     <nav className="flex flex-col sm:justify-center bg-ivy-red fixed w-full z-20 top-0 left-0">
       {!logoVisibility && (
@@ -78,7 +73,7 @@ export default function Navbar() {
             className="collapse navbar-collapse justify-evenly flex-col md:flex md:flex-row mt-10"
             id="navbarNav"
           >
-            <ul className="navbar-nav text-white flex flex-col md:items-center md:justify-center items-center text-center w-full md:flex-row md:space-x-5 -mt-20 md:-mb-6">
+            <ul className="navbar-nav text-white flex flex-col md:items-center md:justify-center items-center text-center w-full md:flex-row md:flex-nowrap md:space-x-2 lg:space-x-3 xl:space-x-4 -mt-20 md:-mb-6">
 
 
 
@@ -163,24 +158,23 @@ export default function Navbar() {
                   Resources
                 </Link>
               </li>
-              <li className="nav-item">
-                <OrbitGlowButton
-                  className="btn btn-light text-ivy-red uppercase font-semibold rounded-full"
-                  onClick={handleHeaderCtaClick}
-                  data-bs-toggle="modal"
-                  data-bs-target="#contactModal"
-                >
-                  Get Started
-                </OrbitGlowButton>
-              </li>
-              <li className="nav-item d-flex md:mt-0">
-                <a
-                  className="nav-link text-white font-semibold hover:opacity-75"
-                  href="tel:+16503830352"
-                  onClick={handleHeaderPhoneClick}
-                >
-                  (650) 383-0352
-                </a>
+              <li className="nav-item w-full md:w-auto">
+                <div className="flex flex-col items-center gap-2 md:gap-2 md:ml-auto md:flex-row-reverse md:flex-nowrap">
+                  <OrbitGlowButton
+                    className="btn btn-light text-ivy-red uppercase font-semibold rounded-full px-4 py-2 text-sm md:text-sm lg:text-base md:px-4 lg:px-5"
+                    onClick={handleHeaderCtaClick}
+                    data-bs-toggle="modal"
+                    data-bs-target="#contactModal"
+                  >
+                    Get Started
+                  </OrbitGlowButton>
+                  <a
+                    className="flex items-center gap-2 rounded-full border border-white/70 px-3 py-2 text-white font-semibold hover:bg-white/10 text-sm md:text-sm lg:text-base"
+                    href="tel:+16503830352"
+                  >
+                    (650) 383-0352
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

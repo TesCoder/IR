@@ -5,6 +5,7 @@ import Section from "@/components/Section";
 import Image from "next/image";
 import { useState } from "react";
 import { members_h } from "@/components/membersList_h";
+import SEOHead from "@/components/SEOHead";
 
 const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   <div>
@@ -44,7 +45,7 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
   </div>
 );
 
-export default function MemberH({ member }) {
+export default function MemberH({ member, seo }) {
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
 
@@ -61,6 +62,7 @@ export default function MemberH({ member }) {
 
   return (
     <>
+      {seo && <SEOHead {...seo} />}
       <Section title="" darkBg />
       <Section darkBg={false}>
         <CoachInfo

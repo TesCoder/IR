@@ -19,6 +19,7 @@ import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data used fo
 import SteppedRoadmap from "@/components/SteppedRoadmap";
 import OutcomesGallery from "@/components/OutcomesGallery";
 import ImpactTable from "@/components/ImpactTable";
+import { impactHighlights } from "@/data/impactData";
 import { SchemaScript } from "@/components/Schema";
 
 const HyperLink = ({ href, children }) => (
@@ -26,12 +27,6 @@ const HyperLink = ({ href, children }) => (
     {...children}
   </Link>
 );
-
-const impactHighlights = [
-  { name: "Harvard University", acceptanceRate: "3.6%", ivyReadyRate: "21.5%", ivyReadyImpact: "6x" },
-  { name: "Stanford University", acceptanceRate: "3.6%", ivyReadyRate: "28.9%", ivyReadyImpact: "8x" },
-  { name: "UC Berkeley", acceptanceRate: "11.0%", ivyReadyRate: "52.0%", ivyReadyImpact: "5x" },
-];
 
 export default function Home() {
   // FULL, INFO, CALL, or EVAL

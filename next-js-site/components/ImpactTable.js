@@ -5,7 +5,7 @@ export default function ImpactTable({ data = [] }) {
         <thead className="bg-ivy-blue text-white">
           <tr>
             <th className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide">University</th>
-            <th className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide">Baseline Acceptance Rate</th>
+            <th className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide"> Acceptance Rate</th>
             <th className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide">Ivy Ready Acceptance Rate</th>
             <th className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide">Ivy Ready Impact</th>
           </tr>

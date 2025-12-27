@@ -4,7 +4,6 @@
 
 import { Button, ButtonRow } from "@/components/Button";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
-import SEOHead from "@/components/SEOHead";
 import Section from "@/components/Section";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -40,12 +39,6 @@ import { trackCtaClick } from "@/lib/trackCta";
   return (
 
     <>
-      <SEOHead
-        title="Testimonials"
-        description="Families love how Ivy Ready delivers clarity, structure, and results."
-        url="/testimonials"
-      />
-      
       {/* Hero Section */}
       <div className="heroFrame bg-testimonial-hero relative overflow-hidden" style={{ backgroundPosition: 'center 5%' }}  >
         {/* Tint layer (between image and overlay) */}

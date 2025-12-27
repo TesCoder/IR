@@ -64,6 +64,28 @@ export default function ResourcesIndex() {
       tag: "Planning & Timelines",
     },
   ];
+  const relatedArticles = [
+    {
+      title: "How to Build a Balanced College List",
+      href: "/resources/building-a-college-list",
+      description: "Calibrate reach, match, and safety choices with real fit criteria.",
+    },
+    {
+      title: "The Personal Statement Structure",
+      href: "/resources/personal-statement-structure",
+      description: "Hook, development, and reflection — avoid common drafting traps.",
+    },
+    {
+      title: "Activity Spikes & Extracurricular Strategy",
+      href: "/resources/extracurricular-strategy",
+      description: "Depth over breadth: build a standout impact spike.",
+    },
+    {
+      title: "How to Choose and Ask Recommenders",
+      href: "/resources/choosing-recommenders",
+      description: "Pick the right teachers and equip them with specifics.",
+    },
+  ];
 
   return (
     <>
@@ -125,11 +147,8 @@ export default function ResourcesIndex() {
           </div>
           <div className="mt-12">
             <RelatedArticles
-              articles={[
-                { title: "How to Build a Balanced College List", href: "/resources/building-a-college-list" },
-                { title: "The Personal Statement Structure", href: "/resources/personal-statement-structure" },
-                { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
-              ]}
+              title="Recommended next steps"
+              items={relatedArticles}
             />
           </div>
         </div>

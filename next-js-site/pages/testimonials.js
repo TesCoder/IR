@@ -5,6 +5,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import Testimonials from "@/components/Testimonials"; // calls component
+import SEOHead from "@/components/SEOHead";
 // import Testimonials from "@/components/Testimonials_Snippets"; // calls component
 
 // note two functions below are connected by NextJS automatically
@@ -40,6 +41,15 @@ export async function getServerSideProps(context) {
 
 // once getServerSideProps finishes, passes props to TestimonialsPage
 export default function TestimonialsPage({ testimonials }) {
-  return <Testimonials testimonials={testimonials} />; // component uses t.imgSrc prop. :contentReference[oaicite:1]{index=1}
+  return (
+    <>
+      <SEOHead
+        title="Testimonials"
+        description="Families love how Ivy Ready delivers clarity, structure, and results."
+        url="/testimonials"
+      />
+      <Testimonials testimonials={testimonials} />{/* component uses t.imgSrc prop. */}
+    </>
+  );
 }
 
