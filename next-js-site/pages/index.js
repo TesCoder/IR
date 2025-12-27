@@ -19,7 +19,7 @@ import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data used fo
 import SteppedRoadmap from "@/components/SteppedRoadmap";
 import OutcomesGallery from "@/components/OutcomesGallery";
 import ImpactTable from "@/components/ImpactTable";
-import { impactHighlights } from "@/data/impactData";
+import { impactData } from "@/data/impactData";
 import { SchemaScript } from "@/components/Schema";
 
 const HyperLink = ({ href, children }) => (
@@ -199,12 +199,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section title="Ivy Ready Impact Highlights" centerContent>
-        <p className="pCentered">
-          Snapshot of how Ivy Ready students compete at selective schools.
-        </p>
-        <ImpactTable data={impactHighlights} />
-      </Section>
+
 
       <Section redBg >
       <OutcomesGallery items={testimonialsData} types={["student", "parent"]} />
@@ -215,6 +210,14 @@ export default function Home() {
         </OrbitGlowButton>
       </div> */}
 
+      </Section>
+
+      <Section title="Ivy Ready Impact Highlights" centerContent>
+        <p className="pCentered">
+          Snapshot of how Ivy Ready students compete at selective schools.
+        </p>
+        <p className="text-sm text-gray-600 mb-4">Scroll to view all schools.</p>
+        <ImpactTable data={impactData} />
       </Section>
 
       {/* Testimonials new */}

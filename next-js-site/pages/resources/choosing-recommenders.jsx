@@ -45,10 +45,28 @@ export default function ArticleRecommenders() {
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
-          articles={[
-            { title: "The Personal Statement Structure", href: "/resources/personal-statement-structure" },
-            { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" },
-            { title: "Timeline by Grade (9th–12th)", href: "/resources/timeline-by-grade" }
+          title="Recommended next steps"
+          items={[
+            {
+              title: "The Personal Statement Structure",
+              href: "/resources/personal-statement-structure",
+              description: "Plan hook, development, and reflection to keep your essay focused."
+            },
+            {
+              title: "Activity Spikes & Extracurricular Strategy",
+              href: "/resources/extracurricular-strategy",
+              description: "Shape a standout impact spike with depth, leadership, and outcomes."
+            },
+            {
+              title: "Timeline by Grade (9th–12th)",
+              href: "/resources/timeline-by-grade",
+              description: "Hit the key milestones each year without last-minute scrambles."
+            },
+            {
+              title: "How to Build a Balanced College List",
+              href: "/resources/building-a-college-list",
+              description: "Calibrate reach, match, and safety choices with real fit criteria."
+            }
           ]}
         />
       </div>

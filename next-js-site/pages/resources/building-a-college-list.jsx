@@ -12,9 +12,26 @@ export default function ArticleCollegeList() {
     dateModified: "2024-01-15"
   });
   const relatedArticles = [
-    { title: "Personal Statement Structure", href: "/resources/personal-statement-structure" },
-    { title: "Choosing Recommenders", href: "/resources/choosing-recommenders" },
-    { title: "Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
+    {
+      title: "The Personal Statement Structure",
+      href: "/resources/personal-statement-structure",
+      description: "Plan hook, development, and reflection to keep your essay focused.",
+    },
+    {
+      title: "How to Choose and Ask Recommenders",
+      href: "/resources/choosing-recommenders",
+      description: "Pick the right teachers and equip them with specifics to write strongly.",
+    },
+    {
+      title: "Activity Spikes & Extracurricular Strategy",
+      href: "/resources/extracurricular-strategy",
+      description: "Shape a standout impact spike with depth and leadership.",
+    },
+    {
+      title: "Timeline by Grade: 9th–12th",
+      href: "/resources/timeline-by-grade",
+      description: "Stay ahead each year with a clear roadmap and key deadlines.",
+    },
   ];
 
   return (
@@ -47,7 +64,7 @@ export default function ArticleCollegeList() {
         <p className="not-prose mt-8">
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get a personalized list review →</Link>
         </p>
-        <RelatedArticles articles={relatedArticles} />
+        <RelatedArticles title="Recommended next steps" items={relatedArticles} />
       </article>
     </>
   );

@@ -51,10 +51,28 @@ export default function ArticlePersonalStatement() {
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
-          articles={[
-            { title: "How to Build a Balanced College List", href: "/resources/building-a-college-list" },
-            { title: "How to Choose and Ask for Letters of Recommendation", href: "/resources/choosing-recommenders" },
-            { title: "Activity Spikes & Extracurricular Strategy", href: "/resources/extracurricular-strategy" }
+          title="Recommended next steps"
+          items={[
+            {
+              title: "How to Build a Balanced College List",
+              href: "/resources/building-a-college-list",
+              description: "Calibrate reach, match, and safety choices with real fit criteria."
+            },
+            {
+              title: "How to Choose and Ask for Letters of Recommendation",
+              href: "/resources/choosing-recommenders",
+              description: "Equip teachers with context, deadlines, and examples for stronger letters."
+            },
+            {
+              title: "Activity Spikes & Extracurricular Strategy",
+              href: "/resources/extracurricular-strategy",
+              description: "Focus on depth and leadership to build a standout impact spike."
+            },
+            {
+              title: "Timeline by Grade (9th–12th)",
+              href: "/resources/timeline-by-grade",
+              description: "Work the key milestones each year to stay ahead without last-minute scrambles."
+            }
           ]}
         />
       </div>

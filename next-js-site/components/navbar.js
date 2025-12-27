@@ -73,9 +73,7 @@ export default function Navbar() {
             className="collapse navbar-collapse justify-evenly flex-col md:flex md:flex-row mt-10"
             id="navbarNav"
           >
-            <ul className="navbar-nav text-white flex flex-col md:items-center md:justify-center items-center text-center w-full md:flex-row md:flex-nowrap md:space-x-2 lg:space-x-3 xl:space-x-4 -mt-20 md:-mb-6">
-
-
+            <ul className="navbar-nav text-white flex flex-col flex-nowrap md:items-center md:justify-center items-center text-center w-full md:flex-row md:space-x-2 -mt-20 md:-mb-6">
 
               <li className="nav-item">
                 <Link className="nav-link text-white hover:opacity-75" href="/#">
