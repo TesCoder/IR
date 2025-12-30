@@ -1,7 +1,6 @@
 import Footer from '@/components/Footer';
 import Layout from '@/components/layout';
 import '@/styles/globals.css';
-import Head from "next/head";
 import Script from "next/script";
 import { useRouter } from 'next/router';
 import SEOHead from "@/components/SEOHead";
@@ -9,6 +8,7 @@ import SEOHead from "@/components/SEOHead";
 function App({ Component, pageProps }) {
   const router = useRouter();
   const seo = pageProps?.seo;
+  const seoProps = seo || {};
 
   // pages that should NOT use the Layout
   const noLayoutPages = [
@@ -25,11 +25,7 @@ function App({ Component, pageProps }) {
 
   const PageContent = (
     <>
-      {seo && <SEOHead {...seo} />}
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEOHead {...seoProps} />
 
       {/* Google Tag Manager */}
       <Script id="google-tag-manager" strategy="afterInteractive">
