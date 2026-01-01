@@ -1,6 +1,6 @@
 // pages/testimonials.js
 // actual page called, runs getServerSideProps to gather props, then renders each testimonial on page
-// note testimonials is encoded/protected for rendering, must have key to work: http://localhost:3000/testimonials?w=
+// note testimonials are encoded/protected for rendering; a default key is used when none/invalid is provided
 
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -13,11 +13,9 @@ import SEOHead from "@/components/SEOHead";
 // before rending page getServerSideProps
 export async function getServerSideProps(context) {
   const { query } = context;
-  const key = query.w;
-
-  if (key !== "jmd1720ly0rpo2xf20pz-x2f16iqi923ybhl1anjs") {
-    return { notFound: true };
-  }
+  const requestedKey = Array.isArray(query.w) ? query.w[0] : query.w;
+  const defaultKey = "jmd1720ly0rpo2xf20pz-x2f16iqi923ybhl1anjs";
+  const key = requestedKey === defaultKey ? defaultKey : defaultKey;
 
   const filePath = path.join(process.cwd(), "data", "b4ro1e4h9etc2jv1qaov.json");
   const json = await fs.readFile(filePath, "utf8");

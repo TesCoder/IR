@@ -1,20 +1,67 @@
-import SEOHead from '@/components/SEOHead';
-import ContactForm from '@/components/ContactForm';
-import { OrganizationSchema, SchemaScript } from '@/components/Schema';
-import Section from '@/components/Section';
+import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
+import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { ServiceSchema, SchemaScript } from "@/components/Schema";
 
 export default function FreeConsultation() {
-  const orgSchema = OrganizationSchema();
+  const serviceSchema = ServiceSchema({
+    serviceName: "Free Consultation",
+    description:
+      "Book a free 15-minute strategy call with a former admissions officer to get personalized guidance.",
+  });
+
+  const pushCtaEvent = ({ location, text, destination }) => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    if (!window.dataLayer) return;
+    window.dataLayer.push({
+      event: "cta_click",
+      location,
+      text,
+      destination,
+    });
+  };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const formEl = document.querySelector("form");
+    if (!formEl) return undefined;
+    const handleSubmitCta = () =>
+      pushCtaEvent({
+        location: "free_consultation_form",
+        text: "Submit consultation form",
+        destination: "/form-submitted",
+      });
+    formEl.addEventListener("submit", handleSubmitCta);
+    return () => formEl.removeEventListener("submit", handleSubmitCta);
+  }, []);
+
+  const handlePhoneClick = () =>
+    pushCtaEvent({
+      location: "free_consultation",
+      text: "Call us",
+      destination: "tel:+16503830352",
+    });
 
   return (
     <>
-      <SEOHead 
+      <SEOHead
         title="Free College Admissions Consultation"
         description="Book your free 15-minute strategy call with a former admissions officer. Get personalized advice on your college application journey from Ivy Ready experts."
         url="/free-consultation"
         image="/images/logo-circle.png"
       />
-      <SchemaScript schema={orgSchema} />
+      <SchemaScript schema={serviceSchema} />
+
+      <div className="max-w-6xl mx-auto px-6 pt-8">
+        <Breadcrumbs
+          items={[
+            { name: "Home", url: "/" },
+            { name: "Free Consultation", url: "/free-consultation" },
+          ]}
+        />
+      </div>
 
       <div className="max-w-4xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold mb-4 text-ivy-blue">
@@ -57,6 +104,7 @@ export default function FreeConsultation() {
           <a 
             href="tel:+16503830352" 
             className="text-2xl font-bold text-ivy-blue hover:underline"
+            onClick={handlePhoneClick}
           >
             (650) 383-0352
           </a>

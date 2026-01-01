@@ -13,7 +13,6 @@ import SupportPackagesPreview from "@/components/SupportPackagesPreview";
 import dataset from "@/data/packages-comparison.json";
 import CoachInfoSnippet from "@/components/CoachInfoSnippet";
 import { motion } from "framer-motion";
-import { trackCtaClick } from "@/lib/trackCta";
 import Testimonials from "@/components/Testimonials_Snippets";  // new testimonial snippet
 import testimonialsData from "@/data/b4ro1e4h9etc2jv1qaov.json"; // data used for testimonials and outcomes
 import SteppedRoadmap from "@/components/SteppedRoadmap";
@@ -33,19 +32,43 @@ export default function Home() {
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
 
+  const pushCtaEvent = ({ location, text, destination }) => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    if (!window.dataLayer) return;
+    window.dataLayer.push({
+      event: "cta_click",
+      location,
+      text,
+      destination,
+    });
+  };
+
   const handleHeroCtaClick = () => {
     setModalType("INFO");
-    trackCtaClick({ location: "hero", text: "Get Your FREE Consultation" });
+    pushCtaEvent({
+      location: "hero",
+      text: "Get Your FREE Consultation",
+      destination: "#contactModal",
+    });
   };
 
   const handleTestimonialsCtaClick = () => {
     setModalType("INFO");
-    trackCtaClick({ location: "hero", text: "Get Your FREE Consultation" });
+    pushCtaEvent({
+      location: "testimonials",
+      text: "Get Your FREE Consultation",
+      destination: "#contactModal",
+    });
   };
 
   const handleStrategyCtaClick = () => {
     setModalType("INFO");
-    trackCtaClick({ location: "hero", text: "Schedule Free Strategy Call" });
+    pushCtaEvent({
+      location: "impact",
+      text: "Schedule Free Strategy Call",
+      destination: "#contactModal",
+    });
   };
 
 

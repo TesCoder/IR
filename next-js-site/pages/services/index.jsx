@@ -3,7 +3,6 @@ import Section from "@/components/Section";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ServiceSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
-import { trackCtaClick } from "@/lib/trackCta";
 
 const services = [
   {
@@ -34,10 +33,22 @@ export default function ServicesIndex() {
     description:
       "Explore Ivy Ready's admissions services including evaluations, early planning, hourly consults, and full support packages.",
   });
-  const handleServiceClick = (text) => {
-    trackCtaClick({ location: "services", text });
+  const pushCtaEvent = ({ location, text, destination }) => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    if (!window.dataLayer) return;
+    window.dataLayer.push({
+      event: "cta_click",
+      location,
+      text,
+      destination,
+    });
   };
-  const handleServiceLinkClick = (text) => () => handleServiceClick(text);
+  const handleServiceClick = (text, destination) => {
+    pushCtaEvent({ location: "services", text, destination });
+  };
+  const handleServiceLinkClick = (text, destination) => () =>
+    handleServiceClick(text, destination);
 
   return (
     <>
@@ -71,7 +82,7 @@ export default function ServicesIndex() {
                 <Link
                   className="text-ivy-blue underline hover:no-underline"
                   href={href}
-                  onClick={handleServiceLinkClick(name)}
+                  onClick={handleServiceLinkClick(name, href)}
                 >
                   {name}
                 </Link>
@@ -80,7 +91,7 @@ export default function ServicesIndex() {
               <Link
                 className="text-ivy-blue font-medium"
                 href={href}
-                onClick={handleServiceLinkClick("View details →")}
+                onClick={handleServiceLinkClick("View details →", href)}
               >
                 View details →
               </Link>
@@ -96,7 +107,10 @@ export default function ServicesIndex() {
         <Link
           className="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-full bg-ivy-blue text-white font-semibold hover:bg-[#23486c] transition"
           href="/free-consultation"
-          onClick={handleServiceLinkClick("Schedule a free consultation")}
+          onClick={handleServiceLinkClick(
+            "Schedule a free consultation",
+            "/free-consultation"
+          )}
         >
           Schedule a free consultation
         </Link>
