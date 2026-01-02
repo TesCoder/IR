@@ -1,0 +1,11 @@
+{
+  "canonical": [
+    "https://ivyready.com/",
+    "https://ivyready.com/free-consultation"
+  ],
+  "schemas": [
+    "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"Ivy Ready\",\"legalName\":\"Ivy Ready LLC\",\"url\":\"https://ivyready.com\",\"logo\":\"https://ivyready.com/images/logo-white.png\",\"description\":\"Ivy Ready's team is made up of former admission officers and graduates from top schools who have extensive experience in supporting students with college planning and admission. Our mission is to provide a personalized admission strategy for each student.\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+1-650-383-0352\",\"contactType\":\"customer service\",\"areaServed\":\"US\",\"availableLanguage\":\"English\"},\"sameAs\":[\"https://facebook.com/ivyready\"]}",
+    "{\"@context\":\"https://schema.org\",\"@type\":\"Service\",\"serviceType\":\"Free Consultation\",\"description\":\"Book a free 15-minute strategy call with a former admissions officer to get personalized guidance.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Ivy Ready\"},\"areaServed\":{\"@type\":\"Country\",\"name\":\"United States\"}}",
+    "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://ivyready.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Free Consultation\",\"item\":\"https://ivyready.com/free-consultation\"}]}"
+  ]
+}
