@@ -6,7 +6,7 @@ import { trackCtaClick } from "@/lib/trackCta";
 
 export default function Footer() {
   const handleFooterCtaClick = () => {
-    trackCtaClick({ location: "footer", text: "CONTACT US" });
+    trackCtaClick({ location: "footer", text: "CONTACT US", destination: "/#application-support-questions-section" });
   };
 
   return (

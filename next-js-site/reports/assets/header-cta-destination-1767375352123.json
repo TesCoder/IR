@@ -1,0 +1,44 @@
+{
+  "url": "http://127.0.0.1:3001/",
+  "pushes": [
+    {
+      "event": "cta_click",
+      "location": "header",
+      "text": "Get Started",
+      "destination": "#contactModal"
+    }
+  ],
+  "dataLayer": [
+    {
+      "gtm.start": 1767375349279,
+      "event": "gtm.js",
+      "gtm.uniqueEventId": 3
+    },
+    {
+      "0": "js",
+      "1": {}
+    },
+    {
+      "0": "config",
+      "1": "G-8QK4L246C4",
+      "2": {
+        "page_location": "http://127.0.0.1:3001/"
+      }
+    },
+    {
+      "event": "gtm.dom",
+      "gtm.uniqueEventId": 6
+    },
+    {
+      "event": "gtm.load",
+      "gtm.uniqueEventId": 12
+    },
+    {
+      "event": "cta_click",
+      "location": "header",
+      "text": "Get Started",
+      "destination": "#contactModal",
+      "gtm.uniqueEventId": 13
+    }
+  ]
+}

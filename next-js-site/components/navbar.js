@@ -35,7 +35,11 @@ export default function Navbar() {
 
   const handleHeaderCtaClick = () => {
     setModalType("INFO");
-    trackCtaClick({ location: "header", text: "Get Started" });
+    trackCtaClick({
+      location: "header",
+      text: "Get Started",
+      destination: "#contactModal",
+    });
   };
 
   return (

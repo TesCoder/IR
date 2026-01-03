@@ -7,7 +7,16 @@ import { useState } from "react";
 import { members_h } from "@/components/membersList_h";
 import SEOHead from "@/components/SEOHead";
 
-const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
+const CoachInfo = ({
+  setCoach,
+  imgSrc,
+  imgWidth = 400,
+  imgHeight = 400,
+  altText = "profile picture",
+  fname,
+  past,
+  description,
+}) => (
   <div>
     <div className="" id={fname.toLowerCase()}></div>
     <div className="flex flex-col md:flex-row text-lg shadow p-20">
@@ -15,9 +24,9 @@ const CoachInfo = ({ setCoach, imgSrc, fname, past, description }) => (
         <Image
           className="rounded-full shadow-lg mb-2 w-4/5"
           src={imgSrc}
-          width={400}
-          height={400}
-          alt="profile picture"
+          width={imgWidth}
+          height={imgHeight}
+          alt={altText}
         />
       </div>
       <div className="w-full md:w-4/5">
@@ -60,6 +69,30 @@ export default function MemberH({ member, seo }) {
     );
   }
 
+  const imageOverrides = {
+    "4937974": {
+      src: "/images/members_h/4937974-150x150.webp",
+      width: 150,
+      height: 150,
+    },
+    "38473084": {
+      src: "/images/members_h/38473084-150x150.webp",
+      width: 150,
+      height: 150,
+    },
+    "52547552": {
+      src: "/images/members/james-200x200.webp",
+      width: 200,
+      height: 200,
+    },
+  };
+
+  const imageConfig = imageOverrides[member.id] || {};
+  const imageSrc = imageConfig.src || member.imgSrc;
+  const imageWidth = imageConfig.width || 400;
+  const imageHeight = imageConfig.height || 400;
+  const imageAlt = member.name ? `${member.name} profile picture` : "profile picture";
+
   return (
     <>
       {seo && <SEOHead {...seo} />}
@@ -69,7 +102,10 @@ export default function MemberH({ member, seo }) {
           setCoach={setCoach}
           setModalType={setModalType}
           fname={member.fname}
-          imgSrc={member.imgSrc}
+          imgSrc={imageSrc}
+          imgWidth={imageWidth}
+          imgHeight={imageHeight}
+          altText={imageAlt}
           past={member.past}
           description={member.description}
         />

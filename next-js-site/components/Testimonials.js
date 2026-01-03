@@ -32,7 +32,7 @@ import { trackCtaClick } from "@/lib/trackCta";
   }, [filtered]);
 
   const handleTestimonialsCtaClick = () => {
-    trackCtaClick({ location: "testimonials", text: "Start Your Application Plan" });
+    trackCtaClick({ location: "testimonials", text: "Start Your Application Plan", destination: "#contactModal" });
   };
 
 

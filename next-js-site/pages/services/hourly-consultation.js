@@ -8,7 +8,7 @@ import { trackCtaClick } from "@/lib/trackCta";
 
 export default function HourlyConsultation() {
   const handleStartNowClick = () => {
-    trackCtaClick({ location: "services", text: "Start now" });
+    trackCtaClick({ location: "services", text: "Start now", destination: "#contact-form" });
   };
 
   return (

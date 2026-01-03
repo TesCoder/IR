@@ -1,4 +1,4 @@
-export function trackCtaClick({ location, text }) {
+export function trackCtaClick({ location, text, destination }) {
   try {
     if (typeof window === "undefined") return;
 
@@ -9,6 +9,7 @@ export function trackCtaClick({ location, text }) {
       event: "cta_click",
       location,
       text,
+      destination,
     });
   } catch (err) {
     // Do not block UI if tracking fails
