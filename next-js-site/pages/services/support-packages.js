@@ -28,12 +28,20 @@ export default function SupportPackages() {
 
   const handleSupportPlanClick = () => {
     setModalType("INFO");
-    trackCtaClick({ location: "services", text: "Start Your Application Plan" });
+    trackCtaClick({
+      location: "services",
+      text: "Start Your Application Plan",
+      destination: "#contactModal",
+    });
   };
 
   const handleSupportIntroCallClick = () => {
     setModalType("CALL");
-    trackCtaClick({ location: "services", text: "Request Free Intro Call" });
+    trackCtaClick({
+      location: "services",
+      text: "Request Free Intro Call",
+      destination: "#contactModal",
+    });
   };
 
   return (

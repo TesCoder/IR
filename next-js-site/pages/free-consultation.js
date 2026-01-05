@@ -3,6 +3,7 @@ import SEOHead from "@/components/SEOHead";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ServiceSchema, SchemaScript } from "@/components/Schema";
+import { trackCtaClick } from "@/lib/trackCta";
 
 export default function FreeConsultation() {
   const serviceSchema = ServiceSchema({
@@ -11,51 +12,27 @@ export default function FreeConsultation() {
       "Book a free 15-minute strategy call with a former admissions officer to get personalized guidance.",
   });
 
-  const pushCtaEvent = ({ location, text, destination }) => {
-    if (typeof window === "undefined" || !window.dataLayer) return;
-    window.dataLayer.push({
-      event: "cta_click",
-      location,
-      text,
-      destination,
-    });
-  };
-
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
-    const headerCtas = document.querySelectorAll('nav [data-bs-target="#contactModal"]');
-    const handleHeaderCta = () =>
-      pushCtaEvent({
-        location: "header",
-        text: "Get Started",
-        destination: "#contactModal",
-      });
     const phoneLink = document.querySelector('a[href="tel:+16503830352"]');
     const handlePhoneCta = () =>
-      pushCtaEvent({
+      trackCtaClick({
         location: "free_consultation_phone",
         text: "Call us",
         destination: "tel:+16503830352",
       });
     const formEls = document.querySelectorAll("form");
-    if (!formEls.length) return undefined;
     const handleSubmitCta = () =>
-      pushCtaEvent({
+      trackCtaClick({
         location: "free_consultation_form",
         text: "Submit consultation form",
         destination: "/form-submitted",
       });
-    headerCtas.forEach((cta) =>
-      cta.addEventListener("click", handleHeaderCta)
-    );
     phoneLink?.addEventListener("click", handlePhoneCta);
     formEls.forEach((formEl) =>
       formEl.addEventListener("submit", handleSubmitCta)
     );
     return () => {
-      headerCtas.forEach((cta) =>
-        cta.removeEventListener("click", handleHeaderCta)
-      );
       phoneLink?.removeEventListener("click", handlePhoneCta);
       formEls.forEach((formEl) =>
         formEl.removeEventListener("submit", handleSubmitCta)
@@ -64,7 +41,7 @@ export default function FreeConsultation() {
   }, []);
 
   const handlePhoneClick = () =>
-    pushCtaEvent({
+    trackCtaClick({
       location: "free_consultation_phone",
       text: "Call us",
       destination: "tel:+16503830352",

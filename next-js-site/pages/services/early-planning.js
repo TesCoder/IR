@@ -30,7 +30,11 @@ export default function EarlyPlanning() {
   const [modalType, setModalType] = useState("INFO");
   const handleHeroServiceCtaClick = () => {
     setModalType("INFO");
-    trackCtaClick({ location: "services", text: "Schedule an Intro Call" });
+    trackCtaClick({
+      location: "services",
+      text: "Schedule an Intro Call",
+      destination: "#contactModal",
+    });
   };
 
   const deliverables = [
