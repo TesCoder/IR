@@ -1,4 +1,5 @@
 import { MDXRemote } from "next-mdx-remote";
+import Link from "next/link";
 import SEOHead from "@/components/SEOHead";
 import { SchemaScript } from "@/components/Schema";
 import {
@@ -7,8 +8,11 @@ import {
 } from "@/lib/blog";
 import { buildBlogPostingSchema } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
+import { RELATED_POSTS } from "./relatedPostsConfig";
 
 export default function BlogPostPage({ post, mdxSource, schema }) {
+  const relatedItems = selectRelatedPosts(post.slug);
+
   return (
     <>
       <SEOHead
@@ -28,6 +32,37 @@ export default function BlogPostPage({ post, mdxSource, schema }) {
       <BlogPostLayout post={post}>
         <MDXRemote {...mdxSource} />
       </BlogPostLayout>
+      {relatedItems.length >= 2 && (
+        <section className="max-w-3xl mx-auto px-4 pb-12">
+          <h2 className="text-2xl font-semibold mb-4">Related Posts</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {relatedItems.map(({ slug, title, description, ctaText, destination }) => (
+              <div
+                key={slug}
+                className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <h3 className="text-xl font-semibold mb-2">
+                  <Link
+                    className="text-ivy-blue underline hover:no-underline"
+                    href={slug}
+                    aria-label={title}
+                  >
+                    {title}
+                  </Link>
+                </h3>
+                <p className="text-gray-700 mb-3">{description}</p>
+                <Link
+                  className="text-ivy-blue font-medium"
+                  href={destination}
+                  aria-label={`${ctaText} — ${title}`}
+                >
+                  {ctaText} →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }
@@ -61,4 +96,28 @@ export async function getStaticProps({ params }) {
       schema,
     },
   };
+}
+
+function selectRelatedPosts(currentSlug) {
+  const currentPath = `/blog/${currentSlug}`;
+  const seen = new Set();
+  const items = [];
+
+  for (const item of RELATED_POSTS) {
+    if (item.slug === currentPath) continue; // no self-link
+    if (seen.has(item.slug)) continue; // dedupe
+    if (!isAllowedDestination(item.destination)) continue; // guard destinations
+    seen.add(item.slug);
+    items.push(item);
+    if (items.length === 4) break;
+  }
+
+  return items;
+}
+
+function isAllowedDestination(destination) {
+  if (!destination) return false;
+  if (destination.startsWith("/blog/")) return true;
+  if (destination.startsWith("/resources/")) return true;
+  return destination === "/free-consultation";
 }

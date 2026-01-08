@@ -4,14 +4,13 @@ import { SchemaScript, ServiceSchema } from "@/components/Schema";
 import Image from "next/image";
 import Section from "@/components/Section";
 
+const RT = "s4rX9hz0L_q72-Fv90tzP"; // token-gated; exclude `/packages/*` from prod tests
+
 export async function getServerSideProps(context) {
-  const { query } = context;
+  const token = Array.isArray(context.query.w) ? context.query.w[0] : context.query.w;
 
-  // page access param
-  const ejau34ouap = query.w;
-
-  // Only allow correct query key
-  if (ejau34ouap !== "s4rX9hz0L_q72-Fv90tzP") {
+  // Only allow correct query key; 404 otherwise
+  if (token !== RT) {
     return {
       notFound: true, // 404 if incorrect or missing
     };
