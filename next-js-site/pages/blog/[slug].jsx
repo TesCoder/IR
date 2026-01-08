@@ -8,7 +8,7 @@ import {
 } from "@/lib/blog";
 import { buildBlogPostingSchema } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
-import { RELATED_POSTS } from "./relatedPostsConfig";
+import { RELATED_POSTS } from "@/lib/relatedPostsConfig";
 
 export default function BlogPostPage({ post, mdxSource, schema }) {
   const relatedItems = selectRelatedPosts(post.slug);
