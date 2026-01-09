@@ -238,7 +238,7 @@ export default function EarlyPlanning() {
                 Book an Intro Call
                 </OrbitGlowButton>
 
-            <Link href="services/application-evaluation" className="underline">Start with an Evaluation</Link>
+            <Link href="/services/application-evaluation" className="underline">Start with an Evaluation</Link>
           </div>
         </div>
       </Section>

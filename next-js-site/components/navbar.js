@@ -107,14 +107,14 @@ export default function Navbar() {
                     </Link>
                   </li> */}
                   <li className="nav-item">
-                    <Link className="nav-link text-white hover:opacity-75" href="services/support-packages">
+                    <Link className="nav-link text-white hover:opacity-75" href="/services/support-packages">
                       Packages
                     </Link>
                   </li>
                   <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="services/hourly-consultation"
+                      href="/services/hourly-consultation"
                     >
                       Hourly Consultation
                     </Link>
@@ -122,7 +122,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       className="dropdown-item text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="services/application-evaluation"
+                      href="/services/application-evaluation"
                     >
                       Application Evaluation
                     </Link>

@@ -169,7 +169,7 @@ function QuickGlanceModal({ pkgKey, dataset, onClose }) {
             Close
           </OrbitGlowButton>
           <OrbitGlowButton
-            href="services/support-packages"
+            href="/services/support-packages"
             className="rounded-full bg-[#B91C1C] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#B91C1C]/40"
           >
             Full comparison
@@ -218,11 +218,11 @@ export default function SupportPackagesPreview({ data, dataUrl }) {
         <h2 className="pCentered text-start text-white">
           From essays-only guidance to fully managed application support, Ivy Ready offers tailored support for every applicant and family. 
           We also offer{" "}
-          <Link href="services/hourly-consultation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
+          <Link href="/services/hourly-consultation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Hourly Consultation
           </Link>{" "}
           and{" "}
-          <Link href="services/application-evaluation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
+          <Link href="/services/application-evaluation" target="_blank" className="underline text-ivy-gold hover:text-white transition-colors">
             Application Evaluation
           </Link>.
         </h2>
