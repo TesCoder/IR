@@ -101,7 +101,7 @@ export default function Navbar() {
                   {/* <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="services/early-planning"
+                      href="/services/early-planning"
                     >
                       Early Planning
                     </Link>

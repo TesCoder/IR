@@ -90,7 +90,7 @@ export default function PackagesComparison({ dataUrl, data }) {
           {meta.title}
         </h2>
         <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          We offer Essays-only Support, Comprehensive Support, and Full Application Support. All packages come with unlimited hours of essay editing and admission support. (In addition, we offer hourly consultationand Application Evaluation.)
+          We offer Essays-only Support, Comprehensive Support, and Full Application Support. All packages come with unlimited hours of essay editing and admission support. (In addition, we offer hourly consultation and Application Evaluation.)
         </p>
       </div>
 
