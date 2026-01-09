@@ -86,7 +86,17 @@ export default function page() {
           </li>
         </ul>
           
-        <h2 className="text-xl font-bold mb-2">Hourly Consultation Rate</h2>
+        <h2 className="text-xl font-bold mb-2">
+          Hourly Consultation Rate{" "}
+          (
+          <a
+            className="underline text-ivy-blue font-medium"
+            href="services/hourly-consultation"
+          >
+            Learn more
+          </a>
+          )
+        </h2>
         <ul className="list-disc pl-6">
           <li><strong>$350/hr</strong> for one hour</li>
           <li><strong>$300/hr</strong> for 10 hours or more</li>
