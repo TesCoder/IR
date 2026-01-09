@@ -92,7 +92,7 @@ export default function SupportPackages() {
           We offer <b>Essays-only Support, Comprehensive Support, and Full
           Application Support</b>. All packages come with unlimited hours
           of essay editing and admission support. (In addition, we offer
-          <HyperLink href="/services/hourly-consultation"> hourly consultation</HyperLink>
+          <HyperLink href="/services/hourly-consultation"> hourly consultation</HyperLink>{" "}
           and <HyperLink href="/services/application-evaluation">Application Evaluation</HyperLink>.)
         </p>
         <Image
