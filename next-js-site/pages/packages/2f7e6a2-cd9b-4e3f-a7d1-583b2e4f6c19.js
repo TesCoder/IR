@@ -91,7 +91,7 @@ export default function page() {
           (
           <a
             className="underline text-ivy-blue font-medium"
-            href="services/hourly-consultation"
+            href="/services/hourly-consultation"
           >
             Learn more
           </a>
