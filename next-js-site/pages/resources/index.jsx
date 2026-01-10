@@ -130,7 +130,7 @@ export default function ResourcesIndex() {
                 </div>
               </div>
               <Link
-                href="/contact"
+                href="/free-consultation"
                 className="inline-flex justify-center rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium shadow hover:bg-indigo-700"
               >
                 Schedule a free intro call

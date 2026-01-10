@@ -372,27 +372,29 @@ export default function Home() {
         </div>
       </section>
  
-      <Section title="Refer a family" centerContent>
-        <div className="max-w-3xl mx-auto space-y-4 text-center">
-          <p className="text-lg">
-            Know a family who needs tailored admissions guidance? Share a referral and we&apos;ll connect them with a strategist.
-          </p>
-          <ul className="list-disc text-left space-y-2 mx-auto max-w-2xl pl-6">
-            <li>Share what the student needs and how to reach the family.</li>
-            <li>We&apos;ll reach out once to schedule a free consultation.</li>
-            <li>If they are a fit, we&apos;ll pair them with the right coach and keep you posted.</li>
-          </ul>
-          <p className="text-sm text-gray-600">We&apos;ll follow up once, no spam.</p>
-          <Link
-            href="/free-consultation"
-            onClick={handleReferralCtaClick}
-            className="inline-block px-6 py-3 rounded-md bg-ivy-blue text-white font-semibold hover:bg-ivy-blue/90 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ivy-blue"
-            aria-label="Refer a family for a free consultation"
-          >
-            Refer a family
-          </Link>
-        </div>
-      </Section>
+      {false && (
+        <Section title="Refer a family" centerContent>
+          <div className="max-w-3xl mx-auto space-y-4 text-center">
+            <p className="text-lg">
+              Know a family who needs tailored admissions guidance? Share a referral and we&apos;ll connect them with a strategist.
+            </p>
+            <ul className="list-disc text-left space-y-2 mx-auto max-w-2xl pl-6">
+              <li>Share what the student needs and how to reach the family.</li>
+              <li>We&apos;ll reach out once to schedule a free consultation.</li>
+              <li>If they are a fit, we&apos;ll pair them with the right coach and keep you posted.</li>
+            </ul>
+            <p className="text-sm text-gray-600">We&apos;ll follow up once, no spam.</p>
+            <Link
+              href="/free-consultation"
+              onClick={handleReferralCtaClick}
+              className="inline-block px-6 py-3 rounded-md bg-ivy-blue text-white font-semibold hover:bg-ivy-blue/90 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ivy-blue"
+              aria-label="Refer a family for a free consultation"
+            >
+              Refer a family
+            </Link>
+          </div>
+        </Section>
+      )}
 
       <Section darkBg>
           <ContactForm type="FULL" />

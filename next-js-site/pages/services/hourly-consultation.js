@@ -63,7 +63,7 @@ export default function HourlyConsultation() {
               body: "Unused hours are fully refundable and never expire. Hours stay with hourly (not transferable to packages).",
             },
             {
-              title: "5) Follow-up & recap",
+              title: "5) Optional recap",
               body: "Get concise recaps and next steps after each session so you know exactly what to do next.",
             },
           ].map(({ title, body }) => (
