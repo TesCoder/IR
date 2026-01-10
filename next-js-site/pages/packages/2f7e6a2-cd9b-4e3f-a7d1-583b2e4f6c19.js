@@ -92,6 +92,8 @@ export default function page() {
           <a
             className="underline text-ivy-blue font-medium"
             href="/services/hourly-consultation"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Learn more
           </a>
