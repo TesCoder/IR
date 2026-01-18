@@ -32,3 +32,13 @@
 # To update dependencies: edit package.json, run `npm install`, and adjust this
 # reference list if versions change.
 
+
+# Be sure to run (if on new machine)
+1) Append once to ~/.zshrc:
+echo 'export PATH="/usr/local/opt/node@18/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/usr/local/opt/node@18/bin:$PATH"' >> ~/.zshrc
+2) Reload the config (or open a new terminal):
+source ~/.zshrc
+source ~/.zshrc
+3) Confirm:
+node -v

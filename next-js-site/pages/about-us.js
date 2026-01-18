@@ -4,6 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import Modal from "@/components/Modal";
 import Section from "@/components/Section";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { members } from "../components/membersList";
@@ -44,12 +45,16 @@ export default function About() {
       </Modal>
 
       {/* Hero Section */}
-      <div className="heroFrame bg-about-hero">
+      <div className="heroFrame bg-about-hero relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#0a1f38]/70 via-[#0a1f38]/55 to-[#0a1f38]/70 pointer-events-none"
+          aria-hidden="true"
+        />
 
         {/* Content layer */}
         <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
-          <h1 className="bannerTitle" > About Us </h1>
-          <h2 className="bannerSubtitle" > Professionals Dedicated to Excellence</h2>
+          <h1 className="bannerTitle"> About Us </h1>
+          <h2 className="bannerSubtitle"> Professionals Dedicated to Excellence</h2>
         </div>
       </div>
       
@@ -60,13 +65,13 @@ export default function About() {
             <p className="text-lg text-white/90 mb-6">
               Meet with a former admissions officer to prioritize essays, testing, and activities so your student stays ahead of deadlines.
             </p>
-            <a
+            <Link
               href="/free-consultation"
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-lg font-semibold text-[#0b3d60] hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               aria-label="Book a free consultation"
             >
               Book a Free Consultation
-            </a>
+            </Link>
           </div>
         </Section>
       )}
@@ -101,13 +106,13 @@ export default function About() {
             <p className="text-lg text-[#0b3d60]/90 mb-6">
               Get a personalized action plan that sequences essays, interviews, and recommendations so nothing slips.
             </p>
-            <a
+            <Link
               href="/free-consultation"
               className="inline-flex items-center justify-center rounded-full bg-[#0b3d60] px-6 py-3 text-lg font-semibold text-white hover:bg-[#0b3d60]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b3d60]"
               aria-label="Schedule a free admissions planning consultation"
             >
               Schedule a Free Consultation
-            </a>
+            </Link>
           </div>
         </Section>
       )}

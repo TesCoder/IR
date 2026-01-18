@@ -105,14 +105,23 @@ function selectRelatedPosts(currentSlug) {
   const items = [];
 
   const scoped = RELATED_POSTS_BATCH1[currentPath];
-  const source = Array.isArray(scoped) ? scoped : RELATED_POSTS;
+  const pools = [];
 
-  for (const item of source) {
-    if (item.slug === currentPath) continue; // no self-link
-    if (seen.has(item.slug)) continue; // dedupe
-    if (!isAllowedDestination(item.destination)) continue; // guard destinations
-    seen.add(item.slug);
-    items.push(item);
+  if (Array.isArray(scoped)) {
+    pools.push(scoped);
+  }
+
+  pools.push(RELATED_POSTS);
+
+  for (const pool of pools) {
+    for (const item of pool) {
+      if (item.slug === currentPath) continue; // no self-link
+      if (seen.has(item.slug)) continue; // dedupe
+      if (!isAllowedDestination(item.destination)) continue; // guard destinations
+      seen.add(item.slug);
+      items.push(item);
+      if (items.length === 4) break;
+    }
     if (items.length === 4) break;
   }
 
