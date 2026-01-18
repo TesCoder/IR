@@ -31,7 +31,3 @@
 #
 # To update dependencies: edit package.json, run `npm install`, and adjust this
 # reference list if versions change.
-
-
-
-node -v
