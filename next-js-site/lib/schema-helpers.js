@@ -15,6 +15,7 @@ export function buildBlogPostingSchema({ post, site }) {
     author: {
       "@type": "Organization",
       name: site.orgName,
+      url: site.baseUrl,
     },
     publisher: {
       "@type": "Organization",

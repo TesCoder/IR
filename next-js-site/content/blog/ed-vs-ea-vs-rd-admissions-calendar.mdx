@@ -90,11 +90,25 @@ If any filter is weak, lean toward EA or RD for optionality.
 ## CTA — get a plan you can execute
 
 If you want a clear ED/EA/RD plan, timelines, and retake logic, book a short consult.  
-[Book a free admissions consult](/free-consultation)
+<a
+  href="/free-consultation"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cta_click",
+      location: "article_related",
+      text: "Book a free admissions consult",
+      destination: "/free-consultation",
+    });
+  }}
+>
+  Book a free admissions consult
+</a>
 
 ## Related reads (allowed destinations)
 
 - [Testing Accommodations for SAT/ACT](/blog/testing-accommodations-sat-act)  
 - [When to Take the SAT vs ACT](/blog/when-to-take-sat-vs-act)  
-- [How to Choose College Recommenders](/blog/how-to-choose-college-recommenders)  
+- [How to Choose the Right Recommenders](/blog/how-to-choose-recommenders)  
 - [College Application Checklist](/resources/college-application-checklist)

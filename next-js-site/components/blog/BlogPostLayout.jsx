@@ -35,11 +35,19 @@ export default function BlogPostLayout({ post, children }) {
 
 function formatDate(value) {
   if (!value) return "";
-  const [year, month, day] = value.split("-");
-  const date = new Date(Number(year), Number(month) - 1, Number(day));
-  return date.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+  const parsed = new Date(value);
+
+  // Fallback for legacy YYYY-MM-DD strings without timezone
+  const date =
+    Number.isNaN(parsed.valueOf()) && value.includes("-")
+      ? new Date(...value.split("-").map((part, idx) => (idx === 1 ? Number(part) - 1 : Number(part))))
+      : parsed;
+
+  return Number.isNaN(date.valueOf())
+    ? ""
+    : date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
 }
