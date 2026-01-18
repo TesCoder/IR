@@ -13,6 +13,7 @@ export default function About() {
   // FULL, INFO, CALL, or EVAL
   const [modalType, setModalType] = useState("INFO");
   const [coach, setCoach] = useState();
+  const showBanners = false; // temporarily disable new About banners pending clarification
 
   return (
     <>
@@ -52,6 +53,24 @@ export default function About() {
         </div>
       </div>
       
+      {showBanners && (
+        <Section id="about-banner-top" centerContent>
+          <div className="w-full rounded-3xl bg-[#0b3d60] text-white px-6 py-10 shadow-lg text-center">
+            <h2 className="text-3xl font-bold mb-3 text-white">Build a clear admissions roadmap</h2>
+            <p className="text-lg text-white/90 mb-6">
+              Meet with a former admissions officer to prioritize essays, testing, and activities so your student stays ahead of deadlines.
+            </p>
+            <a
+              href="/free-consultation"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-lg font-semibold text-[#0b3d60] hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              aria-label="Book a free consultation"
+            >
+              Book a Free Consultation
+            </a>
+          </div>
+        </Section>
+      )}
+
 
       <Section title="Our Mission" centerContent>
           <h2 className="my-2">Empowering Every Student’s Unique Journey</h2>
@@ -74,6 +93,24 @@ export default function About() {
         </OrbitGlowButton>
       
       </Section>
+
+      {showBanners && (
+        <Section id="about-banner-mid" centerContent>
+          <div className="w-full rounded-3xl bg-white text-[#0b3d60] border border-[#0b3d60]/20 px-6 py-10 shadow-md text-center">
+            <h3 className="text-2xl font-bold mb-3">Stay on track through every deadline</h3>
+            <p className="text-lg text-[#0b3d60]/90 mb-6">
+              Get a personalized action plan that sequences essays, interviews, and recommendations so nothing slips.
+            </p>
+            <a
+              href="/free-consultation"
+              className="inline-flex items-center justify-center rounded-full bg-[#0b3d60] px-6 py-3 text-lg font-semibold text-white hover:bg-[#0b3d60]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b3d60]"
+              aria-label="Schedule a free admissions planning consultation"
+            >
+              Schedule a Free Consultation
+            </a>
+          </div>
+        </Section>
+      )}
       
       <Section
           title=""

@@ -9,6 +9,7 @@ import {
 import { buildBlogPostingSchema } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { RELATED_POSTS } from "@/lib/relatedPostsConfig";
+import { RELATED_POSTS_BATCH1 } from "./relatedPostsBatch1";
 
 export default function BlogPostPage({ post, mdxSource, schema }) {
   const relatedItems = selectRelatedPosts(post.slug);
@@ -103,7 +104,10 @@ function selectRelatedPosts(currentSlug) {
   const seen = new Set();
   const items = [];
 
-  for (const item of RELATED_POSTS) {
+  const scoped = RELATED_POSTS_BATCH1[currentPath];
+  const source = Array.isArray(scoped) ? scoped : RELATED_POSTS;
+
+  for (const item of source) {
     if (item.slug === currentPath) continue; // no self-link
     if (seen.has(item.slug)) continue; // dedupe
     if (!isAllowedDestination(item.destination)) continue; // guard destinations
