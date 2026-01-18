@@ -69,3 +69,8 @@ export const RELATED_POSTS_BATCH1 = {
     },
   ],
 };
+
+// Minimal page stub to satisfy Next.js page export requirement.
+export default function RelatedPostsBatch1Page() {
+  return null;
+}
