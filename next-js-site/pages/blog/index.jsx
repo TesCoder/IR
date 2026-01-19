@@ -71,7 +71,7 @@ export default function BlogPage({ posts, schema }) {
       {visibleClusters.length >= 2 && (
         <section className="mb-10 rounded-2xl border border-gray-200 bg-gray-50 p-6">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Featured Clusters
+            Featured Blogs
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {visibleClusters.slice(0, 3).map(({ slug, title, description, ctaText, ctaDestination }) => (
