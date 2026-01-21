@@ -135,25 +135,6 @@ Bad metrics:
 - “We had an account.”
 - “We started a nonprofit.” (that’s a label, not an outcome)
 
-## CTA — download the project checklist
-
-If you want the checklist in a copy/paste format, use the download section below.
-<a
-  href="/blog/passion-project-launch-checklist#download"
-  onClick={() => {
-    if (typeof window === "undefined") return;
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "cta_click",
-      location: "article_related",
-      text: "Download the project checklist",
-      destination: "/blog/passion-project-launch-checklist#download",
-    });
-  }}
->
-  Download the project checklist
-</a>
-
 ## Download
 
 Copy/paste checklist (Version 1 launch):
@@ -176,4 +157,23 @@ Copy/paste checklist (Version 1 launch):
 - [Leadership Roles That Impress Colleges (with Examples)](/blog/leadership-roles-that-impress-colleges)  
 - [Community Service: Hours vs Impact](/blog/community-service-hours-vs-impact)  
 - [How to Write the Activities & Honors Sections](/blog/how-to-write-activities-and-honors-section)
+
+## CTA — download the project checklist
+
+If you want the checklist in a copy/paste format, use the download section above.
+<a
+  href="/blog/passion-project-launch-checklist#download"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cta_click",
+      location: "article_related",
+      text: "Download the project checklist",
+      destination: "/blog/passion-project-launch-checklist#download",
+    });
+  }}
+>
+  Download the project checklist
+</a>
 
