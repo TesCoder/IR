@@ -21,7 +21,7 @@ export default function About() {
       <SEOHead
         title="About Us"
         description="Ivy Ready's team of former admission officers provides personalized college planning strategies tailored to each student’s strengths and goals."
-        url="/about-us"
+        url="/about"
       />
       
       {/* Contact Modal (pop up) */}
@@ -55,6 +55,23 @@ export default function About() {
         <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
           <h1 className="bannerTitle"> About Us </h1>
           <h2 className="bannerSubtitle"> Professionals Dedicated to Excellence</h2>
+          <Link
+            href="/free-consultation"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-lg font-semibold text-[#0b3d60] hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            aria-label="Book a free consultation"
+            onClick={() => {
+              if (typeof window === "undefined") return;
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: "cta_click",
+                location: "hero",
+                text: "Book a Free Consultation",
+                destination: "/free-consultation",
+              });
+            }}
+          >
+            Book a Free Consultation
+          </Link>
         </div>
       </div>
       

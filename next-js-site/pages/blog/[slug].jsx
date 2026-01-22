@@ -31,7 +31,7 @@ export default function BlogPostPage({ post, mdxSource, schema }) {
       />
       <SchemaScript schema={schema} />
       <BlogPostLayout post={post}>
-        <MDXRemote {...mdxSource} />
+        <MDXRemote {...mdxSource} components={{ SEOHead }} />
       </BlogPostLayout>
       {relatedItems.length >= 2 && (
         <section className="max-w-3xl mx-auto px-4 pb-12">
