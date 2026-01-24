@@ -105,10 +105,15 @@ if (typeof window !== "undefined") {
     });
   };
   const wire = () => {
-    document.querySelectorAll('a[href="/free-consultation"]').forEach((a) => {
-      a.onclick = (e) => {
-        pushCTA(a);
-      };
+    document.querySelectorAll('a[href="/free-consultation"], a[href="/contact"]').forEach((a) => {
+      a.setAttribute("href", "/free-consultation");
+      a.addEventListener(
+        "click",
+        () => {
+          pushCTA(a);
+        },
+        { capture: true }
+      );
     });
   };
   wire();

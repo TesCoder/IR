@@ -36,17 +36,18 @@ thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 <script>
 {`
 if (typeof window !== "undefined") {
-  // Keep a single BlogPosting JSON-LD (prefer ISO8601+TZ)
-  const scripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
-  const blogScripts = scripts.filter((s) => s.textContent && s.textContent.includes('"@type":"BlogPosting"'));
-  const tzScript = blogScripts.find((s) => s.textContent.includes("T08:00:00-08:00"));
-  if (tzScript) {
-    blogScripts.forEach((s) => {
-      if (s !== tzScript) s.remove();
-    });
-  }
+  const ensureTzJsonLd = () => {
+    const scripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
+    const blogScripts = scripts.filter((s) => s.textContent && s.textContent.includes('"@type":"BlogPosting"'));
+    const tzScript = blogScripts.find((s) => s.textContent.includes("T08:00:00-08:00"));
+    if (tzScript) {
+      blogScripts.forEach((s) => {
+        if (s !== tzScript) s.remove();
+      });
+    }
+  };
 
-  // Ensure CTA dataLayer push on all /free-consultation anchors
+  // Normalize CTA anchors to /free-consultation and ensure dataLayer push
   const pushCTA = (link) => {
     const text = (link.textContent || "").trim() || "Free consultation";
     window.dataLayer = window.dataLayer || [];
@@ -57,15 +58,27 @@ if (typeof window !== "undefined") {
       destination: "/free-consultation",
     });
   };
-  const wire = () => {
-    document.querySelectorAll('a[href="/free-consultation"]').forEach((a) => {
-      a.onclick = (e) => {
-        pushCTA(a);
-      };
+
+  const normalizeCtas = () => {
+    document.querySelectorAll('a[href="/free-consultation"], a[href="/contact"], a[href*="#packet"]').forEach((a) => {
+      a.setAttribute("href", "/free-consultation");
+      a.addEventListener(
+        "click",
+        (e) => {
+          // allow navigation but always capture event
+          pushCTA(a);
+        },
+        { capture: true }
+      );
     });
   };
-  wire();
-  document.addEventListener("DOMContentLoaded", wire);
+
+  ensureTzJsonLd();
+  normalizeCtas();
+  document.addEventListener("DOMContentLoaded", () => {
+    ensureTzJsonLd();
+    normalizeCtas();
+  });
 }
 `}
 </script>
