@@ -91,3 +91,22 @@ Use the download section above for a copy/paste checklist or book a short review
   Book a UC transfer checklist review
 </a>
 
+<script>
+{`
+if (typeof window !== "undefined") {
+  window.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href="/free-consultation"]');
+    if (!link) return;
+    const text = (link.textContent || "").trim() || "Free consultation";
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cta_click",
+      location: "article_related",
+      text,
+      destination: "/free-consultation",
+    });
+  });
+}
+`}
+</script>
+

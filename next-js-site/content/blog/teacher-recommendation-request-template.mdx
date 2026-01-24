@@ -33,6 +33,25 @@ thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 `}
 </script>
 
+<script>
+{`
+if (typeof window !== "undefined") {
+  window.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href="/free-consultation"]');
+    if (!link) return;
+    const text = (link.textContent || "").trim() || "Free consultation";
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cta_click",
+      location: "article_related",
+      text,
+      destination: "/free-consultation",
+    });
+  });
+}
+`}
+</script>
+
 Recommendation letters get stronger when you do two things:
 
 - Ask early (with buffer)
