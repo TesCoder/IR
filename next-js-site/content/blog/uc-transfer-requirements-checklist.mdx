@@ -94,9 +94,7 @@ Use the download section above for a copy/paste checklist or book a short review
 <script>
 {`
 if (typeof window !== "undefined") {
-  window.addEventListener("click", (event) => {
-    const link = event.target.closest('a[href="/free-consultation"]');
-    if (!link) return;
+  const pushCTA = (link) => {
     const text = (link.textContent || "").trim() || "Free consultation";
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -105,8 +103,18 @@ if (typeof window !== "undefined") {
       text,
       destination: "/free-consultation",
     });
-  });
+  };
+  const wire = () => {
+    document.querySelectorAll('a[href="/free-consultation"]').forEach((a) => {
+      a.onclick = (e) => {
+        pushCTA(a);
+      };
+    });
+  };
+  wire();
+  document.addEventListener("DOMContentLoaded", wire);
 }
 `}
 </script>
+
 
