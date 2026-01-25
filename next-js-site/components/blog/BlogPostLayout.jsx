@@ -1,6 +1,43 @@
+import { useEffect } from "react";
 import Link from "next/link";
+import { trackCtaClick } from "@/lib/trackCta";
 
 export default function BlogPostLayout({ post, children }) {
+  useEffect(() => {
+    const articleEl = document.querySelector("main article");
+    if (!articleEl) return;
+
+    const ctaLinks = Array.from(articleEl.querySelectorAll('a[href="/free-consultation"]'));
+    const listeners = [];
+
+    const handleCtaClick = (event) => {
+      const link = event.currentTarget;
+      const destination = link.getAttribute("href") || "/free-consultation";
+      const text = (link.textContent || link.getAttribute("aria-label") || "").trim() || "Free consultation";
+
+      trackCtaClick({
+        location: "article_related",
+        text,
+        destination,
+      });
+
+      event.stopPropagation?.();
+      event.stopImmediatePropagation?.();
+    };
+
+    ctaLinks.forEach((link) => {
+      const listener = (event) => handleCtaClick(event);
+      link.addEventListener("click", listener, { capture: true });
+      listeners.push([link, listener]);
+    });
+
+    return () => {
+      listeners.forEach(([link, listener]) => {
+        link.removeEventListener("click", listener, { capture: true });
+      });
+    };
+  }, []);
+
   return (
     <main className="max-w-3xl mx-auto py-12 px-4">
       <nav className="mb-6 text-sm">

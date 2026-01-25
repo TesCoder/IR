@@ -6,13 +6,15 @@ import {
   getAllPostSlugs,
   getPostForPage,
 } from "@/lib/blog";
-import { buildBlogPostingSchema } from "@/lib/schema-helpers";
+import { buildBlogPostingSchema, formatIsoWithTimezone } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { RELATED_POSTS } from "@/lib/relatedPostsConfig";
 import { RELATED_POSTS_BATCH1 } from "./relatedPostsBatch1";
 
 export default function BlogPostPage({ post, mdxSource, schema }) {
   const relatedItems = selectRelatedPosts(post.slug);
+  const publishedTime = formatIsoWithTimezone(post.date) || post.date;
+  const modifiedTime = formatIsoWithTimezone(post.updated || post.date) || publishedTime;
 
   return (
     <>
@@ -23,8 +25,8 @@ export default function BlogPostPage({ post, mdxSource, schema }) {
         image={post.thumbnail || "/images/logo-circle.png"}
         type="article"
         article={{
-          publishedTime: post.date,
-          modifiedTime: post.updated || post.date,
+          publishedTime,
+          modifiedTime,
           author: post.author,
           tags: post.tags,
         }}
