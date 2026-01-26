@@ -18,6 +18,22 @@ requires_downloadable: false
 ready_to_publish: true
 ---
 
+import SEOHead from "@/components/SEOHead";
+
+<SEOHead
+  title="Financial Aid & Merit Strategy Hub"
+  description="FAFSA/CSS timelines, scholarships, award appeals, and merit strategy in one hub."
+  url="/blog/financial-aid-merit-hub"
+  image="/images/banners/banner_success_aj39eiueorue-1600w.webp"
+  type="article"
+  article={{
+    publishedTime: "2024-03-10T08:00:00-07:00",
+    modifiedTime: "2024-03-10T08:00:00-07:00",
+    author: "IvyReady Team",
+    tags: ["financial aid", "scholarships", "fafsa", "college costs"],
+  }}
+/>
+
 Financial aid can feel opaque because families are trying to solve multiple problems at once:
 
 - **Deadlines** (FAFSA, CSS Profile, school-specific forms)
@@ -27,6 +43,23 @@ Financial aid can feel opaque because families are trying to solve multiple prob
 
 This hub organizes the process into clear steps so you can reduce mistakes, avoid delays, and make better decisions when offers arrive.
 
+In this hub, you’ll get:
+
+- A simple timeline (what to prep vs submit vs do after decisions)
+- Links to the right next step (FAFSA, CSS docs, merit strategy, comparisons, appeals, scholarships)
+- A mini template for comparing offers so you don’t confuse “aid” with loans/work-study
+
+## Quick navigation
+- [The big idea](#big-idea)
+- [Where to go next](#hub-spokes)
+- [What “good” looks like](#good-checklist)
+- [Mini example](#mini-example)
+- [Merit vs need-based](#merit-vs-need)
+- [Common mistakes](#common-mistakes)
+- [What this hub is (and isn’t)](#what-this-hub-is)
+- [Plan your aid strategy](#plan-your-aid-strategy)
+
+<span id="big-idea"></span>
 ## The big idea: plan the year you file, not the week you file
 Most “aid problems” are actually *timeline problems*. When you file late or missing documents, you lose leverage and create stress right when essays and deadlines are also peaking.
 
@@ -36,16 +69,27 @@ A strong aid plan usually has three phases:
 2. **Submission** (FAFSA/CSS done early and correctly)  
 3. **Decision + leverage** (compare offers, negotiate/appeal when appropriate, scholarships as a parallel track)
 
+<span id="hub-spokes"></span>
 ## Where to go next (hub spokes)
 Pick the page that matches what you need right now:
 
-- **FAFSA workflow**: [FAFSA Completion Guide (No Delays)](/blog/fafsa-completion-guide)  
-- **CSS Profile docs**: [CSS Profile Documents Checklist](/blog/css-profile-documents-checklist)  
-- **Merit vs need strategy**: [Merit Aid vs Need-Based Strategy](/blog/merit-aid-vs-need-based-strategy)  
-- **Compare award letters**: [Compare Financial Aid Awards (Template)](/blog/compare-financial-aid-awards)  
-- **Appeals and negotiations**: [How to Appeal a Financial Aid Offer](/blog/how-to-appeal-financial-aid-offer)  
-- **Scholarship planning**: [Scholarship Search Plan (Tracker)](/blog/scholarship-search-plan)
+### File your forms (FAFSA + CSS)
+- **FAFSA step-by-step**: [FAFSA Completion Guide (No Delays)](/blog/fafsa-completion-guide) — use this when you want a clean submission without corrections  
+- **CSS Profile documents**: [CSS Profile Documents Checklist](/blog/css-profile-documents-checklist) — use this when you’re gathering materials and want to avoid missing-item delays  
 
+### Merit strategy + school list leverage
+- **Merit vs need strategy**: [Merit Aid vs Need-Based Strategy](/blog/merit-aid-vs-need-based-strategy) — use this when you’re building a list and positioning for merit  
+
+### Compare offers (apples-to-apples)
+- **Compare award letters**: [Compare Financial Aid Awards (Template)](/blog/compare-financial-aid-awards) — use this when decisions land and you need real net cost numbers  
+
+### Appeals + negotiations
+- **How to appeal**: [How to Appeal a Financial Aid Offer](/blog/how-to-appeal-financial-aid-offer) — use this when you have new information or a comparable offer  
+
+### Scholarships (parallel track)
+- **Scholarship planning**: [Scholarship Search Plan (Tracker)](/blog/scholarship-search-plan) — use this when you want a weekly cadence and a tracker that prevents missed deadlines
+
+<span id="good-checklist"></span>
 ## What “good” looks like (a family checklist)
 Here’s a simple way to reduce risk:
 
@@ -55,6 +99,28 @@ Here’s a simple way to reduce risk:
 - **Track scholarships separately**: treat scholarships like a sprint with weekly quotas and deadlines.
 - **Build a comparison system**: don’t wait until offers arrive to “figure it out.”
 
+<span id="mini-example"></span>
+## Mini example: compare two aid offers (apples-to-apples)
+A quick rule: **grants/scholarships reduce cost; loans/work-study change how you pay**.
+
+Use this simple worksheet:
+
+| Line item | School A | School B |
+| --- | ---: | ---: |
+| Cost of attendance (COA) | $70,000 | $62,000 |
+| Gift aid (grants + scholarships) | -$35,000 | -$25,000 |
+| **Net cost (COA - gift aid)** | **$35,000** | **$37,000** |
+| Federal student loan | $5,500 | $5,500 |
+| Work-study | $2,000 | $3,000 |
+
+**Interpretation**: School A looks “more expensive” on sticker price, but it’s cheaper after gift aid. Loans/work-study are not discounts — treat them separately.
+
+If you’re appealing, strong evidence usually looks like:
+- **New circumstance + documentation** (job loss, medical expense, disaster impact)
+- **Comparable offer** from a peer school (same year, same student) with the delta you’re asking to bridge
+- **One specific request** (e.g., “match gift aid within $X” rather than “can you do better?”)
+
+<span id="merit-vs-need"></span>
 ## Merit vs need-based: the strategic difference
 Need-based aid is (mostly) about your financial profile and institutional policy. Merit aid is (mostly) about *how a school can use you to shape the class* — academics, test scores, leadership, talent, and yield priorities.
 
@@ -63,6 +129,7 @@ That’s why the strategy differs:
 - For need-based: accuracy, documentation, and deadlines matter most.  
 - For merit: positioning (academics, score strategy, school list design) matters a lot.
 
+<span id="common-mistakes"></span>
 ## Common mistakes (and how to avoid them)
 - **Mistake: assuming “net price” will be similar across schools.**  
   **Fix**: run each school’s net price calculator early and treat it as a planning input, not a promise.
@@ -76,12 +143,20 @@ That’s why the strategy differs:
 - **Mistake: scholarship chaos.**  
   **Fix**: do fewer scholarships, better — with a tracker and a weekly cadence.
 
+<span id="what-this-hub-is"></span>
 ## What this hub is (and isn’t)
 This is not legal or financial advice, and every school’s policy is different. But the *process* is consistent: plan early, document well, and make decisions with a structured comparison so you don’t miss leverage when it matters.
 
-## plan your aid strategy
+<span id="plan-your-aid-strategy"></span>
+## Plan your aid strategy
 
 If you want help building an aid plan (deadlines, docs, and a clean comparison system), book a short consult.
+
+In one focused session, we can:
+- Confirm your FAFSA/CSS + school-specific requirements and deadlines
+- Set up a simple comparison template for offers (so decisions are faster and calmer)
+- Map your best leverage options for merit and appeals (when appropriate)
+
 <a
   href="/free-consultation"
   onClick={() => {
