@@ -508,8 +508,8 @@ input[type="tel"]:focus {
 /* About Hero */
 .bg-about-hero {
   background-image: image-set(
-    url('/images/banners/about-banner-1600w.webp') 1x,
-    url('/images/banners/about-banner-2400w.webp') 2x
+    url('/images/banners/about-hero-2026-01-25-1600w.webp') 1x,
+    url('/images/banners/about-hero-2026-01-25-2400w.webp') 2x
   );
 }
 
