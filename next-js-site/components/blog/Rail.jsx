@@ -31,7 +31,7 @@ export default function Rail({ links = [] }) {
   return (
     <aside
       aria-label="Related resources"
-      className="mt-8 lg:mt-0 rounded-2xl border border-gray-200 bg-white/80 p-5 shadow-sm"
+      className="hidden lg:block mt-8 lg:mt-0 rounded-2xl border border-gray-200 bg-white/80 p-5 shadow-sm"
     >
       <h2 className="text-xl font-semibold mb-3">Related resources</h2>
       <ul className="space-y-3">

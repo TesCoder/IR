@@ -9,11 +9,9 @@ import { RELATED_POSTS } from "@/lib/relatedPostsConfig";
 import { RELATED_POSTS_BATCH1 } from "./relatedPostsBatch1";
 import { isAllowlistedDestination } from "@/lib/railAllowlist";
 
-const PILOT_RAIL_SLUGS = new Set(["financial-aid-merit-hub", "admissions-essays-hub"]);
-
-export default function BlogPostPage({ post, mdxSource, schema }) {
-  const relatedItems = selectRelatedPosts(post.slug);
-  const railLinks = shouldShowRail(post.slug) ? relatedItems : [];
+export default function BlogPostPage({ post, mdxSource, schema, allowedSlugs }) {
+  const relatedItems = selectRelatedPosts(post.slug, allowedSlugs);
+  const railLinks = relatedItems;
   const publishedTime = formatIsoWithTimezone(post.date) || post.date;
   const modifiedTime = formatIsoWithTimezone(post.updated || post.date) || publishedTime;
 
@@ -82,6 +80,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { frontmatter, mdxSource } = await getPostForPage(params.slug);
+  const allowedSlugs = getAllPostSlugs();
 
   const site = {
     baseUrl: "https://ivyready.com",
@@ -99,14 +98,16 @@ export async function getStaticProps({ params }) {
       post: frontmatter,
       mdxSource,
       schema,
+      allowedSlugs,
     },
   };
 }
 
-function selectRelatedPosts(currentSlug) {
+function selectRelatedPosts(currentSlug, allowedSlugs = []) {
   const currentPath = `/blog/${currentSlug}`;
   const seen = new Set();
   const items = [];
+  const allowedBlogSlugs = new Set(allowedSlugs);
 
   const scoped = RELATED_POSTS_BATCH1[currentPath];
   const pools = [];
@@ -121,7 +122,7 @@ function selectRelatedPosts(currentSlug) {
     for (const item of pool) {
       if (item.slug === currentPath) continue; // no self-link
       if (seen.has(item.slug)) continue; // dedupe
-      if (!isAllowlistedDestination(item.destination)) continue; // guard destinations
+      if (!isAllowedAndPublished(item.destination, allowedBlogSlugs)) continue; // guard destinations
       seen.add(item.slug);
       items.push(item);
       if (items.length === 4) break;
@@ -132,6 +133,11 @@ function selectRelatedPosts(currentSlug) {
   return items;
 }
 
-function shouldShowRail(slug) {
-  return PILOT_RAIL_SLUGS.has(slug);
+function isAllowedAndPublished(destination, allowedBlogSlugs) {
+  if (!isAllowlistedDestination(destination)) return false;
+  if (destination.startsWith("/blog/")) {
+    const targetSlug = destination.split("#")[0].replace(/^\/blog\//, "").replace(/\/$/, "");
+    return allowedBlogSlugs.has(targetSlug);
+  }
+  return true;
 }
