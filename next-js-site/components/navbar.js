@@ -157,6 +157,14 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
+                  href="/blog"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white hover:opacity-75"
                   href="/resources"
                 >
                   Resources
