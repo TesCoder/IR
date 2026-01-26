@@ -2,15 +2,13 @@ import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
 import SEOHead from "@/components/SEOHead";
 import { SchemaScript } from "@/components/Schema";
-import { getAllPostSlugs, getPostForPage } from "@/lib/blog";
+import { getAllPostSlugs, getAllPostsMeta, getPostForPage } from "@/lib/blog";
 import { buildBlogPostingSchema, formatIsoWithTimezone } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
-import { RELATED_POSTS } from "@/lib/relatedPostsConfig";
-import { RELATED_POSTS_BATCH1 } from "./relatedPostsBatch1";
 import { isAllowlistedDestination } from "@/lib/railAllowlist";
 
-export default function BlogPostPage({ post, mdxSource, schema, allowedSlugs }) {
-  const relatedItems = selectRelatedPosts(post.slug, allowedSlugs);
+export default function BlogPostPage({ post, mdxSource, schema, postsMeta }) {
+  const relatedItems = selectRelatedPosts(post.slug, postsMeta);
   const railLinks = relatedItems;
   const publishedTime = formatIsoWithTimezone(post.date) || post.date;
   const modifiedTime = formatIsoWithTimezone(post.updated || post.date) || publishedTime;
@@ -80,7 +78,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { frontmatter, mdxSource } = await getPostForPage(params.slug);
-  const allowedSlugs = getAllPostSlugs();
+  const postsMeta = getAllPostsMeta();
 
   const site = {
     baseUrl: "https://ivyready.com",
@@ -98,46 +96,42 @@ export async function getStaticProps({ params }) {
       post: frontmatter,
       mdxSource,
       schema,
-      allowedSlugs,
+      postsMeta,
     },
   };
 }
 
-function selectRelatedPosts(currentSlug, allowedSlugs = []) {
-  const currentPath = `/blog/${currentSlug}`;
-  const seen = new Set();
-  const items = [];
-  const allowedBlogSlugs = new Set(allowedSlugs);
+function selectRelatedPosts(currentSlug, postsMeta = []) {
+  const current = postsMeta.find((p) => p.slug === currentSlug);
+  const currentTags = new Set((current?.tags || []).map((t) => String(t).toLowerCase()));
 
-  const scoped = RELATED_POSTS_BATCH1[currentPath];
-  const pools = [];
+  const scored = postsMeta
+    .filter((p) => p.slug !== currentSlug)
+    .map((p) => {
+      const tags = (p.tags || []).map((t) => String(t).toLowerCase());
+      const sharedTags = tags.filter((t) => currentTags.has(t)).length;
+      const dateScore = Number(new Date(p.date || 0)) || 0;
+      const destination = `/blog/${p.slug}`;
+      const allowlisted = isAllowlistedDestination(destination);
+      return { post: p, sharedTags, dateScore, allowlisted };
+    })
+    .filter(({ allowlisted }) => allowlisted)
+    .sort((a, b) => {
+      if (b.sharedTags !== a.sharedTags) return b.sharedTags - a.sharedTags;
+      if (b.dateScore !== a.dateScore) return b.dateScore - a.dateScore;
+      return (a.post.title || "").localeCompare(b.post.title || "");
+    })
+    .slice(0, 4);
 
-  if (Array.isArray(scoped)) {
-    pools.push(scoped);
-  }
-
-  pools.push(RELATED_POSTS);
-
-  for (const pool of pools) {
-    for (const item of pool) {
-      if (item.slug === currentPath) continue; // no self-link
-      if (seen.has(item.slug)) continue; // dedupe
-      if (!isAllowedAndPublished(item.destination, allowedBlogSlugs)) continue; // guard destinations
-      seen.add(item.slug);
-      items.push(item);
-      if (items.length === 4) break;
-    }
-    if (items.length === 4) break;
-  }
-
-  return items;
-}
-
-function isAllowedAndPublished(destination, allowedBlogSlugs) {
-  if (!isAllowlistedDestination(destination)) return false;
-  if (destination.startsWith("/blog/")) {
-    const targetSlug = destination.split("#")[0].replace(/^\/blog\//, "").replace(/\/$/, "");
-    return allowedBlogSlugs.has(targetSlug);
-  }
-  return true;
+  return scored.map(({ post }) => {
+    const path = `/blog/${post.slug}`;
+    return {
+      slug: path,
+      title: post.title,
+      text: post.title,
+      description: post.description || post.excerpt || "",
+      ctaText: "Read this guide",
+      destination: path,
+    };
+  });
 }
