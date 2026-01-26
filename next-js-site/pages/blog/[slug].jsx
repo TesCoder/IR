@@ -2,17 +2,18 @@ import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
 import SEOHead from "@/components/SEOHead";
 import { SchemaScript } from "@/components/Schema";
-import {
-  getAllPostSlugs,
-  getPostForPage,
-} from "@/lib/blog";
+import { getAllPostSlugs, getPostForPage } from "@/lib/blog";
 import { buildBlogPostingSchema, formatIsoWithTimezone } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { RELATED_POSTS } from "@/lib/relatedPostsConfig";
 import { RELATED_POSTS_BATCH1 } from "./relatedPostsBatch1";
+import { isAllowlistedDestination } from "@/lib/railAllowlist";
+
+const PILOT_RAIL_SLUGS = new Set(["financial-aid-merit-hub", "admissions-essays-hub"]);
 
 export default function BlogPostPage({ post, mdxSource, schema }) {
   const relatedItems = selectRelatedPosts(post.slug);
+  const railLinks = shouldShowRail(post.slug) ? relatedItems : [];
   const publishedTime = formatIsoWithTimezone(post.date) || post.date;
   const modifiedTime = formatIsoWithTimezone(post.updated || post.date) || publishedTime;
 
@@ -28,11 +29,12 @@ export default function BlogPostPage({ post, mdxSource, schema }) {
           publishedTime,
           modifiedTime,
           author: post.author,
+          authorUrl: post.authorUrl,
           tags: post.tags,
         }}
       />
       <SchemaScript schema={schema} />
-      <BlogPostLayout post={post}>
+      <BlogPostLayout post={post} railLinks={railLinks}>
         <MDXRemote {...mdxSource} components={{ SEOHead }} />
       </BlogPostLayout>
       {relatedItems.length >= 2 && (
@@ -119,7 +121,7 @@ function selectRelatedPosts(currentSlug) {
     for (const item of pool) {
       if (item.slug === currentPath) continue; // no self-link
       if (seen.has(item.slug)) continue; // dedupe
-      if (!isAllowedDestination(item.destination)) continue; // guard destinations
+      if (!isAllowlistedDestination(item.destination)) continue; // guard destinations
       seen.add(item.slug);
       items.push(item);
       if (items.length === 4) break;
@@ -130,9 +132,6 @@ function selectRelatedPosts(currentSlug) {
   return items;
 }
 
-function isAllowedDestination(destination) {
-  if (!destination) return false;
-  if (destination.startsWith("/blog/")) return true;
-  if (destination.startsWith("/resources/")) return true;
-  return destination === "/free-consultation";
+function shouldShowRail(slug) {
+  return PILOT_RAIL_SLUGS.has(slug);
 }

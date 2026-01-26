@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import Rail from "./Rail";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 
-export default function BlogPostLayout({ post, children }) {
+export default function BlogPostLayout({ post, children, railLinks = [] }) {
   const [liked, setLiked] = useState(false);
   const storageKey = `ir_like_${post?.slug || "post"}`;
 
@@ -69,7 +70,7 @@ export default function BlogPostLayout({ post, children }) {
   };
 
   return (
-    <main className="max-w-3xl mx-auto py-12 px-4">
+    <main className="max-w-6xl mx-auto py-12 px-4">
       <nav className="mb-6 text-sm">
         <Link href="/" className="text-blue-600 hover:underline">
           Home
@@ -80,37 +81,40 @@ export default function BlogPostLayout({ post, children }) {
         </Link>
       </nav>
 
-      <article>
-        <header className="mb-6">
-          <h1 className="text-3xl font-semibold mb-2">{post.title}</h1>
-          <div className="flex items-center justify-between gap-4">
-            <div className="text-sm text-gray-500">
-              <span>{formatDate(post.date)}</span>
-              {post.readingTime ? (
-                <>
-                  <span className="mx-1">&middot;</span>
-                  <span>{post.readingTime} min read</span>
-                </>
-              ) : null}
+      <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] gap-8 items-start">
+        <article>
+          <header className="mb-6">
+            <h1 className="text-3xl font-semibold mb-2">{post.title}</h1>
+            <div className="flex items-center justify-between gap-4">
+              <div className="text-sm text-gray-500">
+                <span>{formatDate(post.date)}</span>
+                {post.readingTime ? (
+                  <>
+                    <span className="mx-1">&middot;</span>
+                    <span>{post.readingTime} min read</span>
+                  </>
+                ) : null}
+              </div>
+              <OrbitGlowButton
+                type="button"
+                onClick={handleLike}
+                aria-pressed={liked}
+                aria-label={liked ? "Unlike this article" : "Like this article"}
+                className="px-4 py-2 text-sm"
+              >
+                <span aria-hidden="true" className="mr-1">
+                  {liked ? "❤️" : "🤍"}
+                </span>
+                {liked ? "Liked" : "Like"}
+              </OrbitGlowButton>
             </div>
-            <OrbitGlowButton
-              type="button"
-              onClick={handleLike}
-              aria-pressed={liked}
-              aria-label={liked ? "Unlike this article" : "Like this article"}
-              className="px-4 py-2 text-sm"
-            >
-              <span aria-hidden="true" className="mr-1">
-                {liked ? "❤️" : "🤍"}
-              </span>
-              {liked ? "Liked" : "Like"}
-            </OrbitGlowButton>
-          </div>
-        </header>
+          </header>
 
-        <div className="prose prose-lg max-w-none">{children}</div>
-      </article>
-      
+          <div className="prose prose-lg max-w-none">{children}</div>
+        </article>
+
+        <Rail links={railLinks} />
+      </div>
     </main>
   );
 }

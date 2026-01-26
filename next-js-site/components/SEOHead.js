@@ -43,7 +43,10 @@ export default function SEOHead({
         <>
           <meta property="article:published_time" content={article.publishedTime} />
           <meta property="article:modified_time" content={article.modifiedTime} />
-          <meta property="article:author" content={article.author || siteName} />
+          <meta
+            property="article:author"
+            content={article.authorUrl || article.author || siteName}
+          />
           {article.tags && article.tags.map(tag => (
             <meta key={tag} property="article:tag" content={tag} />
           ))}
