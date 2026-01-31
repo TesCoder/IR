@@ -44,6 +44,36 @@ export default function BlogPostLayout({ post, children, railLinks = [] }) {
   }, []);
 
   useEffect(() => {
+    const articleEl = document.querySelector("main article");
+    if (!articleEl) return;
+
+    const slugify = (text) =>
+      text
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/\s+/g, "-");
+
+    const headings = Array.from(articleEl.querySelectorAll("h2, h3"));
+    headings.forEach((heading) => {
+      const text = heading.textContent || heading.innerText || "";
+      if (!text) return;
+      const existingId = heading.getAttribute("id");
+      const id = existingId || slugify(text);
+      heading.setAttribute("id", id);
+
+      if (!heading.querySelector(".heading-anchor")) {
+        const anchor = document.createElement("a");
+        anchor.className = "heading-anchor";
+        anchor.href = `#${id}`;
+        anchor.setAttribute("aria-label", `Jump to section: ${text}`);
+        anchor.innerText = "¶";
+        heading.appendChild(anchor);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     if (typeof window === "undefined") return;
     const stored = window.localStorage.getItem(storageKey);
     setLiked(stored === "1");
@@ -70,19 +100,19 @@ export default function BlogPostLayout({ post, children, railLinks = [] }) {
   };
 
   return (
-    <main className="max-w-6xl mx-auto py-12 px-4">
+    <main className="max-w-6xl mx-auto pt-10 px-5 md:px-8">
       <nav className="mb-6 text-sm">
-        <Link href="/" className="text-blue-600 hover:underline">
+        <Link href="/" className="text-ivy-blue underline hover:no-underline font-semibold">
           Home
         </Link>
         <span className="mx-1 text-gray-500">/</span>
-        <Link href="/blog" className="text-blue-600 hover:underline">
+        <Link href="/blog" className="text-ivy-blue underline hover:no-underline font-semibold">
           Blog &amp; Resources
         </Link>
       </nav>
 
       <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] gap-8 items-start">
-        <article>
+        <article className="rounded-2xl border border-gray-200/70 bg-white shadow-sm p-6 md:p-8 space-y-6">
           <header className="mb-6">
             <h1 className="text-3xl font-semibold mb-2">{post.title}</h1>
             <div className="flex items-center justify-between gap-4">
@@ -110,7 +140,7 @@ export default function BlogPostLayout({ post, children, railLinks = [] }) {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">{children}</div>
+          <div className="prose prose-lg prose-ivy lg:prose-xl max-w-none">{children}</div>
         </article>
 
         <Rail links={railLinks} />

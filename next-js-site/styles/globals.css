@@ -544,3 +544,54 @@ input[type="tel"]:focus {
     url('/images/banners/banner_success_aj39eiueorue-2400w.webp') 2x
   );
 }
+
+/* ---------------------------
+   Blog prose & anchors
+---------------------------- */
+.prose-ivy .heading-anchor {
+  margin-left: 0.35rem;
+  opacity: 0;
+  color: #244568;
+  text-decoration: none;
+  font-size: 0.85em;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.prose-ivy h2:hover .heading-anchor,
+.prose-ivy h3:hover .heading-anchor,
+.prose-ivy h2:focus-within .heading-anchor,
+.prose-ivy h3:focus-within .heading-anchor {
+  opacity: 1;
+}
+
+.prose-ivy .heading-anchor:focus-visible {
+  opacity: 1;
+  outline: 2px solid #2D5780;
+  outline-offset: 2px;
+}
+
+.prose-ivy ul { list-style-position: outside; }
+.prose-ivy ol { list-style-position: outside; }
+
+.prose-ivy .mdx-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--ivy-red);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(153, 0, 0, 0.25);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.prose-ivy .mdx-cta:hover {
+  background: var(--ivy-red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(153, 0, 0, 0.28);
+}
+
+.prose-ivy .mdx-cta:active {
+  transform: translateY(0);
+}
