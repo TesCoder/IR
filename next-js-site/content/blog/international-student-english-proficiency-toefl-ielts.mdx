@@ -14,7 +14,7 @@ tags:
 readingTime: 9
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
 
 ---
 
@@ -77,3 +77,20 @@ Unsure if your English profile needs testing? Schedule a 20-minute waiver-screen
   Book a waiver-screening call
 </a>
 
+## Download the TOEFL vs IELTS requirements checklistPrefer a printable one-page checklist for requirements, waivers, and timelines? Download the PDF.
+<a
+  href="/resources/downloads/international-student-english-proficiency-toefl-ielts.pdf"
+  download="TOEFL-vs-IELTS-Requirements-Checklist.pdf"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "guide_download",
+      location: "article_related",
+      text: "Download TOEFL vs IELTS checklist (PDF)",
+      destination: "/resources/downloads/international-student-english-proficiency-toefl-ielts.pdf",
+    });
+  }}
+>
+  Download TOEFL vs IELTS checklist (PDF)
+</a>

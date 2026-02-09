@@ -15,7 +15,7 @@ tags:
 readingTime: 9
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
 rail:
   slug: "/blog/testing-timelines-hub"
   title: "SAT/ACT Timing & Admissions Deadlines"
@@ -97,6 +97,26 @@ If you can answer these, you’re in good shape:
 5. How does this align with ED/EA/RD deadlines?
 
 If any answer is fuzzy, start with the specific spoke that matches the gap — and you’ll reduce most of the stress immediately.
+
+## download the testing timeline planner (PDF)
+
+Use this one-page planner to set diagnostics, first test date, retake window, deadlines, and a stop rule.
+<a
+  href="/resources/downloads/testing-timelines-hub.pdf"
+  download="Testing-Timeline-Planner.pdf"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "guide_download",
+      location: "article_related",
+      text: "Download testing timeline planner",
+      destination: "/resources/downloads/testing-timelines-hub.pdf",
+    });
+  }}
+>
+  Download testing timeline planner (PDF)
+</a>
 
 ## plan your testing calendar
 

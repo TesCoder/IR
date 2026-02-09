@@ -14,7 +14,18 @@ tags:
 readingTime: 7
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
+rail:
+  slug: "/blog/teacher-recommendation-request-template"
+  title: "Teacher Recommendation Request Template"
+  destination: "/resources/downloads/teacher-recommendation-request-template.pdf"
+  type: "blog"
+  slot: "article_related"
+  ctaPayload:
+    event: "guide_download"
+    location: "article_related"
+    text: "Download the rec request packet (PDF)"
+    destination: "/resources/downloads/teacher-recommendation-request-template.pdf"
 
 ---
 
@@ -63,7 +74,7 @@ if (typeof window !== "undefined") {
   };
 
   const normalizeCtas = () => {
-    document.querySelectorAll('a[href="/free-consultation"], a[href="/contact"], a[href*="#packet"]').forEach((a) => {
+    document.querySelectorAll('a[href="/free-consultation"], a[href="/contact"]').forEach((a) => {
       a.setAttribute("href", "/free-consultation");
       a.addEventListener(
         "click",
@@ -138,18 +149,20 @@ Sincerely,
 [Your Name]  
 [Class/Period]
 
+<span id="packet"></span>
 ## get the rec request packet
 
 <a
-  href="/free-consultation"
+  href="/resources/downloads/teacher-recommendation-request-template.pdf"
+  download="Teacher-Recommendation-Request-Packet.pdf"
   onClick={() => {
     if (typeof window === "undefined") return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "cta_click",
+      event: "guide_download",
       location: "article_related",
       text: "Get the rec request packet",
-      destination: "/free-consultation",
+      destination: "/resources/downloads/teacher-recommendation-request-template.pdf",
     });
   }}
 >

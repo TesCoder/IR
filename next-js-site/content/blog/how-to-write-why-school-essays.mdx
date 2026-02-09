@@ -14,18 +14,18 @@ tags:
 readingTime: 11
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
 rail:
   slug: "/blog/how-to-write-why-school-essays"
   title: "How to Write \"Why School\" Essays"
-  destination: "/blog/how-to-write-why-school-essays#guide"
+  destination: "/resources/downloads/why-school-checklist.pdf"
   type: "blog"
   slot: "article_related"
   ctaPayload:
     event: "guide_download"
     location: "article_related"
     text: "Download \"Why School\" checklist"
-    destination: "/blog/how-to-write-why-school-essays#guide"
+    destination: "/resources/downloads/why-school-checklist.pdf"
 ---
 
 <script type="application/ld+json">
@@ -143,20 +143,21 @@ Copy/paste checklist (use before you submit):
 
 ## download the “Why School” checklist
 
-If you want a fast checklist you can reuse for every school, use the guide section above.
+If you want a fast checklist you can reuse for every school, download the PDF below.
 <a
-  href="/blog/how-to-write-why-school-essays#guide"
+  href="/resources/downloads/why-school-checklist.pdf"
+  download="Why-School-Checklist.pdf"
   onClick={() => {
     if (typeof window === "undefined") return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "cta_click",
+      event: "guide_download",
       location: "article_related",
       text: "Download “Why School” checklist",
-      destination: "/blog/how-to-write-why-school-essays#guide",
+      destination: "/resources/downloads/why-school-checklist.pdf",
     });
   }}
 >
-  Download “Why School” checklist
+  Download “Why School” checklist (PDF)
 </a>
 

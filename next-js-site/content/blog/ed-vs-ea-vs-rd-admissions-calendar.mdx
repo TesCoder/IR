@@ -16,18 +16,18 @@ tags:
 readingTime: 11
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
 rail:
   slug: "/blog/ed-vs-ea-vs-rd-admissions-calendar"
   title: "ED vs EA vs RD Admissions Calendar"
-  destination: "/blog/ed-vs-ea-vs-rd-admissions-calendar#calendar"
+  destination: "/resources/downloads/ed-vs-ea-vs-rd-admissions-calendar.pdf"
   type: "blog"
   slot: "article_related"
   ctaPayload:
     event: "guide_download"
     location: "article_related"
-    text: "Download ED/EA/RD calendar"
-    destination: "/blog/ed-vs-ea-vs-rd-admissions-calendar#calendar"
+    text: "Download ED/EA/RD calendar (PDF)"
+    destination: "/resources/downloads/ed-vs-ea-vs-rd-admissions-calendar.pdf"
 
 ---
 
@@ -67,6 +67,24 @@ If any filter is weak, lean toward EA or RD for optionality.
 
 <span id="calendar"></span>
 ## Month-by-month calendar (junior spring → senior winter)
+
+Use this one-page PDF calendar to mark your deadlines and track what to do each month.
+<a
+  href="/resources/downloads/ed-vs-ea-vs-rd-admissions-calendar.pdf"
+  download="ED-EA-RD-Admissions-Calendar.pdf"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "guide_download",
+      location: "article_related",
+      text: "Download ED/EA/RD calendar",
+      destination: "/resources/downloads/ed-vs-ea-vs-rd-admissions-calendar.pdf",
+    });
+  }}
+>
+  Download ED/EA/RD calendar (PDF)
+</a>
 
 - **Mar–Apr (jr year):** Take diagnostics; pick SAT or ACT; map major deadlines for top-choice schools.  
 - **May–Jun:** Launch essays brainstorming; start recommenders list; schedule first official test if ready.  

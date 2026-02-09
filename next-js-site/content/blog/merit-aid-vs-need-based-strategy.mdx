@@ -14,7 +14,7 @@ tags:
 readingTime: 10
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
 
 ---
 Need-based aid and merit aid run on different rules, timelines, and levers. Picking the right strategy keeps your school list affordable.
@@ -77,4 +77,24 @@ If you want help designing a school list that protects affordability (and identi
   }}
 >
   Get an award strategy consult
+</a>
+
+## Download the merit vs need aid strategy worksheet
+
+Want a printable worksheet to map your list and next steps? Download the PDF.
+<a
+  href="/resources/downloads/merit-aid-vs-need-based-strategy.pdf"
+  download="Merit-vs-Need-Aid-Strategy-Worksheet.pdf"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "guide_download",
+      location: "article_related",
+      text: "Download merit vs need aid worksheet (PDF)",
+      destination: "/resources/downloads/merit-aid-vs-need-based-strategy.pdf",
+    });
+  }}
+>
+  Download merit vs need aid worksheet (PDF)
 </a>

@@ -15,18 +15,18 @@ tags:
 readingTime: 9
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
 rail:
   slug: "/blog/when-to-take-sat-vs-act"
   title: "When to Take the SAT vs ACT"
-  destination: "/free-consultation"
+  destination: "/resources/downloads/sat-vs-act-timeline-planner.pdf"
   type: "blog"
   slot: "article_related"
   ctaPayload:
-    event: "cta_click"
+    event: "guide_download"
     location: "article_related"
-    text: "Choose your test path"
-    destination: "/free-consultation"
+    text: "Download SAT vs ACT timeline planner (PDF)"
+    destination: "/resources/downloads/sat-vs-act-timeline-planner.pdf"
 
 ---
 
@@ -137,6 +137,26 @@ The decision is school-specific. Some schools still value scores more than famil
 - **Reserve a retake window** (only if the data supports it).
 - **Decide your stop rule** so testing doesn’t expand endlessly.
 - **Plan score reporting** (Score Choice and superscoring policies vary).
+
+## download the SAT vs ACT timeline planner (PDF)
+
+Use this one-page PDF planner to pick your test, choose a first date with a retake window, and set a stop rule.
+<a
+  href="/resources/downloads/sat-vs-act-timeline-planner.pdf"
+  download="SAT-vs-ACT-Timeline-Planner.pdf"
+  onClick={() => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "guide_download",
+      location: "article_related",
+      text: "Download SAT vs ACT timeline planner",
+      destination: "/resources/downloads/sat-vs-act-timeline-planner.pdf",
+    });
+  }}
+>
+  Download SAT vs ACT timeline planner (PDF)
+</a>
 
 ## choose your test path
 

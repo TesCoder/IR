@@ -113,6 +113,11 @@ export default function TermsOfService() {
         </li>
       </ul>
 
+      <h2>Digital Imagery Disclosure</h2>
+      <p>
+      This website and related marketing materials may include digitally generated imagery, including images of people, used for illustrative purposes and not representing actual clients or outcomes.
+      </p>
+
       <h2>Privacy Policy</h2>
       Ivy Ready LLC owns and manages the website IvyReady.com. We can be reached
       via e-mail at contact[at]ivyready.com. Any information you provide to us

@@ -14,7 +14,18 @@ tags:
 readingTime: 6
 thumbnail: "/images/banners/banner_success_aj39eiueorue-1600w.webp"
 requires_downloadable: true
-ready_to_publish: false
+ready_to_publish: true
+rail:
+  slug: "/blog/alumni-interview-follow-up-email-template"
+  title: "Alumni Interview Follow-Up Email Template"
+  destination: "/resources/downloads/alumni-interview-follow-up-email-template.pdf"
+  type: "blog"
+  slot: "article_related"
+  ctaPayload:
+    event: "guide_download"
+    location: "article_related"
+    text: "Download follow-up email template (PDF)"
+    destination: "/resources/downloads/alumni-interview-follow-up-email-template.pdf"
 
 ---
 ## Quick diagnostic: what a good follow-up must do
@@ -59,19 +70,20 @@ Keep it simple. Don’t attach extra documents unless requested.
 
 ## Download the follow-up email template
 
-Use the template section below for a copy/paste version.
+Use the template section below for a copy/paste version, or download the printable PDF.
 <a
-  href="/blog/alumni-interview-follow-up-email-template#template"
+  href="/resources/downloads/alumni-interview-follow-up-email-template.pdf"
+  download="Alumni-Interview-Follow-Up-Email-Template.pdf"
   onClick={() => {
     if (typeof window === "undefined") return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "cta_click",
+      event: "guide_download",
       location: "article_related",
-      text: "Download follow-up email template",
-      destination: "/blog/alumni-interview-follow-up-email-template#template",
+      text: "Download follow-up email template (PDF)",
+      destination: "/resources/downloads/alumni-interview-follow-up-email-template.pdf",
     });
   }}
 >
-  Download follow-up email template
+  Download follow-up email template (PDF)
 </a>
