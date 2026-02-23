@@ -16,21 +16,14 @@ export default function Navbar() {
 
   // Keep for navbar collapse functionality
   useEffect(() => {
-    let isMounted = true;
-
-    import("bootstrap/dist/js/bootstrap.bundle.min.js").then(() => {
-      // bootstrap attaches to window; use getOrCreateInstance for reliability across export shapes
-      const Collapse = window?.bootstrap?.Collapse;
-      if (isMounted && Collapse && collapseRef.current) {
-        collapseInstanceRef.current = Collapse.getOrCreateInstance(collapseRef.current, {
-          toggle: false,
-        });
-      }
-    });
-
-    return () => {
-      isMounted = false;
-    };
+    // Bootstrap is loaded globally in `pages/_document.js`. Importing it again here
+    // causes duplicate data-api handlers and makes dropdowns toggle open+closed.
+    const Collapse = window?.bootstrap?.Collapse;
+    if (Collapse && collapseRef.current) {
+      collapseInstanceRef.current = Collapse.getOrCreateInstance(collapseRef.current, {
+        toggle: false,
+      });
+    }
   }, []);
 
   const handleHeaderCtaClick = () => {
@@ -97,7 +90,7 @@ export default function Navbar() {
                 >
                   Services
                 </a>
-                <ul className="dropdown-menu bg-ivy-red">
+                <ul className="dropdown-menu bg-ivy-red border border-solid border-white">
                   {/* <li>
                     <Link
                       className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
@@ -107,8 +100,8 @@ export default function Navbar() {
                     </Link>
                   </li> */}
                   <li className="nav-item">
-                    <Link className="nav-link text-white hover:opacity-75" href="/services/support-packages">
-                      Packages
+                    <Link className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4" href="/services/support-packages">
+                    Packages
                     </Link>
                   </li>
                   <li>
