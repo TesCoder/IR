@@ -47,7 +47,7 @@ export default function About() {
       {/* Hero Section */}
       <div className="heroFrame bg-about-hero relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-gradient-to-b from-[#0a1f38]/70 via-[#0a1f38]/55 to-[#0a1f38]/70 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-[#0a1f38]/50 via-[#0a1f38]/45 to-[#0a1f38]/60 pointer-events-none"
           aria-hidden="true"
         />
 
