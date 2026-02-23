@@ -405,6 +405,17 @@ input[type="tel"]:focus {
   }
 }
 
+/* Navbar dropdown overlay (mobile) */
+@media (max-width: 767.98px) {
+  .navbar .navbar-nav .services-dropdown-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    z-index: 1050;
+  }
+}
+
 /* --- Navbar / Light Button Fix --- */
 .btn-light {
   background-color: #ffffff !important;
@@ -422,6 +433,13 @@ input[type="tel"]:focus {
   box-shadow: 0 6px 18px rgba(45, 87, 128, 0.25);
 }
 
+/* Navbar link padding fix for mobile */
+@media (max-width: 767.98px) {
+  .navbar .navbar-nav .nav-link {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+}
 
 /* ---------------------------
    Marquee Utilities
