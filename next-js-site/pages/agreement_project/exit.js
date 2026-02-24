@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/Section";
 import SEOHead from "@/components/SEOHead";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -29,7 +30,8 @@ export default function page() {
         description="Thank you for submitting your Ivy Ready project-specific agreement. Our team will follow up shortly."
         url="/agreement_project/exit"
       />
-      <Section className="flex justify-center"> 
+      <section className="flex justify-center"> 
+      <Link href="/#">
         <Image
           className="shadow-md"
           src="/images/agreement_project/agreement_project_exit.webp"
@@ -37,7 +39,8 @@ export default function page() {
           height={645}
           alt="agreement_project_exit"
         /> 
-      </Section> 
+        </Link>
+      </section> 
 
 
     </>
