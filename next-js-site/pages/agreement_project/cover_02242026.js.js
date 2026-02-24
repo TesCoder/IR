@@ -32,7 +32,7 @@ export default function page() {
       />
  
       <section className="flex justify-center">
-        <Link href="/agreement_project/main?w=27ZRss5XCskcryfXxDCz-AxllzZMa9ra8BoxGoNUc">
+        <Link href="/agreement_project/main_02242026?w=27ZRss5XCskcryfXxDCz-AxllzZMa9ra8BoxGoNUc">
           <Image
             className="shadow-md cursor-pointer"
             src="/images/agreement_project/agreement_project_cover.webp"
