@@ -1,7 +1,8 @@
-# This project is a Next.js (Node) app. Install dependencies with `npm ci`
-# using Node >= 20. package-lock.json is the source of truth.
-# Optional: a Python venv (.venv) is present for tooling; no pip packages
-# are required right now.
+# This project is a Next.js (Node) app.
+# All dependencies are installed with `npm ci` (reads package-lock.json; use Node >= 20).
+# Do NOT `pip install -r` this file—it is only a reference list of npm packages.
+# If you want Playwright browsers after npm ci, run: `npx playwright install chromium`.
+# A Python venv (.venv) is optional for tooling; there are no pip packages to install here.
 #
 # Runtime dependencies (npm):
 # @next/font 13.1.4
@@ -28,6 +29,9 @@
 # postcss ^8.4.21
 # tailwindcss ^3.2.4
 # next-sitemap ^4.2.3
-#
+# playwright ^1.57.0   # Install browsers once after npm ci: `npx playwright install chromium`
+# bs4 ^0.0.2
+# requests ^2.32.3
+# urllib3 ^2.2.4
 # To update dependencies: edit package.json, run `npm install`, and adjust this
 # reference list if versions change.

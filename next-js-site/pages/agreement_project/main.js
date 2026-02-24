@@ -100,9 +100,9 @@ export default function AgreementForm() {
           <div className='flex justify-center'>
             <Image
               className="cursor-pointer hover:drop-shadow-lg" 
-              src='/images/logo.png' 
-              width={200} 
-              height={200} 
+              src='/images/logo-red-150x150.png' 
+              width={150} 
+              height={150} 
               alt="Logo" 
               priority 
             />
@@ -146,7 +146,7 @@ export default function AgreementForm() {
                 className="w-full p-2 border border-gray-400 bg-gray-50"
                 required
               >
-                <option value="client">Jitendra Sharma</option>
+                <option value="client">Manasa Sarpabhushan</option>
               </select>
             </div>
             
@@ -161,9 +161,9 @@ export default function AgreementForm() {
               >
                 {/* <option value="">Select an option</option> */}
                 {/* <option value="Freshman">Freshman</option>
-                <option value="Sophomore">Sophomore</option>
-                <option value="Junior">Junior</option> */}
-                <option value="Senior">Senior</option>
+                <option value="Sophomore">Sophomore</option>*/}
+                <option value="Junior">Junior</option> 
+                {/* <option value="Senior">Senior</option> */}
               </select>
             </div>
 
@@ -186,9 +186,9 @@ export default function AgreementForm() {
             {/* Package Selection Simplified */}
              <div>
               <label className="block text-gray-700 mb-1">Package Selection</label>
-              <p className="mx-2 my-0 text-gray-700 bg-gray-50 text-[90%]">
+              {/* <p className="mx-2 my-0 text-gray-700 bg-gray-50 text-[90%]">
                 *Discounted for family. Focus is UC and CSU schools & time less than 3 months (Oct, Nov, Dec). High referral source. Referrals sent back to coach.
-                </p>
+                </p> */}
               <select
                 name="packageSelection"
                 value={formData.packageSelection}
@@ -197,7 +197,7 @@ export default function AgreementForm() {
                 required
               >
                 {/* <option value="">Package Selection</option> */}
-                <option value="cs10">Comprehensive Support up to 10 Schools: $1,500</option>
+                <option value="cs10">Comprehensive Support up to 5 Schools: $1,500</option>
               </select>
                 {/* <p className="mx-2 my-0 text-gray-700 bg-gray-50 text-[90%]">
                   General reminder: Essays-only Support does NOT include resume feedback, course selection, college selection, short answer questions, exclusively essays. If they ask for more than essays, ask them to upgrade.

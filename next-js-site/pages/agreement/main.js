@@ -105,9 +105,9 @@ export default function AgreementForm() {
           <div className='flex justify-center'>
             <Image
               className="cursor-pointer hover:drop-shadow-lg" 
-              src='/images/logo.png' 
-              width={200} 
-              height={200} 
+              src='/images/logo-red-150x150.png' 
+              width={150} 
+              height={150} 
               alt="Logo" 
               priority 
             />
@@ -240,11 +240,11 @@ export default function AgreementForm() {
                 className="w-full p-2 border border-gray-400 bg-gray-50"
                 required
               >
-                <option value="">Select an option</option>
+                {/* <option value="">Select an option</option>
                 <option value="Freshman">Freshman</option>
-                <option value="Sophomore">Sophomore</option>
+                <option value="Sophomore">Sophomore</option> */}
                 <option value="Junior">Junior</option>
-                <option value="Senior">Senior</option>
+                {/* <option value="Senior">Senior</option> */}
               </select>
             </div>
 
@@ -258,7 +258,7 @@ export default function AgreementForm() {
                 className="w-full p-2 border border-gray-400 bg-gray-50"
                 required
               >
-                <option value="">Select an option</option>
+                {/* <option value="">Select an option</option> */}
                 <option value="james">James</option>
               </select>
             </div>
@@ -275,8 +275,7 @@ export default function AgreementForm() {
                 required
               >
                 <option value="">Package Selection</option>
-                <option value="cs10">Comprehensive Support up to 10 Schools Schools $5,000</option>
-                <option value="cswl10">Full Application Support up to 10 Schools $6,000</option>
+                <option value="cs10">Comprehensive Support up to 4 Schools $4,000</option>
               </select>
             </div>
 
