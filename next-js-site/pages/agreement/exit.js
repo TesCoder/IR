@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/Section";
 import SEOHead from "@/components/SEOHead";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -30,7 +31,8 @@ export default function page() {
         url="/agreement/exit"
       />
  
-      <Section className="flex justify-center"> 
+      <section className="flex justify-center items-center text-center">
+      <Link href="/#">
         <Image
           className="shadow-md"
           src="/images/agreement/agreement_exit.webp"
@@ -38,7 +40,8 @@ export default function page() {
           height={645}
           alt="agreement_exit"
         /> 
-      </Section> 
+        </Link>
+      </section> 
 
 
     </>
