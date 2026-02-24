@@ -361,7 +361,7 @@ export default function Home() {
             <SupportPackagesPreview data={dataset} />
 
             <OrbitGlowButton
-              onClick={() => window.open("/support-packages", "_self")}
+              onClick={() => window.open("/services/support-packages", "_self")}
             >
               Compare Packages
             </OrbitGlowButton>
