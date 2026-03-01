@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Navbar from "./navbar";
 import MarqueeDisplay from "./MarqueeDisplay";
 
-const noNavPages = ["/contact"];
+const noNavPages = [];
 
 export default function Layout({ children }) {
   const { pathname } = useRouter();
@@ -17,7 +17,7 @@ export default function Layout({ children }) {
     <>
     <div className="mt-20"></div>
       {!hide && <Navbar/>}
-      {/* < MarqueeDisplay />  */}
+      {!hide && <MarqueeDisplay />}
       <main className="min-h-screen font-raleway">{children}</main>
       {!hide && <Footer />}
     </>

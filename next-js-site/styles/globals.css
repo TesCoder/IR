@@ -445,68 +445,38 @@ input[type="tel"]:focus {
    Marquee Utilities
 ---------------------------- */
 .marquee-outer {
-  position: relative;
   overflow: hidden;
-  width: 83.333%; /* w-5/6 */
-  margin-inline: auto;
-  padding-block: 2rem;  
-  padding-top: 1rem;
+  width: 100%;
+  padding-block: 0.75rem;
+  /* Fade edges so the scroll feels continuous */
   -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
           mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Each track is a single long line that scrolls */
+/* Single track — content is duplicated in JS so -50% == seamless loop */
 .marquee-track {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
-  width: max-content;        /* stretch to content width */
-  white-space: nowrap;       /* never wrap to a second line */
+  width: max-content;
+  white-space: nowrap;
   align-items: center;
-  gap: var(--marquee-gap, 1rem);
   will-change: transform;
+  animation: marquee-scroll 30s linear infinite;
 }
 
-/* First pass: 0% → -100% (slides out left) */
-.marquee-track--a {
-  animation: marquee-a 18s linear infinite;
+.marquee-item { margin-inline: 0.5rem; }
+.marquee-sep  { margin-inline: 1.75rem; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* Second pass: 100% → 0% (follows right behind) */
-.marquee-track--b {
-  animation: marquee-b 18s linear infinite;
-}
+/* Pause on hover */
+.marquee-outer:hover .marquee-track { animation-play-state: paused; }
 
-/* Second pass: 100% → 0% (follows right behind) */
-.marquee-track--c {
-  animation: marquee-c 18s linear infinite;
-}
-
-/* Elements inside the track */
-.marquee-item { margin-inline: var(--item-gap, 0); }
-.marquee-sep  { margin-inline: var(--sep-gap, 1.75rem); opacity: 1; }
-
-/* Keep height stable (choose one) */
-@supports (height: 1lh) {
-  .marquee-outer { height: 1.4lh; }             /* modern: ~1 line-height tall */
-}
-
-/* Pause on hover (optional) */
-/* .marquee-outer:hover .marquee-track { animation-play-state: paused; } */
-
-/* Keyframes for three tracks */
-@keyframes marquee-a { from { transform: translateX(0%); } to   { transform: translateX(-100%); } }
-@keyframes marquee-b { from { transform: translateX(100%); } to   { transform: translateX(0%); } }
-@keyframes marquee-c { from { transform: translateX(200%); } to   { transform: translateX(100%); } }
-
-/* Reduced motion */
+/* Reduced motion — slow down rather than stop (marquee is decorative) */
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
-
-.marquee-sep {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  .marquee-track { animation-duration: 60s; }
 }
 
 

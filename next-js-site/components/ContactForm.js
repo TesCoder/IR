@@ -411,8 +411,10 @@ export default function ContactForm({ type = "FULL", coachName, showProfile }) {
               {/* full content only shown on md and above */}
               <div className="hidden md:block">
                 <p className="pCentered mt-6 text-start">
-                  Today’s college admissions landscape can be overwhelming and highly competitive.
-                  Our team helps students cut through the confusion and approach every step with confidence and clarity.
+                  College admissions is competitive and the stakes are high. Our team of former
+                  admissions officers helps students cut through the noise and navigate every
+                  step — from building a college list to submitting a final application — with
+                  clarity and confidence.
                 </p>
                 <p className="pCentered mt-6 text-start">We can support you with:</p>
                 <ul className="mt-6 list-none">

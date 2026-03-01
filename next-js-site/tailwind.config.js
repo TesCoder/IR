@@ -150,10 +150,10 @@ module.exports = {
         raleway: ["Raleway"]
       },
       animation: {
-        marquee: 'marquee 8s linear infinite',
+        'marquee-tw': 'marquee-tw 8s linear infinite',
       },
       keyframes: {
-        marquee: {
+        'marquee-tw': {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
