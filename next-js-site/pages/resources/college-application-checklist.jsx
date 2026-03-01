@@ -122,7 +122,7 @@ export default function ArticleCollegeApplicationChecklist() {
         <div className="mt-10 bg-indigo-50 border border-indigo-200 rounded-lg p-6">
           <p className="font-semibold text-ivy-blue mb-1">Free Guide: The Ivy Ready College Application Playbook</p>
           <p className="text-gray-700 mb-4">Get the year-by-year strategy guide — covering testing, essays, financial aid, and every critical deadline from freshman to senior year.</p>
-          <a
+          <Link
             href="/guides/college-application-playbook"
             className="inline-block bg-ivy-blue text-white px-6 py-2 rounded font-medium no-underline hover:opacity-90"
             onClick={() => {
@@ -138,7 +138,7 @@ export default function ArticleCollegeApplicationChecklist() {
             }}
           >
             Get the Free Playbook →
-          </a>
+          </Link>
         </div>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
