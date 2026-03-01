@@ -56,7 +56,7 @@ export default async function handler(req, res) {
   }
 
   const {
-    coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service,
+    coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service, hs_grade,
   } = req.body;
 
   // Handle Agreement submissions separately, skips vcard generation
@@ -80,6 +80,37 @@ export default async function handler(req, res) {
       }
     } catch (err) {
       console.error("Agreement email error:", err);
+      return res.status(500).json({ success: false, error: err.message });
+    }
+  }
+
+  // Handle Guide Download submissions
+  if (type === "GUIDE_DOWNLOAD") {
+    const subject = `Guide Download — ${fname || 'Unknown'} (${hs_grade || 'Unknown grade'})`;
+    const html = `
+      <h3>Guide Download</h3>
+      <ul>
+        <li><strong>Guide:</strong> The Ivy Ready College Application Playbook</li>
+        <li><strong>Conversion Date:</strong> ${today.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
+        <li><strong>Conversion Time:</strong> ${today.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}</li>
+        <li><strong>Conversion Type:</strong> Guide Download</li>
+        <li><strong>First Name:</strong> ${fname || ''}</li>
+        <li><strong>Email:</strong> ${email || ''}</li>
+        <li><strong>Grade Year:</strong> ${hs_grade || ''}</li>
+      </ul>
+    `;
+    if (!email) {
+      return res.status(400).json({ success: false, error: 'Email is required' });
+    }
+    try {
+      const result = await sendEmail({ subject, html });
+      if (result.success) {
+        return res.status(200).json({ success: true });
+      } else {
+        return res.status(500).json({ success: false, error: 'Mailer returned failure' });
+      }
+    } catch (err) {
+      console.error('Guide download email error:', err);
       return res.status(500).json({ success: false, error: err.message });
     }
   }
