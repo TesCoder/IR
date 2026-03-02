@@ -1,5 +1,6 @@
 import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
@@ -49,8 +50,7 @@ export default function ResourceActMathStrategy() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           ACT Math is less about “knowing everything” and more about{" "}
           <strong>speed, triage, and pattern recognition</strong>. A good strategy protects time,
@@ -97,7 +97,7 @@ export default function ResourceActMathStrategy() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />

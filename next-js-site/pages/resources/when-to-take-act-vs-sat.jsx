@@ -1,5 +1,6 @@
 import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
@@ -23,7 +24,7 @@ export default function ArticleWhenToTakeActVsSat() {
     datePublished: "2026-02-28",
     dateModified: "2026-02-28",
   });
-
+  
   return (
     <>
       <SEOHead
@@ -33,8 +34,11 @@ export default function ArticleWhenToTakeActVsSat() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>When to Take the ACT vs SAT: A Decision Guide</h1>
+      <ArticlePageLayout
+        title="When to Take the ACT vs SAT: A Decision Guide"
+        description="Choose the right test and set your testing timeline. Compare the ACT and SAT by format, scoring, and strategy — and decide when to take each based on your GPA, course load, and college deadlines."
+        url="/resources/when-to-take-act-vs-sat"
+      >
         <p>
           <strong>Summary:</strong> Both tests are accepted equally at every
           major college. Your goal is to pick the format that plays to your
@@ -174,7 +178,7 @@ export default function ArticleWhenToTakeActVsSat() {
             Get a personalized testing plan →
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
