@@ -5,6 +5,7 @@ import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["extracurriculars", "activities", "leadership", "admissions strategy"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -44,8 +45,7 @@ export default function ResourceActivitiesListImpactMetrics() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           “Impact metrics” aren&apos;t about inflating your resume — they&apos;re about making your role
           understandable. The admissions reader has seconds per activity. Your job is to show scope
@@ -101,7 +101,7 @@ export default function ResourceActivitiesListImpactMetrics() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />

@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceActivitiesListWritingExamples() {
   const title = "Activities List Writing Examples (Before/After)";
@@ -49,8 +50,7 @@ export default function ResourceActivitiesListWritingExamples() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           Great activities descriptions are concrete and action-oriented. They answer:{" "}
           <strong>What did you do?</strong> <strong>How did you do it?</strong> <strong>What changed?</strong>
@@ -94,7 +94,7 @@ export default function ResourceActivitiesListWritingExamples() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />

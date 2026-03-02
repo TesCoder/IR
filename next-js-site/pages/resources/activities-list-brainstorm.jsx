@@ -5,6 +5,7 @@ import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["extracurriculars", "activities", "leadership", "admissions strategy"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -44,8 +45,7 @@ export default function ResourceActivitiesListBrainstorm() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           A strong activities list is curated: it highlights your highest-signal commitments and
           makes your role and impact easy to understand. Use this workflow to generate a complete
@@ -103,7 +103,7 @@ export default function ResourceActivitiesListBrainstorm() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />

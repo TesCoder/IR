@@ -4,6 +4,7 @@ import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["extracurriculars", "activities", "leadership", "admissions strategy"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -31,8 +32,10 @@ export default function ArticleExtracurriculars() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>Activity Spikes & Extracurricular Strategy: What Counts and Why</h1>
+      <ArticlePageLayout
+        title="Activity Spikes & Extracurricular Strategy: What Counts and Why"
+        url="/resources/extracurricular-strategy"
+      >
         <p>Admissions readers look for sustained impact, initiative, and direction. Here’s how to design activities that matter.</p>
         <h2>1) Spike vs. General Involvement</h2>
         <p>A spike is a coherent thread of activity with increasing responsibility and outcomes. It’s better to go deep than to dabble.</p>
@@ -52,7 +55,7 @@ export default function ArticleExtracurriculars() {
         <p className="not-prose mt-8">
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get a custom EC impact map →</Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
