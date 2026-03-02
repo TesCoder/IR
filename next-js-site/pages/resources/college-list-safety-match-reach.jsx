@@ -8,7 +8,7 @@ import ArticlePageLayout from "@/components/ArticlePageLayout";
 export default function ResourceCollegeListSafetyMatchReach() {
   const title = "Safety, Match, Reach: Build a Balanced College List";
   const description =
-    "Build a balanced list using admissions data, academic fit, and financial reality—plus how to avoid “all reaches” without giving up ambition.";
+    "Build a balanced list using admissions data, academic fit, and financial reality--plus how to avoid \"all reaches\" without giving up ambition.";
 
   const url = "/resources/college-list-safety-match-reach";
 
@@ -31,13 +31,13 @@ export default function ResourceCollegeListSafetyMatchReach() {
       title: "How to Research Colleges (A Simple Scoring Template)",
       href: "/resources/college-list-research-template",
       description:
-        "A practical research workflow: programs, outcomes, culture, and cost—plus a simple scoring template to compare schools apples-to-apples.",
+        "A practical research workflow: programs, outcomes, culture, and cost--plus a simple scoring template to compare schools apples-to-apples.",
     },
     {
       title: "Campus Visit Questions (What to Ask + What to Notice)",
       href: "/resources/college-list-campus-visit-questions",
       description:
-        "Ask better campus visit questions—academics, advising, internships, housing—and learn what signals matter when you’re choosing between similar schools.",
+        "Ask better campus visit questions--academics, advising, internships, housing--and learn what signals matter when you're choosing between similar schools.",
     },
   ];
 
@@ -52,7 +52,7 @@ export default function ResourceCollegeListSafetyMatchReach() {
 
       <ArticlePageLayout title={title} description={description} url={url}>
         <p>
-          A “balanced list” isn&apos;t a vibe — it&apos;s risk management. You want ambition and upside, but
+          A "balanced list" isn&apos;t a vibe -- it&apos;s risk management. You want ambition and upside, but
           you also want options you&apos;d genuinely attend at a cost your family can handle.
         </p>
 
@@ -79,16 +79,16 @@ export default function ResourceCollegeListSafetyMatchReach() {
 
         <h2>A practical mix</h2>
         <p>
-          Most students do well with a mix like: <strong>2–4 safeties</strong>,{" "}
-          <strong>4–6 matches</strong>, <strong>2–4 reaches</strong>. Adjust based on how selective
+          Most students do well with a mix like: <strong>2-4 safeties</strong>,{" "}
+          <strong>4-6 matches</strong>, <strong>2-4 reaches</strong>. Adjust based on how selective
           your reach schools are and whether cost is a constraint.
         </p>
 
-        <h2>How to avoid the “all reaches” trap</h2>
+        <h2>How to avoid the \"all reaches\" trap</h2>
         <ul>
           <li>Be honest about outcomes: treat admission like probability, not identity.</li>
-          <li>Build matches that you&apos;re excited about (fit is not “settling”).</li>
-          <li>Choose safeties you would happily attend — that&apos;s the point of safety.</li>
+          <li>Build matches that you&apos;re excited about (fit is not \"settling\").</li>
+          <li>Choose safeties you would happily attend -- that&apos;s the point of safety.</li>
         </ul>
 
         <hr />

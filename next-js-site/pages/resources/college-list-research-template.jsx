@@ -8,7 +8,7 @@ import ArticlePageLayout from "@/components/ArticlePageLayout";
 export default function ResourceCollegeListResearchTemplate() {
   const title = "How to Research Colleges (A Simple Scoring Template)";
   const description =
-    "A practical research workflow: programs, outcomes, culture, and cost—plus a simple scoring template to compare schools apples-to-apples.";
+    "A practical research workflow: programs, outcomes, culture, and cost--plus a simple scoring template to compare schools apples-to-apples.";
 
   const url = "/resources/college-list-research-template";
 
@@ -31,13 +31,13 @@ export default function ResourceCollegeListResearchTemplate() {
       title: "Safety, Match, Reach: Build a Balanced College List",
       href: "/resources/college-list-safety-match-reach",
       description:
-        "Build a balanced list using admissions data, academic fit, and financial reality—plus how to avoid “all reaches” without giving up ambition.",
+        "Build a balanced list using admissions data, academic fit, and financial reality--plus how to avoid \"all reaches\" without giving up ambition.",
     },
     {
       title: "Campus Visit Questions (What to Ask + What to Notice)",
       href: "/resources/college-list-campus-visit-questions",
       description:
-        "Ask better campus visit questions—academics, advising, internships, housing—and learn what signals matter when you’re choosing between similar schools.",
+        "Ask better campus visit questions--academics, advising, internships, housing--and learn what signals matter when you're choosing between similar schools.",
     },
   ];
 
@@ -53,7 +53,7 @@ export default function ResourceCollegeListResearchTemplate() {
       <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           College research gets overwhelming fast because you&apos;re comparing dozens of variables.
-          This template turns “vibes” into a structured comparison — without pretending the decision
+          This template turns "vibes" into a structured comparison -- without pretending the decision
           is purely mathematical.
         </p>
 
@@ -65,7 +65,7 @@ export default function ResourceCollegeListResearchTemplate() {
           <li>Major/program needs (or flexibility if undecided)</li>
         </ul>
 
-        <h2>Step 2: Score each school on 6 dimensions (1–5)</h2>
+        <h2>Step 2: Score each school on 6 dimensions (1-5)</h2>
         <ol>
           <li>
             <strong>Academics</strong>: program strength, course options, faculty access
@@ -93,7 +93,7 @@ export default function ResourceCollegeListResearchTemplate() {
           <li>One risk you need to validate (also specific)</li>
         </ul>
 
-        <h2>Step 4: Compare “similar” schools</h2>
+        <h2>Step 4: Compare "similar" schools</h2>
         <p>
           The scoring template is most useful when comparing schools that feel similar. If two
           schools both score high, use your notes to decide what you want your daily life to feel
