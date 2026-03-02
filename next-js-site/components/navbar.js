@@ -139,14 +139,7 @@ export default function Navbar() {
               </div>
 
             
-              <li className="nav-item">
-                <Link
-                  className="nav-link text-white hover:opacity-75"
-                  href="/about-us"
-                >
-                  About Us
-                </Link>
-              </li>
+              
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
@@ -161,6 +154,14 @@ export default function Navbar() {
                   href="/resources"
                 >
                   Resources
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white hover:opacity-75"
+                  href="/about-us"
+                >
+                  About Us
                 </Link>
               </li>
               <li className="nav-item w-full md:w-auto">

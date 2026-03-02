@@ -56,7 +56,7 @@ export default function About() {
           <h1 className="bannerTitle"> About Us </h1>
           <h2 className="bannerSubtitle"> Professionals Dedicated to Excellence</h2>
           <Link
-            href="/free-consultation"
+            href="/contact"
             className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-lg font-semibold text-[#0b3d60] hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             aria-label="Book a free consultation"
             onClick={() => {
@@ -66,7 +66,7 @@ export default function About() {
                 event: "cta_click",
                 location: "hero",
                 text: "Book a Free Consultation",
-                destination: "/free-consultation",
+                destination: "/contact",
               });
             }}
           >
