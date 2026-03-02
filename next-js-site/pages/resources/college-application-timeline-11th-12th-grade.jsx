@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["timelines", "admissions timeline", "application strategy", "planning"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/college-application-timeline-11th-12th-grade",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ArticleApplicationTimeline11th12th() {
   const articleSchema = ArticleSchema({
@@ -179,32 +189,8 @@ export default function ArticleApplicationTimeline11th12th() {
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"
-          items={[
-            {
-              title: "College Application Checklist",
-              href: "/resources/college-application-checklist",
-              description:
-                "Everything you need to submit — testing, essays, recs, and financial aid.",
-            },
-            {
-              title: "When to Take the ACT vs SAT",
-              href: "/resources/when-to-take-act-vs-sat",
-              description:
-                "Choose the right test and timing based on GPA, course load, and deadlines.",
-            },
-            {
-              title: "FAFSA Completion Checklist",
-              href: "/resources/fafsa-completion-checklist",
-              description:
-                "Prep documents, IDs, and deadlines to file FAFSA accurately and early.",
-            },
-            {
-              title: "How to Choose and Ask for Letters of Recommendation",
-              href: "/resources/choosing-recommenders",
-              description:
-                "Equip teachers with context, deadlines, and examples for stronger letters.",
-            },
-          ]}
+          slotId="article_related"
+          items={railItems}
         />
       </div>
     </>

@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["timelines", "admissions timeline", "application strategy", "planning"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/college-application-checklist",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ArticleCollegeApplicationChecklist() {
   const articleSchema = ArticleSchema({
@@ -140,32 +150,8 @@ export default function ArticleCollegeApplicationChecklist() {
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"
-          items={[
-            {
-              title: "College Application Timeline (11th–12th Grade)",
-              href: "/resources/college-application-timeline-11th-12th-grade",
-              description:
-                "Month-by-month tasks for testing, essays, recommendations, and submissions.",
-            },
-            {
-              title: "How to Choose and Ask for Letters of Recommendation",
-              href: "/resources/choosing-recommenders",
-              description:
-                "Equip teachers with context, deadlines, and examples for stronger letters.",
-            },
-            {
-              title: "The Personal Statement Structure",
-              href: "/resources/personal-statement-structure",
-              description:
-                "Draft a clear hook–development–reflection arc that avoids common pitfalls.",
-            },
-            {
-              title: "FAFSA Completion Checklist",
-              href: "/resources/fafsa-completion-checklist",
-              description:
-                "Prep documents, IDs, and deadlines to file FAFSA accurately and early.",
-            },
-          ]}
+          slotId="article_related"
+          items={railItems}
         />
       </div>
     </>
