@@ -20,11 +20,22 @@ import OutcomesGallery from "@/components/OutcomesGallery";
 import ImpactTable from "@/components/ImpactTable";
 import { impactData } from "@/data/impactData";
 import { SchemaScript } from "@/components/Schema";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
     {...children}
   </Link>
+);
+
+const HOME_TAGS = ["packages", "consultation", "timeline", "planning"];
+const tagFiltered = filterByTags(RAIL_ITEMS, HOME_TAGS);
+const homeRailItems = selectRailItems(
+  "/",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 4, minItems: 2 }
 );
 
 export default function Home() {
@@ -395,6 +406,12 @@ export default function Home() {
           </div>
         </Section>
       )}
+
+      <RelatedArticles
+        title="Start Here"
+        slotId="home_featured"
+        items={homeRailItems}
+      />
 
       <Section darkBg>
           <ContactForm type="FULL" />
