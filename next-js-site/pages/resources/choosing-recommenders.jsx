@@ -2,6 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ArticleRecommenders() {
   const articleSchema = ArticleSchema({
@@ -21,8 +22,10 @@ export default function ArticleRecommenders() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>How to Choose and Ask for Letters of Recommendation</h1>
+      <ArticlePageLayout
+        title="How to Choose and Ask for Letters of Recommendation"
+        url="/resources/choosing-recommenders"
+      >
         <p>Great letters are specific, story‑rich, and comparative. Help your recommenders help you.</p>
         <h2>1) Who to Ask</h2>
         <p>Teachers who can discuss your growth, contributions, and intellectual character. Consider subject relevance and recency.</p>
@@ -42,7 +45,7 @@ export default function ArticleRecommenders() {
         <p className="not-prose mt-8">
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get our rec letter prep worksheet →</Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"

@@ -5,6 +5,7 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["timelines", "admissions timeline", "application strategy", "planning"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -33,8 +34,10 @@ export default function ArticleApplicationTimeline11th12th() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>College Application Timeline for 11th and 12th Grade</h1>
+      <ArticlePageLayout
+        title="College Application Timeline for 11th and 12th Grade"
+        url="/resources/college-application-timeline-11th-12th-grade"
+      >
         <p>
           <strong>Summary:</strong> The application process spans 18 months
           across junior and senior year. Use this month-by-month calendar to
@@ -185,7 +188,7 @@ export default function ArticleApplicationTimeline11th12th() {
             Get the Free Playbook →
           </Link>
         </div>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"

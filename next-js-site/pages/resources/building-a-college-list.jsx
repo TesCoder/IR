@@ -2,6 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ArticleCollegeList() {
   const articleSchema = ArticleSchema({
@@ -43,8 +44,10 @@ export default function ArticleCollegeList() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>How to Build a Balanced College List (Grades 11–12)</h1>
+      <ArticlePageLayout
+        title="How to Build a Balanced College List (Grades 11–12)"
+        url="/resources/building-a-college-list"
+      >
         <p><strong>Summary:</strong> The most successful lists are balanced across reach, match, and safety, and anchored in genuine fit. Use the framework below to calibrate by your current profile and priorities.</p>
         <h2>1) Define Fit vs. Prestige</h2>
         <p>Fit combines academic, social, financial, and career dimensions. Prestige alone rarely predicts long‑term satisfaction.</p>
@@ -65,7 +68,7 @@ export default function ArticleCollegeList() {
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get a personalized list review →</Link>
         </p>
         <RelatedArticles title="Recommended next steps" items={relatedArticles} />
-      </article>
+      </ArticlePageLayout>
     </>
   );
 }

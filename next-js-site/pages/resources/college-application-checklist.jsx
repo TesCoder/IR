@@ -5,6 +5,7 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["timelines", "admissions timeline", "application strategy", "planning"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -33,8 +34,10 @@ export default function ArticleCollegeApplicationChecklist() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>College Application Checklist: Everything You Need to Submit</h1>
+      <ArticlePageLayout
+        title="College Application Checklist: Everything You Need to Submit"
+        url="/resources/college-application-checklist"
+      >
         <p>
           <strong>Summary:</strong> Use this master checklist to stay on track
           across every component of your college application — from testing to
@@ -146,7 +149,7 @@ export default function ArticleCollegeApplicationChecklist() {
             Get the Free Playbook →
           </Link>
         </div>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"
