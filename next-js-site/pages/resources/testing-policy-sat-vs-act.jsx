@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["testing", "admissions strategy", "sat", "act", "test-optional", "score reporting"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/testing-policy-sat-vs-act",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceTestingPolicySatVsAct() {
   const title = "SAT vs ACT: How to Choose (and When to Switch)";
@@ -23,27 +33,6 @@ export default function ResourceTestingPolicySatVsAct() {
     datePublished: "2026-02-28",
     dateModified: "2026-02-28",
   });
-
-  const related = [
-    {
-      title: "Test-Optional Colleges: When It Helps (and When It Hurts)",
-      href: "/resources/testing-policy-test-optional",
-      description:
-        "A practical decision framework: when to submit scores and when to withhold.",
-    },
-    {
-      title: "Score Choice & Superscoring: What to Send (and Why)",
-      href: "/resources/testing-policy-score-choice-superscoring",
-      description:
-        "Understand score choice, superscoring, and reporting rules.",
-    },
-    {
-      title: "SAT vs ACT: When to Take Which Test",
-      href: "/resources/when-to-take-act-vs-sat",
-      description:
-        "When to start testing and which test format fits your strengths.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => trackCtaClick(primaryCta);
 
@@ -167,7 +156,7 @@ export default function ResourceTestingPolicySatVsAct() {
         </p>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
     </>
   );

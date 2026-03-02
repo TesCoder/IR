@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["testing", "admissions strategy", "sat", "act", "test-optional", "score reporting"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/testing-policy-test-optional",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceTestingPolicyTestOptional() {
   const title = "Test-Optional Colleges: When It Helps (and When It Hurts)";
@@ -23,27 +33,6 @@ export default function ResourceTestingPolicyTestOptional() {
     datePublished: "2026-02-28",
     dateModified: "2026-02-28",
   });
-
-  const related = [
-    {
-      title: "SAT vs ACT: How to Choose (and When to Switch)",
-      href: "/resources/testing-policy-sat-vs-act",
-      description:
-        "How to choose between SAT and ACT using diagnostics, section strengths, and timeline.",
-    },
-    {
-      title: "Score Choice & Superscoring: What to Send (and Why)",
-      href: "/resources/testing-policy-score-choice-superscoring",
-      description:
-        "Understand score choice, superscoring, and reporting rules to submit your strongest package.",
-    },
-    {
-      title: "SAT vs ACT: When to Take Which Test",
-      href: "/resources/when-to-take-act-vs-sat",
-      description:
-        "When to start testing and how to choose the right test for your strengths.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => trackCtaClick(primaryCta);
 
@@ -147,7 +136,7 @@ export default function ResourceTestingPolicyTestOptional() {
         </p>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
     </>
   );

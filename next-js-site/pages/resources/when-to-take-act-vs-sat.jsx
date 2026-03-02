@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["testing", "admissions strategy", "sat", "act", "test-optional", "score reporting"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/when-to-take-act-vs-sat",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ArticleWhenToTakeActVsSat() {
   const articleSchema = ArticleSchema({
@@ -166,35 +176,7 @@ export default function ArticleWhenToTakeActVsSat() {
         </p>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles
-          title="Recommended next steps"
-          items={[
-            {
-              title: "College Application Timeline (11th–12th Grade)",
-              href: "/resources/college-application-timeline-11th-12th-grade",
-              description:
-                "Month-by-month tasks for testing, essays, recommendations, and submissions.",
-            },
-            {
-              title: "College Application Checklist",
-              href: "/resources/college-application-checklist",
-              description:
-                "Everything you need to submit — testing, essays, recs, and financial aid.",
-            },
-            {
-              title: "Timeline by Grade: 9th–12th",
-              href: "/resources/timeline-by-grade",
-              description:
-                "Stay ahead each year with a clear roadmap and key deadlines.",
-            },
-            {
-              title: "How to Build a Balanced College List",
-              href: "/resources/building-a-college-list",
-              description:
-                "Calibrate reach, match, and safety choices with real fit criteria.",
-            },
-          ]}
-        />
+        <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
     </>
   );
