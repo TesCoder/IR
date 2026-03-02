@@ -3,6 +3,9 @@ import Section from "@/components/Section";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ServiceSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
+import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
 
 const services = [
   {
@@ -27,32 +30,13 @@ const services = [
   },
 ];
 
-const relatedResources = [
-  {
-    title: "When to Take the ACT vs SAT",
-    slug: "/resources/when-to-take-act-vs-sat",
-    description: "Choose the right test and timing by GPA, course load, and deadlines.",
-    ctaText: "Plan your testing path",
-  },
-  {
-    title: "College Application Timeline (11th–12th Grade)",
-    slug: "/resources/college-application-timeline-11th-12th-grade",
-    description: "Month-by-month tasks for testing, essays, recommendations, and submissions.",
-    ctaText: "Download application calendar",
-  },
-  {
-    title: "FAFSA Completion Checklist",
-    slug: "/resources/fafsa-completion-checklist",
-    description: "Prep documents, IDs, and deadlines to file FAFSA accurately and early.",
-    ctaText: "Download FAFSA checklist",
-  },
-  {
-    title: "Financial Aid Award Comparison Toolkit",
-    slug: "/resources/financial-aid-award-comparison-toolkit",
-    description: "Compare offers, calculate true cost, and plan appeals with a worksheet.",
-    ctaText: "Get the comparison worksheet",
-  },
-];
+const PAGE_TAGS = ["consultation", "planning", "strategy", "timeline"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/services",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ServicesIndex() {
   const serviceSchema = ServiceSchema({
@@ -127,36 +111,11 @@ export default function ServicesIndex() {
         </div>
       </Section>
 
-      {relatedResources.length >= 2 && (
-        <Section title="Related Resources">
-          <div className="grid gap-6 md:grid-cols-2">
-            {relatedResources.slice(0, 4).map(({ title, slug, description, ctaText }) => (
-              <div
-                key={slug}
-                className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h3 className="text-xl font-semibold mb-2">
-                  <Link
-                    className="text-ivy-blue underline hover:no-underline"
-                    href={slug}
-                    aria-label={title}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-                <p className="text-gray-700 mb-3">{description}</p>
-                <Link
-                  className="text-ivy-blue font-medium"
-                  href={slug}
-                  aria-label={`${ctaText} — ${title}`}
-                >
-                  {ctaText} →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </Section>
-      )}
+      <RelatedArticles
+        title="Helpful Resources"
+        slotId="services_related"
+        items={railItems}
+      />
 
       <Section centerContent title="Not sure where to start?">
         <p className="pCentered">
