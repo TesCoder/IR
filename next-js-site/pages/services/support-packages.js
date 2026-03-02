@@ -15,6 +15,17 @@ import data from "@/data/packages-comparison.json";
 import PackagesComparison from "@/components/PackagesComparison";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import { trackCtaClick } from "@/lib/trackCta";
+import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["packages", "consultation", "strategy"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/services/support-packages",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -323,6 +334,12 @@ export default function SupportPackages() {
           { question: 'Can I purchase Essays-only Support?', answer: 'Yes — Essays-only Support is available for applicants who want focused essay feedback while managing other parts themselves.' },
           { question: 'Do you offer payment plans?', answer: 'We offer flexible payment options; please contact us for details and eligibility.' }
         ]}
+      />
+
+      <RelatedArticles
+        title="Related Resources"
+        slotId="services_related"
+        items={railItems}
       />
 
       <Section darkBg>

@@ -8,6 +8,17 @@ import { ServiceSchema, SchemaScript } from '@/components/Schema';
 import Image from "next/image";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["strategy", "essays", "checklist", "application"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/services/application-evaluation",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 const Goal = ({ title, content }) => (
   <div className="text-center">
@@ -191,6 +202,12 @@ export default function Evaluation() {
           { question: 'How long does the evaluation take?', answer: 'Turnaround times vary; typical evaluations are returned within 5–7 business days.' },
           { question: 'Can I request additional feedback?', answer: 'Yes — follow-up consultations and edits are available as needed.' }
         ]}
+      />
+
+      <RelatedArticles
+        title="Related Resources"
+        slotId="services_related"
+        items={railItems}
       />
 
       <div>

@@ -9,6 +9,9 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import { trackCtaClick } from "@/lib/trackCta";
+import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
 import {
   CalendarDays,
   GraduationCap,
@@ -21,10 +24,13 @@ import {
 } from "lucide-react";
 
 
-// NOTE: Drop this as pages/early-planning.js (or /services/early-planning.js)
-// It follows your project's conventions (Section, Link, Tailwind, shadcn Button, lucide icons).
-// Replace any missing imports with your local equivalents.
-//
+const PAGE_TAGS = ["planning", "consultation", "timeline", "grade 11"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/services/early-planning",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function EarlyPlanning() {
   const [modalType, setModalType] = useState("INFO");
@@ -246,6 +252,12 @@ export default function EarlyPlanning() {
       <Section title="FAQs" centerContent>
         <FAQ faqs={faqs} />
       </Section>
+
+      <RelatedArticles
+        title="Related Resources"
+        slotId="services_related"
+        items={railItems}
+      />
     </>
   );
 }

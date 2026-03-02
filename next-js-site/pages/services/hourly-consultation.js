@@ -5,6 +5,17 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQ from '@/components/FAQ';
 import { ServiceSchema, SchemaScript } from '@/components/Schema';
 import { trackCtaClick } from "@/lib/trackCta";
+import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["consultation", "essays", "strategy"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/services/hourly-consultation",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function HourlyConsultation() {
   const handleStartNowClick = () => {
@@ -141,6 +152,12 @@ export default function HourlyConsultation() {
           ]}
         />
       </Section>
+
+      <RelatedArticles
+        title="Related Resources"
+        slotId="services_related"
+        items={railItems}
+      />
 
           <Section darkBg id="contact-form">
             <ContactForm type="FULL" />
