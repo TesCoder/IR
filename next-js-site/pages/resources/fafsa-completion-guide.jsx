@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["financial aid", "college costs", "fafsa", "scholarships"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/fafsa-completion-guide",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceFafsaCompletionGuide() {
   const title = "FAFSA Completion Guide (Step-by-Step)";
@@ -23,27 +33,6 @@ export default function ResourceFafsaCompletionGuide() {
     datePublished: "2026-02-28",
     dateModified: "2026-02-28",
   });
-
-  const related = [
-    {
-      title: "Compare Financial Aid Awards (How to Read Offers)",
-      href: "/resources/financial-aid-award-comparison",
-      description:
-        "How to compare aid offers: net cost, grants vs loans, and negotiation steps.",
-    },
-    {
-      title: "Merit Aid vs Need-Based Aid (What Families Should Know)",
-      href: "/resources/financial-aid-merit-vs-need",
-      description:
-        "Understand merit vs need-based aid and how schools calculate your need.",
-    },
-    {
-      title: "FAFSA Completion Checklist",
-      href: "/resources/fafsa-completion-checklist",
-      description:
-        "A quick-reference checklist for every document and step in the FAFSA process.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => trackCtaClick(primaryCta);
 
@@ -174,7 +163,11 @@ export default function ResourceFafsaCompletionGuide() {
         </p>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles
+          title="Recommended next steps"
+          slotId="article_related"
+          items={railItems}
+        />
       </div>
     </>
   );

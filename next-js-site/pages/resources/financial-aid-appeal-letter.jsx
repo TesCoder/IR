@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["financial aid", "college costs", "fafsa", "scholarships"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/financial-aid-appeal-letter",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceFinancialAidAppealLetter() {
   const title = "Financial Aid Appeal Letter (Template + What to Say)";
@@ -23,27 +33,6 @@ export default function ResourceFinancialAidAppealLetter() {
     datePublished: "2026-02-28",
     dateModified: "2026-02-28",
   });
-
-  const related = [
-    {
-      title: "Financial Aid Negotiation Email (How to Ask for More Aid)",
-      href: "/resources/financial-aid-negotiation-email",
-      description:
-        "How to negotiate aid offers with a clear email script you can customize.",
-    },
-    {
-      title: "Merit Aid vs Need-Based Aid (What Families Should Know)",
-      href: "/resources/financial-aid-merit-vs-need",
-      description:
-        "Understand merit vs need-based aid and how schools calculate your need.",
-    },
-    {
-      title: "Financial Aid Award Comparison Toolkit",
-      href: "/resources/financial-aid-award-comparison-toolkit",
-      description:
-        "A side-by-side toolkit to compare financial aid packages from multiple schools.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => trackCtaClick(primaryCta);
 
@@ -163,7 +152,11 @@ export default function ResourceFinancialAidAppealLetter() {
         </p>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles
+          title="Recommended next steps"
+          slotId="article_related"
+          items={railItems}
+        />
       </div>
     </>
   );
