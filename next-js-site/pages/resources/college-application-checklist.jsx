@@ -126,15 +126,11 @@ export default function ArticleCollegeApplicationChecklist() {
             href="/guides/college-application-playbook"
             className="inline-block bg-ivy-blue text-white px-6 py-2 rounded font-medium no-underline hover:opacity-90"
             onClick={() => {
-              if (typeof window !== 'undefined' && window.dataLayer) {
-                window.dataLayer.push({
-                  event: 'cta_click',
-                  cta_text: 'Get the Free Playbook',
-                  cta_location: 'resource_inline',
-                  destination: '/guides/college-application-playbook',
-                  page_path: window.location.pathname,
-                });
-              }
+              trackCtaClick({
+                location: "resource_inline",
+                text: "Get the Free Playbook",
+                destination: "/guides/college-application-playbook",
+              });
             }}
           >
             Get the Free Playbook →
