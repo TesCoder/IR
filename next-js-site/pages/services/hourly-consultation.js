@@ -24,23 +24,14 @@ export default function HourlyConsultation() {
         <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: 'Hourly Consultation', url: '/services/hourly-consultation' }]} />
       </div>
 
-      {/* "banner" */}
-
-       {/* Hero Section */}
-      <div className="heroFrame bg-hourly-hero" style={{ backgroundPosition: 'center 35%' }}
->
-
-        {/* Content layer */}
-        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full"
-
-        >
-          <h1 className="bannerTitle" > Hourly Consultation </h1>
-          <h2 className="bannerSubtitle" > An excellent alterntive to long-term packages.</h2>
-        </div>
-      </div>
+      {/* Page Title */}
+      {/* <Section centerContent>
+        <h1 className="text-4xl font-bold text-ivy-blue">Hourly Consultation</h1>
+        <p className="bannerSubtitle text-gray-600 mt-2">An excellent alternative to long-term packages.</p>
+      </Section> */}
 
       {/* How It Works */}
-      <Section title="How It Works" centerContent>
+      <Section title="Hourly Consultation" centerContent>
         <p className="pCentered max-w-3xl">
           Flexible, pay-as-you-go support with clear time tracking and no long-term commitments.
         </p>

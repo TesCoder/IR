@@ -87,6 +87,14 @@ export default function SupportPackages() {
         <ContactForm showProfile={true} coachName={coach} />
       </Modal>
 
+      {/* Hero Section */}
+      <div className="heroFrame bg-hourly-hero" style={{ backgroundPosition: 'center 35%' }}>
+        <div className="relative z-10 m-auto text-center flex flex-col items-center justify-center h-full">
+          <h1 className="bannerTitle">Support Packages</h1>
+          <h2 className="bannerSubtitle">Comprehensive college application support from expert admission coaches.</h2>
+        </div>
+      </div>
+
       <Section centerContent title="Ivy Ready Application Support Packages">
         <p className="pCentered">
           We offer <b>Essays-only Support, Comprehensive Support, and Full
