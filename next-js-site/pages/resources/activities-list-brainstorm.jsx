@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["extracurriculars", "activities", "leadership", "admissions strategy"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/activities-list-brainstorm",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceActivitiesListBrainstorm() {
   const title = "Common App Activities List Brainstorm (Step-by-Step)";
@@ -24,21 +34,6 @@ export default function ResourceActivitiesListBrainstorm() {
     datePublished: "2026-02-07",
     dateModified: "2026-02-07",
   });
-
-  const related = [
-    {
-      title: "Activities List Impact Metrics (Hours, Weeks, Role)",
-      href: "/resources/activities-list-impact-metrics",
-      description:
-        "Learn how to quantify impact (hours, weeks, leadership scope) so your activities list reads credible and high-signal.",
-    },
-    {
-      title: "Activities List Writing Examples (Before/After)",
-      href: "/resources/activities-list-writing-examples",
-      description:
-        "See clear before/after examples of activities descriptions that show initiative, impact, and specificity—without sounding inflated.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => {
     trackCtaClick(primaryCta);
@@ -111,7 +106,7 @@ export default function ResourceActivitiesListBrainstorm() {
       </article>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
     </>
   );
