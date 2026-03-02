@@ -63,6 +63,8 @@ function mdToHtml(md) {
   const lines = md.split("\n");
   const out = [];
   let i = 0;
+  let h2Count = 0;
+  let skipNextHr = false; // skip the --- separator that follows the subtitle line
 
   while (i < lines.length) {
     const line = lines[i];
@@ -73,10 +75,23 @@ function mdToHtml(md) {
       continue;
     }
 
-    // --- H2 chapter headings (page-break before each, except first)
+    // --- H2 chapter headings
+    // h2Count=1: subtitle — already on cover, skip it and the hr after it
+    // h2Count=2: intro chapter — flows directly from cover, no page break
+    // h2Count>=3: real chapters — force page break
     if (/^## /.test(line)) {
+      h2Count++;
       const text = inlineMarkdown(line.replace(/^## /, ""));
-      out.push(`<h2 class="chapter-heading">${text}</h2>`);
+      if (h2Count === 1) {
+        skipNextHr = true;
+        i++;
+        continue;
+      } else if (h2Count === 2) {
+        out.push(`<h2 id="chapter-intro" class="chapter-heading chapter-intro">${text}</h2>`);
+      } else {
+        const chapterId = `chapter-${h2Count - 2}`;
+        out.push(`<h2 id="${chapterId}" class="chapter-heading">${text}</h2>`);
+      }
       i++;
       continue;
     }
@@ -91,6 +106,7 @@ function mdToHtml(md) {
 
     // --- Horizontal rule
     if (/^---+$/.test(line.trim())) {
+      if (skipNextHr) { skipNextHr = false; i++; continue; }
       out.push(`<hr />`);
       i++;
       continue;
@@ -267,10 +283,12 @@ function buildHtml(mdContent) {
 
     /* ---- Cover page ---- */
     .cover {
+      position: relative;
+      z-index: 11;             /* paint over fixed header (z-index:10) and footer */
       page-break-after: always;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      min-height: 11in;        /* 100vh = viewport px, not print page height */
       background: #0b2e59;
       color: #ffffff;
       padding: 0;
@@ -322,6 +340,13 @@ function buildHtml(mdContent) {
       border-bottom: 1px solid rgba(255,255,255,0.12);
       opacity: 0.9;
     }
+    .cover-toc a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .cover-toc a:hover {
+      text-decoration: underline;
+    }
     .cover-footer {
       padding: 24px 56px;
       font-size: 11px;
@@ -351,6 +376,10 @@ function buildHtml(mdContent) {
       font-weight: 700;
       color: #1e3a5f;
       margin: 18px 0 8px 0;
+      page-break-after: avoid;   /* keep h3 attached to the content below it */
+    }
+    h2.chapter-heading.chapter-intro {
+      page-break-before: avoid;  /* intro flows directly from cover */
     }
     p { margin: 0 0 9px 0; line-height: 1.6; }
     p.spacer { margin: 4px 0; }
@@ -461,14 +490,15 @@ function buildHtml(mdContent) {
       <div class="cover-toc">
         <h2>What's Inside</h2>
         <ol>
-          <li>Introduction — Why Most Students Start Too Late</li>
-          <li>Chapter 1 — Freshman Year: Building the Foundation</li>
-          <li>Chapter 2 — Sophomore Year: Going Deeper</li>
-          <li>Chapter 3 — Junior Year: The Critical Year</li>
-          <li>Chapter 4 — Senior Year: Executing the Plan</li>
-          <li>Chapter 5 — The College List Strategy</li>
-          <li>Chapter 6 — Essays That Actually Work</li>
-          <li>Chapter 7 — The Financial Aid Game Plan</li>
+          <li><a href="#chapter-intro">Introduction — Why Most Students Start Too Late</a></li>
+          <li><a href="#chapter-1">Chapter 1 — Freshman Year: Building the Foundation</a></li>
+          <li><a href="#chapter-2">Chapter 2 — Sophomore Year: Going Deeper</a></li>
+          <li><a href="#chapter-3">Chapter 3 — Junior Year: The Critical Year</a></li>
+          <li><a href="#chapter-4">Chapter 4 — Senior Year: Executing the Plan</a></li>
+          <li><a href="#chapter-5">Chapter 5 — The College List Strategy</a></li>
+          <li><a href="#chapter-6">Chapter 6 — Essays That Actually Work</a></li>
+          <li><a href="#chapter-7">Chapter 7 — The Financial Aid Game Plan</a></li>
+          <li><a href="#chapter-8">Conclusion — Your Next Steps</a></li>
         </ol>
       </div>
     </div>
