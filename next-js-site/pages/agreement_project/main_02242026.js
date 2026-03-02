@@ -197,7 +197,7 @@ export default function AgreementForm() {
                 required
               >
                 {/* <option value="">Package Selection</option> */}
-                <option value="cs10">Comprehensive Support up to 5 Schools: $1,500</option>
+                <option value="cs10">Comprehensive Support up to 5 Schools: $1,000</option>
               </select>
                 {/* <p className="mx-2 my-0 text-gray-700 bg-gray-50 text-[90%]">
                   General reminder: Essays-only Support does NOT include resume feedback, course selection, college selection, short answer questions, exclusively essays. If they ask for more than essays, ask them to upgrade.

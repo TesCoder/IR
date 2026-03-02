@@ -7,12 +7,7 @@ import { getPersonalInfo } from "@/lib/e";
 
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec", ];
 
-// IR-2021Oct30 Jane Doe
-const today = new Date();
-const prefix =
-  "IR-" + today.getFullYear() + months[today.getMonth()] + today.getDate();
-
-const getVCard = ({ coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service, }) => {
+const getVCard = ({ coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service, today, prefix }) => {
   const vCard = vCardsJS();
 
   vCard.firstName = prefix + " " + fname;
@@ -54,6 +49,10 @@ export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, error: "Method Not Allowed" });
   }
+
+  // IR-2021Oct30 Jane Doe
+  const today = new Date();
+  const prefix = "IR-" + today.getFullYear() + months[today.getMonth()] + today.getDate();
 
   const {
     coach, type, fname, lname, location, email, phone, year, contact, option, info, heard, service, hs_grade,
@@ -115,7 +114,7 @@ export default async function handler(req, res) {
     }
   }
 
-  const vCard = getVCard(req.body);
+  const vCard = getVCard({ ...req.body, today, prefix });
 
   // use e API to get address info
   const infoResponse = await getPersonalInfo({ fname, lname, phone, email });
