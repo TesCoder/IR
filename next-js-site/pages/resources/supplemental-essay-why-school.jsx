@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["supplements", "college essays", "why us", "admissions strategy"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/supplemental-essay-why-school",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceSupplementalEssayWhySchool() {
   const title = "Why School Essay: A Clear Structure + Example Outline";
@@ -23,26 +33,6 @@ export default function ResourceSupplementalEssayWhySchool() {
     datePublished: "2026-02-28",
     dateModified: "2026-02-28",
   });
-
-  const related = [
-    {
-      title: "Community Essay: What Admissions Actually Looks For",
-      href: "/resources/supplemental-essay-community",
-      description:
-        "How to write a community essay that shows belonging and contribution.",
-    },
-    {
-      title: "Leadership Essay: Show Impact Without Bragging",
-      href: "/resources/supplemental-essay-leadership",
-      description: "Turn leadership into evidence: scope, decisions, and results.",
-    },
-    {
-      title: "College Essay Outline (How to Structure a Draft)",
-      href: "/resources/college-essay-outline",
-      description:
-        "A simple, repeatable outline for a standout personal statement.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => trackCtaClick(primaryCta);
 
@@ -151,7 +141,7 @@ export default function ResourceSupplementalEssayWhySchool() {
         </p>
       </article>
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles title="Recommended next steps" slotId="article_related" items={railItems} />
       </div>
     </>
   );
