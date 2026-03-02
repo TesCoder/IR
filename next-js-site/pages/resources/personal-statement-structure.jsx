@@ -2,6 +2,16 @@ import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["college essays", "writing", "admissions strategy", "common app", "personal statement"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/personal-statement-structure",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ArticlePersonalStatement() {
   const articleSchema = ArticleSchema({
@@ -52,28 +62,8 @@ export default function ArticlePersonalStatement() {
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"
-          items={[
-            {
-              title: "How to Build a Balanced College List",
-              href: "/resources/building-a-college-list",
-              description: "Calibrate reach, match, and safety choices with real fit criteria."
-            },
-            {
-              title: "How to Choose and Ask for Letters of Recommendation",
-              href: "/resources/choosing-recommenders",
-              description: "Equip teachers with context, deadlines, and examples for stronger letters."
-            },
-            {
-              title: "Activity Spikes & Extracurricular Strategy",
-              href: "/resources/extracurricular-strategy",
-              description: "Focus on depth and leadership to build a standout impact spike."
-            },
-            {
-              title: "Timeline by Grade (9th–12th)",
-              href: "/resources/timeline-by-grade",
-              description: "Work the key milestones each year to stay ahead without last-minute scrambles."
-            }
-          ]}
+          slotId="article_related"
+          items={railItems}
         />
       </div>
     </>

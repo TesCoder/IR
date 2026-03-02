@@ -3,6 +3,16 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { filterByTags, selectRailItems } from "@/lib/railUtils";
+
+const PAGE_TAGS = ["college essays", "writing", "admissions strategy", "common app", "personal statement"];
+const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
+const railItems = selectRailItems(
+  "/resources/college-essay-draft-checklist",
+  tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
+  { maxItems: 3, minItems: 2 }
+);
 
 export default function ResourceCollegeEssayDraftChecklist() {
   const title = "College Essay Draft Checklist (Revise + Polish)";
@@ -25,20 +35,6 @@ export default function ResourceCollegeEssayDraftChecklist() {
     dateModified: "2026-02-07",
   });
 
-  const related = [
-    {
-      title: "College Essay Outline (How to Structure a Draft)",
-      href: "/resources/college-essay-outline",
-      description:
-        "Learn a simple, repeatable outline for a standout personal statement—plus how to turn ideas into a first draft without sounding generic.",
-    },
-    {
-      title: "College Essay Thesis (What It Is + Examples)",
-      href: "/resources/college-essay-thesis",
-      description:
-        "Understand what a “thesis” means in a personal statement—and how to build a clear central throughline that supports your story.",
-    },
-  ];
 
   const handlePrimaryCtaClick = () => {
     trackCtaClick(primaryCta);
@@ -107,7 +103,11 @@ export default function ResourceCollegeEssayDraftChecklist() {
       </article>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
-        <RelatedArticles title="Recommended next steps" items={related} />
+        <RelatedArticles
+          title="Recommended next steps"
+          slotId="article_related"
+          items={railItems}
+        />
       </div>
     </>
   );
