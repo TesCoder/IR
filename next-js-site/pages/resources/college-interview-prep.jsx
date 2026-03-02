@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceCollegeInterviewPrep() {
   const title = "College Interview Prep (Answer Framework + Practice Plan)";
@@ -49,8 +50,7 @@ export default function ResourceCollegeInterviewPrep() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           Interviews are rarely about “perfect answers.” They&apos;re about proving you&apos;re thoughtful,
           self-aware, and a strong fit. Prep is just building a set of stories and a structure so
@@ -106,7 +106,7 @@ export default function ResourceCollegeInterviewPrep() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />

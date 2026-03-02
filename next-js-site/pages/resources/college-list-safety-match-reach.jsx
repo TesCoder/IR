@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceCollegeListSafetyMatchReach() {
   const title = "Safety, Match, Reach: Build a Balanced College List";
@@ -49,8 +50,7 @@ export default function ResourceCollegeListSafetyMatchReach() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           A “balanced list” isn&apos;t a vibe — it&apos;s risk management. You want ambition and upside, but
           you also want options you&apos;d genuinely attend at a cost your family can handle.
@@ -103,7 +103,7 @@ export default function ResourceCollegeListSafetyMatchReach() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />
