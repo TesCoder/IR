@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceFinancialAidNegotiationEmail() {
   const title = "Financial Aid Negotiation Email (How to Ask for More Aid)";
@@ -51,8 +52,7 @@ export default function ResourceFinancialAidNegotiationEmail() {
     <>
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
 
         <p>
           Many families don't realize that financial aid offers are often a
@@ -186,7 +186,7 @@ export default function ResourceFinancialAidNegotiationEmail() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />
       </div>

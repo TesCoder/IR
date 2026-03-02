@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ArticleFafsaCompletionChecklist() {
   const articleSchema = ArticleSchema({
@@ -23,8 +24,10 @@ export default function ArticleFafsaCompletionChecklist() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>FAFSA Completion Checklist: What to Gather Before You File</h1>
+      <ArticlePageLayout
+        title="FAFSA Completion Checklist: What to Gather Before You File"
+        url="/resources/fafsa-completion-checklist"
+      >
         <p>
           <strong>Summary:</strong> The FAFSA (Free Application for Federal
           Student Aid) opens October 1 each year. Filing early maximizes your
@@ -155,7 +158,7 @@ export default function ArticleFafsaCompletionChecklist() {
             Get help navigating your financial aid options →
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"

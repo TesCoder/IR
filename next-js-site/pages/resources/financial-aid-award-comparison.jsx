@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceFinancialAidAwardComparison() {
   const title = "Compare Financial Aid Awards (How to Read Offers)";
@@ -51,8 +52,7 @@ export default function ResourceFinancialAidAwardComparison() {
     <>
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
 
         <p>
           When financial aid award letters arrive in the spring, the numbers can
@@ -153,7 +153,7 @@ export default function ResourceFinancialAidAwardComparison() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />
       </div>

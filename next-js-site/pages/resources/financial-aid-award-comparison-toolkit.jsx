@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ArticleFinancialAidComparison() {
   const articleSchema = ArticleSchema({
@@ -23,8 +24,10 @@ export default function ArticleFinancialAidComparison() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>Financial Aid Award Comparison Toolkit</h1>
+      <ArticlePageLayout
+        title="Financial Aid Award Comparison Toolkit"
+        url="/resources/financial-aid-award-comparison-toolkit"
+      >
         <p>
           <strong>Summary:</strong> Aid letters are deliberately hard to
           compare. Schools format them differently, bury loan amounts, and omit
@@ -180,7 +183,7 @@ export default function ArticleFinancialAidComparison() {
             Get help comparing and appealing your aid offers →
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"

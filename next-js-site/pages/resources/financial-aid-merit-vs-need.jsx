@@ -5,6 +5,7 @@ import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["financial aid", "college costs", "fafsa", "scholarships"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -40,8 +41,7 @@ export default function ResourceFinancialAidMeritVsNeed() {
     <>
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
 
         <p>
           Financial aid comes in two broad forms: merit-based and need-based.
@@ -155,7 +155,7 @@ export default function ResourceFinancialAidMeritVsNeed() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"
