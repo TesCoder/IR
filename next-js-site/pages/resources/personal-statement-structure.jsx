@@ -4,6 +4,7 @@ import Link from "next/link";
 import RelatedArticles from "@/components/RelatedArticles";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["college essays", "writing", "admissions strategy", "common app", "personal statement"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -31,8 +32,10 @@ export default function ArticlePersonalStatement() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>The Personal Statement Structure: From Brainstorm to Final Draft</h1>
+      <ArticlePageLayout
+        title="The Personal Statement Structure: From Brainstorm to Final Draft"
+        url="/resources/personal-statement-structure"
+      >
         <p>The personal statement is your application’s narrative centerpiece. Use this structure to make your story memorable to admissions readers.</p>
         <h2>1) Brainstorm Themes</h2>
         <ul>
@@ -58,7 +61,7 @@ export default function ArticlePersonalStatement() {
         <p className="not-prose mt-8">
           <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Get expert essay feedback →</Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"

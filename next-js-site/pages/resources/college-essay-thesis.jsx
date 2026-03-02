@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceCollegeEssayThesis() {
   const title = "College Essay Thesis (What It Is + Examples)";
@@ -49,8 +50,7 @@ export default function ResourceCollegeEssayThesis() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           In a personal statement, a “thesis” isn&apos;t a formal argument. It&apos;s your{" "}
           <strong>central throughline</strong>: what the reader should understand about you by the
@@ -102,7 +102,7 @@ export default function ResourceCollegeEssayThesis() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />
