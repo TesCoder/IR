@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceGrade9ExtracurricularsStrategy() {
   const title = "9th Grade Extracurricular Strategy (Explore → Commit)";
@@ -55,8 +56,7 @@ export default function ResourceGrade9ExtracurricularsStrategy() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           Ninth grade is the best time to explore — but exploration works best with a plan. The
           goal is to sample broadly, notice what you genuinely enjoy, and start building
@@ -102,7 +102,7 @@ export default function ResourceGrade9ExtracurricularsStrategy() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />

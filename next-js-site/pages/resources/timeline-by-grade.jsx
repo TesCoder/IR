@@ -5,6 +5,7 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { trackCtaClick } from "@/lib/trackCta";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 const PAGE_TAGS = ["timelines", "admissions timeline", "application strategy", "planning"];
 const tagFiltered = filterByTags(RAIL_ITEMS, PAGE_TAGS);
@@ -32,8 +33,10 @@ export default function ArticleTimeline() {
         type="article"
       />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>Timeline by Grade: What Every High School Student Should Do (9th–12th)</h1>
+      <ArticlePageLayout
+        title="Timeline by Grade: What Every High School Student Should Do (9th–12th)"
+        url="/resources/timeline-by-grade"
+      >
         <h2>Grade 9</h2>
         <ul>
           <li>Explore interests; build foundational courses and study habits</li>
@@ -75,7 +78,7 @@ export default function ArticleTimeline() {
             Get the Free Playbook →
           </Link>
         </div>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles
           title="Recommended next steps"

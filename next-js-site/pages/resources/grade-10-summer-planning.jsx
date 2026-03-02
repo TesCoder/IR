@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceGrade10SummerPlanning() {
   const title = "Summer After 10th Grade (Programs + Internships)";
@@ -55,8 +56,7 @@ export default function ResourceGrade10SummerPlanning() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           After 10th grade, your summer can start to signal direction — but only if you choose
           intentionally. The best summer plans balance <strong>growth</strong>,{" "}
@@ -109,7 +109,7 @@ export default function ResourceGrade10SummerPlanning() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />

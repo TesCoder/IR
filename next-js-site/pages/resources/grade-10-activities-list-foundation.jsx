@@ -3,6 +3,7 @@ import { ArticleSchema, SchemaScript } from "@/components/Schema";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 
 export default function ResourceGrade10ActivitiesListFoundation() {
   const title = "10th Grade Activities List Foundation (What to Track)";
@@ -55,8 +56,7 @@ export default function ResourceGrade10ActivitiesListFoundation() {
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
 
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           The activities list isn&apos;t a record of everything you&apos;ve ever done — it&apos;s a curated list
           of what matters most. In 10th grade, the key is to start tracking the details that make
@@ -113,7 +113,7 @@ export default function ResourceGrade10ActivitiesListFoundation() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
 
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />
