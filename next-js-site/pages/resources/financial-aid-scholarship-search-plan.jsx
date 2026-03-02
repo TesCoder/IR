@@ -1,5 +1,6 @@
 import SEOHead from "@/components/SEOHead";
 import { ArticleSchema, SchemaScript } from "@/components/Schema";
+import ArticlePageLayout from "@/components/ArticlePageLayout";
 import RelatedArticles from "@/components/RelatedArticles";
 import Link from "next/link";
 import { trackCtaClick } from "@/lib/trackCta";
@@ -51,9 +52,7 @@ export default function ResourceFinancialAidScholarshipSearchPlan() {
     <>
       <SEOHead title={title} description={description} url={url} type="article" />
       <SchemaScript schema={articleSchema} />
-      <article className="mx-auto max-w-3xl px-6 py-14 prose prose-indigo">
-        <h1>{title}</h1>
-
+      <ArticlePageLayout title={title} description={description} url={url}>
         <p>
           Most students who search for scholarships don't win many. Not because
           scholarships don't exist, but because they apply to the wrong ones
@@ -175,7 +174,7 @@ export default function ResourceFinancialAidScholarshipSearchPlan() {
             <span aria-hidden="true"> →</span>
           </Link>
         </p>
-      </article>
+      </ArticlePageLayout>
       <div className="mx-auto max-w-3xl px-6 pb-14">
         <RelatedArticles title="Recommended next steps" items={related} />
       </div>
