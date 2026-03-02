@@ -6,10 +6,20 @@ import { getAllPostSlugs, getAllPostsMeta, getPostForPage } from "@/lib/blog";
 import { buildBlogPostingSchema, formatIsoWithTimezone } from "@/lib/schema-helpers";
 import BlogPostLayout from "@/components/blog/BlogPostLayout";
 import { isAllowlistedDestination } from "@/lib/railAllowlist";
+import RelatedArticles from "@/components/RelatedArticles";
+import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
+import { selectRailItems, filterByTags } from "@/lib/railUtils";
 
 export default function BlogPostPage({ post, mdxSource, schema, postsMeta }) {
   const relatedItems = selectRelatedPosts(post.slug, postsMeta);
   const railLinks = relatedItems;
+  const railItems = selectRailItems(
+    `/blog/${post.slug}`,
+    [
+      ...filterByTags(RAIL_ITEMS, post.tags || []),
+      ...FALLBACK_ITEMS,
+    ]
+  );
   const publishedTime = formatIsoWithTimezone(post.date) || post.date;
   const modifiedTime = formatIsoWithTimezone(post.updated || post.date) || publishedTime;
 
@@ -33,37 +43,11 @@ export default function BlogPostPage({ post, mdxSource, schema, postsMeta }) {
       <BlogPostLayout post={post} railLinks={railLinks}>
         <MDXRemote {...mdxSource} components={{ SEOHead }} />
       </BlogPostLayout>
-      {relatedItems.length >= 2 && (
-        <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2 className="text-2xl font-semibold mb-4">Related Posts</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {relatedItems.map(({ slug, title, description, ctaText, destination }) => (
-              <div
-                key={slug}
-                className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h3 className="text-xl font-semibold mb-2">
-                  <Link
-                    className="text-ivy-blue underline hover:no-underline"
-                    href={slug}
-                    aria-label={title}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-                <p className="text-gray-700 mb-3">{description}</p>
-                <Link
-                  className="text-ivy-blue font-medium"
-                  href={destination}
-                  aria-label={`${ctaText} — ${title}`}
-                >
-                  {ctaText} →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      <RelatedArticles
+        slotId="blog_related"
+        items={railItems}
+        title="Related Articles"
+      />
     </>
   );
 }
