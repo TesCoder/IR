@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { SchemaScript } from "@/components/Schema";
 import { members } from "../components/membersList";
 import CoachInfo from "@/components/CoachInfo";
 
@@ -23,6 +24,18 @@ export default function About() {
         description="Ivy Ready's team of former admission officers provides personalized college planning strategies tailored to each student’s strengths and goals."
         url="/about"
       />
+      <SchemaScript schema={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Us — Ivy Ready College Counseling",
+        "description": "Ivy Ready's team of former admission officers provides personalized college planning strategies tailored to each student's strengths and goals.",
+        "url": "https://ivyready.com/about",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ivy Ready",
+          "url": "https://ivyready.com"
+        }
+      }} />
       
       {/* Contact Modal (pop up) */}
       <Modal

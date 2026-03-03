@@ -6,6 +6,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import Testimonials from "@/components/Testimonials"; // calls component
 import SEOHead from "@/components/SEOHead";
+import { SchemaScript } from "@/components/Schema";
 // import Testimonials from "@/components/Testimonials_Snippets"; // calls component
 
 // note two functions below are connected by NextJS automatically
@@ -46,6 +47,18 @@ export default function TestimonialsPage({ testimonials }) {
         description="Families love how Ivy Ready delivers clarity, structure, and results."
         url="/testimonials"
       />
+      <SchemaScript schema={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Testimonials — Ivy Ready College Counseling",
+        "description": "Families love how Ivy Ready delivers clarity, structure, and results.",
+        "url": "https://ivyready.com/testimonials",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ivy Ready",
+          "url": "https://ivyready.com"
+        }
+      }} />
       <Testimonials testimonials={testimonials} />{/* component uses t.imgSrc prop. */}
     </>
   );

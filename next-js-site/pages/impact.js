@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import { SchemaScript } from "@/components/Schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Section from "@/components/Section";
 import ImpactTable from "@/components/ImpactTable";
@@ -13,6 +14,18 @@ export default function ImpactPage() {
         url="/impact"
         image="/images/logo-circle.png"
       />
+      <SchemaScript schema={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "The Ivy Ready Impact",
+        "description": "See where Ivy Ready students aim and succeed. Explore acceptance rates across top universities and how our guidance helps you compete.",
+        "url": "https://ivyready.com/impact",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ivy Ready",
+          "url": "https://ivyready.com"
+        }
+      }} />
 
       <div className="max-w-6xl mx-auto px-6 pt-8">
         <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Impact", url: "/impact" }]} />
