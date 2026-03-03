@@ -328,6 +328,7 @@ export default function SupportPackages() {
       
       {/* <ButtonRow darkBg setModalType={setModalType} /> */}
 
+      <Section>
       <FAQ
         faqs={[
           { question: 'What is included in Comprehensive Support?', answer: 'Comprehensive Support includes brainstorming, essay guidance, school selection, and timeline management to help you submit strong applications.' },
@@ -335,6 +336,7 @@ export default function SupportPackages() {
           { question: 'Do you offer payment plans?', answer: 'We offer flexible payment options; please contact us for details and eligibility.' }
         ]}
       />
+    </Section>
 
       <RelatedArticles
         title="Related Resources"
