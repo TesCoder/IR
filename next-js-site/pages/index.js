@@ -207,7 +207,7 @@ export default function Home() {
           Ivy Ready empowers students to craft exceptional applications that get results. From essays to strategy, our support drives real outcomes—top school admissions, major scholarships, and family peace of mind.
         </p>
 
-       <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-4 gap-6 text-center">
+       <div className="grid mt-4 mb-10 grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
               <h2 className="h2StatTitle"><CountUp end={98} suffix="%" /></h2>
               <p className="h2StatSubtitle">Accepted to Top 3 Choices</p>
