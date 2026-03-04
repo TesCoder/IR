@@ -245,7 +245,13 @@ function inlineMarkdown(text) {
 function buildHtml(mdContent) {
   const logo = getLogoDataUri();
   const now = new Date().toISOString().slice(0, 10);
+  const year = new Date().getFullYear();
   const body = mdToHtml(mdContent);
+  // Inline the Paged.js polyfill so it runs inside the Puppeteer page
+  const pagedJsSource = fs.readFileSync(
+    path.join(ROOT, "node_modules/pagedjs/dist/paged.polyfill.js"),
+    "utf8"
+  );
 
   return `<!doctype html>
 <html>
@@ -253,7 +259,34 @@ function buildHtml(mdContent) {
   <meta charset="utf-8" />
   <title>The Ivy Ready College Application Playbook</title>
   <style>
-    @page { size: Letter; margin: 0; }
+    /* ---- Paged.js page layout ---- */
+    @page {
+      size: Letter;
+      /* Physical margins reserve real space for header + footer on every page */
+      margin-top: 72px;    /* 48px header + 24px gap */
+      margin-bottom: 52px; /* 32px footer + 20px gap */
+      margin-left: 52px;
+      margin-right: 52px;
+
+      /* Running header via @top-center margin box */
+      @top-center {
+        content: element(page-header);
+        height: 48px;
+      }
+      /* Running footer via @bottom-center margin box */
+      @bottom-center {
+        content: element(page-footer);
+        height: 32px;
+      }
+    }
+
+    /* First page (cover) — suppress header/footer */
+    @page :first {
+      @top-center { content: none; }
+      @bottom-center { content: none; }
+      margin: 0;
+    }
+
     html, body { margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -262,36 +295,55 @@ function buildHtml(mdContent) {
       background: #ffffff;
     }
 
-    /* ---- Running header (every page except cover) ---- */
-    .page-header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+    /* ---- Running header element (positioned as running element by Paged.js) ---- */
+    #page-header {
+      position: running(page-header);
+      width: 100%;
       height: 48px;
       background: #0b2e59;
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 44px;
+      padding: 0 0;
       font-size: 11px;
-      z-index: 10;
+      box-sizing: border-box;
     }
-    .page-header .brand { display: flex; align-items: center; gap: 10px; }
-    .page-header img { height: 28px; width: auto; }
-    .page-header .doc-title { font-weight: 600; letter-spacing: 0.2px; }
-    .page-header .updated { opacity: 0.75; }
+    #page-header .brand { display: flex; align-items: center; gap: 10px; }
+    #page-header img { height: 28px; width: auto; }
+    #page-header .doc-title { font-weight: 600; letter-spacing: 0.2px; }
+    #page-header .updated { opacity: 0.75; }
+
+    /* ---- Running footer element ---- */
+    #page-footer {
+      position: running(page-footer);
+      width: 100%;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+      box-sizing: border-box;
+    }
 
     /* ---- Cover page ---- */
     .cover {
-      position: relative;
-      z-index: 11;             /* paint over fixed header (z-index:10) and footer */
+      page: cover;
       page-break-after: always;
       display: flex;
       flex-direction: column;
-      min-height: 11in;        /* 100vh = viewport px, not print page height */
+      min-height: 11in;
       background: #0b2e59;
       color: #ffffff;
       padding: 0;
+    }
+    @page cover {
+      margin: 0;
+      @top-center { content: none; }
+      @bottom-center { content: none; }
     }
     .cover-header {
       padding: 32px 56px 0 56px;
@@ -307,7 +359,7 @@ function buildHtml(mdContent) {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 56px 0 56px;
+      padding: 0 56px;
     }
     .cover-body h1 {
       font-size: 36px;
@@ -331,22 +383,14 @@ function buildHtml(mdContent) {
       opacity: 0.7;
       margin: 0 0 14px 0;
     }
-    .cover-toc ol {
-      margin: 0; padding: 0; list-style: none;
-    }
+    .cover-toc ol { margin: 0; padding: 0; list-style: none; }
     .cover-toc li {
       font-size: 13px;
       padding: 5px 0;
       border-bottom: 1px solid rgba(255,255,255,0.12);
       opacity: 0.9;
     }
-    .cover-toc a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .cover-toc a:hover {
-      text-decoration: underline;
-    }
+    .cover-toc a { color: inherit; text-decoration: none; }
     .cover-footer {
       padding: 24px 56px;
       font-size: 11px;
@@ -355,9 +399,7 @@ function buildHtml(mdContent) {
     }
 
     /* ---- Content pages ---- */
-    .content-pages {
-      padding: 96px 52px 64px 52px; /* top = header (48px) + 100% clearance (48px); bottom = footer (32px) + 100% clearance */
-    }
+    .content-pages { padding: 0; }
 
     /* ---- Typography ---- */
     h2.chapter-heading {
@@ -376,11 +418,9 @@ function buildHtml(mdContent) {
       font-weight: 700;
       color: #1e3a5f;
       margin: 18px 0 8px 0;
-      page-break-after: avoid;   /* keep h3 attached to the content below it */
+      page-break-after: avoid;
     }
-    h2.chapter-heading.chapter-intro {
-      page-break-before: avoid;  /* intro flows directly from cover */
-    }
+    h2.chapter-heading.chapter-intro { page-break-before: avoid; }
     p { margin: 0 0 9px 0; line-height: 1.6; }
     p.spacer { margin: 4px 0; }
     hr { border: none; border-top: 1px solid #e5e7eb; margin: 14px 0; }
@@ -392,31 +432,22 @@ function buildHtml(mdContent) {
     li { margin: 5px 0; line-height: 1.55; }
     ul.no-indent { padding-left: 0; list-style: none; }
     li.check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      list-style: none;
-      margin-left: -20px;
+      display: flex; align-items: flex-start; gap: 8px;
+      list-style: none; margin-left: -20px;
     }
     .checkbox {
-      flex: 0 0 13px;
-      width: 13px;
-      height: 13px;
-      border: 1.5px solid #374151;
-      border-radius: 2px;
-      margin-top: 2px;
+      flex: 0 0 13px; width: 13px; height: 13px;
+      border: 1.5px solid #374151; border-radius: 2px; margin-top: 2px;
     }
     .link-text { color: #1e3a5f; }
 
-    /* ---- Callout box (companion tools, decision frameworks) ---- */
+    /* ---- Callout box ---- */
     .callout {
       background: #f0f4fa;
       border-left: 3px solid #0b2e59;
       border-radius: 0 6px 6px 0;
-      padding: 10px 14px;
-      margin: 10px 0;
-      font-size: 12.5px;
-      color: #1e3a5f;
+      padding: 10px 14px; margin: 10px 0;
+      font-size: 12.5px; color: #1e3a5f;
     }
     .callout p { margin: 0 0 4px 0; }
     .callout ul { margin: 4px 0 0 0; }
@@ -424,44 +455,23 @@ function buildHtml(mdContent) {
 
     /* ---- Tables ---- */
     .guide-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 10px 0 14px 0;
-      font-size: 12px;
+      width: 100%; border-collapse: collapse;
+      margin: 10px 0 14px 0; font-size: 12px;
     }
     .guide-table th, .guide-table td {
-      border: 1px solid #d1d5db;
-      padding: 7px 9px;
-      vertical-align: top;
-      text-align: left;
+      border: 1px solid #d1d5db; padding: 7px 9px;
+      vertical-align: top; text-align: left;
     }
     .guide-table th {
-      background: #f3f4f6;
-      font-weight: 700;
-      font-size: 11.5px;
-      letter-spacing: 0.2px;
-    }
-
-    /* ---- Footer ---- */
-    .page-footer {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      height: 32px;
-      padding: 0 44px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 10px;
-      color: #9ca3af;
-      border-top: 1px solid #e5e7eb;
-      background: #fff;
+      background: #f3f4f6; font-weight: 700;
+      font-size: 11.5px; letter-spacing: 0.2px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Running header (shows on all content pages) -->
-  <div class="page-header">
+  <!-- Running header element — referenced by Paged.js handler -->
+  <div id="page-header" style="display:none;">
     <div class="brand">
       <img src="${logo}" alt="IvyReady" />
       <span class="doc-title">The Ivy Ready College Application Playbook</span>
@@ -469,10 +479,10 @@ function buildHtml(mdContent) {
     <span class="updated">ivyready.com</span>
   </div>
 
-  <!-- Running footer -->
-  <div class="page-footer">
+  <!-- Running footer element -->
+  <div id="page-footer" style="display:none;">
     <span>Educational guidance only. Requirements vary by institution.</span>
-    <span>© ${new Date().getFullYear()} IvyReady</span>
+    <span>&copy; ${year} IvyReady</span>
   </div>
 
   <!-- Cover page -->
@@ -510,6 +520,44 @@ function buildHtml(mdContent) {
     ${body}
   </div>
 
+  <!-- Paged.js polyfill + handler to inject header/footer into each page margin box -->
+  <script>${pagedJsSource}</script>
+  <script>
+    class HeaderFooterHandler extends Paged.Handler {
+      constructor(chunker, polisher, caller) {
+        super(chunker, polisher, caller);
+      }
+      afterPageLayout(pageFragment, page) {
+        const pageIndex = page.position;
+        // Skip cover page (index 0)
+        if (pageIndex === 0) return;
+
+        // --- Header ---
+        const topCenter = pageFragment.querySelector('.pagedjs_margin-top-center .pagedjs_margin-content');
+        if (topCenter) {
+          topCenter.innerHTML = \`
+            <div style="width:100%;height:48px;background:#0b2e59;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:11px;margin-left:-20px;margin-right:-20px;padding-left:40px;padding-right:40px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <img src="${logo}" style="height:26px;width:auto;" />
+                <span style="font-weight:600;letter-spacing:0.2px;">The Ivy Ready College Application Playbook</span>
+              </div>
+              <span style="opacity:0.75;">ivyready.com</span>
+            </div>\`;
+        }
+
+        // --- Footer ---
+        const bottomCenter = pageFragment.querySelector('.pagedjs_margin-bottom-center .pagedjs_margin-content');
+        if (bottomCenter) {
+          bottomCenter.innerHTML = \`
+            <div style="width:100%;height:32px;border-top:1px solid #e5e7eb;background:#fff;color:#9ca3af;display:flex;align-items:center;justify-content:space-between;padding:0 40px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:10px;margin-left:-20px;margin-right:-20px;">
+              <span>Educational guidance only. Requirements vary by institution.</span>
+              <span>&copy; ${year} IvyReady</span>
+            </div>\`;
+        }
+      }
+    }
+    Paged.registerHandlers(HeaderFooterHandler);
+  </script>
 </body>
 </html>`;
 }
@@ -522,14 +570,23 @@ async function renderPdf(html, outPath) {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   try {
     const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 720 });
-    await page.setContent(html, { waitUntil: "load" });
-    await page.emulateMediaType("print");
+    await page.setViewport({ width: 816, height: 1056 }); // Letter at 96dpi
+    await page.setContent(html, { waitUntil: "networkidle0" });
+
+    // Wait for Paged.js to finish paginating
+    await page.waitForFunction(() => window.PagedPolyfill !== undefined, { timeout: 15000 });
+    await page.waitForFunction(
+      () => document.querySelector(".pagedjs_pages") !== null,
+      { timeout: 30000 }
+    );
+    // Extra settle time for background colours and images
+    await new Promise((r) => setTimeout(r, 1500));
+
     await page.pdf({
       path: outPath,
       format: "letter",
       printBackground: true,
-      margin: { top: "0in", right: "0in", bottom: "0in", left: "0in" },
+      margin: { top: "0", right: "0", bottom: "0", left: "0" },
       displayHeaderFooter: false,
     });
   } finally {
@@ -556,7 +613,7 @@ async function renderPdf(html, outPath) {
   console.log("Converting markdown to HTML...");
   const html = buildHtml(md);
 
-  console.log(`Rendering PDF with Puppeteer...`);
+  console.log(`Rendering PDF with Puppeteer + Paged.js...`);
   await renderPdf(html, OUT_PATH);
 
   const size = Math.round(fs.statSync(OUT_PATH).size / 1024);
