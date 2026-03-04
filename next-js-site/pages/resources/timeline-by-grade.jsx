@@ -59,7 +59,7 @@ export default function ArticleTimeline() {
         </ul>
         <hr />
         <p className="not-prose mt-8">
-          <Link href="/contact" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Download the printable PDF timeline →</Link>
+          <Link href="/guides/college-application-playbook" className="inline-flex rounded-2xl px-5 py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700">Download the printable PDF timeline →</Link>
         </p>
         <div className="mt-10 bg-indigo-50 border border-indigo-200 rounded-lg p-6">
           <p className="font-semibold text-ivy-blue mb-1">Free Guide: The Ivy Ready College Application Playbook</p>
