@@ -1,5 +1,5 @@
-const ALLOWLIST_PREFIXES = ["/blog/", "/resources/", "/services/"];
-const ALLOWLIST_EXACT = ["/free-consultation"];
+const ALLOWLIST_PREFIXES = ["/blog/", "/resources/", "/services/", "/stories/", "/guides/"];
+const ALLOWLIST_EXACT = ["/free-consultation", "/impact", "/success", "/testimonials", "/stories", "/contact"];
 const BLOCKLIST_PREFIXES = ["/packages/"];
 
 export function isAllowlistedDestination(destination) {
