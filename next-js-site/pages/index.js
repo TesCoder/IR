@@ -444,6 +444,28 @@ export default function Home() {
         items={homeRailItems}
       />
 
+      <Section centerContent>
+        <div className="max-w-2xl mx-auto text-center py-4">
+          <h2 className="text-2xl font-semibold text-ivy-blue mb-3">Download the Free College Application Playbook</h2>
+          <p className="text-gray-700 mb-6">
+            A practical, step-by-step guide built by former admissions officers — covering strategy, timeline, and application positioning.
+          </p>
+          <Link
+            href="/guides/college-application-playbook"
+            onClick={() =>
+              trackCtaClick({
+                location: "home_guide_cta",
+                text: "Get the Free Playbook",
+                destination: "/guides/college-application-playbook",
+              })
+            }
+            className="inline-block px-8 py-3 rounded-md bg-ivy-blue text-white font-semibold hover:bg-ivy-blue/90 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ivy-blue transition-colors"
+          >
+            Get the Free Playbook
+          </Link>
+        </div>
+      </Section>
+
       <Section darkBg>
           <ContactForm type="FULL" />
       </Section>

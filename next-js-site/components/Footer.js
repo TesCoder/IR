@@ -6,7 +6,7 @@ import { trackCtaClick } from "@/lib/trackCta";
 
 export default function Footer() {
   const handleFooterCtaClick = () => {
-    trackCtaClick({ location: "footer", text: "CONTACT US", destination: "/#application-support-questions-section" });
+    trackCtaClick({ location: "footer", text: "CONTACT US", destination: "/contact" });
   };
 
   return (
@@ -19,13 +19,16 @@ export default function Footer() {
       <div className="flex flex-row gap-4">
         <Link
           className="hover:opacity-75"
-          href="/#application-support-questions-section"
+          href="/contact"
           onClick={handleFooterCtaClick}
         >
           CONTACT US
         </Link>
         <Link className="hover:opacity-75" href="/#">HOME</Link>
         <Link className="hover:opacity-75" href="/resources">RESOURCES</Link>
+        <Link className="hover:opacity-75" href="/stories">SUCCESS STORIES</Link>
+        <Link className="hover:opacity-75" href="/impact">OUR IMPACT</Link>
+        <Link className="hover:opacity-75" href="/guides/college-application-playbook">FREE GUIDE</Link>
         <a className="hover:opacity-75" href="tel:+16503830352">(650) 383-0352</a>
       </div>
 

@@ -143,6 +143,14 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
+                  href="/stories"
+                >
+                  Success Stories
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white hover:opacity-75"
                   href="/blog"
                 >
                   Blog
@@ -174,6 +182,12 @@ export default function Navbar() {
                   >
                     Get Started
                   </OrbitGlowButton>
+                  <Link
+                    className="flex items-center gap-2 rounded-full border border-white/70 px-3 py-2 text-white font-semibold hover:bg-white/10 text-sm md:text-sm lg:text-base"
+                    href="/free-consultation"
+                  >
+                    Free Consultation
+                  </Link>
                   <a
                     className="flex items-center gap-2 rounded-full border border-white/70 px-3 py-2 text-white font-semibold hover:bg-white/10 text-sm md:text-sm lg:text-base"
                     href="tel:+16503830352"
