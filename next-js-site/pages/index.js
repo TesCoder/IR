@@ -23,8 +23,6 @@ import { SchemaScript } from "@/components/Schema";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
 import RelatedArticles from "@/components/RelatedArticles";
-import TrustStatBar from "@/components/TrustStatBar";
-import { trustStats } from "@/data/trustStats";
 import { trackCtaClick } from "@/lib/trackCta";
 import SuccessStoryCard from "@/components/SuccessStoryCard";
 import { studentSuccessStories } from "@/data/studentSuccessStories";
@@ -203,14 +201,13 @@ export default function Home() {
         </div>
       </div>
 
-      <TrustStatBar stats={trustStats} />
 
       <Section title="Our Track Record in Numbers" >
         <p className="pCentered ">
           Ivy Ready empowers students to craft exceptional applications that get results. From essays to strategy, our support drives real outcomes—top school admissions, major scholarships, and family peace of mind.
         </p>
 
-       <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-3 gap-6 text-center">
+       <div className="grid mt-4 mb-10 grid-cols-1 md:grid-cols-4 gap-6 text-center">
           <div>
               <h2 className="h2StatTitle"><CountUp end={98} suffix="%" /></h2>
               <p className="h2StatSubtitle">Accepted to Top 3 Choices</p>
@@ -219,6 +216,11 @@ export default function Home() {
           <div>
             <h2 className="h2StatTitle"> <CountUp end={30} prefix="$" suffix="M" /> </h2>
             <p className="h2StatSubtitle">Total Scholarships Earned</p>
+          </div>
+
+          <div>
+            <h2 className="h2StatTitle">4–8x</h2>
+            <p className="h2StatSubtitle">Selective Admission Lift</p>
           </div>
           
           <div>
