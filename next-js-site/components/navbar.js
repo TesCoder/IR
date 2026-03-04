@@ -3,14 +3,11 @@ import Link from "next/link";
 import LogoProjector from "./logoMaker";
 import { useEffect, useRef, useState } from "react";
 import Script from 'next/script'; // necessary for ads manager
-import { Button, ButtonRow, ButtonRow2 } from "@/components/Button";
-import { OrbitGlowButton } from "./OrbitGlowButton";
 import { trackCtaClick } from "@/lib/trackCta";
 
 export default function Navbar() {
   // hides logo in mobile when navbar-toggle is clicked
   const [logoVisibility, setLogoVisibility] = useState(false);
-  const [modalType, setModalType] = useState("INFO");
   const collapseRef = useRef(null);
   const collapseInstanceRef = useRef(null);
 
@@ -27,11 +24,10 @@ export default function Navbar() {
   }, []);
 
   const handleHeaderCtaClick = () => {
-    setModalType("INFO");
     trackCtaClick({
       location: "header",
       text: "Get Started",
-      destination: "#contactModal",
+      destination: "/free-consultation",
     });
   };
 
@@ -74,12 +70,7 @@ export default function Navbar() {
             sm:[&_a]:text-[80%] lg:[&_a]:text-[90%]
             flex flex-col flex-nowrap md:items-center md:justify-center items-center text-center w-full md:flex-row md:space-x-2 -mt-20 md:-mb-6">
 
-              <li className="nav-item">
-                <Link className="nav-link text-white hover:opacity-75" href="/#">
-                  Home
-                </Link>
-              </li>
-              
+              {/* Services dropdown */}
               <li className="nav-item dropdown">
                 <a
                   className="nav-link text-white dropdown-toggle"
@@ -91,17 +82,9 @@ export default function Navbar() {
                   Services
                 </a>
                 <ul className="dropdown-menu services-dropdown-menu bg-ivy-red border border-solid border-white">
-                  {/* <li>
-                    <Link
-                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
-                      href="/services/early-planning"
-                    >
-                      Early Planning
-                    </Link>
-                  </li> */}
                   <li className="nav-item">
                     <Link className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4" href="/services/support-packages">
-                    Packages
+                      Packages
                     </Link>
                   </li>
                   <li>
@@ -122,48 +105,89 @@ export default function Navbar() {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link text-white hover:opacity-75"
-                  href="/testimonials?w=jmd1720ly0rpo2xf20pz-x2f16iqi923ybhl1anjs"
+
+              {/* Results dropdown */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link text-white dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  Testimonials
-                </Link>
+                  Results
+                </a>
+                <ul className="dropdown-menu bg-ivy-red border border-solid border-white">
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/impact"
+                    >
+                      Our Impact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/testimonials?w=jmd1720ly0rpo2xf20pz-x2f16iqi923ybhl1anjs"
+                    >
+                      Testimonials
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/stories"
+                    >
+                      Success Stories
+                    </Link>
+                  </li>
+                </ul>
               </li>
 
-              <div
-                className="hidden sm:hidden lg:block
-              "
-              >
+              <div className="hidden sm:hidden lg:block">
                 <LogoProjector />
               </div>
 
-            
-              
-              <li className="nav-item">
-                <Link
-                  className="nav-link text-white hover:opacity-75"
-                  href="/stories"
-                >
-                  Success Stories
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link text-white hover:opacity-75"
-                  href="/blog"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link text-white hover:opacity-75"
-                  href="/resources"
+              {/* Resources dropdown */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link text-white dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
                   Resources
-                </Link>
+                </a>
+                <ul className="dropdown-menu bg-ivy-red border border-solid border-white">
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/blog"
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/resources"
+                    >
+                      Resource Library
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-ivy-red text-white hover:bg-inherit hover:underline hover:underline-offset-4"
+                      href="/guides/college-application-playbook"
+                    >
+                      Free Guide
+                    </Link>
+                  </li>
+                </ul>
               </li>
+
               <li className="nav-item">
                 <Link
                   className="nav-link text-white hover:opacity-75"
@@ -172,21 +196,15 @@ export default function Navbar() {
                   About Us
                 </Link>
               </li>
+
               <li className="nav-item w-full md:w-auto">
                 <div className="flex flex-col items-center gap-2 md:gap-2 md:ml-auto md:flex-row-reverse md:flex-nowrap">
-                  <OrbitGlowButton
-                    className="btn btn-light text-ivy-red uppercase font-semibold rounded-full px-4 py-2 text-sm md:text-sm lg:text-base md:px-4 lg:px-5"
+                  <Link
+                    href="/free-consultation"
                     onClick={handleHeaderCtaClick}
-                    data-bs-toggle="modal"
-                    data-bs-target="#contactModal"
+                    className="btn btn-light text-ivy-red uppercase font-semibold rounded-full px-4 py-2 text-sm md:text-sm lg:text-base md:px-4 lg:px-5"
                   >
                     Get Started
-                  </OrbitGlowButton>
-                  <Link
-                    className="flex items-center gap-2 rounded-full border border-white/70 px-3 py-2 text-white font-semibold hover:bg-white/10 text-sm md:text-sm lg:text-base"
-                    href="/free-consultation"
-                  >
-                    Free Consultation
                   </Link>
                   <a
                     className="flex items-center gap-2 rounded-full border border-white/70 px-3 py-2 text-white font-semibold hover:bg-white/10 text-sm md:text-sm lg:text-base"
