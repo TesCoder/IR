@@ -26,6 +26,8 @@ import RelatedArticles from "@/components/RelatedArticles";
 import TrustStatBar from "@/components/TrustStatBar";
 import { trustStats } from "@/data/trustStats";
 import { trackCtaClick } from "@/lib/trackCta";
+import SuccessStoryCard from "@/components/SuccessStoryCard";
+import { studentSuccessStories } from "@/data/studentSuccessStories";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -40,6 +42,8 @@ const homeRailItems = selectRailItems(
   tagFiltered.length >= 2 ? tagFiltered : [...tagFiltered, ...FALLBACK_ITEMS],
   { maxItems: 4, minItems: 2 }
 );
+
+const storyPreviews = studentSuccessStories.filter((s) => s.published).slice(0, 2);
 
 export default function Home() {
   // FULL, INFO, CALL, or EVAL
@@ -268,6 +272,17 @@ export default function Home() {
         </OrbitGlowButton>
       </div>
 
+      </Section>
+
+      <Section title="Strategy Spotlights" centerContent>
+        <p className="pCentered mb-6">
+          A closer look at how strategic positioning translates into selective admissions outcomes.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {storyPreviews.map((story) => (
+            <SuccessStoryCard key={story.id} story={story} />
+          ))}
+        </div>
       </Section>
 
       <Section title="Ivy Ready Impact Highlights" centerContent>

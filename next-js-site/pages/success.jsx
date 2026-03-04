@@ -12,6 +12,8 @@ import rawData from "@/data/b4ro1e4h9etc2jv1qaov.json";
 import Modal from "@/components/Modal";
 import ContactForm from "@/components/ContactForm";
 import TrustNav from "@/components/TrustNav";
+import { studentSuccessStories } from "@/data/studentSuccessStories";
+import Link from "next/link";
 
 const TABS = [
   { key: "all", label: "All" },
@@ -65,6 +67,17 @@ export default function SuccessPage() {
     }
     return base;
   }, [items, query]);
+
+  // Story links — match published stories by school name to outcome cards
+  const storyLinks = useMemo(() => {
+    return studentSuccessStories
+      .filter((s) => s.published)
+      .map((s) => ({
+        slug: s.slug,
+        school: s.primaryOutcome.school,
+        student: `${s.student.firstName} ${s.student.lastInitial}`,
+      }));
+  }, []);
 
   // Header stats
   const counts = useMemo(() => {
@@ -166,6 +179,26 @@ export default function SuccessPage() {
         {/* OutcomesGallery will filter by types prop and ignore hidden entries */}
         <OutcomesGallery items={filteredItems} types={filteredTypes} />
       </Section>
+
+      {/* STRATEGY LINKS — full case study exists for these schools */}
+      {storyLinks.length > 0 && (
+        <Section>
+          <div className="max-w-5xl mx-auto space-y-2">
+            <h2 className="text-xl font-semibold mb-3">Read the Full Strategy</h2>
+            <div className="flex flex-wrap gap-3">
+              {storyLinks.map(({ slug, school, student }) => (
+                <Link
+                  key={slug}
+                  href={`/stories/${slug}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-ivy-blue/30 bg-white px-4 py-1.5 text-sm font-medium text-ivy-blue hover:bg-ivy-blue/5 transition-colors"
+                >
+                  {student} — {school}: Read Full Strategy →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* COLLEGE TAGS */}
       {collegeChips.length > 0 && (
