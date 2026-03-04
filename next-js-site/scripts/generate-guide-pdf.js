@@ -247,7 +247,7 @@ function buildHtml(mdContent) {
   const now = new Date().toISOString().slice(0, 10);
   const body = mdToHtml(mdContent);
 
-  return { logo, now, html: `<!doctype html>
+  return `<!doctype html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -262,7 +262,24 @@ function buildHtml(mdContent) {
       background: #ffffff;
     }
 
-    /* ---- Running header & footer handled by Puppeteer displayHeaderFooter ---- */
+    /* ---- Running header (every page except cover) ---- */
+    .page-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 48px;
+      background: #0b2e59;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 44px;
+      font-size: 11px;
+      z-index: 10;
+    }
+    .page-header .brand { display: flex; align-items: center; gap: 10px; }
+    .page-header img { height: 28px; width: auto; }
+    .page-header .doc-title { font-weight: 600; letter-spacing: 0.2px; }
+    .page-header .updated { opacity: 0.75; }
 
     /* ---- Cover page ---- */
     .cover {
@@ -337,9 +354,9 @@ function buildHtml(mdContent) {
       border-top: 1px solid rgba(255,255,255,0.15);
     }
 
-    /* ---- Content pages — no top/bottom padding needed; Puppeteer margins handle clearance ---- */
+    /* ---- Content pages ---- */
     .content-pages {
-      padding: 0 52px;
+      padding: 96px 52px 64px 52px; /* top = header (48px) + 100% clearance (48px); bottom = footer (32px) + 100% clearance */
     }
 
     /* ---- Typography ---- */
@@ -425,9 +442,38 @@ function buildHtml(mdContent) {
       letter-spacing: 0.2px;
     }
 
+    /* ---- Footer ---- */
+    .page-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 32px;
+      padding: 0 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Running header (shows on all content pages) -->
+  <div class="page-header">
+    <div class="brand">
+      <img src="${logo}" alt="IvyReady" />
+      <span class="doc-title">The Ivy Ready College Application Playbook</span>
+    </div>
+    <span class="updated">ivyready.com</span>
+  </div>
+
+  <!-- Running footer -->
+  <div class="page-footer">
+    <span>Educational guidance only. Requirements vary by institution.</span>
+    <span>© ${new Date().getFullYear()} IvyReady</span>
+  </div>
 
   <!-- Cover page -->
   <div class="cover">
@@ -465,37 +511,26 @@ function buildHtml(mdContent) {
   </div>
 
 </body>
-</html>` };
+</html>`;
 }
 
 // ---------------------------------------------------------------------------
 // Puppeteer render
 // ---------------------------------------------------------------------------
 
-async function renderPdf(html, outPath, logoDataUri) {
+async function renderPdf(html, outPath) {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   try {
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
     await page.setContent(html, { waitUntil: "load" });
     await page.emulateMediaType("print");
-
-    // headerTemplate/footerTemplate use inline styles only (no external CSS).
-    // Physical margins reserve space on every page so content never overlaps.
-    const year = new Date().getFullYear();
-    // Note: Puppeteer headerTemplate is isolated — external resources and large data URIs are dropped silently.
-    // Use text-only header with brand styling instead.
-    const headerTemplate = '<div style="-webkit-print-color-adjust:exact;width:100%;height:48px;background:#0b2e59 !important;color:#fff !important;display:flex;align-items:center;justify-content:space-between;padding:0 44px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:11px !important;"><span style="font-size:13px !important;font-weight:700;letter-spacing:0.5px;">IvyReady</span><span style="font-size:11px !important;font-weight:600;">The Ivy Ready College Application Playbook</span><span style="font-size:11px !important;opacity:0.75;">ivyready.com</span></div>';
-    const footerTemplate = '<div style="-webkit-print-color-adjust:exact;width:100%;height:32px;border-top:1px solid #e5e7eb;background:#fff !important;color:#9ca3af !important;display:flex;align-items:center;justify-content:space-between;padding:0 44px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:10px !important;"><span style="font-size:10px !important;">Educational guidance only. Requirements vary by institution.</span><span style="font-size:10px !important;">© ' + year + ' IvyReady</span></div>';
-
     await page.pdf({
       path: outPath,
       format: "letter",
       printBackground: true,
-      displayHeaderFooter: true,
-      headerTemplate,
-      footerTemplate,
-      margin: { top: "0.75in", right: "0.54in", bottom: "0.5in", left: "0.54in" },
+      margin: { top: "0in", right: "0in", bottom: "0in", left: "0in" },
+      displayHeaderFooter: false,
     });
   } finally {
     await browser.close();
@@ -519,10 +554,10 @@ async function renderPdf(html, outPath, logoDataUri) {
   const md = fs.readFileSync(MD_PATH, "utf8");
 
   console.log("Converting markdown to HTML...");
-  const { logo, html } = buildHtml(md);
+  const html = buildHtml(md);
 
   console.log(`Rendering PDF with Puppeteer...`);
-  await renderPdf(html, OUT_PATH, logo);
+  await renderPdf(html, OUT_PATH);
 
   const size = Math.round(fs.statSync(OUT_PATH).size / 1024);
   console.log(`✅  Generated: ${path.relative(ROOT, OUT_PATH)} (${size} KB)`);
