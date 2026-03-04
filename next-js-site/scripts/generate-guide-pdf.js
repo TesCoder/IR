@@ -356,7 +356,7 @@ function buildHtml(mdContent) {
 
     /* ---- Content pages ---- */
     .content-pages {
-      padding: 68px 52px 64px 52px; /* top = header height + gap; bottom = footer height (32px) + 100% clearance */
+      padding: 96px 52px 64px 52px; /* top = header (48px) + 100% clearance (48px); bottom = footer (32px) + 100% clearance */
     }
 
     /* ---- Typography ---- */
