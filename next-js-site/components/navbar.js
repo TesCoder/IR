@@ -70,6 +70,13 @@ export default function Navbar() {
             sm:[&_a]:text-[80%] lg:[&_a]:text-[90%]
             flex flex-col flex-nowrap md:items-center md:justify-center items-center text-center w-full md:flex-row md:space-x-2 -mt-20 md:-mb-6">
 
+              {/* Home */}
+              <li className="nav-item">
+                <Link className="nav-link text-white hover:opacity-75" href="/">
+                  Home
+                </Link>
+              </li>
+
               {/* Services dropdown */}
               <li className="nav-item dropdown">
                 <a
