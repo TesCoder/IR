@@ -10,6 +10,8 @@ import SEOHead from "@/components/SEOHead";
 import { SchemaScript } from "@/components/Schema";
 import { members } from "../components/membersList";
 import CoachInfo from "@/components/CoachInfo";
+import CredentialBar from "@/components/CredentialBar";
+import { credentialStats } from "@/data/credentialStats";
 
 export default function About() {
   // FULL, INFO, CALL, or EVAL
@@ -87,7 +89,10 @@ export default function About() {
           </Link>
         </div>
       </div>
-      
+
+      {/* Credential Bar — counselor credibility strip */}
+      <CredentialBar stats={credentialStats} />
+
       {showBanners && (
         <Section id="about-banner-top" centerContent>
           <div className="w-full rounded-3xl bg-[#0b3d60] text-white px-6 py-10 shadow-lg text-center">
