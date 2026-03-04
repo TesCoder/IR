@@ -11,6 +11,7 @@ import { OrbitGlowButton } from "@/components/OrbitGlowButton";
 import rawData from "@/data/b4ro1e4h9etc2jv1qaov.json";
 import Modal from "@/components/Modal";
 import ContactForm from "@/components/ContactForm";
+import TrustNav from "@/components/TrustNav";
 
 const TABS = [
   { key: "all", label: "All" },
@@ -111,6 +112,8 @@ export default function SuccessPage() {
       </div>
 
       {/* FILTERS + STATS */}
+      <TrustNav />
+
       <Section centerContent>
         <div className="w-full max-w-5xl mx-auto">
           {/* Tabs */}

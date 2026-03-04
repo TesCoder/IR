@@ -7,6 +7,7 @@ import path from "node:path";
 import Testimonials from "@/components/Testimonials"; // calls component
 import SEOHead from "@/components/SEOHead";
 import { SchemaScript } from "@/components/Schema";
+import TrustNav from "@/components/TrustNav";
 // import Testimonials from "@/components/Testimonials_Snippets"; // calls component
 
 // note two functions below are connected by NextJS automatically
@@ -59,6 +60,18 @@ export default function TestimonialsPage({ testimonials }) {
           "url": "https://ivyready.com"
         }
       }} />
+      <SchemaScript schema={{
+        "@context": "https://schema.org",
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "ratingCount": testimonials.filter(t => t.testimonial_visible).length,
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "Ivy Ready"
+        }
+      }} />
+      <TrustNav />
       <Testimonials testimonials={testimonials} />{/* component uses t.imgSrc prop. */}
     </>
   );

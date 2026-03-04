@@ -23,6 +23,9 @@ import { SchemaScript } from "@/components/Schema";
 import { RAIL_ITEMS, FALLBACK_ITEMS } from "@/lib/railData";
 import { filterByTags, selectRailItems } from "@/lib/railUtils";
 import RelatedArticles from "@/components/RelatedArticles";
+import TrustStatBar from "@/components/TrustStatBar";
+import { trustStats } from "@/data/trustStats";
+import { trackCtaClick } from "@/lib/trackCta";
 
 const HyperLink = ({ href, children }) => (
   <Link className="underline text-ivy-blue font-medium" href={href}>
@@ -196,6 +199,8 @@ export default function Home() {
         </div>
       </div>
 
+      <TrustStatBar stats={trustStats} />
+
       <Section title="Our Track Record in Numbers" >
         <p className="pCentered ">
           Ivy Ready empowers students to craft exceptional applications that get results. From essays to strategy, our support drives real outcomes—top school admissions, major scholarships, and family peace of mind.
@@ -251,6 +256,17 @@ export default function Home() {
           View More Success Stories
         </OrbitGlowButton>
       </div> */}
+
+      <div className="flex justify-center mt-8">
+        <OrbitGlowButton
+          onClick={() => {
+            trackCtaClick({ location: "outcomes_gallery", text: "View More Success Stories", destination: "/success" });
+            window.open("/success", "_self");
+          }}
+        >
+          View More Success Stories
+        </OrbitGlowButton>
+      </div>
 
       </Section>
 

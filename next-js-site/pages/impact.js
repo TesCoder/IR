@@ -4,6 +4,9 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Section from "@/components/Section";
 import ImpactTable from "@/components/ImpactTable";
 import { impactData } from "@/data/impactData";
+import TrustNav from "@/components/TrustNav";
+import TrustStatBar from "@/components/TrustStatBar";
+import { trustStats } from "@/data/trustStats";
 
 export default function ImpactPage() {
   return (
@@ -31,6 +34,8 @@ export default function ImpactPage() {
         <Breadcrumbs items={[{ name: "Home", url: "/" }, { name: "Impact", url: "/impact" }]} />
       </div>
 
+      <TrustNav />
+
       <Section title="The Ivy Ready Impact" centerContent>
         <p className="pCentered">
           Ivy Ready mentors help applicants compete for selective admissions. These outcomes are organized by tier
@@ -46,6 +51,7 @@ export default function ImpactPage() {
             Acceptance rates below are directional and updated periodically. Partner with our team to navigate
             each school&apos;s priorities, build a compelling narrative, and execute a winning application plan.
           </p>
+          <TrustStatBar stats={trustStats} />
           <ImpactTable data={impactData} />
         </div>
       </section>
