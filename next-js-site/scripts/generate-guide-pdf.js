@@ -483,7 +483,9 @@ async function renderPdf(html, outPath, logoDataUri) {
     // headerTemplate/footerTemplate use inline styles only (no external CSS).
     // Physical margins reserve space on every page so content never overlaps.
     const year = new Date().getFullYear();
-    const headerTemplate = '<div style="width:100%;height:48px;background:#0b2e59;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 44px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:11px;"><div style="display:flex;align-items:center;gap:10px;"><img src="' + logoDataUri + '" style="height:28px;width:auto;" /><span style="font-weight:600;">The Ivy Ready College Application Playbook</span></div><span style="opacity:0.75;">ivyready.com</span></div>';
+    // Note: Puppeteer headerTemplate is isolated — external resources and large data URIs are dropped silently.
+    // Use text-only header with brand styling instead.
+    const headerTemplate = '<div style="width:100%;height:48px;background:#0b2e59;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 44px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:11px;"><span style="font-weight:700;letter-spacing:0.5px;">IvyReady</span><span style="font-weight:600;">The Ivy Ready College Application Playbook</span><span style="opacity:0.75;">ivyready.com</span></div>';
     const footerTemplate = '<div style="width:100%;height:32px;border-top:1px solid #e5e7eb;background:#fff;color:#9ca3af;display:flex;align-items:center;justify-content:space-between;padding:0 44px;box-sizing:border-box;font-family:Arial,sans-serif;font-size:10px;"><span>Educational guidance only. Requirements vary by institution.</span><span>© ' + year + ' IvyReady</span></div>';
 
     await page.pdf({
