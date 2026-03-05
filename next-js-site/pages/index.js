@@ -454,7 +454,10 @@ export default function Home() {
             <div className="flex-shrink-0 w-48 md:w-56">
               <div className="relative rounded-lg overflow-hidden shadow-2xl bg-ivy-blue aspect-[3/4] flex flex-col justify-between p-5">
                 {/* Top badge */}
-                <div className="text-xs font-semibold uppercase tracking-widest text-white/60">Free Guide</div>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-2">Free Guide</div>
+                  <img src="/images/logo-white.png" alt="Ivy Ready" className="h-7 w-auto" />
+                </div>
                 {/* Title block */}
                 <div>
                   <div className="text-white font-bold text-base leading-snug mb-1">
@@ -473,9 +476,9 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl font-bold text-ivy-blue mb-4 leading-snug">
                 The Application Framework Used by Ivy Ready Students
               </h2>
-              <ul className="space-y-2 mb-7 text-gray-700 text-sm sm:text-base">
+              <ul className="space-y-2 mb-7 ml-5 text-gray-700 text-sm sm:text-base">
                 {[
-                  "Strategic timeline by grade — freshman through senior year",
+                  "Strategic timeline — freshman through senior year",
                   "Early Action / ED decision framework",
                   "Application positioning blueprint",
                 ].map((item) => (
