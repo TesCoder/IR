@@ -276,7 +276,7 @@ export default function Home() {
 
       </Section>
 
-      <Section title="Strategy Spotlights" centerContent>
+      {/* <Section title="Strategy Spotlights" centerContent>
         <p className="pCentered mb-6">
           A closer look at how strategic positioning translates into selective admissions outcomes.
         </p>
@@ -285,7 +285,7 @@ export default function Home() {
             <SuccessStoryCard key={story.id} story={story} />
           ))}
         </div>
-      </Section>
+      </Section> */}
 
       <Section title="Ivy Ready Impact Highlights" centerContent>
         <p className="pCentered">
@@ -440,31 +440,67 @@ export default function Home() {
         </Section>
       )}
 
-      <RelatedArticles
+      {/* <RelatedArticles
         title="Start Here"
         slotId="home_featured"
         items={homeRailItems}
-      />
+      /> */}
 
-      <Section centerContent>
-        <div className="max-w-2xl mx-auto text-center py-4">
-          <h2 className="text-2xl font-semibold text-ivy-blue mb-3">Download the Free College Application Playbook</h2>
-          <p className="text-gray-700 mb-6">
-            A practical, step-by-step guide built by former admissions officers — covering strategy, timeline, and application positioning.
-          </p>
-          <Link
-            href="/guides/college-application-playbook"
-            onClick={() =>
-              trackCtaClick({
-                location: "home_guide_cta",
-                text: "Get the Free Playbook",
-                destination: "/guides/college-application-playbook",
-              })
-            }
-            className="inline-block px-8 py-3 rounded-md bg-ivy-blue text-white font-semibold hover:bg-ivy-blue/90 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ivy-blue transition-colors"
-          >
-            Get the Free Playbook
-          </Link>
+      <Section>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+
+            {/* Mock cover — swap src for a real cover image when available */}
+            <div className="flex-shrink-0 w-48 md:w-56">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl bg-ivy-blue aspect-[3/4] flex flex-col justify-between p-5">
+                {/* Top badge */}
+                <div className="text-xs font-semibold uppercase tracking-widest text-white/60">Free Guide</div>
+                {/* Title block */}
+                <div>
+                  <div className="text-white font-bold text-base leading-snug mb-1">
+                    The Ivy Ready College Application Playbook
+                  </div>
+                  <div className="text-white/60 text-xs">Year-by-Year Strategy</div>
+                </div>
+                {/* Bottom accent bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-ivy-red" />
+              </div>
+            </div>
+
+            {/* Copy + CTA */}
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-xs font-semibold uppercase tracking-widest text-ivy-red mb-2">Free Download</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-ivy-blue mb-4 leading-snug">
+                The Application Framework Used by Ivy Ready Students
+              </h2>
+              <ul className="space-y-2 mb-7 text-gray-700 text-sm sm:text-base">
+                {[
+                  "Strategic timeline by grade — freshman through senior year",
+                  "Early Action / ED decision framework",
+                  "Application positioning blueprint",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 justify-center md:justify-start">
+                    <span className="text-green-600 font-bold mt-0.5">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/guides/college-application-playbook"
+                onClick={() =>
+                  trackCtaClick({
+                    location: "home_guide_cta",
+                    text: "Get the Free Playbook",
+                    destination: "/guides/college-application-playbook",
+                  })
+                }
+                className="inline-block px-8 py-3 rounded-md bg-ivy-blue text-white font-semibold hover:bg-ivy-blue/90 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ivy-blue transition-colors"
+              >
+                Get the Free Playbook →
+              </Link>
+            </div>
+
+          </div>
         </div>
       </Section>
 
