@@ -452,11 +452,11 @@ export default function Home() {
 
             {/* Mock cover — swap src for a real cover image when available */}
             <div className="flex-shrink-0 w-48 md:w-56">
-              <div className="relative rounded-lg overflow-hidden shadow-2xl bg-ivy-blue aspect-[3/4] flex flex-col justify-between p-5">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl bg-ivy-blue aspect-[3/4] flex flex-col justify-between p-3">
                 {/* Top badge */}
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-2">Free Guide</div>
-                  <img src="/images/logo-white.png" alt="Ivy Ready" className="h-7 w-auto" />
+                  <div className="text-xl font-semibold uppercase tracking-widest text-white/60 mb-2">Free Guide</div>
+                  <img src="/images/logo-white.png" alt="Ivy Ready" className="h-14 w-auto" />
                 </div>
                 {/* Title block */}
                 <div>
@@ -466,6 +466,7 @@ export default function Home() {
                   <div className="text-white/60 text-xs">Year-by-Year Strategy</div>
                 </div>
                 {/* Bottom accent bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white" />
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-ivy-red" />
               </div>
             </div>
